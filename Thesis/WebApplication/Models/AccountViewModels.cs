@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication.Models
@@ -114,5 +115,15 @@ namespace WebApplication.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    public class EmpresaAccount
+    {
+        public int codigo { get; set; }
+        public string nombre { get; set; }
+        public string direccion { get; set; }
+        public string ciudad { get; set; }
+        public string telefono { get; set; }
+        public string ruc { get; set; }
     }
 }
