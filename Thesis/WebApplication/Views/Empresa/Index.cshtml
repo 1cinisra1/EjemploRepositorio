@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebApplication.Models.EmpresaAccount>
+@{
+    ViewBag.Title = "Empresa";
+}
+
+@section Menu{
+    @Scripts.Render("~/Scripts/Tables/Data/menu")
+}
+
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+                      
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Datos</h3>
+            </div>
+            <div class="box-body">
+                <table id="empresa" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Codigo@*@Html.DisplayNameFor(model => model.codigo)*@</th>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Ciudad</th>
+                            <th>Telefono</th>
+                            <th>Ruc</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.direccion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ciudad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ruc)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+
+
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+
+
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+    @Scripts.Render("~/Scripts/Tables/Data")
+}
+
