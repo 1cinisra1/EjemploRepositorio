@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WebApplication</title>
+    <title>COMPUSERVI</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     @Styles.Render("~/AdminLTE/bootstrap/css")
@@ -28,21 +28,21 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="@Url.Action("DashboardV1", "Home")">Welcome to <b>WebApplication!</b></a>
+            <a href="@Url.Action("DashboardV1", "Home")"> Bienvenido a <b>COMPUSERVI</b></a>
         </div>
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Registrese para iniciar su sesion</p>
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group has-feedback">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Email" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "correo", placeholder = "Correo" })
                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", type = "password", placeholder = "Password" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", type = "password", placeholder = "Clave" })
                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
@@ -54,11 +54,11 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Inicio</button>
                     </div>
                 </div>
             }
-            <div class="social-auth-links text-center">
+            @*<div class="social-auth-links text-center">
                 <p>- OR -</p>
                 <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
                     <i class="fa fa-facebook"></i> Sign in using
@@ -68,9 +68,9 @@
                     <i class="fa fa-google-plus"></i> Sign in using
                     Google+
                 </a>
-            </div>
-            <a href="#">I forgot my password</a><br>
-            <a href="@Url.Action("Register", "Account")" class="text-center">Register as a new user</a>
+            </div>*@
+            <a href="#">Olvide mi clave</a><br>
+            <a href="@Url.Action("Register", "Account")" class="text-center">Registrar nuevo usuario</a>
         </div>
     </div>
 
