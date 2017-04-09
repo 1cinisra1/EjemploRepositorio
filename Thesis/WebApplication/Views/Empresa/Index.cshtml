@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<WebApplication.Models.EmpresaAccount>
+    
 @{
     ViewBag.Title = "Empresa";
 }
@@ -14,13 +15,12 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Datos</h3>
+                <h3 class="box-title">Empresas con Contrato de Servicios</h3>
             </div>
             <div class="box-body">
-                <table id="empresa" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
                     <thead>
                         <tr>
-                            <th>Codigo@*@Html.DisplayNameFor(model => model.codigo)*@</th>
                             <th>Nombre</th>
                             <th>Direccion</th>
                             <th>Ciudad</th>
@@ -33,36 +33,29 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.codigo)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.nombre)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.direccion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ciudad)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.telefono)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ruc)
-                                </td>
-                                <td>
+                                <td>@Html.DisplayFor(modelItem => item.direccion)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ciudad)</td>
+                                <td>@Html.DisplayFor(modelItem => item.telefono)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ruc)</td>                                
+                                @*<td>
                                     @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-
-
                                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-
-
-
-                                </td>
+                                </td>*@
                             </tr>
                         }
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Ciudad</th>
+                            <th>Telefono</th>
+                            <th>Ruc</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
@@ -73,4 +66,3 @@
     @Scripts.Render("~/AdminLTE/plugins/datatables/js")
     @Scripts.Render("~/Scripts/Tables/Data")
 }
-
