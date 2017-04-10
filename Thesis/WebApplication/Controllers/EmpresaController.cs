@@ -44,7 +44,7 @@ namespace WebApplication.Controllers
 
             EmpresaAccount e4 = new EmpresaAccount();
             e4.codigo = 4;
-            e4.nombre = "PSI";
+            e4.nombre = "Libreria Vida Nueva";
             e4.direccion = "Kennedy";
             e4.ciudad = "Guayaquil";
             e4.telefono = "042627748";
@@ -53,7 +53,7 @@ namespace WebApplication.Controllers
 
             EmpresaAccount e5 = new EmpresaAccount();
             e5.codigo = 5;
-            e5.nombre = "PSI";
+            e5.nombre = "PTM Studio Design";
             e5.direccion = "Kennedy";
             e5.ciudad = "Guayaquil";
             e5.telefono = "042627748";
@@ -62,7 +62,7 @@ namespace WebApplication.Controllers
 
             EmpresaAccount e6 = new EmpresaAccount();
             e6.codigo = 6;
-            e6.nombre = "PSI";
+            e6.nombre = "Consur R7H";
             e6.direccion = "Kennedy";
             e6.ciudad = "Guayaquil";
             e6.telefono = "042627748";
@@ -71,7 +71,7 @@ namespace WebApplication.Controllers
 
             EmpresaAccount e7 = new EmpresaAccount();
             e7.codigo = 7;
-            e7.nombre = "PSI";
+            e7.nombre = "Proglobal";
             e7.direccion = "Kennedy";
             e7.ciudad = "Guayaquil";
             e7.telefono = "042627748";
@@ -80,7 +80,7 @@ namespace WebApplication.Controllers
 
             EmpresaAccount e8 = new EmpresaAccount();
             e8.codigo = 8;
-            e8.nombre = "PSI";
+            e8.nombre = "Cacplus";
             e8.direccion = "Kennedy";
             e8.ciudad = "Guayaquil";
             e8.telefono = "042627748";
@@ -109,6 +109,9 @@ namespace WebApplication.Controllers
         }
         public ActionResult CreaEmpresa()
         {
+            return View();
+        }
+        public ActionResult ModificaEmpresa(){
             return View();
         }
 	}
