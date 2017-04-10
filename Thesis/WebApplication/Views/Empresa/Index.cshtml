@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<WebApplication.Models.EmpresaAccount>
+
     
 @{
     ViewBag.Title = "Empresa";
@@ -25,7 +26,9 @@
                             <th>Direccion</th>
                             <th>Ciudad</th>
                             <th>Telefono</th>
-                            <th>Ruc</th>
+                            @*<th>Ruc</th>*@
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,12 +41,9 @@
                                 <td>@Html.DisplayFor(modelItem => item.direccion)</td>
                                 <td>@Html.DisplayFor(modelItem => item.ciudad)</td>
                                 <td>@Html.DisplayFor(modelItem => item.telefono)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ruc)</td>                                
-                                @*<td>
-                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                                </td>*@
+                                @*<td>@Html.DisplayFor(modelItem => item.ruc)</td>*@
+                                <td><a href="ModificaEmpresa?codigo=item.codigo"><i class="fa fa-fw fa-pencil-square"></i></a></td>
+                                <td><a href="Empresa/Eliminar"><i class="fa fa-fw fa-eraser"></i></a></td>                         
                             </tr>
                         }
                     </tbody>
@@ -53,7 +53,9 @@
                             <th>Direccion</th>
                             <th>Ciudad</th>
                             <th>Telefono</th>
-                            <th>Ruc</th>
+                            @*<th>Ruc</th>*@
+                            <th>Edit</th>
+                            <th>Eliminar</th>
                         </tr>
                     </tfoot>
                 </table>
