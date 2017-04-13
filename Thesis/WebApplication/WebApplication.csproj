@@ -174,6 +174,7 @@
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
+    <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\ExamplesController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -560,6 +561,8 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Empresa\CreaEmpresa.cshtml" />
     <Content Include="Views\Empresa\ModificaEmpresa.cshtml" />
+    <Content Include="Views\Equipo\Listar.cshtml" />
+    <Content Include="Views\Equipo\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
