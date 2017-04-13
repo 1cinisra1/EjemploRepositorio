@@ -42,7 +42,7 @@
                                 <td>@Html.DisplayFor(modelItem => item.ciudad)</td>
                                 <td>@Html.DisplayFor(modelItem => item.telefono)</td>
                                 @*<td>@Html.DisplayFor(modelItem => item.ruc)</td>*@
-                                <td><a href="ModificaEmpresa?codigo=item.codigo"><i class="fa fa-fw fa-pencil-square"></i></a></td>
+                                <td><a href="@Url.Action("ModificaEmpresa", "Empresa", new { cod=item.codigo})" class="text-center"><i class="fa fa-fw fa-pencil-square"></i></a></td>
                                 <td><a href="Empresa/Eliminar"><i class="fa fa-fw fa-eraser"></i></a></td>                         
                             </tr>
                         }
