@@ -1,0 +1,77 @@
+﻿@model WebApplication.Models.Cli_Usuario
+
+@{
+    ViewBag.Title = "Cli_AgregaUsuario";
+}
+
+@section Menu{
+    @Scripts.Render("~/Scripts/Forms/General/menu")
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-6">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Datos de usuarios</h3>
+            </div>
+            <form class="form-horizontal">
+                @Html.ValidationSummary(true)
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Codigo</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="inputCodigo">
+                            @Html.ValidationMessageFor(model => model.codigo)
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.nombre)
+                            @Html.ValidationMessageFor(model => model.nombre)
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Cli_Equipo)
+                            @Html.ValidationMessageFor(model => model.Cli_Equipo)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Departamento</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Cli_Departamento)
+                            @Html.ValidationMessageFor(model => model.Cli_Departamento)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Cli_Empresa)
+                            @Html.ValidationMessageFor(model => model.Cli_Empresa)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-footer">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
