@@ -171,10 +171,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ChartsController.cs" />
+    <Compile Include="Controllers\Cli_UsuarioController.cs" />
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
-    <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\ExamplesController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -561,8 +561,8 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Empresa\CreaEmpresa.cshtml" />
     <Content Include="Views\Empresa\ModificaEmpresa.cshtml" />
-    <Content Include="Views\Equipo\Listar.cshtml" />
-    <Content Include="Views\Equipo\Create.cshtml" />
+    <Content Include="Views\Cli_Usuario\Cli_VerUsuarios.cshtml" />
+    <Content Include="Views\Cli_Usuario\Cli_AgregaUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

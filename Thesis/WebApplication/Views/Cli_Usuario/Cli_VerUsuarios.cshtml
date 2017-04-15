@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApplication.Models.Cli_Usuario>
+
+    
+
+    @{
+        ViewBag.Title = "Ver usuarios";
+    }
+
+
+    @section Menu{
+    @Scripts.Render("~/Scripts/Tables/Data/menu");
+    }
+
+    @Styles.Render("~/AdminLTE/plugins/datatables/css")
+
+    <p>
+        @Html.ActionLink("Nuevo Usuario", "Cli_AgregaUsuario")
+    </p>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Detalle de Usuarios y Emresas</h3>
+                </div>
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Equipo</th>
+                                <th>Departamento</th>
+                                <th>Empresa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.codigo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cli_Equipo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cli_Departamento)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cli_Empresa)
+                                    </td>
+                                    @*<td>
+                                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                    </td>*@
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Equipo</th>
+                                <th>Departamento</th>
+                                <th>Empresa</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+        @Scripts.Render("~/Scripts/Tables/Data")
+    }
