@@ -15,7 +15,7 @@ namespace WebApplication.Controllers
 
         MyappContext.MyappDataContext cliUser = new MyappContext.MyappDataContext();
 
-        app
+        
         
         public ActionResult Index()
         {
