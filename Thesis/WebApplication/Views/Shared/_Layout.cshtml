@@ -250,19 +250,15 @@
                         </ul>
                     </li>
                     <li id="left-sidebar-menu-tables" class="treeview">
-                        <<a href="#">
+                        <<a href="@Url.Action("Index","Empresa")">
                             <i class="fa fa-table"></i> <span>Empresas</span>
-                            <i class="fa fa-angle-left pull-right"></i>
+                            @*<i class="fa fa-angle-left pull-right"></i>*@
                         </a>
-                        <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("CreaEmpresa", "Empresa")"><i class="fa fa-circle-o"></i>Ingresar nueva Empresa</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "Empresa")"><i class="fa fa-circle-o"></i> Ver Emprsas  </a></li>
-                        </ul>
                     </li>
                     <li id="left-sidebar-menu-tables" class="treeview">
-                        <a href="@Url.Action("Cli_AgregaUsuario", "Cli_Usuario")">
+                        <a href="@Url.Action("Cli_VerUsuarios", "Cli_Usuario")">
                             <i class="fa fa-table"></i> <span>Usuarios</span>
-                            <i class="fa fa-angle-left pull-right"></i>
+                            @*<i class="fa fa-angle-left pull-right"></i>*@
                         </a>
                     </li>
                     @*<li id="left-sidebar-menu-charts" class="treeview">
