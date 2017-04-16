@@ -175,6 +175,7 @@
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
+    <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\ExamplesController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -563,6 +564,7 @@
     <Content Include="Views\Empresa\ModificaEmpresa.cshtml" />
     <Content Include="Views\Cli_Usuario\Cli_VerUsuarios.cshtml" />
     <Content Include="Views\Cli_Usuario\Cli_AgregaUsuario.cshtml" />
+    <Content Include="Views\Equipo\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
