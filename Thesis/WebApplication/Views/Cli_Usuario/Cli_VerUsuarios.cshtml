@@ -1,6 +1,6 @@
-﻿@model IEnumerable<WebApplication.Models.Cli_Usuario>
+﻿@model IEnumerable<webapplication.models.Cli_VerUsuarios>
 
-    
+
 
     @{
         ViewBag.Title = "Ver usuarios";
@@ -8,7 +8,7 @@
 
 
     @section Menu{
-    @Scripts.Render("~/Scripts/Tables/Data/menu");
+        @Scripts.Render("~/Scripts/Tables/Data/menu");
     }
 
     @Styles.Render("~/AdminLTE/plugins/datatables/css")
@@ -34,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                           @foreach (var item in Model)
+                            @foreach (var item in Model)
                             {
                                 <tr>
                                     <td>
@@ -53,10 +53,10 @@
                                         @Html.DisplayFor(modelItem => item.Cli_Empresa)
                                     </td>
                                     @*<td>
-                                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                                    </td>*@
+                                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                        </td>*@
                                 </tr>
                             }
                         </tbody>

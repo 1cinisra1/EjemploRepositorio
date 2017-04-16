@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database Name="myapp" EntityNamespace="MyappContext" ContextNamespace="MyappContext" Class="MyappDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="9b6f776b-ca16-4e66-945b-682c67700de5" Provider="Devart.Data.MySql.Linq.Provider.MySqlDataProvider, Devart.Data.MySql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+  <Connection Mode="ConnectionString" ConnectionString="User Id=root;Password=Dynames88;Host=localhost;Database=myapp;Persist Security Info=True" Provider="Devart.Data.MySql" />
+  <Table Name="myapp.cli_departamento" Member="CliDepartamentos">
+    <Type Name="CliDepartamento" ed:Guid="c2d25d95-b33d-4c89-b8b9-accb7173f0f8">
+      <Column Name="idCli_Departamento" Member="IdCliDepartamento" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="8df6647c-560e-4307-8cc0-05e4eb995acc" />
+      <Column Name="Cli_Descripcion" Member="CliDescripcion" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="ba2cbcc2-3855-43fa-86b9-16582710ec45" />
+      <Association Name="CliDepartamento_CliUsuario" ed:AssociationGuid="ab70c044-c181-418f-8509-8cf6a7c6684c" Member="CliUsuarios" ed:Guid="ce4c6296-18fb-4102-b7f0-920ef30d4568" ThisKey="IdCliDepartamento" OtherKey="CliDepartamentoIdCliDepartamento" Type="CliUsuario" />
+    </Type>
+  </Table>
+  <Table Name="myapp.cli_empresa" Member="CliEmpresas">
+    <Type Name="CliEmpresa" ed:Guid="2d3857c1-55c0-4fe7-86b6-8beaf6329b54">
+      <Column Name="idCli_Empresa" Member="IdCliEmpresa" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="ab86aa50-5f82-4fc6-85a0-3768caf5f8e7" />
+      <Column Name="Cli_Nombre" Member="CliNombre" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="9239970f-ca92-4e01-89ce-36b37d4db682" />
+      <Column Name="Cli_Ruc" Member="CliRuc" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="944c9597-28fc-41e6-8c01-80c6a1867ead" />
+      <Column Name="Cli_Direccion" Member="CliDireccion" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="63fce51f-2229-49f7-a6bd-7747e23dcebd" />
+      <Column Name="Cli_Tel" Member="CliTel" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="45f28d81-66b7-460b-b1c0-f1185ac4b5e2" />
+      <Column Name="Cli_Ciudad" Member="CliCiudad" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="f44ea45a-5269-46f1-b944-79bcc1c13b7e" />
+      <Association Name="CliEmpresa_CliUsuario" ed:AssociationGuid="968be0d0-ba59-4262-802b-44b70fd64010" Member="CliUsuarios" ed:Guid="fb8b5ede-5b98-4cf7-8808-6437d01d9268" ThisKey="IdCliEmpresa" OtherKey="CliEmpresaIdCliEmpresa" Type="CliUsuario" />
+    </Type>
+  </Table>
+  <Table Name="myapp.cli_equipo" Member="CliEquipos">
+    <Type Name="CliEquipo" ed:Guid="dd38bd46-2b5c-4605-a700-85283be4d51c">
+      <Column Name="idCli_Equipo" Member="IdCliEquipo" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="d69167a9-8044-4d34-958e-b3435a8e3619" />
+      <Column Name="Cli_Marca" Member="CliMarca" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="b2480311-c229-45e1-a1a8-211989e1e641" />
+      <Column Name="Cli_Modelo" Member="CliModelo" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="2ce6396d-1a68-44a7-885f-ae4d933ed2ed" />
+      <Column Name="Cli_DiscoDuro" Member="CliDiscoDuro" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="00e5149c-a086-4dc0-a674-5dfa3aea3765" />
+      <Column Name="Cli_Ram" Member="CliRam" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="ecc2d0f2-f20a-4c7e-b2d0-cbe928956ae6" />
+      <Column Name="Cli_Procesador" Member="CliProcesador" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="17ba58c7-7e02-40aa-b0d8-1f9c1c11d571" />
+      <Column Name="Cli_TipoEquipo" Member="CliTipoEquipo" Type="System.Boolean" DbType="TINYINT(1) NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="638e7049-7627-462d-97c5-2687b0e550ee" />
+      <Column Name="Cli_TipoEquipo_idCli_TipoEquipo" Member="CliTipoEquipoIdCliTipoEquipo" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="dc93e78a-0c8e-4be4-b747-d02f15d52d7f" />
+      <Association Name="CliTipoequipo_CliEquipo" ed:AssociationGuid="9772524f-2851-4e68-9bbf-d58baa6bf7c2" Member="CliTipoequipo" ed:Guid="f59cc28b-f04f-4a9c-a2f0-5941dc8148fd" ThisKey="CliTipoEquipoIdCliTipoEquipo" OtherKey="IdCliTipoEquipo" Type="CliTipoequipo" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="CliEquipo_CliUsuario" ed:AssociationGuid="178b0e58-bbc5-4d79-abce-94ac0ff85cbb" Member="CliUsuarios" ed:Guid="fd44609e-2e40-4694-b334-8871c35d1870" ThisKey="IdCliEquipo" OtherKey="CliEquipoIdCliEquipo" Type="CliUsuario" />
+    </Type>
+  </Table>
+  <Table Name="myapp.cli_tipoequipo" Member="CliTipoequipos">
+    <Type Name="CliTipoequipo" ed:Guid="12535013-260c-49fe-8c16-702158081abe">
+      <Column Name="idCli_TipoEquipo" Member="IdCliTipoEquipo" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="30f1117a-9d7e-4ef4-85ae-2d61228155d4" />
+      <Column Name="Cli_Laptop" Member="CliLaptop" Type="System.Boolean" DbType="TINYINT(1) NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="63161272-1a0f-45c8-aaf1-79c52df7b3d6" />
+      <Column Name="Cli_Pc" Member="CliPc" Type="System.Boolean" DbType="TINYINT(1) NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="5e6ffbd0-faff-472e-9657-a335df05b122" />
+      <Association Name="CliTipoequipo_CliEquipo" ed:AssociationGuid="9772524f-2851-4e68-9bbf-d58baa6bf7c2" Member="CliEquipos" ed:Guid="7fea570a-e558-4570-a7cc-715bf03f839a" ThisKey="IdCliTipoEquipo" OtherKey="CliTipoEquipoIdCliTipoEquipo" Type="CliEquipo" />
+    </Type>
+  </Table>
+  <Table Name="myapp.cli_usuario" Member="CliUsuarios">
+    <Type Name="CliUsuario" ed:Guid="8b314349-2f76-42f8-82b1-cd2b0cb9d9ac">
+      <Column Name="idCli_Usuario" Member="IdCliUsuario" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="d70ea241-9f4c-4b23-b356-06910798e00f" />
+      <Column Name="Cli_noombre" Member="CliNoombre" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="c15a44f4-01ac-4128-b90e-469c37ee6e78" />
+      <Column Name="Cli_Departamento" Member="CliDepartamento" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="297d56fc-32bd-4470-b981-f7c9f595c7c0" />
+      <Column Name="Cli_Equipo" Member="CliEquipo" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="19d9bc7a-4ee1-4e02-a61e-572454cf8025" />
+      <Column Name="Cli_Departamento_idCli_Departamento" Member="CliDepartamentoIdCliDepartamento" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="3e2efa24-3b3b-4545-9494-103fd175b81e" />
+      <Column Name="Cli_Equipo_idCli_Equipo" Member="CliEquipoIdCliEquipo" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="ff74491f-f11c-40ae-be41-d42fcbc9d863" />
+      <Column Name="Cli_Empresa_idCli_Empresa" Member="CliEmpresaIdCliEmpresa" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="18d5858f-0619-48b7-a39f-8d263ca9e24e" />
+      <Association Name="CliDepartamento_CliUsuario" ed:AssociationGuid="ab70c044-c181-418f-8509-8cf6a7c6684c" Member="CliDepartamento1" ed:Guid="999efc86-c163-403a-90dc-457c310c5599" ThisKey="CliDepartamentoIdCliDepartamento" OtherKey="IdCliDepartamento" Type="CliDepartamento" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="CliEmpresa_CliUsuario" ed:AssociationGuid="968be0d0-ba59-4262-802b-44b70fd64010" Member="CliEmpresa" ed:Guid="17a9df7f-c70b-41d4-accc-1470635361c5" ThisKey="CliEmpresaIdCliEmpresa" OtherKey="IdCliEmpresa" Type="CliEmpresa" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="CliEquipo_CliUsuario" ed:AssociationGuid="178b0e58-bbc5-4d79-abce-94ac0ff85cbb" Member="CliEquipo1" ed:Guid="df3f89e8-ec28-4b67-a93a-14a4bacf792f" ThisKey="CliEquipoIdCliEquipo" OtherKey="IdCliEquipo" Type="CliEquipo" DeleteRule="NO ACTION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="myapp.com_usuarios" Member="ComUsuarios">
+    <Type Name="ComUsuario" ed:Guid="2580dc78-c359-4190-b7e2-04c88a3cfb9c">
+      <Column Name="idCom_Usuarios" Member="IdComUsuarios" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="9a691015-0cad-4739-8542-be678d55ccfe" />
+      <Column Name="Com_Nombre" Member="ComNombre" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="ea12fda9-f408-48bf-913a-b8645ebc76e5" />
+      <Column Name="Com_Role" Member="ComRole" Type="System.Boolean" DbType="TINYINT(1) NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="true" ed:Guid="f5c78d97-2caa-41ea-b5cb-dc629a380f6e" />
+      <Column Name="Roles_idRoles" Member="RolesIdRoles" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="73f1a6bf-4107-4ece-ac6e-3424ab288e9c" />
+      <Association Name="Role_ComUsuario" ed:AssociationGuid="74377f8f-55f7-4fa3-b0db-9b6abe736f01" Member="Role" ed:Guid="fab9294f-f9e3-4d49-a06b-8a11578f61b0" ThisKey="RolesIdRoles" OtherKey="IdRoles" Type="Role" DeleteRule="NO ACTION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="myapp.comp_bitacora" Member="CompBitacoras">
+    <Type Name="CompBitacora" ed:Guid="475da206-a209-43ec-bf4c-26438774f089">
+      <Column Name="idComp_Bitacora" Member="IdCompBitacora" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="47256f31-cf8d-4e2e-89cc-71d4d939ae91" />
+      <Column Name="Comp_Cliente" Member="CompCliente" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="e90bac22-76af-4c14-811d-ca8cdd6cfbfa" />
+      <Column Name="Comp_Fecha" Member="CompFecha" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="bb4301de-f67f-4b56-9b3a-ada29267d5f8" />
+      <Column Name="Comp_NumeroVisitaMes" Member="CompNumeroVisitaMes" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="44bfa3b0-c42e-4c51-9562-05cafab3bf28" />
+      <Column Name="Comp_Equipo" Member="CompEquipo" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="d90b2fdb-64ad-46b2-ab94-71f099900a22" />
+      <Column Name="Comp_Usuario" Member="CompUsuario" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="8938878f-157a-4217-ab56-76fced204170" />
+      <Column Name="Comp_Informe" Member="CompInforme" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="8e9d9b78-f3c6-4584-893b-dd24866b7224" />
+    </Type>
+  </Table>
+  <Table Name="myapp.roles" Member="Roles">
+    <Type Name="Role" ed:Guid="25e63664-a5b9-4706-a957-2a75f8cc2e55">
+      <Column Name="idRoles" Member="IdRoles" Type="System.Int32" AutoSync="OnInsert" DbType="INT(11) NOT NULL AUTO_INCREMENT" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="d00df6dc-1475-43f1-995b-c9e1cda259d0" />
+      <Column Name="Rol_Admin" Member="RolAdmin" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="05e8cde1-cb0a-4626-b38f-e6b47ac9de08" />
+      <Column Name="Rol_Operador" Member="RolOperador" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="a5a2e87f-33a8-4ed0-8014-facee507dfce" />
+      <Association Name="Role_ComUsuario" ed:AssociationGuid="74377f8f-55f7-4fa3-b0db-9b6abe736f01" Member="ComUsuarios" ed:Guid="985a20e0-ba0d-45c1-a083-efc860bcfa6c" ThisKey="IdRoles" OtherKey="RolesIdRoles" Type="ComUsuario" />
+    </Type>
+  </Table>
+</Database>
