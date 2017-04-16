@@ -1,36 +1,33 @@
-﻿@model IEnumerable<WebApplication.Models.EmpresaAccount>
+﻿@model IEnumerable<WebApplication.Models.cli_empresa>
 
-    
 @{
-    ViewBag.Title = "Empresa";
+    ViewBag.Title = "Detalle de Empresas";
 }
 
-@section Menu{
+
+@section Menu {
     @Scripts.Render("~/Scripts/Tables/Data/menu")
 }
 
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
-                      
 <p>
-@Html.ActionLink("Nueva Empresa", "CreaEmpresa")
+    @Html.ActionLink("Agregar Empresa", "CreaEmpresa")
 </p>
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Empresas con Contrato de Servicios</h3>
+                <h3 class="box-title">Datos de Empresas</h3>
             </div>
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
+                <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nombre</th>
+                            <th>Ruc</th>
                             <th>Direccion</th>
+                            <th>Numero de Contacto</th>
                             <th>Ciudad</th>
-                            <th>Telefono</th>
-                            @*<th>Ruc</th>*@
-                            <th>Editar</th>
-                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,26 +35,32 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
+                                    <a href="@Url.Action("ModificaEmpresa","Empresa" , new { id = item.idCli_Empresa})">
+                                        @Html.DisplayFor(modelItem => item.Cli_Nombre)
+                                    </a>
                                 </td>
-                                <td>@Html.DisplayFor(modelItem => item.direccion)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ciudad)</td>
-                                <td>@Html.DisplayFor(modelItem => item.telefono)</td>
-                                @*<td>@Html.DisplayFor(modelItem => item.ruc)</td>*@
-                                <td><a href="@Url.Action("ModificaEmpresa", "Empresa", new { cod=item.codigo})" class="text-center"><i class="fa fa-fw fa-pencil-square"></i></a></td>
-                                <td><a href="Empresa/Eliminar"><i class="fa fa-fw fa-eraser"></i></a></td>                         
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cli_Ruc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cli_Direccion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cli_Tel)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cli_Ciudad)
+                                </td>
                             </tr>
                         }
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Nombre</th>
+                            <th>Ruc</th>
                             <th>Direccion</th>
+                            <th>Numero de Contacto</th>
                             <th>Ciudad</th>
-                            <th>Telefono</th>
-                            @*<th>Ruc</th>*@
-                            <th>Edit</th>
-                            <th>Eliminar</th>
                         </tr>
                     </tfoot>
                 </table>

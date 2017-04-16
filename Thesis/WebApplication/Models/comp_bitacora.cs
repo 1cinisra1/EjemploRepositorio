@@ -12,8 +12,14 @@ namespace WebApplication.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Entity1
+    public partial class comp_bitacora
     {
-        public int Id { get; set; }
+        public int idComp_Bitacora { get; set; }
+        public string Comp_Cliente { get; set; }
+        public Nullable<System.DateTime> Comp_Fecha { get; set; }
+        public string Comp_NumeroVisitaMes { get; set; }
+        public string Comp_Equipo { get; set; }
+        public string Comp_Usuario { get; set; }
+        public string Comp_Informe { get; set; }
     }
 }

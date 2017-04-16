@@ -13,9 +13,7 @@ namespace WebApplication.Controllers
         //
         // GET: /Cli_Usuario/
 
-        MyappContext.MyappDataContext cliUser = new MyappContext.MyappDataContext();
-
-        
+        bd_ControlVisitasEntities CliUsuarios = new bd_ControlVisitasEntities();       
         
         public ActionResult Index()
         {
@@ -23,7 +21,7 @@ namespace WebApplication.Controllers
         }
         public ActionResult Cli_VerUsuarios()
         {
-            var listaUsuarios = cliUser.CliUsuarios;
+            var listaUsuarios =CliUsuarios.cli_usuario;
             return View(listaUsuarios.ToList());
         }
 
