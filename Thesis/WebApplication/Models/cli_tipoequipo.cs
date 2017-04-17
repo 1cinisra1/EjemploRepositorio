@@ -20,8 +20,7 @@ namespace WebApplication.Models
         }
     
         public int idCli_TipoEquipo { get; set; }
-        public Nullable<bool> Cli_Laptop { get; set; }
-        public Nullable<bool> Cli_Pc { get; set; }
+        public string cli_tipoequipoDesc { get; set; }
     
         public virtual ICollection<cli_equipo> cli_equipo { get; set; }
     }

@@ -189,8 +189,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ChartsController.cs" />
+    <Compile Include="Controllers\cliEquipoController.cs" />
+    <Compile Include="Controllers\cliTipoEquipoController.cs" />
+    <Compile Include="Controllers\cliUsuarioController.cs" />
     <Compile Include="Controllers\cli_DptoController.cs" />
-    <Compile Include="Controllers\Cli_UsuarioController.cs" />
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
@@ -643,6 +645,21 @@
     <Content Include="Views\cli_Dpto\Details.cshtml" />
     <Content Include="Views\cli_Dpto\Edit.cshtml" />
     <Content Include="Views\cli_Dpto\Index.cshtml" />
+    <Content Include="Views\cliEquipo\Create.cshtml" />
+    <Content Include="Views\cliEquipo\Delete.cshtml" />
+    <Content Include="Views\cliEquipo\Details.cshtml" />
+    <Content Include="Views\cliEquipo\Edit.cshtml" />
+    <Content Include="Views\cliEquipo\Index.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Create.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Delete.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Details.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Edit.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Index.cshtml" />
+    <Content Include="Views\cliUsuario\Create.cshtml" />
+    <Content Include="Views\cliUsuario\Delete.cshtml" />
+    <Content Include="Views\cliUsuario\Details.cshtml" />
+    <Content Include="Views\cliUsuario\Edit.cshtml" />
+    <Content Include="Views\cliUsuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

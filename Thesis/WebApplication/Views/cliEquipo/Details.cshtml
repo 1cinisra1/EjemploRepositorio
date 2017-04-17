@@ -1,0 +1,66 @@
+﻿@model WebApplication.Models.cli_equipo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cli_equipo</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cli_Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cli_Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cli_Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cli_Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cli_DiscoDuro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cli_DiscoDuro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cli_Ram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cli_Ram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cli_Procesador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cli_Procesador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_tipoequipo1.cli_tipoequipoDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_tipoequipo1.cli_tipoequipoDesc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

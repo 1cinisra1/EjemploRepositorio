@@ -32,7 +32,7 @@ namespace WebApplication.Controllers
             {
                 empresa.cli_empresa.Add(val);
                 empresa.SaveChanges();
-                return RedirectToAction("Index", "Empresa");
+                return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
@@ -54,7 +54,7 @@ namespace WebApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ModificaEmpresa([Bind(Include = "idCli_Empresa,Cli_Nombre")] cli_empresa Cli_Empresa)
+        public ActionResult ModificaEmpresa([Bind(Include = "idCli_Empresa,Cli_Nombre,Cli_Ruc,Cli_Direccion,Cli_Tel,Cli_Ciudad")] cli_empresa Cli_Empresa)
         {
             if (ModelState.IsValid)
             {

@@ -1,0 +1,26 @@
+﻿@model WebApplication.Models.cli_tipoequipo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cli_tipoequipo</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_tipoequipoDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_tipoequipoDesc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCli_TipoEquipo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
