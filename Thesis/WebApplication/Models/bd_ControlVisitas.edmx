@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bd_ControlVisitasModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cli_departamento">
+          <Key>
+            <PropertyRef Name="idCli_Departamento" />
+          </Key>
+          <Property Name="idCli_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cli_Descripcion" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="cli_empresa">
+          <Key>
+            <PropertyRef Name="idCli_Empresa" />
+          </Key>
+          <Property Name="idCli_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cli_Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Ruc" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Direccion" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Tel" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Ciudad" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="cli_equipo">
+          <Key>
+            <PropertyRef Name="idCli_Equipo" />
+            <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+          </Key>
+          <Property Name="idCli_Equipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cli_Marca" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Modelo" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_DiscoDuro" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Ram" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Procesador" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_TipoEquipo_idCli_TipoEquipo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cli_tipoequipo">
+          <Key>
+            <PropertyRef Name="idCli_TipoEquipo" />
+          </Key>
+          <Property Name="idCli_TipoEquipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cli_tipoequipoDesc" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="cli_usuario">
+          <Key>
+            <PropertyRef Name="idCli_Usuario" />
+            <PropertyRef Name="Cli_Departamento_idCli_Departamento" />
+            <PropertyRef Name="Cli_Equipo_idCli_Equipo" />
+            <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+          </Key>
+          <Property Name="idCli_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cli_nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Departamento_idCli_Departamento" Type="int" Nullable="false" />
+          <Property Name="Cli_Equipo_idCli_Equipo" Type="int" Nullable="false" />
+          <Property Name="Cli_Empresa_idCli_Empresa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="com_usuarios">
+          <Key>
+            <PropertyRef Name="idCom_Usuarios" />
+            <PropertyRef Name="Roles_idRoles" />
+          </Key>
+          <Property Name="idCom_Usuarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Com_Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Com_Role" Type="bool" Nullable="false" />
+          <Property Name="Roles_idRoles" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comp_bitacora">
+          <Key>
+            <PropertyRef Name="idComp_Bitacora" />
+          </Key>
+          <Property Name="idComp_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comp_Cliente" Type="varchar" MaxLength="45" />
+          <Property Name="Comp_Fecha" Type="date" />
+          <Property Name="Comp_NumeroVisitaMes" Type="varchar" MaxLength="45" />
+          <Property Name="Comp_Equipo" Type="varchar" MaxLength="45" />
+          <Property Name="Comp_Usuario" Type="varchar" MaxLength="45" />
+          <Property Name="Comp_Informe" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="idRoles" />
+          </Key>
+          <Property Name="idRoles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol_Admin" Type="varchar" MaxLength="45" />
+          <Property Name="Rol_Operador" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <Association Name="fk_Cli_Equipo_Cli_TipoEquipo1">
+          <End Role="cli_tipoequipo" Type="Self.cli_tipoequipo" Multiplicity="1" />
+          <End Role="cli_equipo" Type="Self.cli_equipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_tipoequipo">
+              <PropertyRef Name="idCli_TipoEquipo" />
+            </Principal>
+            <Dependent Role="cli_equipo">
+              <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Cli_Usuario_Cli_Departamento1">
+          <End Role="cli_departamento" Type="Self.cli_departamento" Multiplicity="1" />
+          <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_departamento">
+              <PropertyRef Name="idCli_Departamento" />
+            </Principal>
+            <Dependent Role="cli_usuario">
+              <PropertyRef Name="Cli_Departamento_idCli_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Cli_Usuario_Cli_Empresa1">
+          <End Role="cli_empresa" Type="Self.cli_empresa" Multiplicity="1" />
+          <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_empresa">
+              <PropertyRef Name="idCli_Empresa" />
+            </Principal>
+            <Dependent Role="cli_usuario">
+              <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errores durante la generación:
+advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que no forman parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
+        <Association Name="fk_Cli_Usuario_Cli_Equipo1" />-->
+        <Association Name="fk_Com_Usuarios_Roles">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="idRoles" />
+            </Principal>
+            <Dependent Role="com_usuarios">
+              <PropertyRef Name="Roles_idRoles" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_ControlVisitasModelStoreContainer">
+          <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="cli_empresa" EntityType="Self.cli_empresa" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="cli_equipo" EntityType="Self.cli_equipo" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="cli_tipoequipo" EntityType="Self.cli_tipoequipo" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="cli_usuario" EntityType="Self.cli_usuario" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="com_usuarios" EntityType="Self.com_usuarios" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="comp_bitacora" EntityType="Self.comp_bitacora" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="myapp" store:Type="Tables" />
+          <AssociationSet Name="fk_Cli_Equipo_Cli_TipoEquipo1" Association="Self.fk_Cli_Equipo_Cli_TipoEquipo1">
+            <End Role="cli_tipoequipo" EntitySet="cli_tipoequipo" />
+            <End Role="cli_equipo" EntitySet="cli_equipo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Cli_Usuario_Cli_Departamento1" Association="Self.fk_Cli_Usuario_Cli_Departamento1">
+            <End Role="cli_departamento" EntitySet="cli_departamento" />
+            <End Role="cli_usuario" EntitySet="cli_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Cli_Usuario_Cli_Empresa1" Association="Self.fk_Cli_Usuario_Cli_Empresa1">
+            <End Role="cli_empresa" EntitySet="cli_empresa" />
+            <End Role="cli_usuario" EntitySet="cli_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Com_Usuarios_Roles" Association="Self.fk_Com_Usuarios_Roles">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="com_usuarios" EntitySet="com_usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bd_ControlVisitasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cli_departamento">
+          <Key>
+            <PropertyRef Name="idCli_Departamento" />
+          </Key>
+          <Property Name="idCli_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cli_Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cli_usuario" Relationship="Self.fk_Cli_Usuario_Cli_Departamento1" FromRole="cli_departamento" ToRole="cli_usuario" />
+        </EntityType>
+        <EntityType Name="cli_empresa">
+          <Key>
+            <PropertyRef Name="idCli_Empresa" />
+          </Key>
+          <Property Name="idCli_Empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cli_Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Ruc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Tel" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Ciudad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cli_usuario" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_empresa" ToRole="cli_usuario" />
+        </EntityType>
+        <EntityType Name="cli_equipo">
+          <Key>
+            <PropertyRef Name="idCli_Equipo" />
+            <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+          </Key>
+          <Property Name="idCli_Equipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cli_Marca" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Modelo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_DiscoDuro" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Ram" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Procesador" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_TipoEquipo_idCli_TipoEquipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cli_tipoequipo1" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_equipo" ToRole="cli_tipoequipo" />
+        </EntityType>
+        <EntityType Name="cli_tipoequipo">
+          <Key>
+            <PropertyRef Name="idCli_TipoEquipo" />
+          </Key>
+          <Property Name="idCli_TipoEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="cli_equipo" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_tipoequipo" ToRole="cli_equipo" />
+          <Property Name="cli_tipoequipoDesc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cli_usuario">
+          <Key>
+            <PropertyRef Name="idCli_Usuario" />
+            <PropertyRef Name="Cli_Departamento_idCli_Departamento" />
+            <PropertyRef Name="Cli_Equipo_idCli_Equipo" />
+            <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+          </Key>
+          <Property Name="idCli_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cli_Departamento_idCli_Departamento" Type="Int32" Nullable="false" />
+          <Property Name="Cli_Equipo_idCli_Equipo" Type="Int32" Nullable="false" />
+          <Property Name="Cli_Empresa_idCli_Empresa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cli_departamento1" Relationship="Self.fk_Cli_Usuario_Cli_Departamento1" FromRole="cli_usuario" ToRole="cli_departamento" />
+          <NavigationProperty Name="cli_empresa" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_usuario" ToRole="cli_empresa" />
+          <Property Name="Cli_nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_usuarios">
+          <Key>
+            <PropertyRef Name="idCom_Usuarios" />
+            <PropertyRef Name="Roles_idRoles" />
+          </Key>
+          <Property Name="idCom_Usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Com_Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Com_Role" Type="Boolean" Nullable="false" />
+          <Property Name="Roles_idRoles" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="roles" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="com_usuarios" ToRole="roles" />
+        </EntityType>
+        <EntityType Name="comp_bitacora">
+          <Key>
+            <PropertyRef Name="idComp_Bitacora" />
+          </Key>
+          <Property Name="idComp_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comp_Cliente" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_Fecha" Type="DateTime" />
+          <Property Name="Comp_NumeroVisitaMes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_Equipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_Usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_Informe" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="idRoles" />
+          </Key>
+          <Property Name="idRoles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol_Admin" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Rol_Operador" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="roles" ToRole="com_usuarios" />
+        </EntityType>
+        <Association Name="fk_Cli_Usuario_Cli_Departamento1">
+          <End Role="cli_departamento" Type="Self.cli_departamento" Multiplicity="1" />
+          <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_departamento">
+              <PropertyRef Name="idCli_Departamento" />
+            </Principal>
+            <Dependent Role="cli_usuario">
+              <PropertyRef Name="Cli_Departamento_idCli_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Cli_Usuario_Cli_Empresa1">
+          <End Role="cli_empresa" Type="Self.cli_empresa" Multiplicity="1" />
+          <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_empresa">
+              <PropertyRef Name="idCli_Empresa" />
+            </Principal>
+            <Dependent Role="cli_usuario">
+              <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Cli_Equipo_Cli_TipoEquipo1">
+          <End Role="cli_tipoequipo" Type="Self.cli_tipoequipo" Multiplicity="1" />
+          <End Role="cli_equipo" Type="Self.cli_equipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_tipoequipo">
+              <PropertyRef Name="idCli_TipoEquipo" />
+            </Principal>
+            <Dependent Role="cli_equipo">
+              <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Com_Usuarios_Roles">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="idRoles" />
+            </Principal>
+            <Dependent Role="com_usuarios">
+              <PropertyRef Name="Roles_idRoles" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_ControlVisitasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" />
+          <EntitySet Name="cli_empresa" EntityType="Self.cli_empresa" />
+          <EntitySet Name="cli_equipo" EntityType="Self.cli_equipo" />
+          <EntitySet Name="cli_tipoequipo" EntityType="Self.cli_tipoequipo" />
+          <EntitySet Name="cli_usuario" EntityType="Self.cli_usuario" />
+          <EntitySet Name="com_usuarios" EntityType="Self.com_usuarios" />
+          <EntitySet Name="comp_bitacora" EntityType="Self.comp_bitacora" />
+          <EntitySet Name="roles" EntityType="Self.roles" />
+          <AssociationSet Name="fk_Cli_Usuario_Cli_Departamento1" Association="Self.fk_Cli_Usuario_Cli_Departamento1">
+            <End Role="cli_departamento" EntitySet="cli_departamento" />
+            <End Role="cli_usuario" EntitySet="cli_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Cli_Usuario_Cli_Empresa1" Association="Self.fk_Cli_Usuario_Cli_Empresa1">
+            <End Role="cli_empresa" EntitySet="cli_empresa" />
+            <End Role="cli_usuario" EntitySet="cli_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Cli_Equipo_Cli_TipoEquipo1" Association="Self.fk_Cli_Equipo_Cli_TipoEquipo1">
+            <End Role="cli_tipoequipo" EntitySet="cli_tipoequipo" />
+            <End Role="cli_equipo" EntitySet="cli_equipo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Com_Usuarios_Roles" Association="Self.fk_Com_Usuarios_Roles">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="com_usuarios" EntitySet="com_usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bd_ControlVisitasModelStoreContainer" CdmEntityContainer="bd_ControlVisitasEntities">
+          <EntitySetMapping Name="cli_departamento">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_departamento">
+              <MappingFragment StoreEntitySet="cli_departamento">
+                <ScalarProperty Name="idCli_Departamento" ColumnName="idCli_Departamento" />
+                <ScalarProperty Name="Cli_Descripcion" ColumnName="Cli_Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cli_empresa">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_empresa">
+              <MappingFragment StoreEntitySet="cli_empresa">
+                <ScalarProperty Name="idCli_Empresa" ColumnName="idCli_Empresa" />
+                <ScalarProperty Name="Cli_Nombre" ColumnName="Cli_Nombre" />
+                <ScalarProperty Name="Cli_Ruc" ColumnName="Cli_Ruc" />
+                <ScalarProperty Name="Cli_Direccion" ColumnName="Cli_Direccion" />
+                <ScalarProperty Name="Cli_Tel" ColumnName="Cli_Tel" />
+                <ScalarProperty Name="Cli_Ciudad" ColumnName="Cli_Ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cli_equipo">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_equipo">
+              <MappingFragment StoreEntitySet="cli_equipo">
+                <ScalarProperty Name="idCli_Equipo" ColumnName="idCli_Equipo" />
+                <ScalarProperty Name="Cli_Marca" ColumnName="Cli_Marca" />
+                <ScalarProperty Name="Cli_Modelo" ColumnName="Cli_Modelo" />
+                <ScalarProperty Name="Cli_DiscoDuro" ColumnName="Cli_DiscoDuro" />
+                <ScalarProperty Name="Cli_Ram" ColumnName="Cli_Ram" />
+                <ScalarProperty Name="Cli_Procesador" ColumnName="Cli_Procesador" />
+                <ScalarProperty Name="Cli_TipoEquipo_idCli_TipoEquipo" ColumnName="Cli_TipoEquipo_idCli_TipoEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cli_tipoequipo">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_tipoequipo">
+              <MappingFragment StoreEntitySet="cli_tipoequipo">
+                <ScalarProperty Name="cli_tipoequipoDesc" ColumnName="cli_tipoequipoDesc" />
+                <ScalarProperty Name="idCli_TipoEquipo" ColumnName="idCli_TipoEquipo" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cli_usuario">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_usuario">
+              <MappingFragment StoreEntitySet="cli_usuario">
+                <ScalarProperty Name="Cli_nombre" ColumnName="Cli_nombre" />
+                <ScalarProperty Name="idCli_Usuario" ColumnName="idCli_Usuario" />
+                <ScalarProperty Name="Cli_Departamento_idCli_Departamento" ColumnName="Cli_Departamento_idCli_Departamento" />
+                <ScalarProperty Name="Cli_Equipo_idCli_Equipo" ColumnName="Cli_Equipo_idCli_Equipo" />
+                <ScalarProperty Name="Cli_Empresa_idCli_Empresa" ColumnName="Cli_Empresa_idCli_Empresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_usuarios">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.com_usuarios">
+              <MappingFragment StoreEntitySet="com_usuarios">
+                <ScalarProperty Name="idCom_Usuarios" ColumnName="idCom_Usuarios" />
+                <ScalarProperty Name="Com_Nombre" ColumnName="Com_Nombre" />
+                <ScalarProperty Name="Com_Role" ColumnName="Com_Role" />
+                <ScalarProperty Name="Roles_idRoles" ColumnName="Roles_idRoles" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comp_bitacora">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.comp_bitacora">
+              <MappingFragment StoreEntitySet="comp_bitacora">
+                <ScalarProperty Name="idComp_Bitacora" ColumnName="idComp_Bitacora" />
+                <ScalarProperty Name="Comp_Cliente" ColumnName="Comp_Cliente" />
+                <ScalarProperty Name="Comp_Fecha" ColumnName="Comp_Fecha" />
+                <ScalarProperty Name="Comp_NumeroVisitaMes" ColumnName="Comp_NumeroVisitaMes" />
+                <ScalarProperty Name="Comp_Equipo" ColumnName="Comp_Equipo" />
+                <ScalarProperty Name="Comp_Usuario" ColumnName="Comp_Usuario" />
+                <ScalarProperty Name="Comp_Informe" ColumnName="Comp_Informe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="idRoles" ColumnName="idRoles" />
+                <ScalarProperty Name="Rol_Admin" ColumnName="Rol_Admin" />
+                <ScalarProperty Name="Rol_Operador" ColumnName="Rol_Operador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

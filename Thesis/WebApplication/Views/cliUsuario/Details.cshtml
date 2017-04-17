@@ -1,0 +1,42 @@
+﻿@model WebApplication.Models.cli_usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cli_usuario</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cli_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cli_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_departamento1.Cli_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_departamento1.Cli_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_empresa.Cli_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_empresa.Cli_Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

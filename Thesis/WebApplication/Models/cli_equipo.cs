@@ -12,8 +12,16 @@ namespace WebApplication.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Entity1
+    public partial class cli_equipo
     {
-        public int Id { get; set; }
+        public int idCli_Equipo { get; set; }
+        public string Cli_Marca { get; set; }
+        public string Cli_Modelo { get; set; }
+        public string Cli_DiscoDuro { get; set; }
+        public string Cli_Ram { get; set; }
+        public string Cli_Procesador { get; set; }
+        public int Cli_TipoEquipo_idCli_TipoEquipo { get; set; }
+    
+        public virtual cli_tipoequipo cli_tipoequipo1 { get; set; }
     }
 }

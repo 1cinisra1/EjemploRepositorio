@@ -53,25 +53,24 @@
     <Reference Include="Devart.Data.Linq, Version=4.5.1100.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data.MySql, Version=8.6.763.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Devart.Data.MySql.Linq, Version=4.5.1100.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
-    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Web.dll</HintPath>
@@ -141,12 +140,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -196,11 +189,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ChartsController.cs" />
-    <Compile Include="Controllers\Cli_UsuarioController.cs" />
+    <Compile Include="Controllers\cliEquipoController.cs" />
+    <Compile Include="Controllers\cliTipoEquipoController.cs" />
+    <Compile Include="Controllers\cliUsuarioController.cs" />
+    <Compile Include="Controllers\cli_DptoController.cs" />
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
-    <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\ExamplesController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -213,31 +208,47 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\appEntiti.Context.cs">
+    <Compile Include="Models\bd_ControlVisitas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>appEntiti.Context.tt</DependentUpon>
+      <DependentUpon>bd_ControlVisitas.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\appEntiti.cs">
+    <Compile Include="Models\bd_ControlVisitas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>appEntiti.tt</DependentUpon>
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\appEntiti.Designer.cs">
+    <Compile Include="Models\bd_ControlVisitas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>appEntiti.edmx</DependentUpon>
+      <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cli_departamento.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cli_empresa.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cli_equipo.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cli_tipoequipo.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cli_usuario.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\comp_bitacora.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\com_usuarios.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmpresaClass.cs" />
-    <Compile Include="Models\Entity1.cs">
-      <DependentUpon>appEntiti.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MyApp.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyApp.lqml</DependentUpon>
+    <Compile Include="Models\roles.cs">
+      <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -515,32 +526,22 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Models\MyApp.Diagram1.view">
-      <DependentUpon>MyApp.lqml</DependentUpon>
-    </Content>
-    <Content Include="Models\MyApp.edps">
-      <DependentUpon>MyApp.lqml</DependentUpon>
-    </Content>
-    <Content Include="Models\MyApp.lqml">
-      <Generator>DevartLinqToSqlGenerator</Generator>
-      <LastGenOutput>MyApp.Designer.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\appEntiti.edmx">
+    <EntityDeploy Include="Models\bd_ControlVisitas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>appEntiti.Designer.cs</LastGenOutput>
+      <LastGenOutput>bd_ControlVisitas.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\appEntiti.Context.tt">
+    <Content Include="Models\bd_ControlVisitas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>appEntiti.edmx</DependentUpon>
-      <LastGenOutput>appEntiti.Context.cs</LastGenOutput>
+      <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
+      <LastGenOutput>bd_ControlVisitas.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\appEntiti.edmx.diagram">
-      <DependentUpon>appEntiti.edmx</DependentUpon>
+    <Content Include="Models\bd_ControlVisitas.edmx.diagram">
+      <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\appEntiti.tt">
+    <Content Include="Models\bd_ControlVisitas.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>appEntiti.edmx</DependentUpon>
-      <LastGenOutput>appEntiti.cs</LastGenOutput>
+      <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
+      <LastGenOutput>bd_ControlVisitas.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
@@ -633,13 +634,32 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
-    <Content Include="Views\Empresa\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Views\Empresa\CreaEmpresa.cshtml" />
     <Content Include="Views\Empresa\ModificaEmpresa.cshtml" />
     <Content Include="Views\Cli_Usuario\Cli_VerUsuarios.cshtml" />
     <Content Include="Views\Cli_Usuario\Cli_AgregaUsuario.cshtml" />
-    <Content Include="Views\Equipo\Create.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Empresa\CreaEmpresa.cshtml" />
+    <Content Include="Views\cli_Dpto\Create.cshtml" />
+    <Content Include="Views\cli_Dpto\Delete.cshtml" />
+    <Content Include="Views\cli_Dpto\Details.cshtml" />
+    <Content Include="Views\cli_Dpto\Edit.cshtml" />
+    <Content Include="Views\cli_Dpto\Index.cshtml" />
+    <Content Include="Views\cliEquipo\Create.cshtml" />
+    <Content Include="Views\cliEquipo\Delete.cshtml" />
+    <Content Include="Views\cliEquipo\Details.cshtml" />
+    <Content Include="Views\cliEquipo\Edit.cshtml" />
+    <Content Include="Views\cliEquipo\Index.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Create.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Delete.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Details.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Edit.cshtml" />
+    <Content Include="Views\cliTipoEquipo\Index.cshtml" />
+    <Content Include="Views\cliUsuario\Create.cshtml" />
+    <Content Include="Views\cliUsuario\Delete.cshtml" />
+    <Content Include="Views\cliUsuario\Details.cshtml" />
+    <Content Include="Views\cliUsuario\Edit.cshtml" />
+    <Content Include="Views\cliUsuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
