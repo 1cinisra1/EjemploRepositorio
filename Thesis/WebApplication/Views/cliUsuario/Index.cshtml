@@ -36,7 +36,9 @@
                         {
                             <tr>
                                 <td>
+                                    <a href="@Url.Action("Edit", "cliUsuario", new { id=item.idCli_Usuario})">
                                     @Html.DisplayFor(modelItem => item.Cli_nombre)
+                                    </a>
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.cli_departamento1.Cli_Descripcion)
