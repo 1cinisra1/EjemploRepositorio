@@ -65,13 +65,13 @@ namespace WebApplication.Controllers
         }
 
         // GET: /cliUsuario/Edit/5
-        public async Task<ActionResult> Edit(int? id, int? id1, int? id2)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_usuario cli_usuario = await db.cli_usuario.FindAsync(id, id1, id2);
+            cli_usuario cli_usuario = await db.cli_usuario.FindAsync(id);
             if (cli_usuario == null)
             {
                 return HttpNotFound();

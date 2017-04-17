@@ -1,60 +1,69 @@
 ﻿@model WebApplication.Models.cli_usuario
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Nuevo Usuario";
 }
 
-<h2>Create</h2>
+@section Menu{
+    @Scripts.Render("~/Scripts/Forms/General/menu")
+}
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>cli_usuario</h4>
-        <hr />
-        @Html.ValidationSummary(true)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cli_Departamento_idCli_Departamento, "Cli_Departamento_idCli_Departamento", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Cli_Departamento_idCli_Departamento", String.Empty)
-                @Html.ValidationMessageFor(model => model.Cli_Departamento_idCli_Departamento)
+    <div class="col-md-6">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Datos de Empresa</h3>
             </div>
-        </div>
+            <form class="form-horizontal">
+                @Html.ValidationSummary(true)
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("Cli_Departamento_idCli_Departamento", String.Empty)
+                            @Html.ValidationMessageFor(model => model.Cli_Departamento_idCli_Departamento)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cli_Equipo_idCli_Equipo, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_Equipo_idCli_Equipo)
-                @Html.ValidationMessageFor(model => model.Cli_Equipo_idCli_Equipo)
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Cli_Equipo_idCli_Equipo)
+                            @Html.ValidationMessageFor(model => model.Cli_Equipo_idCli_Equipo)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cli_Empresa_idCli_Empresa, "Cli_Empresa_idCli_Empresa", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Cli_Empresa_idCli_Empresa", String.Empty)
-                @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("Cli_Empresa_idCli_Empresa", String.Empty)
+                            @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cli_nombre, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_nombre)
-                @Html.ValidationMessageFor(model => model.Cli_nombre)
-            </div>
-        </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Cli_nombre)
+                            @Html.ValidationMessageFor(model => model.Cli_nombre)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-default">Guardar</button>
+                </div>
+            </form>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
