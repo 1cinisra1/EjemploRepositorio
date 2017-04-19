@@ -233,6 +233,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailboxController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
@@ -700,6 +701,7 @@
     <Content Include="Views\cliUsuario\Details.cshtml" />
     <Content Include="Views\cliUsuario\Edit.cshtml" />
     <Content Include="Views\cliUsuario\Index.cshtml" />
+    <Content Include="Views\Prueba\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

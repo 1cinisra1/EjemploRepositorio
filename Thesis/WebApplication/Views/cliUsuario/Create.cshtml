@@ -16,7 +16,7 @@
     <div class="col-md-6">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Datos de Empresa</h3>
+                <h3 class="box-title">Datos de Usuario</h3>
             </div>
             <form class="form-horizontal">
                 @Html.ValidationSummary(true)
@@ -28,7 +28,7 @@
                             @Html.ValidationMessageFor(model => model.Cli_Departamento_idCli_Departamento)
                         </div>
                     </div>
-
+                    <br/>
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
                         <div class="col-md-10">
@@ -36,7 +36,7 @@
                             @Html.ValidationMessageFor(model => model.Cli_Equipo_idCli_Equipo)
                         </div>
                     </div>
-
+                    <br/>
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
                         <div class="col-md-10">
@@ -44,7 +44,7 @@
                             @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
                         </div>
                     </div>
-
+                    <br/>
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
                         <div class="col-md-10">
