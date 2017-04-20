@@ -16,8 +16,11 @@ namespace WebApplication.Models
     {
         public int idCom_Usuarios { get; set; }
         public string Com_Nombre { get; set; }
-        public bool Com_Role { get; set; }
         public int Roles_idRoles { get; set; }
+        public string com_username { get; set; }
+        public string com_clave { get; set; }
+        public string confirm_com_clave { get; set; }
+        public string com_correo { get; set; }
     
         public virtual roles roles { get; set; }
     }

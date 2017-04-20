@@ -1276,7 +1276,7 @@ a:focus {
 }
 /* Input group */
 .input-group .input-group-addon {
-  border-radius: 0;
+  border-radius: 4px;
   border-color: #d2d6de;
   background-color: #fff;
 }

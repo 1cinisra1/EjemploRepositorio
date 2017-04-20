@@ -18,8 +18,15 @@ namespace WebApplication.Controllers
         // GET: /cliEquipo/
         public async Task<ActionResult> Index()
         {
-            var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo1);
-            return View(await cli_equipo.ToListAsync());
+            if (Session["LogedUserID"] != null)
+            {
+                var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo1);
+                return View(await cli_equipo.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // GET: /cliEquipo/Details/5
@@ -40,8 +47,15 @@ namespace WebApplication.Controllers
         // GET: /cliEquipo/Create
         public ActionResult Create()
         {
-            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "cli_tipoequipoDesc");
-            return View();
+            if (Session["LogedUserID"] != null)
+            {
+                ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "cli_tipoequipoDesc");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: /cliEquipo/Create

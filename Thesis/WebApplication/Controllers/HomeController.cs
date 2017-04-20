@@ -6,7 +6,14 @@ namespace WebApplication.Controllers
     {
         public ActionResult DashboardV1()
         {
-            return View();
+            if (Session["LogedUserID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
         public ActionResult DashboardV2()
         {

@@ -60,11 +60,15 @@
           <Key>
             <PropertyRef Name="idCom_Usuarios" />
             <PropertyRef Name="Roles_idRoles" />
+            <PropertyRef Name="com_username" />
+            <PropertyRef Name="com_clave" />
           </Key>
           <Property Name="idCom_Usuarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Com_Nombre" Type="varchar" MaxLength="45" />
-          <Property Name="Com_Role" Type="bool" Nullable="false" />
           <Property Name="Roles_idRoles" Type="int" Nullable="false" />
+          <Property Name="com_username" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="com_clave" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="com_correo" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="comp_bitacora">
           <Key>
@@ -83,8 +87,7 @@
             <PropertyRef Name="idRoles" />
           </Key>
           <Property Name="idRoles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Rol_Admin" Type="varchar" MaxLength="45" />
-          <Property Name="Rol_Operador" Type="varchar" MaxLength="45" />
+          <Property Name="rol_descripcion" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <Association Name="fk_Cli_Equipo_Cli_TipoEquipo1">
           <End Role="cli_tipoequipo" Type="Self.cli_tipoequipo" Multiplicity="1" />
@@ -228,12 +231,16 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Key>
             <PropertyRef Name="idCom_Usuarios" />
             <PropertyRef Name="Roles_idRoles" />
+            <PropertyRef Name="com_username" />
+            <PropertyRef Name="com_clave" />
           </Key>
           <Property Name="idCom_Usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Com_Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Com_Role" Type="Boolean" Nullable="false" />
           <Property Name="Roles_idRoles" Type="Int32" Nullable="false" />
           <NavigationProperty Name="roles" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="com_usuarios" ToRole="roles" />
+          <Property Name="com_username" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="com_clave" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="com_correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="comp_bitacora">
           <Key>
@@ -252,9 +259,8 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             <PropertyRef Name="idRoles" />
           </Key>
           <Property Name="idRoles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rol_Admin" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Rol_Operador" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="roles" ToRole="com_usuarios" />
+          <Property Name="rol_descripcion" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="fk_Cli_Usuario_Cli_Departamento1">
           <End Role="cli_departamento" Type="Self.cli_departamento" Multiplicity="1" />
@@ -391,9 +397,11 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <EntitySetMapping Name="com_usuarios">
             <EntityTypeMapping TypeName="bd_ControlVisitasModel.com_usuarios">
               <MappingFragment StoreEntitySet="com_usuarios">
+                <ScalarProperty Name="com_correo" ColumnName="com_correo" />
+                <ScalarProperty Name="com_clave" ColumnName="com_clave" />
+                <ScalarProperty Name="com_username" ColumnName="com_username" />
                 <ScalarProperty Name="idCom_Usuarios" ColumnName="idCom_Usuarios" />
                 <ScalarProperty Name="Com_Nombre" ColumnName="Com_Nombre" />
-                <ScalarProperty Name="Com_Role" ColumnName="Com_Role" />
                 <ScalarProperty Name="Roles_idRoles" ColumnName="Roles_idRoles" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -414,9 +422,8 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <EntitySetMapping Name="roles">
             <EntityTypeMapping TypeName="bd_ControlVisitasModel.roles">
               <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="rol_descripcion" ColumnName="rol_descripcion" />
                 <ScalarProperty Name="idRoles" ColumnName="idRoles" />
-                <ScalarProperty Name="Rol_Admin" ColumnName="Rol_Admin" />
-                <ScalarProperty Name="Rol_Operador" ColumnName="Rol_Operador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

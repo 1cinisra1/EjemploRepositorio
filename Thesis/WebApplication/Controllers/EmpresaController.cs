@@ -16,13 +16,29 @@ namespace WebApplication.Controllers
         // GET: /Empresa/
         bd_ControlVisitasEntities empresa = new bd_ControlVisitasEntities();
         public ActionResult Index()
+
         {
-            var dato = empresa.cli_empresa;
-            return View(dato.ToList());
+            if (Session["LogedUserID"] != null)
+            {
+                var dato = empresa.cli_empresa;
+                return View(dato.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
         public ActionResult CreaEmpresa()
         {
-            return View();
+            if (Session["LogedUserID"] != null)
+            {
+                var dato = empresa.cli_empresa;
+                return View(dato.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
         [HttpPost]
         public ActionResult CreaEmpresa(cli_empresa val)

@@ -18,8 +18,15 @@ namespace WebApplication.Controllers
         // GET: /cliUsuario/
         public async Task<ActionResult> Index()
         {
-            var cli_usuario = db.cli_usuario.Include(c => c.cli_departamento1).Include(c => c.cli_empresa);
-            return View(await cli_usuario.ToListAsync());
+            if (Session["LogedUserID"] != null)
+            {
+                var cli_usuario = db.cli_usuario.Include(c => c.cli_departamento1).Include(c => c.cli_empresa);
+                return View(await cli_usuario.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }            
         }
 
         // GET: /cliUsuario/Details/5
@@ -40,9 +47,16 @@ namespace WebApplication.Controllers
         // GET: /cliUsuario/Create
         public ActionResult Create()
         {
-            ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion");
-            ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_empresa, "idCli_Empresa", "Cli_Nombre");
-            return View();
+            if (Session["LogedUserID"] != null)
+            {
+                ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion");
+                ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_empresa, "idCli_Empresa", "Cli_Nombre");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: /cliUsuario/Create

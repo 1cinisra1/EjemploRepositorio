@@ -17,7 +17,14 @@ namespace WebApplication.Controllers
         // GET: /cli_Dpto/
         public ActionResult Index()
         {
-            return View(db.cli_departamento.ToList());
+            if (Session["LogedUserID"] != null)
+            {
+                return View(db.cli_departamento.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // GET: /cli_Dpto/Details/5
@@ -38,7 +45,14 @@ namespace WebApplication.Controllers
         // GET: /cli_Dpto/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["LogedUserID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: /cli_Dpto/Create

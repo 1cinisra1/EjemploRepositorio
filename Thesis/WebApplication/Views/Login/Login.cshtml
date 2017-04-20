@@ -1,0 +1,70 @@
+﻿@model WebApplication.Models.com_usuarios
+
+@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>COMPUSERVI</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    @Styles.Render("~/AdminLTE/bootstrap/css")
+    @Styles.Render("~/AdminLTE/plugins/font-awesome/css")
+    @Styles.Render("~/AdminLTE/plugins/ionicons/css")
+    @Styles.Render("~/AdminLTE/dist/css")
+    @Styles.Render("~/AdminLTE/plugins/icheck/css/sqare/blue")
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="@Url.Action("DashboardV1", "Home")"> Bienvenido a <b>COMPUSERVI</b></a>
+        </div>
+        <div class="login-box-body">
+            <p class="login-box-msg">Registrese para iniciar su sesion</p>
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                if (@ViewBag.Message != null)
+                {
+                    <div style="border:1px solid red">
+                        @ViewBag.Message
+                    </div>
+                }
+
+                <div class="form-group has-feedback">
+                   Usuario
+                    @Html.TextBoxFor(a => a.com_username)
+                    @Html.ValidationMessageFor(a => a.com_username)
+                </div>
+                <div class="form-group has-feedback">
+                   Clave&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.TextBoxFor(a => a.com_clave)
+                    @Html.ValidationMessageFor(a => a.com_clave)
+                </div>
+                <div class="col-xs-2">
+                    <input type="submit" value="Login" />
+                </div>
+            }
+        </div>
+    </div>
+
+    @Scripts.Render("~/AdminLTE/plugins/jquery/js")
+    @Scripts.Render("~/AdminLTE/bootstrap/js")
+    @Scripts.Render("~/AdminLTE/plugins/icheck/js")
+    @Scripts.Render("~/AdminLTE/plugins/jquery-validate/js")
+    @Scripts.Render("~/Scripts/Account/Login")
+</body>
+</html>

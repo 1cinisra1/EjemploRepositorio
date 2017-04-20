@@ -18,7 +18,14 @@ namespace WebApplication.Controllers
         // GET: /cliTipoEquipo/
         public async Task<ActionResult> Index()
         {
-            return View(await db.cli_tipoequipo.ToListAsync());
+            if (Session["LogedUserID"] != null)
+            {
+                return View(await db.cli_tipoequipo.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // GET: /cliTipoEquipo/Details/5
@@ -40,7 +47,14 @@ namespace WebApplication.Controllers
         // GET: /cliTipoEquipo/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["LogedUserID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: /cliTipoEquipo/Create
