@@ -30,15 +30,7 @@ namespace WebApplication.Controllers
         }
         public ActionResult CreaEmpresa()
         {
-            if (Session["LogedUserID"] != null)
-            {
-                var dato = empresa.cli_empresa;
-                return View(dato.ToList());
-            }
-            else
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            return View();
         }
         [HttpPost]
         public ActionResult CreaEmpresa(cli_empresa val)
