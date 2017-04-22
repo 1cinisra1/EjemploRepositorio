@@ -32,11 +32,11 @@
             <a href="@Url.Action("DashboardV1", "Home")"> Bienvenido a <b>COMPUSERVI</b></a>
         </div>
         <div class="login-box-body">
-            <p class="login-box-msg">Registrese para iniciar su sesion</p>
+            <p class="login-box-msg">Iniciar sesion</p>
             @using (Html.BeginForm("Login", "Login", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 if (@ViewBag.Message != null)
                 {
                     <div style="border:1px solid red">
@@ -46,17 +46,17 @@
 
                 <div class="form-group has-feedback">
                    Usuario
-                    @Html.TextBoxFor(a => a.com_username)
-                    @Html.ValidationMessageFor(a => a.com_username)
+                    @Html.TextBoxFor(a => a.com_username, new { @class = "form-control", type = "correo" })
+                    @Html.ValidationMessageFor(a => a.com_username, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group has-feedback">
                    Clave&nbsp;&nbsp;&nbsp;&nbsp;
-                    @Html.TextBoxFor(a => a.com_clave)
-                    @Html.ValidationMessageFor(a => a.com_clave)
+                    @Html.PasswordFor(a => a.com_clave, new { @class = "form-control", type = "password" })
+                    @Html.ValidationMessageFor(a => a.com_clave , "", new { @class = "text-danger" })
                 </div>
-                <div class="col-xs-2">
-                    <input type="submit" value="Login" />
-                </div>
+                <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Inicio</button>
+                    </div>
             }
         </div>
     </div>
