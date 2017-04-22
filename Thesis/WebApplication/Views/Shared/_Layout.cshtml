@@ -16,210 +16,120 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-    
-        <div class="wrapper">
-          
-                <header class="main-header">
-                    <a href="@Url.Action("DashboardV1", "Home")" class="logo">
-                        @*<span class="logo-mini"><b>W</b>eb</span>*@
-                        <span class="logo-lg"><b>Control</b> De Visitas</span>
-                    </a>
-                    <nav class="navbar navbar-static-top" role="navigation">
-                        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                            <span class="sr-only">Toggle navigation</span>
-                        </a>
-                        <div class="navbar-custom-menu">
-                            @*<ul class="nav navbar-nav">
-                            <li class="dropdown messages-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <span class="label label-success">4</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="header">You have 4 messages</li>
-                                    <li>
-                                        <ul class="menu">
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Support Team
-                                                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        AdminLTE Design Team
-                                                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Developers
-                                                        <small><i class="fa fa-clock-o"></i> Today</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Sales Department
-                                                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Reviewers
-                                                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="footer"><a href="#">See All Messages</a></li>
-                                </ul>
-                            </li>
 
+    <div class="wrapper">
 
-                            @Html.Partial("_LoginPartial")
-                            <li>
-                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                            </li>
-                        </ul>*@
-                        </div>
-                    </nav>
-                </header>
-         
-                    <aside class="main-sidebar">
-                        <section class="sidebar">
-                            <div class="user-panel">
-                                <div class="pull-left image">
-                                    <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
-                                </div>
-                                <div class="pull-left info">
-                                    <p>@User.Identity.GetUserNameIdentifier()</p>
-                                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                                </div>
-                            </div>
-
-                            <ul class="sidebar-menu">
-                                <li class="header">OPERACIONES</li>
-
-                                <li id="left-sidebar-menu-tables" class="treeview">
-                                    <<a href="#">
-                                        <i class="fa fa-table"></i> <span>Empresas</span>
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("CreaEmpresa", "Empresa")"><i class="fa fa-circle-o"></i>Ingresar nueva Empresa</a></li>
-                                        <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "Empresa")"><i class="fa fa-circle-o"></i> Ver Empresas  </a></li>
-                                    </ul>
-                                </li>
-
-                                <li id="left-sidebar-menu-tables" class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-table"></i> <span>Clientes</span>
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Ingresar Dtaos de Cliente </a></li>
-                                        <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i> Listar </a></li>
-                                    </ul>
-                                </li>
-
-
-                                <li id="left-sidebar-menu-tables" class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-table"></i> <span>Equipos</span>
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliEquipo")"><i class="fa fa-circle-o"></i> Crear</a></li>
-                                        <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliEquipo")"><i class="fa fa-circle-o"></i>Listar</a></li>
-                                    </ul>
-                                </li>
-
-                                <li id="left-sidebar-menu-tables" class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-table"></i> <span>Usarios</span>
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Simple", "Tables")"><i class="fa fa-circle-o"></i> Crear</a></li>
-                                        <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Data", "Tables")"><i class="fa fa-circle-o"></i> Listar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </section>
-                    </aside>
-               
-            <div class="container">
-                <div class="centered">
-                    <br />
-                    <br />
-                    <br />
-                    @RenderBody()
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+        <header class="main-header">
+            <a href="@Url.Action("DashboardV1", "Home")" class="logo">
+                @*<span class="logo-mini"><b>W</b>eb</span>*@
+                <span class="logo-lg"><b>Control</b> De Visitas</span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
                 </div>
-            </div>
-            
-                
-
-                
-               
-
-
-
-                <footer class="main-footer">
-                    <div class="pull-right hidden-xs">
-                        <b>Version</b> 2.3.2
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
                     </div>
-                    <strong>Copyrights | MVC Application Bartosz Rachwal (AIST) | Layout &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-                    reserved.
-                </footer>
+                    <div class="pull-left info">
+                        <p>@User.Identity.GetUserNameIdentifier()</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+
+                <ul class="sidebar-menu">
+                    <li class="header">CLIENTES</li>
+
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Clientes</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("CreaEmpresa", "Empresa")"><i class="fa fa-circle-o"></i>Cliente Nuevo</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "Empresa")"><i class="fa fa-circle-o"></i> Lista de Clientes  </a></li>
+                        </ul>
+                    </li>
+
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Usuarios Empresariales</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Nuevo Usuario </a></li>
+                            <li id="left-sidebar-menu-tables-data">
+                                <a href="@Url.Action("Index","cliUsuario")">
+                                    <i class="fa fa-circle-o"></i>
+                                    Lista de usuarios por Empresa
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> MOTORLINE </a></li>
+                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Libreria Vida Nueva</a></li>
+                                </ul></li>
+                        </ul>
+                    </li>
+
+                    <li class="header">OPERACIONES</li>
+
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Equipos</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliEquipo")"><i class="fa fa-circle-o"></i> Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliEquipo")"><i class="fa fa-circle-o"></i>Listar</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Usarios del Sistema</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Simple", "Tables")"><i class="fa fa-circle-o"></i> Nuevo usuario</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Data", "Tables")"><i class="fa fa-circle-o"></i> Listado de Usuarios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <div class="container">
+            <div class="centered">
+                <br />
+                <br />
+                <br />
+                @RenderBody()
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
-
-
-  
-   
-
-   
-
-
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.3.2
+            </div>
+            <strong>Copyrights | MVC Application Bartosz Rachwal (AIST) | Layout &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+            reserved.
+        </footer>
+    </div>
     @Scripts.Render("~/AdminLTE/plugins/jquery/js")
     @RenderSection("menu", required: false)
     @Scripts.Render("~/AdminLTE/bootstrap/js")
@@ -259,4 +169,3 @@
         }
     });
 </script>
-

@@ -703,12 +703,12 @@
     <Content Include="Views\cliUsuario\Details.cshtml" />
     <Content Include="Views\cliUsuario\Edit.cshtml" />
     <Content Include="Views\cliUsuario\Index.cshtml" />
-    <Content Include="Views\Prueba\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Prueba\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
