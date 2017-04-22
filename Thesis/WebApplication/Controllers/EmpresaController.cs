@@ -15,7 +15,7 @@ namespace WebApplication.Controllers
         //
         // GET: /Empresa/
         bd_ControlVisitasEntities empresa = new bd_ControlVisitasEntities();
-        public ActionResult Index()
+        public ActionResult Listar()
 
         {
             if (Session["LogedUserID"] != null)
@@ -49,9 +49,9 @@ namespace WebApplication.Controllers
             {
                 empresa.cli_empresa.Add(val);
                 empresa.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Listar");
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Listar");
         }
 
         // GET: /cli_Dpto/Edit/5
@@ -77,7 +77,7 @@ namespace WebApplication.Controllers
             {
                 empresa.Entry(Cli_Empresa).State = EntityState.Modified;
                 empresa.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Listar");
             }
             return View(Cli_Empresa);
         }
