@@ -606,6 +606,7 @@
     <Content Include="Scripts\Tables\Data-menu.js" />
     <Content Include="Scripts\Tables\Data.js" />
     <Content Include="Scripts\Tables\Simple-menu.js" />
+    <Content Include="Scripts\Tables\Spanish.js" />
     <Content Include="Scripts\Widgets\Widgets-menu.js" />
     <Content Include="Styles\Elements\General.css" />
     <Content Include="Styles\Elements\Icons.css" />
