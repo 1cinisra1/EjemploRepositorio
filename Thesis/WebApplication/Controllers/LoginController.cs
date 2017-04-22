@@ -33,7 +33,7 @@ namespace WebApplication.Controllers
                     {
                         Session["LogedUserID"] = v.idCom_Usuarios.ToString();
                         Session["LogedUserName"] = v.Com_Nombre.ToString();
-                        return RedirectToAction("Index","Empresa");
+                        return RedirectToAction("Listar","Empresa");
                     }
                 }
             }
