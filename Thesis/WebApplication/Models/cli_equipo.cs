@@ -20,6 +20,7 @@ namespace WebApplication.Models
         public string Cli_DiscoDuro { get; set; }
         public string Cli_Ram { get; set; }
         public string Cli_Procesador { get; set; }
+        public string Cli_TipoEquipo { get; set; }
         public int Cli_TipoEquipo_idCli_TipoEquipo { get; set; }
     
         public virtual cli_tipoequipo cli_tipoequipo1 { get; set; }

@@ -4,30 +4,45 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="box" style="margin-left:110px">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.cli_tipoequipoDesc)
-        </th>
-        <th></th>
-    </tr>
+            <div class="box-body">
+                <div class="form-horizontal">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.cli_tipoequipoDesc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idCli_TipoEquipo }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idCli_TipoEquipo }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idCli_TipoEquipo })
-        </td>
-    </tr>
+                    <table id="example1" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label>Descripcion</label>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cli_Descripcion)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idCli_TipoEquipo }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idCli_TipoEquipo }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idCli_TipoEquipo })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+    @Scripts.Render("~/Scripts/Tables/Data")
 }
 
-</table>

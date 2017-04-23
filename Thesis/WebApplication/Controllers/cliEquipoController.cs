@@ -18,25 +18,18 @@ namespace WebApplication.Controllers
         // GET: /cliEquipo/
         public async Task<ActionResult> Index()
         {
-            if (Session["LogedUserID"] != null)
-            {
-                var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo1);
-                return View(await cli_equipo.ToListAsync());
-            }
-            else
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo1);
+            return View(await cli_equipo.ToListAsync());
         }
 
         // GET: /cliEquipo/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int? id,int? id1)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id);
+            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id,id1);
             if (cli_equipo == null)
             {
                 return HttpNotFound();
@@ -47,15 +40,8 @@ namespace WebApplication.Controllers
         // GET: /cliEquipo/Create
         public ActionResult Create()
         {
-            if (Session["LogedUserID"] != null)
-            {
-                ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "cli_tipoequipoDesc");
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion");
+            return View();
         }
 
         // POST: /cliEquipo/Create
@@ -72,7 +58,7 @@ namespace WebApplication.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "cli_tipoequipoDesc", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
+            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
             return View(cli_equipo);
         }
 
@@ -88,7 +74,7 @@ namespace WebApplication.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "cli_tipoequipoDesc", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
+            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
             return View(cli_equipo);
         }
 
@@ -97,7 +83,7 @@ namespace WebApplication.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include="idCli_Equipo,Cli_Marca,Cli_Modelo,Cli_DiscoDuro,Cli_Ram,Cli_Procesador,Cli_TipoEquipo_idCli_TipoEquipo")] cli_equipo cli_equipo)
+        public async Task<ActionResult> Edit([Bind(Include="idCli_Equipo,Cli_Marca,Cli_Modelo,Cli_DiscoDuro,Cli_Ram,Cli_Procesador,Cli_TipoEquipo,Cli_TipoEquipo_idCli_TipoEquipo")] cli_equipo cli_equipo)
         {
             if (ModelState.IsValid)
             {
@@ -105,18 +91,18 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "cli_tipoequipoDesc", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
+            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
             return View(cli_equipo);
         }
 
         // GET: /cliEquipo/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<ActionResult> Delete(int? id, int? id1)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id);
+            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id,id1);
             if (cli_equipo == null)
             {
                 return HttpNotFound();

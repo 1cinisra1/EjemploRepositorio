@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<WebApplication.Models.cli_usuario>
 
 @{
-    ViewBag.Title = "Detalle de Clientes";
+    ViewBag.Title = "Index";
 }
+
+<h2>Index</h2>
 
 @section Menu {
     @Scripts.Render("~/Scripts/Tables/Data/menu")
@@ -10,62 +12,70 @@
 
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
 
 <div class="row">
-    <div class="col-xs-12">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Datos de Clientes</h3>
-            </div>
+    <div class="col-md-12 ">
+        <div class="box" style="margin-left:110px">
+
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Departamento</th>
-                            <th>Empresa</th>
-                            <th> Equipo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+                <div class="form-horizontal">
+
+                    <table id="example1" class="table table-bordered">
+                        <thead>
                             <tr>
-                                <td>
-                                    <a href="@Url.Action("Edit", "cliUsuario", new { id=item.idCli_Usuario})">
-                                    @Html.DisplayFor(modelItem => item.Cli_nombre)
-                                    </a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.cli_departamento1.Cli_Descripcion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.cli_empresa.Cli_Nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Cli_Equipo_idCli_Equipo)
-                                </td>
-                                @*<td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.idCli_Usuario, id1 = item.Cli_Empresa_idCli_Empresa, id2 = item.Cli_Departamento_idCli_Departamento }) |
-                                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                                    </td>*@
+                                <th>
+                                    <label>Nombre</label>
+                                </th>
+                                @*<th>
+                                    <label>Departamento</label>
+                                </th>*@
+                                <th>
+                                    <label>Equipo</label>
+                                </th>
+                                <th>
+                                    <label>Correo</label>
+                                </th>
+                                <th>
+                                    <label>Empresa</label>
+                                </th>
+                                <th>
+                                    <label>Departamento</label>
+                                </th>
+                                <th></th>
                             </tr>
-                        }
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Departamento</th>
-                            <th>Empresa</th>
-                            <th> Equipo</th>
-                        </tr>
-                    </tfoot>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cli_nombre)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.Cli_Departamento)
+                                    </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cli_Equipo_idCli_Equipo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cli_Correo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cli_cliente.Cli_RSocial)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cli_departamento1.Cli_Descripcion)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

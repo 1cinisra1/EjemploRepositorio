@@ -20,8 +20,8 @@ namespace WebApplication.Controllers
         {
             if (Session["LogedUserID"] != null)
             {
-                var dato = empresa.cli_empresa;
-                return View(dato.ToList());
+                //var dato = empresa.cli_empresa.OrderBy(a => a.Cli_Nombre);
+                return View(empresa.cli_empresa.ToList());
             }
             else
             {

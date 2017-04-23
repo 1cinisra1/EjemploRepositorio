@@ -4,63 +4,75 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="register-box">
+    <div class="register-box-body">
+        <p class="login-box-msg">Detalle Equipo</p>
+        <div>
+            <h4>cli_equipo</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Marca</label>
+                </dt>
 
-<div>
-    <h4>cli_equipo</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Marca)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cli_Marca)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Marca)
-        </dd>
+                <dt>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Modelo</label>
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Modelo)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cli_Modelo)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Modelo)
-        </dd>
+                <dt>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Disco Duro</label>
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_DiscoDuro)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cli_DiscoDuro)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_DiscoDuro)
-        </dd>
+                <dt>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Memoria RAM</label>
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Ram)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cli_Ram)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Ram)
-        </dd>
+                <dt>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Procesador</label>
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Procesador)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cli_Procesador)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Procesador)
-        </dd>
+                @*<dt>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo Equipo</label>
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cli_tipoequipo1.cli_tipoequipoDesc)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cli_TipoEquipo)
+                </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.cli_tipoequipo1.cli_tipoequipoDesc)
-        </dd>
+                <dt>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo Equipo</label>
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.cli_tipoequipo1.Cli_Descripcion)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
+            @Html.ActionLink("Volver", "Index")
+        </p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

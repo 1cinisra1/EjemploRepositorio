@@ -12,14 +12,18 @@ namespace WebApplication.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class comp_bitacora
+    public partial class comp_ruta
     {
         public int idComp_Bitacora { get; set; }
-        public string Comp_Cliente { get; set; }
         public Nullable<System.DateTime> Comp_Fecha { get; set; }
         public string Comp_NumeroVisitaMes { get; set; }
-        public string Comp_Equipo { get; set; }
-        public string Comp_Usuario { get; set; }
-        public string Comp_Informe { get; set; }
+        public int Com_Usuarios_idCom_Usuarios { get; set; }
+        public int Com_Usuarios_Roles_idRoles { get; set; }
+        public int Cli_Empresa_idCli_Empresa { get; set; }
+        public string Comp_TiempoDur { get; set; }
+        public string Comp_Comentario { get; set; }
+    
+        public virtual cli_cliente cli_cliente { get; set; }
+        public virtual com_usuarios com_usuarios { get; set; }
     }
 }

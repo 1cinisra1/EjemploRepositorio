@@ -1,4 +1,5 @@
 ﻿@using WebApplication.Extensions
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-
+    
     <div class="wrapper">
 
         <header class="main-header">
@@ -53,29 +54,24 @@
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("CreaEmpresa", "Empresa")"><i class="fa fa-circle-o"></i>Cliente Nuevo</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "Empresa")"><i class="fa fa-circle-o"></i> Lista de Clientes  </a></li>
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliCliente")"><i class="fa fa-circle-o"></i>Cliente Nuevo</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliCliente")"><i class="fa fa-circle-o"></i> Lista de Clientes  </a></li>
                         </ul>
                     </li>
 
                     <li id="left-sidebar-menu-tables" class="treeview">
                         <a href="#">
-                            <i class="fa fa-table"></i> <span>Usuarios Empresariales</span>
+                            <i class="fa fa-table"></i> <span>Usuarios </span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Nuevo Usuario </a></li>
                             <li id="left-sidebar-menu-tables-data">
-                                <a href="@Url.Action("Index","cliUsuario")">
-                                    <i class="fa fa-circle-o"></i>
-                                    Lista de usuarios por Empresa
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> MOTORLINE </a></li>
-                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Libreria Vida Nueva</a></li>
-                                </ul></li>
+                                <a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Lista</a>
+                            @*<ul> @Html.Partial("_Listar")</ul>*@
                         </ul>
                     </li>
+                    
 
                     <li class="header">OPERACIONES</li>
 

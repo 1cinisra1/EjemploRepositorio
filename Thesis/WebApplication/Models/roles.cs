@@ -20,7 +20,7 @@ namespace WebApplication.Models
         }
     
         public int idRoles { get; set; }
-        public string rol_descripcion { get; set; }
+        public string Descripcion { get; set; }
     
         public virtual ICollection<com_usuarios> com_usuarios { get; set; }
     }

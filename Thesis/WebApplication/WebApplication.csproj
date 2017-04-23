@@ -221,20 +221,18 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ChartsController.cs" />
+    <Compile Include="Controllers\cliClienteController.cs" />
+    <Compile Include="Controllers\cliDepartamentoController.cs" />
     <Compile Include="Controllers\cliEquipoController.cs" />
     <Compile Include="Controllers\cliTipoEquipoController.cs" />
     <Compile Include="Controllers\cliUsuarioController.cs" />
-    <Compile Include="Controllers\cli_DptoController.cs" />
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
-    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\ExamplesController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MailboxController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
@@ -257,10 +255,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\cli_departamento.cs">
+    <Compile Include="Models\cli_cliente.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\cli_empresa.cs">
+    <Compile Include="Models\cli_departamento.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\cli_equipo.cs">
@@ -272,7 +270,7 @@
     <Compile Include="Models\cli_usuario.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\comp_bitacora.cs">
+    <Compile Include="Models\comp_ruta.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\com_usuarios.cs">
@@ -555,6 +553,19 @@
     <Content Include="Scripts\Home\DashboardV1.js" />
     <Content Include="Scripts\Home\DashboardV2-menu.js" />
     <Content Include="Scripts\Home\DashboardV2.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <EntityDeploy Include="Models\bd_ControlVisitas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>bd_ControlVisitas.Designer.cs</LastGenOutput>
@@ -572,19 +583,6 @@
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
       <LastGenOutput>bd_ControlVisitas.cs</LastGenOutput>
     </Content>
-    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -678,33 +676,31 @@
     <Content Include="Views\Home\DashboardV1.cshtml" />
     <Content Include="Views\Home\DashboardV2.cshtml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
-    <Content Include="Views\Empresa\ModificaEmpresa.cshtml" />
-    <Content Include="Views\Cli_Usuario\Cli_VerUsuarios.cshtml" />
-    <Content Include="Views\Cli_Usuario\Cli_AgregaUsuario.cshtml" />
-    <Content Include="Views\Empresa\CreaEmpresa.cshtml" />
-    <Content Include="Views\cli_Dpto\Create.cshtml" />
-    <Content Include="Views\cli_Dpto\Delete.cshtml" />
-    <Content Include="Views\cli_Dpto\Details.cshtml" />
-    <Content Include="Views\cli_Dpto\Edit.cshtml" />
-    <Content Include="Views\cli_Dpto\Index.cshtml" />
-    <Content Include="Views\cliEquipo\Create.cshtml" />
-    <Content Include="Views\cliEquipo\Delete.cshtml" />
-    <Content Include="Views\cliEquipo\Details.cshtml" />
-    <Content Include="Views\cliEquipo\Edit.cshtml" />
-    <Content Include="Views\cliEquipo\Index.cshtml" />
     <Content Include="Views\cliTipoEquipo\Create.cshtml" />
     <Content Include="Views\cliTipoEquipo\Delete.cshtml" />
     <Content Include="Views\cliTipoEquipo\Details.cshtml" />
     <Content Include="Views\cliTipoEquipo\Edit.cshtml" />
     <Content Include="Views\cliTipoEquipo\Index.cshtml" />
+    <Content Include="Views\cliEquipo\Create.cshtml" />
+    <Content Include="Views\cliEquipo\Delete.cshtml" />
+    <Content Include="Views\cliEquipo\Details.cshtml" />
+    <Content Include="Views\cliEquipo\Edit.cshtml" />
+    <Content Include="Views\cliCliente\Create.cshtml" />
+    <Content Include="Views\cliCliente\Delete.cshtml" />
+    <Content Include="Views\cliCliente\Details.cshtml" />
+    <Content Include="Views\cliCliente\Edit.cshtml" />
+    <Content Include="Views\cliCliente\Index.cshtml" />
+    <Content Include="Views\cliDepartamento\Create.cshtml" />
+    <Content Include="Views\cliDepartamento\Delete.cshtml" />
+    <Content Include="Views\cliDepartamento\Details.cshtml" />
+    <Content Include="Views\cliDepartamento\Edit.cshtml" />
+    <Content Include="Views\cliDepartamento\Index.cshtml" />
     <Content Include="Views\cliUsuario\Create.cshtml" />
     <Content Include="Views\cliUsuario\Delete.cshtml" />
     <Content Include="Views\cliUsuario\Details.cshtml" />
     <Content Include="Views\cliUsuario\Edit.cshtml" />
     <Content Include="Views\cliUsuario\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Login\Register.cshtml" />
-    <Content Include="Views\Empresa\Listar.cshtml" />
+    <Content Include="Views\cliEquipo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,39 +4,64 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="register-box">
+    <div class="register-box-body">
+        <p class="login-box-msg">Datos de Usuario</p>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+            </dt>
 
-<div>
-    <h4>cli_usuario</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_nombre)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_nombre)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_nombre)
-        </dd>
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Cli_Departamento)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cli_departamento1.Cli_Descripcion)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Cli_Departamento)
+                </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.cli_departamento1.Cli_Descripcion)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cli_empresa.Cli_Nombre)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Equipo_idCli_Equipo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.cli_empresa.Cli_Nombre)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Correo)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cli_cliente.Cli_Nombre)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Departamento</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cli_departamento1.Cli_Descripcion)
+            </dd>
+
+        </dl>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+            @Html.ActionLink("Volver", "Index")
+        </p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

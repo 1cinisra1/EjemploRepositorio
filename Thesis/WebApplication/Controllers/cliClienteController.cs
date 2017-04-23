@@ -11,107 +11,107 @@ using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
-    public class cliTipoEquipoController : Controller
+    public class cliClienteController : Controller
     {
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
 
-        // GET: /cliTipoEquipo/
+        // GET: /cliCliente/
         public async Task<ActionResult> Index()
         {
-            return View(await db.cli_tipoequipo.ToListAsync());
+            return View(await db.cli_cliente.ToListAsync());
         }
 
-        // GET: /cliTipoEquipo/Details/5
+        // GET: /cliCliente/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_tipoequipo cli_tipoequipo = await db.cli_tipoequipo.FindAsync(id);
-            if (cli_tipoequipo == null)
+            cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+            if (cli_cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(cli_tipoequipo);
+            return View(cli_cliente);
         }
 
-        // GET: /cliTipoEquipo/Create
+        // GET: /cliCliente/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: /cliTipoEquipo/Create
+        // POST: /cliCliente/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include="idCli_TipoEquipo,Cli_Descripcion")] cli_tipoequipo cli_tipoequipo)
+        public async Task<ActionResult> Create([Bind(Include="idCli_Cliente,Cli_Nombre,Cli_Ruc,Cli_Direccion,Cli_Tel,Cli_Ciudad,Cli_RSocial,Cli_NombContacto")] cli_cliente cli_cliente)
         {
             if (ModelState.IsValid)
             {
-                db.cli_tipoequipo.Add(cli_tipoequipo);
+                db.cli_cliente.Add(cli_cliente);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(cli_tipoequipo);
+            return View(cli_cliente);
         }
 
-        // GET: /cliTipoEquipo/Edit/5
+        // GET: /cliCliente/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_tipoequipo cli_tipoequipo = await db.cli_tipoequipo.FindAsync(id);
-            if (cli_tipoequipo == null)
+            cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+            if (cli_cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(cli_tipoequipo);
+            return View(cli_cliente);
         }
 
-        // POST: /cliTipoEquipo/Edit/5
+        // POST: /cliCliente/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include="idCli_TipoEquipo,Cli_Descripcion")] cli_tipoequipo cli_tipoequipo)
+        public async Task<ActionResult> Edit([Bind(Include="idCli_Cliente,Cli_Nombre,Cli_Ruc,Cli_Direccion,Cli_Tel,Cli_Ciudad,Cli_RSocial,Cli_NombContacto")] cli_cliente cli_cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cli_tipoequipo).State = EntityState.Modified;
+                db.Entry(cli_cliente).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(cli_tipoequipo);
+            return View(cli_cliente);
         }
 
-        // GET: /cliTipoEquipo/Delete/5
+        // GET: /cliCliente/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_tipoequipo cli_tipoequipo = await db.cli_tipoequipo.FindAsync(id);
-            if (cli_tipoequipo == null)
+            cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+            if (cli_cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(cli_tipoequipo);
+            return View(cli_cliente);
         }
 
-        // POST: /cliTipoEquipo/Delete/5
+        // POST: /cliCliente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            cli_tipoequipo cli_tipoequipo = await db.cli_tipoequipo.FindAsync(id);
-            db.cli_tipoequipo.Remove(cli_tipoequipo);
+            cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+            db.cli_cliente.Remove(cli_cliente);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

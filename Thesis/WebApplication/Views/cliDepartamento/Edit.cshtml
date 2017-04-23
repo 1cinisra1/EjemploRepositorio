@@ -1,22 +1,24 @@
-﻿@model WebApplication.Models.cli_tipoequipo
+﻿@model WebApplication.Models.cli_departamento
 
 @{
     ViewBag.Title = "Edit";
 }
 
+
+
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Tipo de Equipo</p>
+        <p class="login-box-msg">Registrar una nueva Empresa</p>
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Datos</h4>
+                <h4>Editar Informacion</h4>
                 <hr />
                 @Html.ValidationSummary(true)
-                @Html.HiddenFor(model => model.idCli_TipoEquipo)
+                @Html.HiddenFor(model => model.idCli_Departamento)
 
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Descripcion</label>
@@ -28,7 +30,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" />
+                        <input type="submit" value="Guardar" class="btn btn-default" />
                     </div>
                 </div>
             </div>

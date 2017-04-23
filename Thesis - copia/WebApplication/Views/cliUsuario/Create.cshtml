@@ -1,43 +1,33 @@
 ﻿@model WebApplication.Models.cli_usuario
 
-@{
-    ViewBag.Title = "Edit";
+
+@section Menu{
+    @Scripts.Render("~/Scripts/Forms/General/menu")
 }
+
 
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Editar </p>
+        <p class="login-box-msg">CRear cliente</p>
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Datos del Usuario</h4>
+                <h4>Datos de la Empresa</h4>
                 <hr />
                 @Html.ValidationSummary(true)
-                @Html.HiddenFor(model => model.idCli_Usuario)
 
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                    @*@Html.LabelFor(model => model.Cli_Nombre, new { @class = "control-label col-md-2" })*@
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cli_nombre)
-                        @Html.ValidationMessageFor(model => model.Cli_nombre)
+                        @Html.DropDownList("Cli_Departamento_idCli_Departamento", String.Empty)
+                        @Html.ValidationMessageFor(model => model.Cli_Departamento_idCli_Departamento)
                     </div>
                 </div>
-
-                @*<div class="form-group">
-                        @Html.LabelFor(model => model.Cli_Departamento, new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Cli_Departamento)
-                            @Html.ValidationMessageFor(model => model.Cli_Departamento)
-                        </div>
-                    </div>*@
-
-                @Html.HiddenFor(model => model.Cli_Departamento_idCli_Departamento)
-
-                @Html.HiddenFor(model => model.Cli_Empresa_idCli_Empresa)
-
+                <br />
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
                     <div class="col-md-10">
@@ -45,15 +35,22 @@
                         @Html.ValidationMessageFor(model => model.Cli_Equipo_idCli_Equipo)
                     </div>
                 </div>
-
+                <br />
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cli_Correo)
-                        @Html.ValidationMessageFor(model => model.Cli_Correo)
+                        @Html.DropDownList("Cli_Empresa_idCli_Empresa", String.Empty)
+                        @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
                     </div>
                 </div>
-
+                <br />
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_nombre)
+                        @Html.ValidationMessageFor(model => model.Cli_nombre)
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Guardar" class="btn btn-default" />
@@ -61,9 +58,5 @@
                 </div>
             </div>
         }
-
-        <div>
-            @Html.ActionLink("Volver", "Index")
-        </div>
     </div>
 </div>

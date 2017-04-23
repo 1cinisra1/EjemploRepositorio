@@ -15,12 +15,13 @@ namespace WebApplication.Models
     public partial class cli_usuario
     {
         public int idCli_Usuario { get; set; }
-        public int Cli_Departamento_idCli_Departamento { get; set; }
-        public int Cli_Equipo_idCli_Equipo { get; set; }
-        public int Cli_Empresa_idCli_Empresa { get; set; }
         public string Cli_nombre { get; set; }
+        public int Cli_Departamento_idCli_Departamento { get; set; }
+        public int Cli_Empresa_idCli_Empresa { get; set; }
+        public int Cli_Equipo_idCli_Equipo { get; set; }
+        public string Cli_Correo { get; set; }
     
+        public virtual cli_cliente cli_cliente { get; set; }
         public virtual cli_departamento cli_departamento1 { get; set; }
-        public virtual cli_empresa cli_empresa { get; set; }
     }
 }

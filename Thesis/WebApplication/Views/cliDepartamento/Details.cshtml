@@ -1,0 +1,30 @@
+﻿@model WebApplication.Models.cli_departamento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="register-box">
+    <div class="register-box-body">
+        <p class="login-box-msg">Detalle Departamento</p>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Descripcion</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Descripcion)
+            </dd>
+
+        </dl>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.idCli_Departamento }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+
+
