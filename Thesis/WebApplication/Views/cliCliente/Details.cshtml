@@ -1,0 +1,78 @@
+﻿@model WebApplication.Models.cli_cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="register-box">
+    <div class="register-box-body">
+        <p class="login-box-msg">Detalle Cliente</p>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Nombre)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Ruc/Cedula</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Ruc)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Direccion</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Direccion)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Telefono</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Tel)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Ciudad</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Ciudad)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Razon Social</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_RSocial)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Nombre Contacto</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_NombContacto)
+            </dd>
+
+        </dl>
+    
+   
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Cliente }) |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+    </div>
+    </div>
