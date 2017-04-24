@@ -1,0 +1,61 @@
+﻿@model WebApplication.Models.cli_usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="register-box">
+    <div class="register-box-body">
+        
+        <h3 style="text-align:center">DETALLE USUARO</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_nombre)
+            </dd>
+
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Equipo_idCli_Equipo)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Correo)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cli_cliente.Cli_Nombre)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Departamento</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cli_departamento1.Cli_Descripcion)
+            </dd>
+
+        </dl>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Usuario, id2 = Model.cli_departamento1.idCli_Departamento, id1 = Model.cli_cliente.idCli_Cliente }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" }) 
+        </p>
+    </div>
+</div>
+

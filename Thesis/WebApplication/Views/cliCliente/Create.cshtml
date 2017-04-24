@@ -1,0 +1,97 @@
+﻿@model WebApplication.Models.cli_cliente
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="register-box">
+    <div class="register-box-body">
+       
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h3 style="text-align:center">EMPRESA</h3>
+                <hr />
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Nombre, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Nombre)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">RUC/Cedula</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Ruc, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Ruc)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Direccion</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Direccion, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Direccion)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Telefono</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Tel, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Tel)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Ciudad</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Ciudad, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Ciudad)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Razon Social</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_RSocial, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_RSocial)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Nombre Contacto</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_NombContacto, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_NombContacto)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-success">Crear</button>
+                        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div>
+   
+</div>
+<style type="text/css">
+    .form-control-rounded {
+        border-radius: 16px;
+    }
+
+   
+</style>
+

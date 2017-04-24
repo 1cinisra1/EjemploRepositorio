@@ -1,0 +1,91 @@
+﻿@model IEnumerable<WebApplication.Models.com_usuarios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Tables/Data/menu")
+}
+
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+
+
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="box" style="margin-left:110px">
+
+            <div class="box-body">
+                <div class="form-horizontal">
+
+                    <table id="example1" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label>Nombre</label>
+                                </th>
+                                <th>
+                                    <label>Apellido</label>
+                                </th>
+                                <th>
+                                    <label>Correo</label>
+                                </th>
+                                <th>
+                                    <label>Direccion</label>
+                                </th>
+                                <th>
+                                    <label>Cedula</label>
+                                </th>
+                                <th>
+                                    <label>Telefono</label>
+                                </th>
+                                <th>
+                                    <label>Rol</label>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Com_Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Com_Apellido)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Com_Correo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Com_Direccion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Com_Cedula)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Com_Telefono)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.roles.Descripcion)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id=item.idCom_Usuarios,id1=item.roles.idRoles }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+    @Scripts.Render("~/Scripts/Tables/Data")
+}

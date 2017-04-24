@@ -22,6 +22,17 @@ namespace WebApplication.Models
             return userIdentity;
         }
     }
+    //public class Cli_USer : CustomIdentityUser
+    //{
+    //    public async Task<ClaimsIdentity> GeneraUsuarioAsync(UserManager<Cli_USer> manager)
+    //    {
+    //        var usuarioIdent = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+
+    //        usuarioIdent.AddClaim(new Claim("WebApplication.Models.Cli_Usuario.nombre", nombre));
+
+    //        return usuarioIdent;
+    //    }
+    //}
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

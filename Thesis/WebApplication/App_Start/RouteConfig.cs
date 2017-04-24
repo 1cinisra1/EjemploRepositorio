@@ -13,7 +13,9 @@ namespace WebApplication
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "DashboardV1", id = UrlParameter.Optional }
+                
             );
+
         }
     }
 }

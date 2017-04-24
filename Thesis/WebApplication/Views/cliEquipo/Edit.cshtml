@@ -1,0 +1,84 @@
+﻿@model WebApplication.Models.cli_equipo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="register-box">
+    <div class="register-box-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h3 style="text-align:center">EDITAR EQUIPO</h3>
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.idCli_Equipo)
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Marca</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Marca, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Marca)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Modelo</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Modelo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Modelo)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Disco Duro</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_DiscoDuro, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_DiscoDuro)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Memoria Ram</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Ram, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Ram)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Procesador</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Procesador, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Procesador)
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo Equipo</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_TipoEquipo)
+                        @Html.ValidationMessageFor(model => model.Cli_TipoEquipo)
+                    </div>
+                </div>*@
+
+                @Html.HiddenFor(model => model.Cli_TipoEquipo_idCli_TipoEquipo)
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" value="Save" class="btn btn-success">Aceptar</button>
+                        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style type="text/css">
+    .form-control-rounded {
+        border-radius: 16px;
+    }
+</style>

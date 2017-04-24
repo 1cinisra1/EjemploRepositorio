@@ -1095,6 +1095,7 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  border-radius:4px;
 }
 a {
   color: #337ab7;
@@ -5502,7 +5503,7 @@ button.list-group-item-danger.active:focus {
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 .panel-body {
-  padding: 15px;
+    background: #fff;
 }
 .panel-heading {
   padding: 10px 15px;

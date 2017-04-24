@@ -126,4 +126,17 @@ namespace WebApplication.Models
         public string telefono { get; set; }
         public string ruc { get; set; }
     }
+    public class Cli_Usuario
+    {
+        public int codigo { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Text)]
+        [Display(Name = "Nombre")]
+        public string nombre { get; set; }
+        public int Cli_Equipo { get; set; }
+        public int Cli_Departamento { get; set; }
+        public int Cli_Empresa { get; set; }
+    }
 }

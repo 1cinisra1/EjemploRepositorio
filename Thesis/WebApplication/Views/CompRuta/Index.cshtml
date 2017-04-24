@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WebApplication.Models.comp_ruta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Tables/Data/menu")
+}
+
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+
+
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="box" style="margin-left:110px">
+
+            <div class="box-body">
+                <div class="form-horizontal">
+
+                    <table id="example1" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label>Fecha</label>
+                                </th>
+                                <th>
+                                    <label>Visita No.</label>
+                                </th>
+                                <th>
+                                    <label>Tiempo Estimado</label>
+                                </th>
+                                <th>
+                                    <label>Comentario</label>
+                                </th>
+                                <th>
+                                    <label>Cliente</label>
+                                </th>
+                                <th>
+                                    <label>Tecnico Asignado</label>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comp_Fecha)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comp_NumeroVisitaMes)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comp_TiempoDur)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comp_Comentario)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cli_cliente.Cli_RSocial)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idComp_Bitacora,id1=item.com_usuarios.idCom_Usuarios,id2=item.cli_cliente.idCli_Cliente,id3=item.com_usuarios.roles.idRoles,id4=item.idComp_Bitacora}) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idComp_Bitacora,id2=item.com_usuarios.idCom_Usuarios }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idComp_Bitacora })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+    @Scripts.Render("~/Scripts/Tables/Data")
+}
