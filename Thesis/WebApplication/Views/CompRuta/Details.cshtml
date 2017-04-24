@@ -8,7 +8,7 @@
 
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Detalle</p>
+        <h3 style="text-align:center">DETALLE RUTA</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -62,8 +62,8 @@
         </dl>
 
         <p>
-            @Html.ActionLink("Editar", "Edit", new { id = Model.idComp_Bitacora }) |
-            @Html.ActionLink("Volver", "Index")
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idComp_Bitacora, id1 = Model.Com_Usuarios_idCom_Usuarios, id2 = Model.Cli_Empresa_idCli_Empresa }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
         </p>
     </div>
 </div>
