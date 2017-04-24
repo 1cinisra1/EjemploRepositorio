@@ -6,21 +6,20 @@
 
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Registro de Ruta</p>
-
+       
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Nueva Ruta</h4>
+                <h3 style="text-align:center">RUTA</h3>
                 <hr />
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Fecha</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_Fecha)
+                        @Html.EditorFor(model => model.Comp_Fecha, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Comp_Fecha)
                     </div>
                 </div>
@@ -28,7 +27,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Visita No.</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_NumeroVisitaMes)
+                        @Html.EditorFor(model => model.Comp_NumeroVisitaMes, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Comp_NumeroVisitaMes)
                     </div>
                 </div>
@@ -36,7 +35,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Tecnico Asignado</label>
                     <div class="col-md-10">
-                        @Html.DropDownList("Com_Usuarios_idCom_Usuarios", String.Empty)
+                        @Html.DropDownList("Com_Usuarios_idCom_Usuarios", null, new { @class = "form-control form-control-rounded" })
                         @Html.ValidationMessageFor(model => model.Com_Usuarios_idCom_Usuarios)
                     </div>
                 </div>
@@ -44,7 +43,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Rol</label>
                     <div class="col-md-10">
-                        @Html.DropDownList("Com_Usuarios_Roles_idRoles", String.Empty)
+                        @Html.DropDownList("Com_Usuarios_Roles_idRoles", null, new { @class = "form-control form-control-rounded" })
                         @Html.ValidationMessageFor(model => model.Com_Usuarios_Roles_idRoles)
                     </div>
                 </div>
@@ -52,7 +51,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Cliente</label>
                     <div class="col-md-10">
-                        @Html.DropDownList("Cli_Empresa_idCli_Empresa", String.Empty)
+                        @Html.DropDownList("Cli_Empresa_idCli_Empresa", null, new { @class = "form-control form-control-rounded" })
                         @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
                     </div>
                 </div>
@@ -60,7 +59,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Tiempo de Visita</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_TiempoDur)
+                        @Html.EditorFor(model => model.Comp_TiempoDur, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Comp_TiempoDur)
                     </div>
                 </div>
@@ -68,15 +67,15 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_Comentario)
+                        @Html.EditorFor(model => model.Comp_Comentario, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Comp_Comentario)
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />|
-                        @Html.ActionLink("Volver", "Index")
+                        <button type="submit" class="btn btn-success">Crear</button>
+                        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
                     </div>
                 </div>
             </div>
@@ -84,3 +83,8 @@
     </div>
 </div>
 
+<style type="text/css">
+    .form-control-rounded {
+        border-radius: 16px;
+    }
+</style>
