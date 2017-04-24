@@ -1,0 +1,80 @@
+﻿@model WebApplication.Models.com_usuarios
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="register-box">
+    <div class="register-box-body">
+        <p class="login-box-msg">Desea Eliminar Este Usuario?</p>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Com_Nombre)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Apellido</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Com_Apellido)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Com_Correo)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Direccion</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Com_Direccion)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Cedula</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Com_Cedula)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Telefono</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Com_Telefono)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Rol</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.roles.Descripcion)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Volver", "Index")
+            </div>
+        }
+    </div>
+</div>

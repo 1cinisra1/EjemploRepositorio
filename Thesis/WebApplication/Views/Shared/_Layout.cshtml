@@ -92,8 +92,18 @@
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Simple", "Tables")"><i class="fa fa-circle-o"></i> Nuevo usuario</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Data", "Tables")"><i class="fa fa-circle-o"></i> Listado de Usuarios</a></li>
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "ComUsuarios")"><i class="fa fa-circle-o"></i> Nuevo usuario</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "ComUsuarios")"><i class="fa fa-circle-o"></i> Listado de Usuarios</a></li>
+                        </ul>
+                    </li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Ruta</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "CompRuta")"><i class="fa fa-circle-o"></i> Nueva Ruta</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "CompRuta")"><i class="fa fa-circle-o"></i> Rutas</a></li>
                         </ul>
                     </li>
                 </ul>

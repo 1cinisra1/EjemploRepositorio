@@ -226,6 +226,8 @@
     <Compile Include="Controllers\cliEquipoController.cs" />
     <Compile Include="Controllers\cliTipoEquipoController.cs" />
     <Compile Include="Controllers\cliUsuarioController.cs" />
+    <Compile Include="Controllers\CompRutaController.cs" />
+    <Compile Include="Controllers\ComUsuariosController.cs" />
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\ElementsController.cs" />
     <Compile Include="Controllers\ExamplesController.cs" />
@@ -233,6 +235,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailboxController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
@@ -701,6 +704,21 @@
     <Content Include="Views\cliUsuario\Edit.cshtml" />
     <Content Include="Views\cliUsuario\Index.cshtml" />
     <Content Include="Views\cliEquipo\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\ComUsuarios\Create.cshtml" />
+    <Content Include="Views\ComUsuarios\Delete.cshtml" />
+    <Content Include="Views\ComUsuarios\Details.cshtml" />
+    <Content Include="Views\ComUsuarios\Edit.cshtml" />
+    <Content Include="Views\ComUsuarios\Index.cshtml" />
+    <Content Include="Views\CompRuta\Create.cshtml" />
+    <Content Include="Views\CompRuta\Delete.cshtml" />
+    <Content Include="Views\CompRuta\Details.cshtml" />
+    <Content Include="Views\CompRuta\Edit.cshtml" />
+    <Content Include="Views\CompRuta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,8 +1,0 @@
-﻿
-@model IEnumerable<WebApplication.Models.cli_usuario>
-
-
-@foreach (var item in Model)
-{
-    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("usrEmp","cliUsuario", new{id=item.idCli_Usuario, id1=item.cli_empresa.idCli_Empresa})"><i class="fa fa-circle-o"></i> @Html.DisplayFor(modelItem => item.cli_empresa.idCli_Empresa) </a></li>
-}

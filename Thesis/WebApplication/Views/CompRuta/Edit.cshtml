@@ -1,0 +1,87 @@
+﻿@model WebApplication.Models.comp_ruta
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="register-box">
+    <div class="register-box-body">
+        <p class="login-box-msg">Registro de Ruta </p>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Editar</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.idComp_Bitacora)
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">fecha</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Comp_Fecha)
+                        @Html.ValidationMessageFor(model => model.Comp_Fecha)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Visita No.</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Comp_NumeroVisitaMes)
+                        @Html.ValidationMessageFor(model => model.Comp_NumeroVisitaMes)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tecnico Asignado</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("Com_Usuarios_idCom_Usuarios", String.Empty)
+                        @Html.ValidationMessageFor(model => model.Com_Usuarios_idCom_Usuarios)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Rol</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("Com_Usuarios_Roles_idRoles", String.Empty)
+                        @Html.ValidationMessageFor(model => model.Com_Usuarios_Roles_idRoles)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Empresa a Visitar</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("Cli_Empresa_idCli_Empresa", String.Empty)
+                        @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tiempo Estimado</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Comp_TiempoDur)
+                        @Html.ValidationMessageFor(model => model.Comp_TiempoDur)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Comp_Comentario)
+                        @Html.ValidationMessageFor(model => model.Comp_Comentario)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />|
+                        @Html.ActionLink("Volver", "Index")
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
