@@ -50,12 +50,12 @@
 
                     <li id="left-sidebar-menu-tables" class="treeview">
                         <a href="#">
-                            <i class="fa fa-table"></i> <span>Clientes</span>
+                            <i class="fa fa-table"></i> <span>Empresas</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliCliente")"><i class="fa fa-circle-o"></i>Cliente Nuevo</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliCliente")"><i class="fa fa-circle-o"></i> Lista de Clientes  </a></li>
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliCliente")"><i class="fa fa-circle-o"></i>Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliCliente")"><i class="fa fa-circle-o"></i> Listar </a></li>
                         </ul>
                     </li>
 
@@ -65,16 +65,13 @@
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Nuevo Usuario </a></li>
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Crear </a></li>
                             <li id="left-sidebar-menu-tables-data">
-                                <a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Lista</a>
+                                <a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Listar</a>
                             @*<ul> @Html.Partial("_Listar")</ul>*@
                         </ul>
                     </li>
                     
-
-                    <li class="header">OPERACIONES</li>
-
                     <li id="left-sidebar-menu-tables" class="treeview">
                         <a href="#">
                             <i class="fa fa-table"></i> <span>Equipos</span>
@@ -86,24 +83,28 @@
                         </ul>
                     </li>
 
+                    <li class="header">COMPUSERVI</li>
+
+                   
+
                     <li id="left-sidebar-menu-tables" class="treeview">
                         <a href="#">
-                            <i class="fa fa-table"></i> <span>Usarios del Sistema</span>
+                            <i class="fa fa-table"></i> <span>Usuarios</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "ComUsuarios")"><i class="fa fa-circle-o"></i> Nuevo usuario</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "ComUsuarios")"><i class="fa fa-circle-o"></i> Listado de Usuarios</a></li>
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "ComUsuarios")"><i class="fa fa-circle-o"></i> Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "ComUsuarios")"><i class="fa fa-circle-o"></i> Listar </a></li>
                         </ul>
                     </li>
                     <li id="left-sidebar-menu-tables" class="treeview">
                         <a href="#">
-                            <i class="fa fa-table"></i> <span>Ruta</span>
+                            <i class="fa fa-table"></i> <span>Rutas</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "CompRuta")"><i class="fa fa-circle-o"></i> Nueva Ruta</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "CompRuta")"><i class="fa fa-circle-o"></i> Rutas</a></li>
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "CompRuta")"><i class="fa fa-circle-o"></i> Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "CompRuta")"><i class="fa fa-circle-o"></i> Listar</a></li>
                         </ul>
                     </li>
                 </ul>

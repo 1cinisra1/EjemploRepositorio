@@ -10,17 +10,7 @@
 
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
 
-@*<div style="margin-left:50px">
-    <p>
 
-    </p>
-</div>
-
-<div class="row">
-    <div class="col-md-6 ">
-
-    </div>
-</div>*@
 
 <div class="row">
     <div class="col-md-12">
@@ -32,7 +22,7 @@
                     @Html.AntiForgeryToken()
 
                     <div class="form-horizontal">
-                        <h4>@Html.ActionLink("Agregar Empresa", "CreaEmpresa")</h4>
+                        <h4>@Html.ActionLink("AGREGAR","create", "create", new { @class = "btn btn-success" })</h4>
                         <hr />
                         @Html.ValidationSummary(true)
 
@@ -89,9 +79,12 @@
                                             @Html.DisplayFor(modelItem => item.Cli_NombContacto)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Cliente }) |
-                                            @Html.ActionLink("Detalles", "Details", new { id = item.idCli_Cliente }) |
-                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Cliente })
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Cliente }, new { @class = "btn btn-success" }) 
+                                           
+                                            @Html.ActionLink("Ver", "Details", new { id = item.idCli_Cliente }, new { @class = "btn btn-primary " }) 
+                                           
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Cliente }, new { @class = "btn btn-danger" })
+                                            
                                         </td>
                                     </tr>
                                 }
@@ -110,3 +103,5 @@
     @Scripts.Render("~/AdminLTE/plugins/datatables/js")
     @Scripts.Render("~/Scripts/Tables/Data")
 }
+
+

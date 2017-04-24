@@ -18,7 +18,12 @@
         <div class="box" style="margin-left:110px">
 
             <div class="box-body">
+                @Html.AntiForgeryToken()
                 <div class="form-horizontal">
+                    <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
+
 
                     <table id="example1" class="table table-bordered">
                         <thead>
@@ -26,9 +31,7 @@
                                 <th>
                                     <label>Nombre</label>
                                 </th>
-                                @*<th>
-                                    <label>Departamento</label>
-                                </th>*@
+                               
                                 <th>
                                     <label>Equipo</label>
                                 </th>
@@ -67,9 +70,11 @@
                                         @Html.DisplayFor(modelItem => item.cli_departamento1.Cli_Descripcion)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento })
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }, new { @class = "btn btn-success" }) 
+                                        @Html.ActionLink("Ver", "Details", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }, new { @class = "btn btn-primary" }) 
+                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }, new { @class = "btn btn-danger" }) 
+                                        
+                                      
                                     </td>
                                 </tr>
                             }
