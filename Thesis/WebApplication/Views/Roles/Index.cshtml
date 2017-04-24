@@ -17,7 +17,8 @@
 
             <div class="box-body">
                 <div class="form-horizontal">
-
+                    <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
+                    <hr />
                     <table id="example1" class="table table-bordered">
                         <thead>
                             <tr>
@@ -35,9 +36,9 @@
                                         @Html.DisplayFor(modelItem => item.Descripcion)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.idRoles }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.idRoles }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.idRoles })
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.idRoles }, new { @class = "btn btn-success" }) 
+                                        @Html.ActionLink("Ver", "Details", new { id = item.idRoles }, new { @class = "btn btn-primary" }) 
+                                        @Html.ActionLink("eliminar", "Delete", new { id = item.idRoles }, new { @class = "btn btn-danger" }) 
                                     </td>
                                 </tr>
                             }
