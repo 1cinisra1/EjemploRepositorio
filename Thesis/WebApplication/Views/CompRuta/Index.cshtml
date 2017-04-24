@@ -13,11 +13,11 @@
 
 <div class="row">
     <div class="col-md-12 ">
-        <div class="box" style="margin-left:110px">
+        <div class="box" style="margin-left:118px">
 
             <div class="box-body">
                 <div class="form-horizontal">
-
+                    <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
                     <table id="example1" class="table table-bordered">
                         <thead>
                             <tr>
@@ -65,9 +65,9 @@
                                         @Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.idComp_Bitacora,id1=item.com_usuarios.idCom_Usuarios,id2=item.cli_cliente.idCli_Cliente,id3=item.com_usuarios.roles.idRoles,id4=item.idComp_Bitacora}) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.idComp_Bitacora,id2=item.com_usuarios.idCom_Usuarios }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.idComp_Bitacora })
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idComp_Bitacora, id1 = item.com_usuarios.idCom_Usuarios, id2 = item.cli_cliente.idCli_Cliente, id3 = item.com_usuarios.roles.idRoles, id4 = item.idComp_Bitacora }, new { @class = "btn btn-success" }) 
+                                        @Html.ActionLink("Details", "Details", new { id = item.idComp_Bitacora, id2 = item.com_usuarios.idCom_Usuarios }, new { @class = "btn btn-primary" }) 
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idComp_Bitacora }, new { @class = "btn btn-danger" })
                                     </td>
                                 </tr>
                             }
