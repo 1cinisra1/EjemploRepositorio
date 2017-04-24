@@ -6,52 +6,50 @@
 
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Detalle Equipo</p>
-        <div>
-            <h4>cli_equipo</h4>
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    <label for="inputEmail3" class="col-sm-2 control-label">Marca</label>
-                </dt>
+        <h3 style="text-align:center">DETALLE EQUIPO</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Marca</label>
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Cli_Marca)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Marca)
+            </dd>
 
-                <dt>
-                    <label for="inputEmail3" class="col-sm-2 control-label">Modelo</label>
-                </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Modelo</label>
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Cli_Modelo)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Modelo)
+            </dd>
 
-                <dt>
-                    <label for="inputEmail3" class="col-sm-2 control-label">Disco Duro</label>
-                </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Disco Duro</label>
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Cli_DiscoDuro)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_DiscoDuro)
+            </dd>
 
-                <dt>
-                    <label for="inputEmail3" class="col-sm-2 control-label">Memoria RAM</label>
-                </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Memoria RAM</label>
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Cli_Ram)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Ram)
+            </dd>
 
-                <dt>
-                    <label for="inputEmail3" class="col-sm-2 control-label">Procesador</label>
-                </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Procesador</label>
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Cli_Procesador)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Procesador)
+            </dd>
 
-                @*<dt>
+            @*<dt>
                     <label for="inputEmail3" class="col-sm-2 control-label">Tipo Equipo</label>
                 </dt>
 
@@ -59,20 +57,21 @@
                     @Html.DisplayFor(model => model.Cli_TipoEquipo)
                 </dd>*@
 
-                <dt>
-                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo Equipo</label>
-                </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Tipo Equipo</label>
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.cli_tipoequipo1.Cli_Descripcion)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.cli_tipoequipo1.Cli_Descripcion)
+            </dd>
 
-            </dl>
-        </div>
+        </dl>
+
         <p>
-            @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
-            @Html.ActionLink("Volver", "Index")
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Equipo }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
         </p>
     </div>
 </div>
+
 
