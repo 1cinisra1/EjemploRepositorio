@@ -71,9 +71,9 @@
                                         @Html.DisplayFor(modelItem => item.cli_tipoequipo1.Cli_Descripcion)
                                     </td>
                                     <td>
-                                        @Html.ActionLink("Edit", "Edit", new {  id=item.idCli_Equipo , id1=item.Cli_TipoEquipo_idCli_TipoEquipo},new { @class = "btn btn-success" }) 
-                                        @Html.ActionLink("Details", "Details", new { id = item.idCli_Equipo, id1 = item.Cli_TipoEquipo_idCli_TipoEquipo }, new { @class = "btn btn-primary" }) 
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.idCli_Equipo, id1 = item.Cli_TipoEquipo_idCli_TipoEquipo }, new { @class = "btn btn-danger" })
+                                        @Html.ActionLink("Editar", "Edit", new {  id=item.idCli_Equipo , id1=item.Cli_TipoEquipo_idCli_TipoEquipo},new { @class = "btn btn-success" }) 
+                                        @Html.ActionLink("Ver", "Details", new { id = item.idCli_Equipo, id1 = item.Cli_TipoEquipo_idCli_TipoEquipo }, new { @class = "btn btn-primary" }) 
+                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Equipo, id1 = item.Cli_TipoEquipo_idCli_TipoEquipo }, new { @class = "btn btn-danger" })
                                     </td>
                                 </tr>
                             }
