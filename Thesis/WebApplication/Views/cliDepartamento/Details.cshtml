@@ -7,7 +7,7 @@
 
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Detalle Departamento</p>
+        <h3 style="text-align:center">DETALLE DEPARTAMENTO</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -21,8 +21,8 @@
         </dl>
 
         <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.idCli_Departamento }) |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Departamento }, new { @class = "btn btn-success" }) 
+           @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
         </p>
     </div>
 </div>
