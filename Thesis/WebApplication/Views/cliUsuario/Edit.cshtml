@@ -28,9 +28,9 @@
 
 
 
-                @Html.HiddenFor(model => model.Cli_Departamento_idCli_Departamento)
+                @*@Html.HiddenFor(model => model.Cli_Departamento_idCli_Departamento)
 
-                @Html.HiddenFor(model => model.Cli_Empresa_idCli_Empresa)
+                @Html.HiddenFor(model => model.Cli_Empresa_idCli_Empresa)*@
 
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
@@ -47,6 +47,31 @@
                         @Html.ValidationMessageFor(model => model.Cli_Correo)
                     </div>
                 </div>
+
+
+
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Departamento</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.idCli_Departamento, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Departamento_idCli_Departamento)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_Empresa_idCli_Empresa, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
+                    </div>
+                </div>
+
+
+
+
+
+
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
