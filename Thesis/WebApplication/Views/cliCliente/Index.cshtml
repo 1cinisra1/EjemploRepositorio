@@ -11,11 +11,11 @@
 <div class="row">
     <div class="col-md-12">
         <div class="box" style="margin-left:118px" >
+            <div class="table-responsive">
+                <div class="box-body">
 
-            <div class="box-body">
-               
                     <div class="form-horizontal">
-                        <h4>@Html.ActionLink("AGREGAR","create", "create", new { @class = "btn btn-success" })</h4>
+                        <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
                         <hr />
                         @Html.ValidationSummary(true)
 
@@ -86,8 +86,11 @@
                         </table>
                     </div>
 
+                </div>
             </div>
-        </div>
+               
+
+            </div>
     </div>
 
 </div>

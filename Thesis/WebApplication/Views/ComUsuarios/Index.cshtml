@@ -14,74 +14,76 @@
 <div class="row">
     <div class="col-md-12 ">
         <div class="box" style="margin-left:110px">
-
-            <div class="box-body">
-                <div class="form-horizontal">
-                    <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
-                    <hr />
-                    <table id="example1" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <label>Nombre</label>
-                                </th>
-                                <th>
-                                    <label>Apellido</label>
-                                </th>
-                                <th>
-                                    <label>Correo</label>
-                                </th>
-                                <th>
-                                    <label>Dirección</label>
-                                </th>
-                                <th>
-                                    <label>Cédula</label>
-                                </th>
-                                <th>
-                                    <label>Teléfono</label>
-                                </th>
-                                <th>
-                                    <label>Rol</label>
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
+            <div class="table-responsive">
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
+                        <hr />
+                        <table id="example1" class="table table-bordered">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Com_Nombre)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Com_Apellido)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Com_Correo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Com_Direccion)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Com_Cedula)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Com_Telefono)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.roles.Descripcion)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-success" }) 
-                                        @Html.ActionLink("Ver", "Details", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-primary" }) 
-                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-danger" }) 
-                                    </td>
+                                    <th>
+                                        <label>Nombre</label>
+                                    </th>
+                                    <th>
+                                        <label>Apellido</label>
+                                    </th>
+                                    <th>
+                                        <label>Correo</label>
+                                    </th>
+                                    <th>
+                                        <label>Dirección</label>
+                                    </th>
+                                    <th>
+                                        <label>Cédula</label>
+                                    </th>
+                                    <th>
+                                        <label>Teléfono</label>
+                                    </th>
+                                    <th>
+                                        <label>Rol</label>
+                                    </th>
+                                    <th></th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Apellido)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Correo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Direccion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Cedula)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Telefono)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.roles.Descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-success" })
+                                            @Html.ActionLink("Ver", "Details", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-primary" })
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-danger" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
