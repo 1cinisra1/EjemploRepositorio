@@ -61,8 +61,8 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.cli_cliente.Cli_RSocial)
                                     </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)
+                                    <td>@Html.ActionLink(item.com_usuarios.Com_Nombre, "Details", "Comusuarios", new { id=item.com_usuarios.idCom_Usuarios,id1=item.com_usuarios.Roles_idRoles},null)
+                                        @*@Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)*@
                                     </td>
                                     <td>
                                         @Html.ActionLink("Editar", "Edit", new { id = item.idComp_Bitacora, id1 = item.com_usuarios.idCom_Usuarios, id2 = item.cli_cliente.idCli_Cliente, id3 = item.com_usuarios.roles.idRoles, id4 = item.idComp_Bitacora }, new { @class = "btn btn-success" }) 

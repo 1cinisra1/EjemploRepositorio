@@ -71,6 +71,7 @@
           <Property Name="Com_Direccion" Type="varchar" MaxLength="45" />
           <Property Name="Com_Cedula" Type="int" Nullable="false" />
           <Property Name="Com_Telefono" Type="varchar" MaxLength="45" />
+          <Property Name="Com_Clave" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="comp_ruta">
           <Key>
@@ -282,6 +283,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Property Name="Com_Telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="roles" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="com_usuarios" ToRole="roles" />
           <NavigationProperty Name="comp_ruta" Relationship="Self.fk_Comp_Ruta_Com_Usuarios1" FromRole="com_usuarios" ToRole="comp_ruta" />
+          <Property Name="Com_Clave" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="comp_ruta">
           <Key>
@@ -478,6 +480,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <EntitySetMapping Name="com_usuarios">
             <EntityTypeMapping TypeName="bd_ControlVisitasModel.com_usuarios">
               <MappingFragment StoreEntitySet="com_usuarios">
+                <ScalarProperty Name="Com_Clave" ColumnName="Com_Clave" />
                 <ScalarProperty Name="idCom_Usuarios" ColumnName="idCom_Usuarios" />
                 <ScalarProperty Name="Com_Nombre" ColumnName="Com_Nombre" />
                 <ScalarProperty Name="Roles_idRoles" ColumnName="Roles_idRoles" />

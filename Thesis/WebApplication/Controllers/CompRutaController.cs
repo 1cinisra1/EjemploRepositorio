@@ -22,6 +22,26 @@ namespace WebApplication.Controllers
             return View(await comp_ruta.ToListAsync());
         }
 
+        public ActionResult RutaMes()
+        {
+            var ruta =( from a in db.comp_ruta
+                       join b in db.com_usuarios on a.Com_Usuarios_idCom_Usuarios equals b.idCom_Usuarios
+                       select new
+                       {
+                           a.Comp_Fecha,
+                           a.Comp_NumeroVisitaMes,
+                           a.Comp_TiempoDur,
+                           a.Comp_Comentario,
+                           b.Com_Nombre,
+                       });
+            var lRuta = new List<comp_ruta>();
+            foreach (var a in ruta)
+            {
+                //Comp_Fecha = a.Comp_Fecha;
+            };
+            return View(ruta);
+        }
+
         // GET: /CompRuta/Details/5
         public async Task<ActionResult> Details(int? id)
         {
