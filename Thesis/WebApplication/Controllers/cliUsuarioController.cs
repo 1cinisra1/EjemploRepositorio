@@ -76,7 +76,8 @@ namespace WebApplication.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre", cli_usuario.Cli_Empresa_idCli_Empresa);
+            ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_RSocial", cli_usuario.Cli_Empresa_idCli_Empresa);
+            //ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_RSocial");
             ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion", cli_usuario.Cli_Departamento_idCli_Departamento);
             return View(cli_usuario);
         }

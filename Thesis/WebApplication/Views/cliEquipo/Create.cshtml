@@ -55,7 +55,13 @@
                     </div>
                 </div>
 
-               
+                @*<div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo de equipo</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cli_TipoEquipo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Cli_TipoEquipo)
+                    </div>
+                </div>*@
 
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Tipo de Equipo</label>
