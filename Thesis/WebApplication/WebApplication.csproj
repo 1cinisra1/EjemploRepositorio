@@ -486,6 +486,10 @@
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.dll" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.xml" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.dll" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.xml" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -524,6 +528,10 @@
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
       <LastGenOutput>bd_ControlVisitas.cs</LastGenOutput>
     </Content>
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -540,6 +548,8 @@
     <Content Include="Styles\Elements\General.css" />
     <Content Include="Styles\Elements\Icons.css" />
     <Content Include="Styles\Elements\Modals.css" />
+    <Content Include="Views\Home\DashboardV1.cshtml" />
+    <Content Include="Views\Home\DashboardV2.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
