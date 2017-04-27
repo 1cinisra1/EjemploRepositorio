@@ -92,7 +92,10 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cli_usuario).State = EntityState.Modified;
+
+                var attachedEmp = db.Entry(cli_usuario);
+                attachedEmp.CurrentValues.SetValues(cli_usuario);
+                //db.Entry(cli_usuario).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
