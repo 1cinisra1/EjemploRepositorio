@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<WebApplication.Models.cli_usuario>
 
-@{
-    ViewBag.Title = "Index";
-}
 
 <h2>Index</h2>
 
@@ -13,18 +10,18 @@
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
 
 
-<div class="row">
+<div class="row ">
     <div class="col-md-12 ">
         <div class="box" style="margin-left:110px">
+            <div class="table-responsive">
+                <div class="box-body">
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
+                        <hr />
+                        @Html.ValidationSummary(true)
 
-            <div class="box-body">
-                @Html.AntiForgeryToken()
-                <div class="form-horizontal">
-                    <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
-                    <hr />
-                    @Html.ValidationSummary(true)
 
-                    <div class="table-responsive">
                         <table id="example1" class="table table-bordered">
                             <thead>
                                 <tr>
@@ -55,8 +52,8 @@
                                             @Html.DisplayFor(modelItem => item.Cli_nombre)
                                         </td>
                                         @*<td>
-                            @Html.DisplayFor(modelItem => item.Cli_Departamento)
-                        </td>*@
+                                        @Html.DisplayFor(modelItem => item.Cli_Departamento)
+                                    </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cli_Equipo_idCli_Equipo)
                                         </td>
@@ -81,7 +78,7 @@
                             </tbody>
                         </table>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
