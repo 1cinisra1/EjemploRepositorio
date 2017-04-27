@@ -6,7 +6,7 @@
 
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Desea Eliminar Este Departamento?</p>
+        <h3 style="text-align:center">ELIMINAR DEPARTAMENTO</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -24,10 +24,18 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
             </div>
         }
     </div>
 </div>
 
+<style>
+    .required::after {
+        content: "*";
+        font-weight: normal;
+        color: red;
+        font-size: large;
+    }
+</style>
