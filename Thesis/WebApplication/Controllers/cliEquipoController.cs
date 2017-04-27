@@ -87,6 +87,7 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Entry(cli_equipo).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

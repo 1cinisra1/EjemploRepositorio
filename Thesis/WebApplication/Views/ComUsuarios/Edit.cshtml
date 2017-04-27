@@ -25,8 +25,14 @@
                             @Html.ValidationMessageFor(model => model.Com_Nombre)
                         </div>
                     </div>
-
-                    @Html.HiddenFor(model => model.Roles_idRoles)
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Rol</label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("Roles_idRoles", null, new { @class = "form-control form-control-rounded" })
+                            @Html.ValidationMessageFor(model => model.Roles_idRoles)
+                        </div>
+                    </div>
+                    @*@Html.HiddenFor(model => model.Roles_idRoles)*@
 
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Apellido</label>
