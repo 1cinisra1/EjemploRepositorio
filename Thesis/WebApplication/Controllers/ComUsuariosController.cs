@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
+using System.Data.Entity.Core;
 
 namespace WebApplication.Controllers
 {
@@ -90,6 +91,7 @@ namespace WebApplication.Controllers
                 db.Entry(com_usuarios).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
+                
             }
             ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
@@ -113,9 +115,9 @@ namespace WebApplication.Controllers
         // POST: /ComUsuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id,int id1)
         {
-            com_usuarios com_usuarios = await db.com_usuarios.FindAsync(id);
+            com_usuarios com_usuarios = await db.com_usuarios.FindAsync(id,id1);
             db.com_usuarios.Remove(com_usuarios);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
