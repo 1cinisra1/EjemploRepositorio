@@ -42,6 +42,7 @@ namespace WebApplication.Controllers
         {
             ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_RSocial");
             ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion");
+            ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Procesador");
             return View();
         }
 
