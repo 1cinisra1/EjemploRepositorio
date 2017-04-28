@@ -34,6 +34,8 @@ public partial class comp_ruta
 
     public string Comp_Comentario { get; set; }
 
+    public byte[] comp_Estado { get; set; }
+
 
 
     public virtual cli_cliente cli_cliente { get; set; }

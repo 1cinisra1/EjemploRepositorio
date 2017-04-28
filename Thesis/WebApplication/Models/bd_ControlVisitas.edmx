@@ -85,6 +85,7 @@
           <Property Name="Cli_Empresa_idCli_Empresa" Type="int" Nullable="false" />
           <Property Name="Comp_TiempoDur" Type="varchar" MaxLength="45" />
           <Property Name="Comp_Comentario" Type="varchar" MaxLength="45" />
+          <Property Name="comp_Estado" Type="binary" MaxLength="1" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -299,6 +300,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Property Name="Comp_Comentario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Comp_Ruta_Cli_Empresa1" FromRole="comp_ruta" ToRole="cli_cliente" />
           <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Comp_Ruta_Com_Usuarios1" FromRole="comp_ruta" ToRole="com_usuarios" />
+          <Property Name="comp_Estado" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -495,6 +497,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <EntitySetMapping Name="comp_ruta">
             <EntityTypeMapping TypeName="bd_ControlVisitasModel.comp_ruta">
               <MappingFragment StoreEntitySet="comp_ruta">
+                <ScalarProperty Name="comp_Estado" ColumnName="comp_Estado" />
                 <ScalarProperty Name="idComp_Bitacora" ColumnName="idComp_Bitacora" />
                 <ScalarProperty Name="Comp_Fecha" ColumnName="Comp_Fecha" />
                 <ScalarProperty Name="Comp_NumeroVisitaMes" ColumnName="Comp_NumeroVisitaMes" />
