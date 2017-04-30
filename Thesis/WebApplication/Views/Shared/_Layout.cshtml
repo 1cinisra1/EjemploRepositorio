@@ -47,31 +47,27 @@
 
                 <ul class="sidebar-menu">
                     <li class="header">CLIENTES</li>
-
-                    <li id="left-sidebar-menu-tables" class="treeview">
+                    <li id="left-sidebar-menu-multilevel" class="treeview">
                         <a href="#">
-                            <i class="fa fa-table"></i> <span>Empresas</span>
+                            <i class="fa fa-share"></i> <span>Empresas</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliCliente")"><i class="fa fa-circle-o"></i>Crear</a></li>
                             <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliCliente")"><i class="fa fa-circle-o"></i> Listar </a></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-table"></i> <span>Departamento</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliDepartamento")"><i class="fa fa-circle-o"></i>Crear</a></li>
+                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliDepartamento")"><i class="fa fa-circle-o"></i> Listar </a></li>
+                                </ul>
+                            </li>
                         </ul>
+                        
                     </li>
-
-
-                    <li id="left-sidebar-menu-tables" class="treeview">
-                        <a href="#">
-                            <i class="fa fa-table"></i> <span>Departamentos</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliDepartamento")"><i class="fa fa-circle-o"></i>Crear</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliDepartamento")"><i class="fa fa-circle-o"></i> Listar </a></li>
-                        </ul>
-                    </li>
-
-
                     <li id="left-sidebar-menu-tables" class="treeview">
                         <a href="#">
                             <i class="fa fa-table"></i> <span>Usuarios </span>
@@ -80,41 +76,26 @@
                         <ul class="treeview-menu">
                             <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Crear </a></li>
                             <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Listar</a>
-
-
                         </ul>
                     </li>
-
-
-
-                    <li id="left-sidebar-menu-tables" class="treeview">
+                    <li id="left-sidebar-menu-multilevel" class="treeview">
                         <a href="#">
-                            <i class="fa fa-table"></i> <span>Equipos </span>
+                            <i class="fa fa-share"></i> <span>Equipos</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliEquipo")"><i class="fa fa-circle-o"></i> Crear </a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Listar</a>
-
-
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliEquipo")"><i class="fa fa-circle-o"></i> Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliEquipo")"><i class="fa fa-circle-o"></i>Listar</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-table"></i> Tipo de Equipos<i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliTipoEquipo")"><i class="fa fa-circle-o"></i> Crear</a></li>
+                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliTipoEquipo")"><i class="fa fa-circle-o"></i>Listar</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-
-                    <li id="left-sidebar-menu-tables" class="treeview">
-                        <a href="#">
-                            <i class="fa fa-table"></i> <span>Tipo de Equipos</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliTipoEquipo")"><i class="fa fa-circle-o"></i> Crear</a></li>
-                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliTipoEquipo")"><i class="fa fa-circle-o"></i>Listar</a></li>
-                        </ul>
-                    </li>
-
                     <li class="header">COMPUSERVI</li>
-
-
-
                     <li id="left-sidebar-menu-tables" class="treeview">
                         <a href="#">
                             <i class="fa fa-table"></i> <span>Usuarios</span>
