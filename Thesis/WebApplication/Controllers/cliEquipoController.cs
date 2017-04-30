@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
+using System.Data.Entity.Core;
 
 namespace WebApplication.Controllers
 {
@@ -87,9 +88,16 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                db.Entry(cli_equipo).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                try
+                {
+                    db.Entry(cli_equipo).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
+                catch (OptimisticConcurrencyException)
+                {
+                    
+                }
+                
                 return RedirectToAction("Index");
             }
             ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);

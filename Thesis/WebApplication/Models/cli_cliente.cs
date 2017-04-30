@@ -14,6 +14,8 @@ namespace WebApplication.Models
 
 using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    
     
 public partial class cli_cliente
 {
@@ -29,9 +31,9 @@ public partial class cli_cliente
 
 
     public int idCli_Cliente { get; set; }
-
+    [Required(ErrorMessage="El nombre es requerido")]
     public string Cli_Nombre { get; set; }
-
+    [Required(ErrorMessage="Campo Obligatorio")]
     public string Cli_Ruc { get; set; }
 
     public string Cli_Direccion { get; set; }
@@ -39,7 +41,7 @@ public partial class cli_cliente
     public string Cli_Tel { get; set; }
 
     public string Cli_Ciudad { get; set; }
-
+    [Required]
     public string Cli_RSocial { get; set; }
 
     public string Cli_NombContacto { get; set; }
