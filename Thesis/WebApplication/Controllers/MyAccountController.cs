@@ -16,8 +16,6 @@ namespace WebApplication.Controllers
         // GET: /MyAccount/
         public ActionResult Login()
         {
-            Session.Clear();
-           
             return View();
         }
 
@@ -74,6 +72,8 @@ namespace WebApplication.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
+            Response.Cookies.Clear();
             return RedirectToAction("Index","Home");
         }
 
