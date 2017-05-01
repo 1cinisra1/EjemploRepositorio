@@ -18,7 +18,7 @@ namespace WebApplication.Controllers
         // GET: /cliUsuario/
         public async Task<ActionResult> Index()
         {
-            var cli_usuario = db.cli_usuario.Include(c => c.cli_cliente).Include(c => c.cli_departamento1);
+            var cli_usuario = db.cli_usuario.Include(c => c.cli_cliente).Include(c => c.cli_departamento);
             return View(await cli_usuario.ToListAsync());
         }
 
@@ -95,7 +95,7 @@ namespace WebApplication.Controllers
 
                 var attachedEmp = db.Entry(cli_usuario);
                 attachedEmp.CurrentValues.SetValues(cli_usuario);
-                //db.Entry(cli_usuario).State = EntityState.Modified;
+                db.Entry(cli_usuario).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }

@@ -18,7 +18,7 @@ namespace WebApplication.Controllers
         // GET: /cliEquipo/
         public async Task<ActionResult> Index()
         {
-            var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo1);
+            var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo);
             return View(await cli_equipo.ToListAsync());
         }
 

@@ -91,8 +91,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -120,34 +119,13 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.Entity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MySql.Data.Entity.EF5, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Data.Entity.EF5.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data.Fakes">
-      <HintPath>FakesAssemblies\MySql.Data.Fakes.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Fabric.Plugin, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Fabric.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Web.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -228,6 +206,7 @@
     <Compile Include="Controllers\ComUsuariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,6 +256,11 @@
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -511,6 +495,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
     <EntityDeploy Include="Models\bd_ControlVisitas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>bd_ControlVisitas.Designer.cs</LastGenOutput>
@@ -528,10 +516,10 @@
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
       <LastGenOutput>bd_ControlVisitas.cs</LastGenOutput>
     </Content>
-    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.fakesconfig" />
-    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
-    <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
-    <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -545,6 +533,25 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Shared\_Layout.js" />
+    <Content Include="SourceLanding\css\bootstrap.css" />
+    <Content Include="SourceLanding\css\bootstrap.min.css" />
+    <Content Include="SourceLanding\css\landing-page.css" />
+    <Content Include="SourceLanding\font-awesome\css\font-awesome.css" />
+    <Content Include="SourceLanding\font-awesome\css\font-awesome.min.css" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="SourceLanding\img\banner-bg.jpg" />
+    <Content Include="SourceLanding\img\dog.png" />
+    <Content Include="SourceLanding\img\intro-bg.jpg" />
+    <Content Include="SourceLanding\img\intro-bg2.jpg" />
+    <Content Include="SourceLanding\img\ipad.png" />
+    <Content Include="SourceLanding\img\phones.png" />
+    <Content Include="SourceLanding\js\bootstrap.js" />
+    <Content Include="SourceLanding\js\bootstrap.min.js" />
+    <Content Include="SourceLanding\js\jquery.js" />
+    <Content Include="SourceLogin\bootstrap.min.css" />
+    <Content Include="SourceLogin\css\style.css" />
+    <Content Include="SourceLogin\img\intro-bg.jpg" />
     <Content Include="Styles\Elements\General.css" />
     <Content Include="Styles\Elements\Icons.css" />
     <Content Include="Styles\Elements\Modals.css" />
@@ -624,6 +631,45 @@
     <Content Include="Views\CompRuta\Details.cshtml" />
     <Content Include="Views\CompRuta\Edit.cshtml" />
     <Content Include="Views\CompRuta\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_ori.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\MyProfile.cshtml" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="SourceLanding\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="SourceLanding\font-awesome\less\bordered-pulled.less" />
+    <Content Include="SourceLanding\font-awesome\less\core.less" />
+    <Content Include="SourceLanding\font-awesome\less\fixed-width.less" />
+    <Content Include="SourceLanding\font-awesome\less\font-awesome.less" />
+    <Content Include="SourceLanding\font-awesome\less\icons.less" />
+    <Content Include="SourceLanding\font-awesome\less\larger.less" />
+    <Content Include="SourceLanding\font-awesome\less\list.less" />
+    <Content Include="SourceLanding\font-awesome\less\mixins.less" />
+    <Content Include="SourceLanding\font-awesome\less\path.less" />
+    <Content Include="SourceLanding\font-awesome\less\rotated-flipped.less" />
+    <Content Include="SourceLanding\font-awesome\less\spinning.less" />
+    <Content Include="SourceLanding\font-awesome\less\stacked.less" />
+    <Content Include="SourceLanding\font-awesome\less\variables.less" />
+    <Content Include="SourceLanding\font-awesome\scss\font-awesome.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_core.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_icons.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_larger.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_list.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_mixins.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_path.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_spinning.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_stacked.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_variables.scss" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\MyAccount\Login.cshtml" />
+    <Content Include="SourceLogin\scss\style.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
