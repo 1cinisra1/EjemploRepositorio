@@ -31,8 +31,11 @@
                     </a>
                 </header>
                 <nav class="navbar navbar-static-top" role="navigation">
+                    <button type="button" class="btn btn-danger">@(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")</button>
                     <ul class="nav navbar-nav navbar-right">
 
+                       
+                        
                         <li><a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-danger btn-lg">Logout</a></li>
 
 

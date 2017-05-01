@@ -631,7 +631,6 @@
     <Content Include="Views\CompRuta\Details.cshtml" />
     <Content Include="Views\CompRuta\Edit.cshtml" />
     <Content Include="Views\CompRuta\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout_ori.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\MyProfile.cshtml" />
     <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.eot" />
