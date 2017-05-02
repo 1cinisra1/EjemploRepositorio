@@ -64,12 +64,12 @@
                                             @Html.DisplayFor(modelItem => item.cli_cliente.Cli_RSocial)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.cli_departamento1.Cli_Descripcion)
+                                            @Html.DisplayFor(modelItem => item.cli_departamento.Cli_Descripcion)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }, new { @class = "btn btn-success" })
-                                            @Html.ActionLink("Ver", "Details", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento1.idCli_Departamento }, new { @class = "btn btn-danger" })
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento.idCli_Departamento }, new { @class = "btn btn-success" })
+                                            @Html.ActionLink("Ver", "Details", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento.idCli_Departamento }, new { @class = "btn btn-primary" })
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento.idCli_Departamento }, new { @class = "btn btn-danger" })
 
 
                                         </td>

@@ -4,19 +4,24 @@ namespace WebApplication.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult DashboardV1()
-        {
-            return View();
-        }
-        public ActionResult DashboardV2()
-        {
-            return View();
-        }
-
+       
+    
+        [AllowAnonymous]
         public ActionResult Index()
         {
 
             return View();
         }
+        [Authorize]
+        public ActionResult MyProfile()
+        {
+
+            return View();
+        }
+
+
+
+
+
     }
 }
