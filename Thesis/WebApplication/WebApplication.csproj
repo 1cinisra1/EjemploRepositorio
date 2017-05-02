@@ -624,6 +624,7 @@
     <Content Include="Views\CompRuta\Details.cshtml" />
     <Content Include="Views\CompRuta\Edit.cshtml" />
     <Content Include="Views\CompRuta\Index.cshtml" />
+    <Content Include="Views\cliEquipo\prueba.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

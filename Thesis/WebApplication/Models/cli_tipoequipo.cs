@@ -14,6 +14,7 @@ namespace WebApplication.Models
 
 using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
 public partial class cli_tipoequipo
 {
@@ -27,7 +28,7 @@ public partial class cli_tipoequipo
 
 
     public int idCli_TipoEquipo { get; set; }
-
+    [Required]
     public string Cli_Descripcion { get; set; }
 
 

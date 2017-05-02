@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
+using System.Data.Entity.Core;
 
 namespace WebApplication.Controllers
 {
@@ -65,6 +66,7 @@ namespace WebApplication.Controllers
         // GET: /cliEquipo/Edit/5
         public async Task<ActionResult> Edit(int? id,int? id1)
         {
+            Session["idTEquipo"] = id1;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -85,11 +87,22 @@ namespace WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include="idCli_Equipo,Cli_Marca,Cli_Modelo,Cli_DiscoDuro,Cli_Ram,Cli_Procesador,Cli_TipoEquipo,Cli_TipoEquipo_idCli_TipoEquipo")] cli_equipo cli_equipo)
         {
+            int tipoEquipoId = int.Parse(Session["idTEquipo"].ToString());
             if (ModelState.IsValid)
             {
-
-                db.Entry(cli_equipo).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                if(cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo==tipoEquipoId)
+                {
+                    db.Entry(cli_equipo).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
+                else
+                {
+                    var equipo = db.cli_equipo.Find(cli_equipo.idCli_Equipo, tipoEquipoId);
+                    db.cli_equipo.Remove(equipo);
+                    //equipo.Cli_TipoEquipo_idCli_TipoEquipo = cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo;
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
@@ -120,6 +133,11 @@ namespace WebApplication.Controllers
             db.cli_equipo.Remove(cli_equipo);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult prueba()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

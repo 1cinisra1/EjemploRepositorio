@@ -95,7 +95,9 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="45" />
         </EntityType>
         <Association Name="fk_Cli_Equipo_Cli_TipoEquipo1">
-          <End Role="cli_tipoequipo" Type="Self.cli_tipoequipo" Multiplicity="1" />
+          <End Role="cli_tipoequipo" Type="Self.cli_tipoequipo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="cli_equipo" Type="Self.cli_equipo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cli_tipoequipo">
