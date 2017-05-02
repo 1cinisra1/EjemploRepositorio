@@ -4,6 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
+@if (ViewData["Verificar"] is Int32) {
 <div class="register-box">
     <div class="register-box-body">
         
@@ -84,6 +85,7 @@
         }
     </div>
 </div>
+}
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;

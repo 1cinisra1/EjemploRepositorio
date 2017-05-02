@@ -72,7 +72,7 @@ namespace WebApplication.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            Session.Abandon();
+            
             Response.Cookies.Clear();
             return RedirectToAction("Index","Home");
         }

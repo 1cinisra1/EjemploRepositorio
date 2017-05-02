@@ -11,10 +11,12 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class comp_ruta
     {
         public int idComp_Bitacora { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Comp_Fecha { get; set; }
         public string Comp_NumeroVisitaMes { get; set; }
         public int Com_Usuarios_idCom_Usuarios { get; set; }
