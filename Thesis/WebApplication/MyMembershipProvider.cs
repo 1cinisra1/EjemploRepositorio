@@ -149,7 +149,7 @@ namespace WebApplication
         public override bool ValidateUser(string correo, string clave)
         {
            using(bd_ControlVisitasEntities dc = new bd_ControlVisitasEntities()){
-               var user  = dc.com_usuarios.Where(a => a.Com_Correo.Equals(correo) && a.Com_Clave.Equals(clave));
+               var user  = dc.com_usuarios.Where(a => a.Com_Correo.Equals(correo) && a.Com_Clave.Equals(clave)).FirstOrDefault();
                if (user!=null){
                    return true;
                }
