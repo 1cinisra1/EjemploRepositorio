@@ -31,16 +31,19 @@
                     </a>
                 </header>
                 <nav class="navbar navbar-static-top" role="navigation">
+                    <button type="button" class="btn btn-success disabled">Bienvenido @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "") !!</button>
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li><a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-success btn-lg">Logout</a></li>
+                        <li><a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-danger btn-lg">Logout</a></li>
 
 
                     </ul>
                 </nav>
 
 
+            }
 
+        }
 
                 <aside class="main-sidebar">
                     <section class="sidebar">
@@ -176,9 +179,7 @@
                 @RenderSection("scripts", required: false)
 
 
-            }
 
-        }
     </div>
      
 </body>

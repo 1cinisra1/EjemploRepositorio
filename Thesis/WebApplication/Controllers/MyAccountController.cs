@@ -26,21 +26,40 @@ namespace WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(com_usuarios l, string returnURL = "")
         {
-            var user = db.com_usuarios.Where(a => a.Com_Correo.Equals(l.Com_Correo) && a.Com_Clave.Equals(l.Com_Clave)).FirstOrDefault();
-            if (user != null)
+            #region vieja_forma
+            //var user = db.com_usuarios.Where(a => a.Com_Correo.Equals(l.Com_Correo) && a.Com_Clave.Equals(l.Com_Clave)).FirstOrDefault();
+            //if (user != null)
+            //{
+            //    FormsAuthentication.SetAuthCookie(user.Com_Correo, true);
+            //    if (Url.IsLocalUrl(returnURL))
+            //    {
+            //        return Redirect(returnURL);
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("Index", "CompRuta");
+
+            //    }
+
+            //}
+            #endregion 
+
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(user.Com_Correo, true);
-                if (Url.IsLocalUrl(returnURL))
+                var isValidUser = Membership.ValidateUser(l.Com_Correo, l.Com_Clave);
+                if (isValidUser)
                 {
-                    return Redirect(returnURL);
+                    FormsAuthentication.SetAuthCookie(l.Com_Correo, true);
+                    if (Url.IsLocalUrl(returnURL))
+                    {
+                        return Redirect(returnURL);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "CompRuta");
+                    }
                 }
-                else
-                {
-                    return RedirectToAction("Index", "CompRuta");
-
-                }
-
-            }
+            }          
             ModelState.Remove("Com_Clave");
             return View();
         }
@@ -53,6 +72,8 @@ namespace WebApplication.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
+            Response.Cookies.Clear();
             return RedirectToAction("Index","Home");
         }
 

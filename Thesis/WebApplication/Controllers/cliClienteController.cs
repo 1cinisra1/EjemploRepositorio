@@ -16,9 +16,15 @@ namespace WebApplication.Controllers
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
 
         // GET: /cliCliente/
+      
         public async Task<ActionResult> Index()
         {
-            return View(await db.cli_cliente.ToListAsync());
+            if (User.IsInRole("admin"))
+            {
+                return View(await db.cli_cliente.ToListAsync());
+            }
+            return View();
+            
         }
 
         // GET: /cliCliente/Details/5

@@ -21,6 +21,18 @@ namespace WebApplication.Controllers
 
 
 
+        [Authorize(Roles="admin")]
+        public ActionResult AdminIndex()
+        {
+
+            return View();
+        }
+
+        [Authorize(Roles = "tecnico")]
+        public ActionResult UserIndex()
+        {
+            return View();
+        }
 
 
     }

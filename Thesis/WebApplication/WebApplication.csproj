@@ -255,6 +255,8 @@
     <Compile Include="Models\roles.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyMembershipProvider.cs" />
+    <Compile Include="MyRolProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -667,6 +669,8 @@
     <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\MyAccount\Login.cshtml" />
     <Content Include="SourceLogin\scss\style.scss" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
+    <Content Include="Views\Home\UserIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

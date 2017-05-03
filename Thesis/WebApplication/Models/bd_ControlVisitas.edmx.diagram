@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="255c8c12588f4163b507c5af3ebffeca" Name="Diagram1">
-        <EntityTypeShape EntityType="myappModel.cli_cliente" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="myappModel.cli_departamento" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="myappModel.cli_equipo" Width="1.5" PointX="8" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="myappModel.cli_tipoequipo" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="myappModel.cli_usuario" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="myappModel.com_usuarios" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="myappModel.comp_ruta" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="myappModel.roles" Width="1.5" PointX="1.5" PointY="8.75" IsExpanded="true" />
-        <AssociationConnector Association="myappModel.fk_Cli_Usuario_Cli_Empresa1" ManuallyRouted="false" />
-        <AssociationConnector Association="myappModel.fk_Comp_Ruta_Cli_Empresa1" ManuallyRouted="false" />
-        <AssociationConnector Association="myappModel.fk_Cli_Usuario_Cli_Departamento1" ManuallyRouted="false" />
-        <AssociationConnector Association="myappModel.fk_Cli_Equipo_Cli_TipoEquipo1" ManuallyRouted="false" />
-        <AssociationConnector Association="myappModel.fk_Com_Usuarios_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="myappModel.fk_Comp_Ruta_Com_Usuarios1" ManuallyRouted="false" />
+      <Diagram DiagramId="dc23ca06c2374fb1b60e45f206e09eb7" Name="Diagram1">
+        <EntityTypeShape EntityType="MyAppModel.cli_cliente" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAppModel.cli_departamento" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAppModel.cli_equipo" Width="1.5" PointX="8" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAppModel.cli_tipoequipo" Width="1.5" PointX="5.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAppModel.cli_usuario" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAppModel.com_usuarios" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAppModel.comp_ruta" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAppModel.roles" Width="1.5" PointX="1.5" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="MyAppModel.fk_Cli_Usuario_Cli_Empresa1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAppModel.fk_Comp_Ruta_Cli_Empresa1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAppModel.fk_Cli_Usuario_Cli_Departamento1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAppModel.fk_Cli_Equipo_Cli_TipoEquipo1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAppModel.fk_Com_Usuarios_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAppModel.fk_Comp_Ruta_Com_Usuarios1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
