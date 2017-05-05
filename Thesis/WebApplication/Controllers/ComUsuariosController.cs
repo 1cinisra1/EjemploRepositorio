@@ -9,12 +9,25 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
 using System.Data.Entity.Core;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+
 
 namespace WebApplication.Controllers
 {
     public class ComUsuariosController : Controller
     {
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
+       
+        private MySqlConnection con;
+        //To Handle connection related activities 
+        private void connection()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+            con = new MySqlConnection(constr);
+
+        } 
+
 
         // GET: /ComUsuarios/
         public async Task<ActionResult> Index()
@@ -75,26 +88,62 @@ namespace WebApplication.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+            ViewBag.Roles_idRol = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
         }
 
         // POST: /ComUsuarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Edit(com_usuarios com_usuarios)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var idrol = com_usuarios.Roles_idRoles;
+        //        ModelState.Remove("Roles_idRoles");
+        //        db.Entry(com_usuarios).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+        //    return View(com_usuarios);
+        //}
+
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include="idCom_Usuarios,Com_Nombre,Roles_idRoles,Com_Apellido,Com_Correo,Com_Direccion,Com_Cedula,Com_Telefono")] com_usuarios com_usuarios)
+        public async Task<ActionResult> Edit(com_usuarios com_usuarios, FormCollection form)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(com_usuarios).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+              
+                    connection();
+
+                MySqlCommand sqlComm = new MySqlCommand();
+                int idrol = Convert.ToInt32(form["Roles_idRol"]);
+                sqlComm = con.CreateCommand();
+                sqlComm.CommandText = "update myapp.com_usuarios set Roles_idRoles='" + idrol + "' where idCom_Usuarios='" + com_usuarios.idCom_Usuarios + "' and Roles_idRoles='" + com_usuarios.Roles_idRoles + "'; SET FOREIGN_KEY_CHECKS=0;"; 
+                //sqlComm.Parameters.Add("@id_roles", MySqlDbType.Int32);
+                //sqlComm.Parameters["@id_roles"].Value = com_usuarios.Roles_idRoles;
+                //sqlComm.Parameters.Add("@id_usuarios", MySqlDbType.Int32);
+                //sqlComm.Parameters["@id_usuarios"].Value = com_usuarios.idCom_Usuarios;
+                con.Open();
+                sqlComm.ExecuteNonQuery();
+                con.Close();
+
                 return RedirectToAction("Index");
+                }
                 
-            }
-            ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+
+          
+            ViewBag.Roles_idRol = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
+
+            
         }
 
         // GET: /ComUsuarios/Delete/5
@@ -124,7 +173,7 @@ namespace WebApplication.Controllers
         }
 
         protected override void Dispose(bool disposing)
-        {
+       {
             if (disposing)
             {
                 db.Dispose();

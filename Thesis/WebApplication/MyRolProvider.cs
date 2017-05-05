@@ -55,18 +55,21 @@ namespace WebApplication
                 return null;
             }
             var cacheKey = String.Format("{0}_role", usercorreo);
-            if (HttpRuntime.Cache[cacheKey] != null)
-            {
-                return (String[])HttpRuntime.Cache[cacheKey];
-            }
+            //if (HttpRuntime.Cache[cacheKey] != null)
+            //{
+            //    return (String[])HttpRuntime.Cache[cacheKey];
+            //}
             string[] roles = new string[] { };
             using (bd_ControlVisitasEntities dc = new bd_ControlVisitasEntities())
             {
 
-                roles = (from a in dc.roles
-                             join b in dc.com_usuarios on a.idRoles equals b.Roles_idRoles
-                             where b.Com_Correo.Equals(usercorreo)
-                             select a.Descripcion).ToArray<String>();
+                var rolesTemp = (from a in dc.roles
+                         join b in dc.com_usuarios on a.idRoles equals b.Roles_idRoles
+                         where b.Com_Correo.Equals(usercorreo)
+                         select a.idRoles).FirstOrDefault();
+                
+                roles = new String[] { rolesTemp.ToString() };
+
                 if (roles.Count() > 0)
                 {
                     HttpRuntime.Cache.Insert(cacheKey, roles, null, DateTime.Now.AddMinutes(_cacheTimeOutInMinute), Cache.NoSlidingExpiration);
