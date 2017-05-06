@@ -91,8 +91,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -120,34 +119,13 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.Entity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MySql.Data.Entity.EF5, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Data.Entity.EF5.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data.Fakes">
-      <HintPath>FakesAssemblies\MySql.Data.Fakes.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Fabric.Plugin, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Fabric.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Web.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -219,8 +197,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CalendarController.cs" />
-    <Compile Include="Controllers\ChartsController.cs" />
     <Compile Include="Controllers\cliClienteController.cs" />
     <Compile Include="Controllers\cliDepartamentoController.cs" />
     <Compile Include="Controllers\cliEquipoController.cs" />
@@ -228,16 +204,10 @@
     <Compile Include="Controllers\cliUsuarioController.cs" />
     <Compile Include="Controllers\CompRutaController.cs" />
     <Compile Include="Controllers\ComUsuariosController.cs" />
-    <Compile Include="Controllers\DocumentationController.cs" />
-    <Compile Include="Controllers\ElementsController.cs" />
-    <Compile Include="Controllers\ExamplesController.cs" />
-    <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MailboxController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\TablesController.cs" />
-    <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -285,7 +255,14 @@
     <Compile Include="Models\roles.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyMembershipProvider.cs" />
+    <Compile Include="MyRolProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -352,24 +329,8 @@
     <Content Include="AdminLTE\dist\css\skins\skin-yellow.min.css" />
     <Content Include="AdminLTE\dist\css\skins\_all-skins.css" />
     <Content Include="AdminLTE\dist\css\skins\_all-skins.min.css" />
-    <Content Include="AdminLTE\dist\img\avatar.png" />
-    <Content Include="AdminLTE\dist\img\avatar04.png" />
-    <Content Include="AdminLTE\dist\img\avatar2.png" />
-    <Content Include="AdminLTE\dist\img\avatar3.png" />
-    <Content Include="AdminLTE\dist\img\avatar5.png" />
-    <Content Include="AdminLTE\dist\img\boxed-bg.jpg" />
-    <Content Include="AdminLTE\dist\img\boxed-bg.png" />
-    <Content Include="AdminLTE\dist\img\default-50x50.gif" />
-    <Content Include="AdminLTE\dist\img\icons.png" />
-    <Content Include="AdminLTE\dist\img\photo1.png" />
-    <Content Include="AdminLTE\dist\img\photo2.png" />
-    <Content Include="AdminLTE\dist\img\photo3.jpg" />
-    <Content Include="AdminLTE\dist\img\photo4.jpg" />
-    <Content Include="AdminLTE\dist\img\user.svg" />
     <Content Include="AdminLTE\dist\js\app.js" />
     <Content Include="AdminLTE\dist\js\app.min.js" />
-    <Content Include="AdminLTE\documentation\css\style.css" />
-    <Content Include="AdminLTE\documentation\js\docs.js" />
     <Content Include="AdminLTE\plugins\bootstrap-slider\css\slider.css" />
     <Content Include="AdminLTE\plugins\bootstrap-slider\js\bootstrap-slider.js" />
     <Content Include="AdminLTE\plugins\bootstrap-wysihtml5\css\bootstrap3-wysihtml5.css" />
@@ -511,51 +472,18 @@
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.dll" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.xml" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.dll" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.xml" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\green_suburb.jpg" />
     <Content Include="Scripts\Account\Login.js" />
     <Content Include="Scripts\Account\Register.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\Calendar\Calendar-menu.js" />
-    <Content Include="Scripts\Calendar\Calendar.js" />
-    <Content Include="Scripts\Charts\ChartsJs-menu.js" />
-    <Content Include="Scripts\Charts\ChartsJs.js" />
-    <Content Include="Scripts\Charts\Flot.js" />
-    <Content Include="Scripts\Charts\Inline-menu.js" />
-    <Content Include="Scripts\Charts\Inline.js" />
-    <Content Include="Scripts\Charts\Morris-menu.js" />
-    <Content Include="Scripts\Charts\Morris.js" />
-    <Content Include="Scripts\Documentation\Documentation-menu.js" />
-    <Content Include="Scripts\Elements\Buttons-menu.js" />
-    <Content Include="Scripts\Elements\General-menu.js" />
-    <Content Include="Scripts\Elements\Icons-menu.js" />
-    <Content Include="Scripts\Elements\Modals-menu.js" />
-    <Content Include="Scripts\Elements\Sliders-menu.js" />
-    <Content Include="Scripts\Elements\Sliders.js" />
-    <Content Include="Scripts\Elements\Timeline-menu.js" />
-    <Content Include="Scripts\Examples\Blank-menu.js" />
-    <Content Include="Scripts\Examples\Invoice-menu.js" />
-    <Content Include="Scripts\Examples\Lockscreen-menu.js" />
-    <Content Include="Scripts\Examples\Login-menu.js" />
-    <Content Include="Scripts\Examples\Login.js" />
-    <Content Include="Scripts\Examples\P404-menu.js" />
-    <Content Include="Scripts\Examples\P500-menu.js" />
-    <Content Include="Scripts\Examples\Pace-menu.js" />
-    <Content Include="Scripts\Examples\Pace.js" />
-    <Content Include="Scripts\Examples\ProfileEx-menu.js" />
-    <Content Include="Scripts\Examples\Register-menu.js" />
-    <Content Include="Scripts\Examples\Register.js" />
-    <Content Include="Scripts\Forms\Advanced-menu.js" />
-    <Content Include="Scripts\Forms\Advanced.js" />
-    <Content Include="Scripts\Forms\Editors-menu.js" />
-    <Content Include="Scripts\Forms\Editors.js" />
-    <Content Include="Scripts\Forms\General-menu.js" />
-    <Content Include="Scripts\Home\DashboardV1-menu.js" />
-    <Content Include="Scripts\Home\DashboardV1.js" />
-    <Content Include="Scripts\Home\DashboardV2-menu.js" />
-    <Content Include="Scripts\Home\DashboardV2.js" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
@@ -569,6 +497,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
     <EntityDeploy Include="Models\bd_ControlVisitas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>bd_ControlVisitas.Designer.cs</LastGenOutput>
@@ -586,6 +518,10 @@
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
       <LastGenOutput>bd_ControlVisitas.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -595,20 +531,29 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Mailbox\Compose-menu.js" />
-    <Content Include="Scripts\Mailbox\Compose.js" />
-    <Content Include="Scripts\Mailbox\Inbox-menu.js" />
-    <Content Include="Scripts\Mailbox\Inbox.js" />
-    <Content Include="Scripts\Mailbox\Read-menu.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Shared\_Layout.js" />
-    <Content Include="Scripts\Tables\Data-menu.js" />
-    <Content Include="Scripts\Tables\Data.js" />
-    <Content Include="Scripts\Tables\Simple-menu.js" />
-    <Content Include="Scripts\Tables\Spanish.js" />
-    <Content Include="Scripts\Widgets\Widgets-menu.js" />
+    <Content Include="SourceLanding\css\bootstrap.css" />
+    <Content Include="SourceLanding\css\bootstrap.min.css" />
+    <Content Include="SourceLanding\css\landing-page.css" />
+    <Content Include="SourceLanding\font-awesome\css\font-awesome.css" />
+    <Content Include="SourceLanding\font-awesome\css\font-awesome.min.css" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="SourceLanding\img\banner-bg.jpg" />
+    <Content Include="SourceLanding\img\dog.png" />
+    <Content Include="SourceLanding\img\intro-bg.jpg" />
+    <Content Include="SourceLanding\img\intro-bg2.jpg" />
+    <Content Include="SourceLanding\img\ipad.png" />
+    <Content Include="SourceLanding\img\phones.png" />
+    <Content Include="SourceLanding\js\bootstrap.js" />
+    <Content Include="SourceLanding\js\bootstrap.min.js" />
+    <Content Include="SourceLanding\js\jquery.js" />
+    <Content Include="SourceLogin\bootstrap.min.css" />
+    <Content Include="SourceLogin\css\style.css" />
+    <Content Include="SourceLogin\img\intro-bg.jpg" />
     <Content Include="Styles\Elements\General.css" />
     <Content Include="Styles\Elements\Icons.css" />
     <Content Include="Styles\Elements\Modals.css" />
@@ -645,39 +590,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Calendar\Index.cshtml" />
-    <Content Include="Views\Charts\ChartJs.cshtml" />
-    <Content Include="Views\Charts\Flot.cshtml" />
-    <Content Include="Views\Charts\Inline.cshtml" />
-    <Content Include="Views\Charts\Morris.cshtml" />
-    <Content Include="Views\Documentation\Index.cshtml" />
-    <Content Include="Views\Elements\Buttons.cshtml" />
-    <Content Include="Views\Elements\General.cshtml" />
-    <Content Include="Views\Elements\Icons.cshtml" />
-    <Content Include="Views\Elements\Modals.cshtml" />
-    <Content Include="Views\Elements\Sliders.cshtml" />
-    <Content Include="Views\Elements\Timeline.cshtml" />
-    <Content Include="Views\Examples\Blank.cshtml" />
-    <Content Include="Views\Examples\Invoice.cshtml" />
-    <Content Include="Views\Examples\InvoicePrint.cshtml" />
-    <Content Include="Views\Examples\Lockscreen.cshtml" />
-    <Content Include="Views\Examples\Login.cshtml" />
-    <Content Include="Views\Examples\P404.cshtml" />
-    <Content Include="Views\Examples\P500.cshtml" />
-    <Content Include="Views\Examples\Pace.cshtml" />
-    <Content Include="Views\Examples\ProfileEx.cshtml" />
-    <Content Include="Views\Examples\Register.cshtml" />
-    <Content Include="Views\Forms\Advanced.cshtml" />
-    <Content Include="Views\Forms\Editors.cshtml" />
-    <Content Include="Views\Forms\General.cshtml" />
-    <Content Include="Views\Mailbox\Compose.cshtml" />
-    <Content Include="Views\Mailbox\Inbox.cshtml" />
-    <Content Include="Views\Mailbox\Read.cshtml" />
-    <Content Include="Views\Tables\Data.cshtml" />
-    <Content Include="Views\Tables\Simple.cshtml" />
-    <Content Include="Views\Widgets\Index.cshtml" />
-    <Content Include="Views\Home\DashboardV1.cshtml" />
-    <Content Include="Views\Home\DashboardV2.cshtml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <Content Include="Views\cliTipoEquipo\Create.cshtml" />
     <Content Include="Views\cliTipoEquipo\Delete.cshtml" />
@@ -719,10 +631,49 @@
     <Content Include="Views\CompRuta\Details.cshtml" />
     <Content Include="Views\CompRuta\Edit.cshtml" />
     <Content Include="Views\CompRuta\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\MyProfile.cshtml" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="SourceLanding\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="SourceLanding\font-awesome\less\bordered-pulled.less" />
+    <Content Include="SourceLanding\font-awesome\less\core.less" />
+    <Content Include="SourceLanding\font-awesome\less\fixed-width.less" />
+    <Content Include="SourceLanding\font-awesome\less\font-awesome.less" />
+    <Content Include="SourceLanding\font-awesome\less\icons.less" />
+    <Content Include="SourceLanding\font-awesome\less\larger.less" />
+    <Content Include="SourceLanding\font-awesome\less\list.less" />
+    <Content Include="SourceLanding\font-awesome\less\mixins.less" />
+    <Content Include="SourceLanding\font-awesome\less\path.less" />
+    <Content Include="SourceLanding\font-awesome\less\rotated-flipped.less" />
+    <Content Include="SourceLanding\font-awesome\less\spinning.less" />
+    <Content Include="SourceLanding\font-awesome\less\stacked.less" />
+    <Content Include="SourceLanding\font-awesome\less\variables.less" />
+    <Content Include="SourceLanding\font-awesome\scss\font-awesome.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_core.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_icons.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_larger.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_list.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_mixins.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_path.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_spinning.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_stacked.scss" />
+    <Content Include="SourceLanding\font-awesome\scss\_variables.scss" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\MyAccount\Login.cshtml" />
+    <Content Include="SourceLogin\scss\style.scss" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
+    <Content Include="Views\Home\UserIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Prueba\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -740,9 +691,6 @@
     <Content Include="AdminLTE\plugins\ionicons\fonts\ionicons.ttf" />
     <Content Include="AdminLTE\plugins\ionicons\fonts\ionicons.woff" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\Charts\Flot-menu.js" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

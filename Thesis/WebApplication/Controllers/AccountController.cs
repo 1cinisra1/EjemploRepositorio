@@ -345,9 +345,9 @@ namespace WebApplication.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
+        
+        
+        public ActionResult LogOffi()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("DashboardV1", "Home");

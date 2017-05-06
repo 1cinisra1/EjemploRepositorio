@@ -22,6 +22,6 @@ namespace WebApplication.Models
         public string Cli_Correo { get; set; }
     
         public virtual cli_cliente cli_cliente { get; set; }
-        public virtual cli_departamento cli_departamento1 { get; set; }
+        public virtual cli_departamento cli_departamento { get; set; }
     }
 }

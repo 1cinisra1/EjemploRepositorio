@@ -1,0 +1,86 @@
+﻿@model WebApplication.Models.com_usuarios
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/Sourcelogin/bootstrap.min.css">
+<link rel="stylesheet" href="~/Sourcelogin/css/style.css">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="wrapper center">
+
+        <form class="form-signin">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="form-bottom" style="text-align:center">INICIAR SESIÓN</h2>
+                </div>
+            </div>
+
+            <div class="panel-group">
+                <div class="panel panel">
+                    <div class="panel-body">
+
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="required col-sm-2 control-label">Correo</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Com_Correo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                                @Html.ValidationMessageFor(model => model.Com_Correo)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="required col-sm-2 control-label">Clave</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Com_Clave, new { htmlAttributes = new { @class = "form-control form-control-rounded", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.Com_Clave)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <label class="checkbox">
+                                    <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+                                </label>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <button type="submit" class="btn btn-success">INICIAR</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </form>
+    </div>
+
+}
+
+
+
+<style type="text/css">
+    .form-control-rounded {
+        border-radius: 16px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: normal;
+        color: red;
+        font-size: large;
+    }
+</style>

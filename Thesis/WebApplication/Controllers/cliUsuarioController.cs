@@ -18,7 +18,7 @@ namespace WebApplication.Controllers
         // GET: /cliUsuario/
         public async Task<ActionResult> Index()
         {
-            var cli_usuario = db.cli_usuario.Include(c => c.cli_cliente).Include(c => c.cli_departamento1);
+            var cli_usuario = db.cli_usuario.Include(c => c.cli_cliente).Include(c => c.cli_departamento);
             return View(await cli_usuario.ToListAsync());
         }
 
@@ -42,6 +42,7 @@ namespace WebApplication.Controllers
         {
             ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_RSocial");
             ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion");
+            ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Procesador");
             return View();
         }
 
@@ -76,7 +77,8 @@ namespace WebApplication.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre", cli_usuario.Cli_Empresa_idCli_Empresa);
+            ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_RSocial", cli_usuario.Cli_Empresa_idCli_Empresa);
+            //ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_RSocial");
             ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion", cli_usuario.Cli_Departamento_idCli_Departamento);
             return View(cli_usuario);
         }
@@ -90,6 +92,9 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var attachedEmp = db.Entry(cli_usuario);
+                attachedEmp.CurrentValues.SetValues(cli_usuario);
                 db.Entry(cli_usuario).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

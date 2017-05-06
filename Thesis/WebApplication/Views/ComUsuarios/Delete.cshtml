@@ -6,7 +6,7 @@
 
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Desea Eliminar Este Usuario?</p>
+        <h3 style="text-align:center">ELIMINAR USUARIO</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -65,6 +65,8 @@
                 @Html.DisplayFor(model => model.roles.Descripcion)
             </dd>
 
+            
+
         </dl>
 
         @using (Html.BeginForm())
@@ -72,8 +74,8 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Volver", "Index")
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
             </div>
         }
     </div>

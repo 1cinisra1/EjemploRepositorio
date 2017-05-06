@@ -8,12 +8,27 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
+using System.Data.Entity.Core;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Text;
+
 
 namespace WebApplication.Controllers
 {
     public class ComUsuariosController : Controller
     {
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
+       
+        private MySqlConnection con;
+        //To Handle connection related activities 
+        private void connection()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+            con = new MySqlConnection(constr);
+
+        } 
+
 
         // GET: /ComUsuarios/
         public async Task<ActionResult> Index()
@@ -49,7 +64,7 @@ namespace WebApplication.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include="idCom_Usuarios,Com_Nombre,Roles_idRoles,Com_Apellido,Com_Correo,Com_Direccion,Com_Cedula,Com_Telefono")] com_usuarios com_usuarios)
+        public async Task<ActionResult> Create(com_usuarios com_usuarios)
         {
             if (ModelState.IsValid)
             {
@@ -74,25 +89,78 @@ namespace WebApplication.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+            ViewBag.Roles_idRol = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
         }
 
         // POST: /ComUsuarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Edit(com_usuarios com_usuarios)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var idrol = com_usuarios.Roles_idRoles;
+        //        ModelState.Remove("Roles_idRoles");
+        //        db.Entry(com_usuarios).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+        //    return View(com_usuarios);
+        //}
+
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include="idCom_Usuarios,Com_Nombre,Roles_idRoles,Com_Apellido,Com_Correo,Com_Direccion,Com_Cedula,Com_Telefono")] com_usuarios com_usuarios)
+        public ActionResult Edit(com_usuarios com_usuarios, FormCollection form)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(com_usuarios).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+
+                connection();
+                MySqlCommand sqlComm = new MySqlCommand();
+                int idrol = Convert.ToInt32(form["Roles_idRol"]);
+                sqlComm = con.CreateCommand();
+
+                StringBuilder sentences = new StringBuilder();
+                
+                sentences.Append("SET FOREIGN_KEY_CHECKS=0; ");
+                sentences.Append("update myapp.com_usuarios ");
+                sentences.Append("set Com_Nombre='" + com_usuarios.Com_Nombre + "' ");
+                sentences.Append(",Roles_idRoles='" + idrol + "' ");
+                sentences.Append(",Com_Apellido='" + com_usuarios.Com_Apellido + "' ");
+                sentences.Append(",Com_Correo='" + com_usuarios.Com_Correo + "' ");
+                sentences.Append(",Com_Direccion='" + com_usuarios.Com_Direccion + "' ");
+                sentences.Append(",Com_Cedula='" + com_usuarios.Com_Cedula + "' ");
+                sentences.Append(",Com_Telefono='" + com_usuarios.Com_Telefono + "' ");
+                sentences.Append(",Com_Clave='" + com_usuarios.Com_Clave + "' ");
+                //condiciones
+                sentences.Append("where idCom_Usuarios='" + com_usuarios.idCom_Usuarios + "' ");
+                sentences.Append("and Roles_idRoles='" + com_usuarios.Roles_idRoles + "' ");
+
+                sqlComm.CommandText = sentences.ToString();
+
+
+                con.Open();
+                sqlComm.ExecuteNonQuery();
+                con.Close();
+
                 return RedirectToAction("Index");
-            }
-            ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+                
+               
+           }
+                
+
+          
+            ViewBag.Roles_idRol = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
+
+            
         }
 
         // GET: /ComUsuarios/Delete/5
@@ -113,16 +181,16 @@ namespace WebApplication.Controllers
         // POST: /ComUsuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id,int id1)
         {
-            com_usuarios com_usuarios = await db.com_usuarios.FindAsync(id);
+            com_usuarios com_usuarios = await db.com_usuarios.FindAsync(id,id1);
             db.com_usuarios.Remove(com_usuarios);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
-        {
+       {
             if (disposing)
             {
                 db.Dispose();

@@ -1,9 +1,7 @@
 ﻿@model WebApplication.Models.comp_ruta
 
-@{
-    ViewBag.Title = "Create";
-}
-
+@if (ViewData["Verificar"] is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
        
@@ -17,7 +15,7 @@
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Fecha</label>
+                    <label for="inputEmail3" class="required col-sm-2 control-label">Fecha</label>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Comp_Fecha, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Comp_Fecha)
@@ -33,7 +31,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Tecnico Asignado</label>
+                    <label for="inputEmail3" class="required col-sm-2 control-label">Técnico Asignado</label>
                     <div class="col-md-10">
                         @Html.DropDownList("Com_Usuarios_idCom_Usuarios", null, new { @class = "form-control form-control-rounded" })
                         @Html.ValidationMessageFor(model => model.Com_Usuarios_idCom_Usuarios)
@@ -49,7 +47,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Cliente</label>
+                    <label for="inputEmail3" class="required col-sm-2 control-label">Cliente</label>
                     <div class="col-md-10">
                         @Html.DropDownList("Cli_Empresa_idCli_Empresa", null, new { @class = "form-control form-control-rounded" })
                         @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
@@ -82,9 +80,16 @@
         }
     </div>
 </div>
-
+}
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: normal;
+        color: red;
+        font-size: large;
     }
 </style>

@@ -3,10 +3,10 @@
 @{
     ViewBag.Title = "Delete";
 }
-
+@if (ViewData["Verificar"] is Int32) {
 <div class="register-box">
     <div class="register-box-body">
-        <p class="login-box-msg">Desea Eliminar Esta Ruta?</p>
+        <h3 style="text-align:center">ELIMINAR RUTA</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -50,7 +50,7 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Tecnico Asignado</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Técnico Asignado</label>
             </dt>
 
             <dd>
@@ -64,10 +64,11 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Borrar" class="btn btn-default" /> |
-                @Html.ActionLink("Volver", "Index")
+                <input type="submit" value="Borrar" class="btn btn-danger" />
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
             </div>
         }
     </div>
 </div>
+}
 

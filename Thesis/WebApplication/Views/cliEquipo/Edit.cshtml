@@ -12,6 +12,7 @@
 
             <div class="form-horizontal">
                 <h3 style="text-align:center">EDITAR EQUIPO</h3>
+
                 <hr />
                 @Html.ValidationSummary(true)
                 @Html.HiddenFor(model => model.idCli_Equipo)
@@ -56,15 +57,15 @@
                     </div>
                 </div>
 
-                @*<div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo Equipo</label>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo de Equipo</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cli_TipoEquipo)
-                        @Html.ValidationMessageFor(model => model.Cli_TipoEquipo)
+                        @Html.DropDownList("Cli_TipoEquipo_idCli_TipoEquipo", null, new { @class = "form-control form-control-rounded" })
+                        @Html.ValidationMessageFor(model => model.Cli_TipoEquipo_idCli_TipoEquipo)
                     </div>
-                </div>*@
+                </div>
 
-                @Html.HiddenFor(model => model.Cli_TipoEquipo_idCli_TipoEquipo)
+                @*@Html.HiddenFor(model => model.Cli_TipoEquipo_idCli_TipoEquipo)*@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">

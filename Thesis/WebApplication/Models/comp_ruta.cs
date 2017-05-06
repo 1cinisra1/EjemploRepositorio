@@ -11,10 +11,12 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class comp_ruta
     {
         public int idComp_Bitacora { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Comp_Fecha { get; set; }
         public string Comp_NumeroVisitaMes { get; set; }
         public int Com_Usuarios_idCom_Usuarios { get; set; }
@@ -22,6 +24,7 @@ namespace WebApplication.Models
         public int Cli_Empresa_idCli_Empresa { get; set; }
         public string Comp_TiempoDur { get; set; }
         public string Comp_Comentario { get; set; }
+        public byte[] Com_estado { get; set; }
     
         public virtual cli_cliente cli_cliente { get; set; }
         public virtual com_usuarios com_usuarios { get; set; }

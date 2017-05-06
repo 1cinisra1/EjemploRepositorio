@@ -3,41 +3,47 @@
 @{
     ViewBag.Title = "Index";
 }
+@section Menu {
+    @Scripts.Render("~/Scripts/Tables/Data/menu")
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
 
 <div class="row">
     <div class="col-md-12 ">
-        <div class="box" style="margin-left:110px">
-
-            <div class="box-body">
-                <div class="form-horizontal">
-
-                    <table id="example1" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <label>Descripcion</label>
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
+        <div class="box" style="margin-left:118px">
+            <div class="table-responsive">
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
+                        <table id="example1" class="table table-bordered">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Cli_Descripcion)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.idCli_TipoEquipo }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.idCli_TipoEquipo }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.idCli_TipoEquipo })
-                                    </td>
+                                    <th>
+                                        <label>Descripcion</label>
+                                    </th>
+                                    <th></th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cli_Descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-success" })
+                                            @Html.ActionLink("Details", "Details", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-primary" })
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-danger" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
