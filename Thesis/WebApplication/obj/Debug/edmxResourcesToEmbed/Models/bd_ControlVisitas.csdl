@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cli_cliente">
+    <Key>
+      <PropertyRef Name="idCli_Cliente" />
+    </Key>
+    <Property Name="idCli_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cli_Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Ruc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Tel" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Ciudad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_RSocial" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_NombContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cli_usuario" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_cliente" ToRole="cli_usuario" />
+    <NavigationProperty Name="comp_ruta" Relationship="Self.fk_Comp_Ruta_Cli_Empresa1" FromRole="cli_cliente" ToRole="comp_ruta" />
+  </EntityType>
+  <EntityType Name="cli_departamento">
+    <Key>
+      <PropertyRef Name="idCli_Departamento" />
+    </Key>
+    <Property Name="idCli_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cli_Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cli_usuario" Relationship="Self.fk_Cli_Usuario_Cli_Departamento1" FromRole="cli_departamento" ToRole="cli_usuario" />
+  </EntityType>
+  <EntityType Name="cli_equipo">
+    <Key>
+      <PropertyRef Name="idCli_Equipo" />
+      <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+    </Key>
+    <Property Name="idCli_Equipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cli_Marca" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Modelo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_DiscoDuro" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Ram" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Procesador" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_TipoEquipo_idCli_TipoEquipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cli_tipoequipo" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_equipo" ToRole="cli_tipoequipo" />
+  </EntityType>
+  <EntityType Name="cli_tipoequipo">
+    <Key>
+      <PropertyRef Name="idCli_TipoEquipo" />
+    </Key>
+    <Property Name="idCli_TipoEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cli_Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cli_equipo" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_tipoequipo" ToRole="cli_equipo" />
+  </EntityType>
+  <EntityType Name="cli_usuario">
+    <Key>
+      <PropertyRef Name="idCli_Usuario" />
+      <PropertyRef Name="Cli_Departamento_idCli_Departamento" />
+      <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+    </Key>
+    <Property Name="idCli_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cli_nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Departamento_idCli_Departamento" Type="Int32" Nullable="false" />
+    <Property Name="Cli_Empresa_idCli_Empresa" Type="Int32" Nullable="false" />
+    <Property Name="Cli_Equipo_idCli_Equipo" Type="Int32" Nullable="false" />
+    <Property Name="Cli_Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_usuario" ToRole="cli_cliente" />
+    <NavigationProperty Name="cli_departamento" Relationship="Self.fk_Cli_Usuario_Cli_Departamento1" FromRole="cli_usuario" ToRole="cli_departamento" />
+  </EntityType>
+  <EntityType Name="com_usuarios">
+    <Key>
+      <PropertyRef Name="idCom_Usuarios" />
+      <PropertyRef Name="Roles_idRoles" />
+    </Key>
+    <Property Name="idCom_Usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Com_Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Roles_idRoles" Type="Int32" Nullable="false" />
+    <Property Name="Com_Apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Com_Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Com_Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Com_Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Com_Telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Com_Clave" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="roles" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="com_usuarios" ToRole="roles" />
+    <NavigationProperty Name="comp_ruta" Relationship="Self.fk_Comp_Ruta_Com_Usuarios1" FromRole="com_usuarios" ToRole="comp_ruta" />
+  </EntityType>
+  <EntityType Name="comp_ruta">
+    <Key>
+      <PropertyRef Name="idComp_Bitacora" />
+    </Key>
+    <Property Name="idComp_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Comp_Fecha" Type="DateTime" />
+    <Property Name="Comp_NumeroVisitaMes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Com_Usuarios_idCom_Usuarios" Type="Int32" Nullable="false" />
+    <Property Name="Com_Usuarios_Roles_idRoles" Type="Int32" Nullable="false" />
+    <Property Name="Cli_Empresa_idCli_Empresa" Type="Int32" Nullable="false" />
+    <Property Name="Comp_TiempoDur" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Comp_Comentario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Com_estado" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Comp_Ruta_Cli_Empresa1" FromRole="comp_ruta" ToRole="cli_cliente" />
+    <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Comp_Ruta_Com_Usuarios1" FromRole="comp_ruta" ToRole="com_usuarios" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="idRoles" />
+    </Key>
+    <Property Name="idRoles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="roles" ToRole="com_usuarios" />
+  </EntityType>
+  <Association Name="fk_Cli_Usuario_Cli_Empresa1">
+    <End Role="cli_cliente" Type="Self.cli_cliente" Multiplicity="1" />
+    <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cli_cliente">
+        <PropertyRef Name="idCli_Cliente" />
+      </Principal>
+      <Dependent Role="cli_usuario">
+        <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Comp_Ruta_Cli_Empresa1">
+    <End Role="cli_cliente" Type="Self.cli_cliente" Multiplicity="1" />
+    <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cli_cliente">
+        <PropertyRef Name="idCli_Cliente" />
+      </Principal>
+      <Dependent Role="comp_ruta">
+        <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Cli_Usuario_Cli_Departamento1">
+    <End Role="cli_departamento" Type="Self.cli_departamento" Multiplicity="1" />
+    <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cli_departamento">
+        <PropertyRef Name="idCli_Departamento" />
+      </Principal>
+      <Dependent Role="cli_usuario">
+        <PropertyRef Name="Cli_Departamento_idCli_Departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Cli_Equipo_Cli_TipoEquipo1">
+    <End Role="cli_tipoequipo" Type="Self.cli_tipoequipo" Multiplicity="1" />
+    <End Role="cli_equipo" Type="Self.cli_equipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cli_tipoequipo">
+        <PropertyRef Name="idCli_TipoEquipo" />
+      </Principal>
+      <Dependent Role="cli_equipo">
+        <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Com_Usuarios_Roles">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idRoles" />
+      </Principal>
+      <Dependent Role="com_usuarios">
+        <PropertyRef Name="Roles_idRoles" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Comp_Ruta_Com_Usuarios1">
+    <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="1" />
+    <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="com_usuarios">
+        <PropertyRef Name="idCom_Usuarios" />
+        <PropertyRef Name="Roles_idRoles" />
+      </Principal>
+      <Dependent Role="comp_ruta">
+        <PropertyRef Name="Com_Usuarios_idCom_Usuarios" />
+        <PropertyRef Name="Com_Usuarios_Roles_idRoles" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bd_ControlVisitasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cli_cliente" EntityType="Self.cli_cliente" />
+    <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" />
+    <EntitySet Name="cli_equipo" EntityType="Self.cli_equipo" />
+    <EntitySet Name="cli_tipoequipo" EntityType="Self.cli_tipoequipo" />
+    <EntitySet Name="cli_usuario" EntityType="Self.cli_usuario" />
+    <EntitySet Name="com_usuarios" EntityType="Self.com_usuarios" />
+    <EntitySet Name="comp_ruta" EntityType="Self.comp_ruta" />
+    <EntitySet Name="roles" EntityType="Self.roles" />
+    <AssociationSet Name="fk_Cli_Usuario_Cli_Empresa1" Association="Self.fk_Cli_Usuario_Cli_Empresa1">
+      <End Role="cli_cliente" EntitySet="cli_cliente" />
+      <End Role="cli_usuario" EntitySet="cli_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Comp_Ruta_Cli_Empresa1" Association="Self.fk_Comp_Ruta_Cli_Empresa1">
+      <End Role="cli_cliente" EntitySet="cli_cliente" />
+      <End Role="comp_ruta" EntitySet="comp_ruta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Cli_Usuario_Cli_Departamento1" Association="Self.fk_Cli_Usuario_Cli_Departamento1">
+      <End Role="cli_departamento" EntitySet="cli_departamento" />
+      <End Role="cli_usuario" EntitySet="cli_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Cli_Equipo_Cli_TipoEquipo1" Association="Self.fk_Cli_Equipo_Cli_TipoEquipo1">
+      <End Role="cli_tipoequipo" EntitySet="cli_tipoequipo" />
+      <End Role="cli_equipo" EntitySet="cli_equipo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Com_Usuarios_Roles" Association="Self.fk_Com_Usuarios_Roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="com_usuarios" EntitySet="com_usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Comp_Ruta_Com_Usuarios1" Association="Self.fk_Comp_Ruta_Com_Usuarios1">
+      <End Role="com_usuarios" EntitySet="com_usuarios" />
+      <End Role="comp_ruta" EntitySet="comp_ruta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

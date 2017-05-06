@@ -43,17 +43,17 @@
                 @Html.DisplayFor(model => model.cli_cliente.Cli_Nombre)
             </dd>
 
-            <dt>
+            @*<dt>
                 <label for="inputEmail3" class="col-sm-2 control-label">Departamento</label>
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.cli_departamento1.Cli_Descripcion)
-            </dd>
+            </dd>*@
 
         </dl>
         <p>
-            @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Usuario, id2 = Model.cli_departamento1.idCli_Departamento, id1 = Model.cli_cliente.idCli_Cliente }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Editar", "Edit", @*new { id = Model.idCli_Usuario, id2 = Model.cli_departamento1.idCli_Departamento, id1 = Model.cli_cliente.idCli_Cliente },*@ new { @class = "btn btn-success" }) 
             @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" }) 
         </p>
     </div>

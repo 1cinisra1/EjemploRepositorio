@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyAppModelStoreContainer" CdmEntityContainer="bd_ControlVisitasEntities">
+    <EntitySetMapping Name="cli_cliente">
+      <EntityTypeMapping TypeName="MyAppModel.cli_cliente">
+        <MappingFragment StoreEntitySet="cli_cliente">
+          <ScalarProperty Name="idCli_Cliente" ColumnName="idCli_Cliente" />
+          <ScalarProperty Name="Cli_Nombre" ColumnName="Cli_Nombre" />
+          <ScalarProperty Name="Cli_Ruc" ColumnName="Cli_Ruc" />
+          <ScalarProperty Name="Cli_Direccion" ColumnName="Cli_Direccion" />
+          <ScalarProperty Name="Cli_Tel" ColumnName="Cli_Tel" />
+          <ScalarProperty Name="Cli_Ciudad" ColumnName="Cli_Ciudad" />
+          <ScalarProperty Name="Cli_RSocial" ColumnName="Cli_RSocial" />
+          <ScalarProperty Name="Cli_NombContacto" ColumnName="Cli_NombContacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cli_departamento">
+      <EntityTypeMapping TypeName="MyAppModel.cli_departamento">
+        <MappingFragment StoreEntitySet="cli_departamento">
+          <ScalarProperty Name="idCli_Departamento" ColumnName="idCli_Departamento" />
+          <ScalarProperty Name="Cli_Descripcion" ColumnName="Cli_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cli_equipo">
+      <EntityTypeMapping TypeName="MyAppModel.cli_equipo">
+        <MappingFragment StoreEntitySet="cli_equipo">
+          <ScalarProperty Name="idCli_Equipo" ColumnName="idCli_Equipo" />
+          <ScalarProperty Name="Cli_Marca" ColumnName="Cli_Marca" />
+          <ScalarProperty Name="Cli_Modelo" ColumnName="Cli_Modelo" />
+          <ScalarProperty Name="Cli_DiscoDuro" ColumnName="Cli_DiscoDuro" />
+          <ScalarProperty Name="Cli_Ram" ColumnName="Cli_Ram" />
+          <ScalarProperty Name="Cli_Procesador" ColumnName="Cli_Procesador" />
+          <ScalarProperty Name="Cli_TipoEquipo_idCli_TipoEquipo" ColumnName="Cli_TipoEquipo_idCli_TipoEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cli_tipoequipo">
+      <EntityTypeMapping TypeName="MyAppModel.cli_tipoequipo">
+        <MappingFragment StoreEntitySet="cli_tipoequipo">
+          <ScalarProperty Name="idCli_TipoEquipo" ColumnName="idCli_TipoEquipo" />
+          <ScalarProperty Name="Cli_Descripcion" ColumnName="Cli_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cli_usuario">
+      <EntityTypeMapping TypeName="MyAppModel.cli_usuario">
+        <MappingFragment StoreEntitySet="cli_usuario">
+          <ScalarProperty Name="idCli_Usuario" ColumnName="idCli_Usuario" />
+          <ScalarProperty Name="Cli_nombre" ColumnName="Cli_nombre" />
+          <ScalarProperty Name="Cli_Departamento_idCli_Departamento" ColumnName="Cli_Departamento_idCli_Departamento" />
+          <ScalarProperty Name="Cli_Empresa_idCli_Empresa" ColumnName="Cli_Empresa_idCli_Empresa" />
+          <ScalarProperty Name="Cli_Equipo_idCli_Equipo" ColumnName="Cli_Equipo_idCli_Equipo" />
+          <ScalarProperty Name="Cli_Correo" ColumnName="Cli_Correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="com_usuarios">
+      <EntityTypeMapping TypeName="MyAppModel.com_usuarios">
+        <MappingFragment StoreEntitySet="com_usuarios">
+          <ScalarProperty Name="idCom_Usuarios" ColumnName="idCom_Usuarios" />
+          <ScalarProperty Name="Com_Nombre" ColumnName="Com_Nombre" />
+          <ScalarProperty Name="Roles_idRoles" ColumnName="Roles_idRoles" />
+          <ScalarProperty Name="Com_Apellido" ColumnName="Com_Apellido" />
+          <ScalarProperty Name="Com_Correo" ColumnName="Com_Correo" />
+          <ScalarProperty Name="Com_Direccion" ColumnName="Com_Direccion" />
+          <ScalarProperty Name="Com_Cedula" ColumnName="Com_Cedula" />
+          <ScalarProperty Name="Com_Telefono" ColumnName="Com_Telefono" />
+          <ScalarProperty Name="Com_Clave" ColumnName="Com_Clave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comp_ruta">
+      <EntityTypeMapping TypeName="MyAppModel.comp_ruta">
+        <MappingFragment StoreEntitySet="comp_ruta">
+          <ScalarProperty Name="idComp_Bitacora" ColumnName="idComp_Bitacora" />
+          <ScalarProperty Name="Comp_Fecha" ColumnName="Comp_Fecha" />
+          <ScalarProperty Name="Comp_NumeroVisitaMes" ColumnName="Comp_NumeroVisitaMes" />
+          <ScalarProperty Name="Com_Usuarios_idCom_Usuarios" ColumnName="Com_Usuarios_idCom_Usuarios" />
+          <ScalarProperty Name="Com_Usuarios_Roles_idRoles" ColumnName="Com_Usuarios_Roles_idRoles" />
+          <ScalarProperty Name="Cli_Empresa_idCli_Empresa" ColumnName="Cli_Empresa_idCli_Empresa" />
+          <ScalarProperty Name="Comp_TiempoDur" ColumnName="Comp_TiempoDur" />
+          <ScalarProperty Name="Comp_Comentario" ColumnName="Comp_Comentario" />
+          <ScalarProperty Name="Com_estado" ColumnName="Com_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="MyAppModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="idRoles" ColumnName="idRoles" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
