@@ -25,11 +25,12 @@
                             @Html.ValidationMessageFor(model => model.Com_Nombre)
                         </div>
                     </div>
-                    @Html.HiddenFor(model => model.Roles_idRoles)
+                  @Html.HiddenFor(model => model.Roles_idRoles)
                     <div class="form-group">
                         <label for="inputEmail3" class=" required col-sm-2 control-label">Rol</label>
                         <div class="col-md-10">
-                            @Html.DropDownList("Roles_idRoles", null, new { @class = "form-control form-control-rounded" })
+                            @Html.DropDownList("Roles_idRol", null, new { @class = "form-control form-control-rounded"})
+                            
                             @Html.ValidationMessageFor(model => model.Roles_idRoles)
                         </div>
                     </div>
@@ -77,7 +78,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <button type="submit" class="btn btn-success">Aceptar</button>
+                            <button id="Editar" type="submit" class="btn btn-success">Aceptar</button>
                             @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
                         </div>
                     </div>
@@ -98,4 +99,5 @@
         font-size: large;
     }
 </style>
+
 

@@ -18,7 +18,7 @@ namespace WebApplication.Controllers
         // GET: /CompRuta/
         public async Task<ActionResult> Index()
         {
-            if (User.IsInRole("admin"))
+            if (User.IsInRole("1"))
             {
                 var comp_ruta = db.comp_ruta.Include(c => c.cli_cliente).Include(c => c.com_usuarios);
                 ViewBag.Verificar = 18;
@@ -53,7 +53,7 @@ namespace WebApplication.Controllers
         // GET: /CompRuta/Details/5
         public async Task<ActionResult> Details(int? id)
         {
-            if (User.IsInRole("admin"))
+            if (User.IsInRole("1"))
             {
                 if (id == null)
                 {
@@ -74,7 +74,7 @@ namespace WebApplication.Controllers
         // GET: /CompRuta/Create
         public ActionResult Create()
         {
-            if (User.IsInRole("admin"))
+            if (User.IsInRole("1"))
             {
                 ViewBag.Cli_Empresa_idCli_Empresa = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_RSocial");
                 ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre");
@@ -109,7 +109,7 @@ namespace WebApplication.Controllers
         // GET: /CompRuta/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (User.IsInRole("admin"))
+            if (User.IsInRole("1"))
             {
                 if (id == null)
                 {
