@@ -20,8 +20,10 @@ namespace WebApplication.Models
         public int Cli_Empresa_idCli_Empresa { get; set; }
         public int Cli_Equipo_idCli_Equipo { get; set; }
         public string Cli_Correo { get; set; }
+        public int Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo { get; set; }
     
         public virtual cli_cliente cli_cliente { get; set; }
         public virtual cli_departamento cli_departamento { get; set; }
+        public virtual cli_equipo cli_equipo { get; set; }
     }
 }

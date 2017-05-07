@@ -11,7 +11,6 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class com_usuarios
     {
@@ -19,8 +18,7 @@ namespace WebApplication.Models
         {
             this.comp_ruta = new HashSet<comp_ruta>();
         }
-
-        [System.ComponentModel.DataAnnotations.Key]
+    
         public int idCom_Usuarios { get; set; }
         public string Com_Nombre { get; set; }
         public int Roles_idRoles { get; set; }
@@ -30,8 +28,7 @@ namespace WebApplication.Models
         public int Com_Cedula { get; set; }
         public string Com_Telefono { get; set; }
         public string Com_Clave { get; set; }
-
-
+    
         public virtual roles roles { get; set; }
         public virtual ICollection<comp_ruta> comp_ruta { get; set; }
     }

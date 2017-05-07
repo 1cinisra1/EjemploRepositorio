@@ -26,6 +26,7 @@
     <EntitySetMapping Name="cli_equipo">
       <EntityTypeMapping TypeName="MyAppModel.cli_equipo">
         <MappingFragment StoreEntitySet="cli_equipo">
+          <ScalarProperty Name="Cli_TipoEquipo" ColumnName="Cli_TipoEquipo" />
           <ScalarProperty Name="idCli_Equipo" ColumnName="idCli_Equipo" />
           <ScalarProperty Name="Cli_Marca" ColumnName="Cli_Marca" />
           <ScalarProperty Name="Cli_Modelo" ColumnName="Cli_Modelo" />
@@ -47,6 +48,7 @@
     <EntitySetMapping Name="cli_usuario">
       <EntityTypeMapping TypeName="MyAppModel.cli_usuario">
         <MappingFragment StoreEntitySet="cli_usuario">
+          <ScalarProperty Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" ColumnName="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" />
           <ScalarProperty Name="idCli_Usuario" ColumnName="idCli_Usuario" />
           <ScalarProperty Name="Cli_nombre" ColumnName="Cli_nombre" />
           <ScalarProperty Name="Cli_Departamento_idCli_Departamento" ColumnName="Cli_Departamento_idCli_Departamento" />
@@ -67,22 +69,25 @@
           <ScalarProperty Name="Com_Direccion" ColumnName="Com_Direccion" />
           <ScalarProperty Name="Com_Cedula" ColumnName="Com_Cedula" />
           <ScalarProperty Name="Com_Telefono" ColumnName="Com_Telefono" />
-          <ScalarProperty Name="Com_Clave" ColumnName="Com_Clave" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="comp_ruta">
       <EntityTypeMapping TypeName="MyAppModel.comp_ruta">
         <MappingFragment StoreEntitySet="comp_ruta">
+          <ScalarProperty Name="Cli_Usuario_idCli_Usuario" ColumnName="Cli_Usuario_idCli_Usuario" />
+          <ScalarProperty Name="Cli_Cliente_idCli_Cliente" ColumnName="Cli_Cliente_idCli_Cliente" />
+          <ScalarProperty Name="Comp_CerradoPor" ColumnName="Comp_CerradoPor" />
+          <ScalarProperty Name="Comp_CreadoPor" ColumnName="Comp_CreadoPor" />
+          <ScalarProperty Name="Comp_HoraSalida" ColumnName="Comp_HoraSalida" />
+          <ScalarProperty Name="Comp_HoraLlegada" ColumnName="Comp_HoraLlegada" />
+          <ScalarProperty Name="Comp_estado" ColumnName="Comp_estado" />
           <ScalarProperty Name="idComp_Bitacora" ColumnName="idComp_Bitacora" />
           <ScalarProperty Name="Comp_Fecha" ColumnName="Comp_Fecha" />
           <ScalarProperty Name="Comp_NumeroVisitaMes" ColumnName="Comp_NumeroVisitaMes" />
           <ScalarProperty Name="Com_Usuarios_idCom_Usuarios" ColumnName="Com_Usuarios_idCom_Usuarios" />
-          <ScalarProperty Name="Com_Usuarios_Roles_idRoles" ColumnName="Com_Usuarios_Roles_idRoles" />
-          <ScalarProperty Name="Cli_Empresa_idCli_Empresa" ColumnName="Cli_Empresa_idCli_Empresa" />
           <ScalarProperty Name="Comp_TiempoDur" ColumnName="Comp_TiempoDur" />
           <ScalarProperty Name="Comp_Comentario" ColumnName="Comp_Comentario" />
-          <ScalarProperty Name="Com_estado" ColumnName="Com_estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

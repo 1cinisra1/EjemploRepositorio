@@ -23,8 +23,16 @@ namespace WebApplication.Models
         public string Comp_TiempoDur { get; set; }
         public string Comp_Comentario { get; set; }
         public byte[] Com_estado { get; set; }
+        public byte[] Comp_estado { get; set; }
+        public string Comp_HoraLlegada { get; set; }
+        public string Comp_HoraSalida { get; set; }
+        public string Comp_CreadoPor { get; set; }
+        public string Comp_CerradoPor { get; set; }
+        public int Cli_Cliente_idCli_Cliente { get; set; }
+        public int Cli_Usuario_idCli_Usuario { get; set; }
     
         public virtual cli_cliente cli_cliente { get; set; }
         public virtual com_usuarios com_usuarios { get; set; }
+        public virtual cli_cliente cli_cliente1 { get; set; }
     }
 }

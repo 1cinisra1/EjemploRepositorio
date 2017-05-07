@@ -18,6 +18,7 @@ namespace WebApplication.Models
         {
             this.cli_usuario = new HashSet<cli_usuario>();
             this.comp_ruta = new HashSet<comp_ruta>();
+            this.comp_ruta1 = new HashSet<comp_ruta>();
         }
     
         public int idCli_Cliente { get; set; }
@@ -31,5 +32,6 @@ namespace WebApplication.Models
     
         public virtual ICollection<cli_usuario> cli_usuario { get; set; }
         public virtual ICollection<comp_ruta> comp_ruta { get; set; }
+        public virtual ICollection<comp_ruta> comp_ruta1 { get; set; }
     }
 }

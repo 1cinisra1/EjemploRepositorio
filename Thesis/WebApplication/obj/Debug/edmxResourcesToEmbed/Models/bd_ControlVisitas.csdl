@@ -14,6 +14,7 @@
     <Property Name="Cli_NombContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="cli_usuario" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_cliente" ToRole="cli_usuario" />
     <NavigationProperty Name="comp_ruta" Relationship="Self.fk_Comp_Ruta_Cli_Empresa1" FromRole="cli_cliente" ToRole="comp_ruta" />
+    <NavigationProperty Name="comp_ruta1" Relationship="MyAppModel.fk_Comp_Ruta_Cli_Cliente1" FromRole="cli_cliente" ToRole="comp_ruta" />
   </EntityType>
   <EntityType Name="cli_departamento">
     <Key>
@@ -36,6 +37,8 @@
     <Property Name="Cli_Procesador" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Cli_TipoEquipo_idCli_TipoEquipo" Type="Int32" Nullable="false" />
     <NavigationProperty Name="cli_tipoequipo" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_equipo" ToRole="cli_tipoequipo" />
+    <Property Name="Cli_TipoEquipo" Type="Boolean" />
+    <NavigationProperty Name="cli_usuario" Relationship="MyAppModel.fk_Cli_Usuario_Cli_Equipo1" FromRole="cli_equipo" ToRole="cli_usuario" />
   </EntityType>
   <EntityType Name="cli_tipoequipo">
     <Key>
@@ -59,6 +62,8 @@
     <Property Name="Cli_Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_usuario" ToRole="cli_cliente" />
     <NavigationProperty Name="cli_departamento" Relationship="Self.fk_Cli_Usuario_Cli_Departamento1" FromRole="cli_usuario" ToRole="cli_departamento" />
+    <Property Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cli_equipo" Relationship="MyAppModel.fk_Cli_Usuario_Cli_Equipo1" FromRole="cli_usuario" ToRole="cli_equipo" />
   </EntityType>
   <EntityType Name="com_usuarios">
     <Key>
@@ -92,6 +97,14 @@
     <Property Name="Com_estado" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Comp_Ruta_Cli_Empresa1" FromRole="comp_ruta" ToRole="cli_cliente" />
     <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Comp_Ruta_Com_Usuarios1" FromRole="comp_ruta" ToRole="com_usuarios" />
+    <Property Name="Comp_estado" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Comp_HoraLlegada" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Comp_HoraSalida" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Comp_CreadoPor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Comp_CerradoPor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Cli_Cliente_idCli_Cliente" Type="Int32" Nullable="false" />
+    <Property Name="Cli_Usuario_idCli_Usuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cli_cliente1" Relationship="MyAppModel.fk_Comp_Ruta_Cli_Cliente1" FromRole="comp_ruta" ToRole="cli_cliente" />
   </EntityType>
   <EntityType Name="roles">
     <Key>
@@ -208,5 +221,39 @@
       <End Role="com_usuarios" EntitySet="com_usuarios" />
       <End Role="comp_ruta" EntitySet="comp_ruta" />
     </AssociationSet>
+    <AssociationSet Name="fk_Comp_Ruta_Cli_Cliente1" Association="MyAppModel.fk_Comp_Ruta_Cli_Cliente1">
+      <End Role="cli_cliente" EntitySet="cli_cliente" />
+      <End Role="comp_ruta" EntitySet="comp_ruta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Cli_Usuario_Cli_Equipo1" Association="MyAppModel.fk_Cli_Usuario_Cli_Equipo1">
+      <End Role="cli_equipo" EntitySet="cli_equipo" />
+      <End Role="cli_usuario" EntitySet="cli_usuario" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="fk_Comp_Ruta_Cli_Cliente1">
+    <End Type="MyAppModel.cli_cliente" Role="cli_cliente" Multiplicity="1" />
+    <End Type="MyAppModel.comp_ruta" Role="comp_ruta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cli_cliente">
+        <PropertyRef Name="idCli_Cliente" />
+      </Principal>
+      <Dependent Role="comp_ruta">
+        <PropertyRef Name="Cli_Cliente_idCli_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Cli_Usuario_Cli_Equipo1">
+    <End Type="MyAppModel.cli_equipo" Role="cli_equipo" Multiplicity="1" />
+    <End Type="MyAppModel.cli_usuario" Role="cli_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cli_equipo">
+        <PropertyRef Name="idCli_Equipo" />
+        <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+      </Principal>
+      <Dependent Role="cli_usuario">
+        <PropertyRef Name="Cli_Equipo_idCli_Equipo" />
+        <PropertyRef Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

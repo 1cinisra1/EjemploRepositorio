@@ -31,6 +31,7 @@
     <Property Name="Cli_DiscoDuro" Type="varchar" MaxLength="45" />
     <Property Name="Cli_Ram" Type="varchar" MaxLength="45" />
     <Property Name="Cli_Procesador" Type="varchar" MaxLength="45" />
+    <Property Name="Cli_TipoEquipo" Type="bool" />
     <Property Name="Cli_TipoEquipo_idCli_TipoEquipo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="cli_tipoequipo">
@@ -50,8 +51,9 @@
     <Property Name="Cli_nombre" Type="varchar" MaxLength="45" />
     <Property Name="Cli_Departamento_idCli_Departamento" Type="int" Nullable="false" />
     <Property Name="Cli_Empresa_idCli_Empresa" Type="int" Nullable="false" />
-    <Property Name="Cli_Equipo_idCli_Equipo" Type="int" Nullable="false" />
     <Property Name="Cli_Correo" Type="varchar" MaxLength="45" />
+    <Property Name="Cli_Equipo_idCli_Equipo" Type="int" Nullable="false" />
+    <Property Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="com_usuarios">
     <Key>
@@ -66,7 +68,6 @@
     <Property Name="Com_Direccion" Type="varchar" MaxLength="45" />
     <Property Name="Com_Cedula" Type="int" Nullable="false" />
     <Property Name="Com_Telefono" Type="varchar" MaxLength="45" />
-    <Property Name="Com_Clave" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="comp_ruta">
     <Key>
@@ -75,12 +76,16 @@
     <Property Name="idComp_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Comp_Fecha" Type="date" />
     <Property Name="Comp_NumeroVisitaMes" Type="varchar" MaxLength="45" />
-    <Property Name="Com_Usuarios_idCom_Usuarios" Type="int" Nullable="false" />
-    <Property Name="Com_Usuarios_Roles_idRoles" Type="int" Nullable="false" />
-    <Property Name="Cli_Empresa_idCli_Empresa" Type="int" Nullable="false" />
     <Property Name="Comp_TiempoDur" Type="varchar" MaxLength="45" />
     <Property Name="Comp_Comentario" Type="varchar" MaxLength="45" />
-    <Property Name="Com_estado" Type="binary" MaxLength="1" />
+    <Property Name="Comp_estado" Type="binary" MaxLength="1" />
+    <Property Name="Comp_HoraLlegada" Type="varchar" MaxLength="45" />
+    <Property Name="Comp_HoraSalida" Type="varchar" MaxLength="45" />
+    <Property Name="Comp_CreadoPor" Type="varchar" MaxLength="45" />
+    <Property Name="Comp_CerradoPor" Type="varchar" MaxLength="45" />
+    <Property Name="Com_Usuarios_idCom_Usuarios" Type="int" Nullable="false" />
+    <Property Name="Cli_Cliente_idCli_Cliente" Type="int" Nullable="false" />
+    <Property Name="Cli_Usuario_idCli_Usuario" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="roles">
     <Key>
@@ -125,9 +130,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errores durante la generación:
-advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que no forman parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
-        <Association Name="fk_Cli_Usuario_Cli_Equipo1" />-->
+  <Association Name="fk_Cli_Usuario_Cli_Equipo1">
+    <End Role="cli_equipo" Type="Self.cli_equipo" Multiplicity="1" />
+    <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cli_equipo">
+        <PropertyRef Name="idCli_Equipo" />
+        <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+      </Principal>
+      <Dependent Role="cli_usuario">
+        <PropertyRef Name="Cli_Equipo_idCli_Equipo" />
+        <PropertyRef Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_Com_Usuarios_Roles">
     <End Role="roles" Type="Self.roles" Multiplicity="1" />
     <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="*" />
@@ -140,7 +156,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_Comp_Ruta_Cli_Empresa1">
+  <Association Name="fk_Comp_Ruta_Cli_Cliente1">
     <End Role="cli_cliente" Type="Self.cli_cliente" Multiplicity="1" />
     <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -148,24 +164,16 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
         <PropertyRef Name="idCli_Cliente" />
       </Principal>
       <Dependent Role="comp_ruta">
-        <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+        <PropertyRef Name="Cli_Cliente_idCli_Cliente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_Comp_Ruta_Com_Usuarios1">
-    <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="1" />
-    <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="com_usuarios">
-        <PropertyRef Name="idCom_Usuarios" />
-        <PropertyRef Name="Roles_idRoles" />
-      </Principal>
-      <Dependent Role="comp_ruta">
-        <PropertyRef Name="Com_Usuarios_idCom_Usuarios" />
-        <PropertyRef Name="Com_Usuarios_Roles_idRoles" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <!--Errores durante la generación:
+advertencia 6035: La relación 'fk_Comp_Ruta_Cli_Usuario1' tiene columnas que no forman parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
+        <Association Name="fk_Comp_Ruta_Cli_Usuario1" />-->
+  <!--Errores durante la generación:
+advertencia 6035: La relación 'fk_Comp_Ruta_Com_Usuarios' tiene columnas que no forman parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
+        <Association Name="fk_Comp_Ruta_Com_Usuarios" />-->
   <EntityContainer Name="MyAppModelStoreContainer">
     <EntitySet Name="cli_cliente" EntityType="Self.cli_cliente" Schema="myapp" store:Type="Tables" />
     <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" Schema="myapp" store:Type="Tables" />
@@ -187,16 +195,16 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
       <End Role="cli_cliente" EntitySet="cli_cliente" />
       <End Role="cli_usuario" EntitySet="cli_usuario" />
     </AssociationSet>
+    <AssociationSet Name="fk_Cli_Usuario_Cli_Equipo1" Association="Self.fk_Cli_Usuario_Cli_Equipo1">
+      <End Role="cli_equipo" EntitySet="cli_equipo" />
+      <End Role="cli_usuario" EntitySet="cli_usuario" />
+    </AssociationSet>
     <AssociationSet Name="fk_Com_Usuarios_Roles" Association="Self.fk_Com_Usuarios_Roles">
       <End Role="roles" EntitySet="roles" />
       <End Role="com_usuarios" EntitySet="com_usuarios" />
     </AssociationSet>
-    <AssociationSet Name="fk_Comp_Ruta_Cli_Empresa1" Association="Self.fk_Comp_Ruta_Cli_Empresa1">
+    <AssociationSet Name="fk_Comp_Ruta_Cli_Cliente1" Association="Self.fk_Comp_Ruta_Cli_Cliente1">
       <End Role="cli_cliente" EntitySet="cli_cliente" />
-      <End Role="comp_ruta" EntitySet="comp_ruta" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Comp_Ruta_Com_Usuarios1" Association="Self.fk_Comp_Ruta_Com_Usuarios1">
-      <End Role="com_usuarios" EntitySet="com_usuarios" />
       <End Role="comp_ruta" EntitySet="comp_ruta" />
     </AssociationSet>
   </EntityContainer>
