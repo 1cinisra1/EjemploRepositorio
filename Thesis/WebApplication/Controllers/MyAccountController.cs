@@ -49,7 +49,7 @@ namespace WebApplication.Controllers
                 var isValidUser = Membership.ValidateUser(l.Com_Correo, l.Com_Clave);
                 if (isValidUser)
                 {
-                    FormsAuthentication.SetAuthCookie(l.Com_Correo, true);
+                    FormsAuthentication.SetAuthCookie(l.Com_Correo, false);
                     if (Url.IsLocalUrl(returnURL))
                     {
                         return Redirect(returnURL);

@@ -12,18 +12,13 @@
 
 @using Microsoft.AspNet.Identity
 
-@if (ViewBag.Verificar is Int32)
-{
+@*@if (ViewBag.Verificar is Int32)
+{*@
 <div class="row">
     <div class="col-md-12 ">
-        <div class="box" style="margin-left:118px">
+        <div class="box">
             <div class="table-responsive">
                 <div class="box-body">
-                   
-                        
-                   
-                        
-                        
                     <div class="form-horizontal">
                         <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
                         <table id="example1" class="table table-bordered">
@@ -38,11 +33,14 @@
                                     <th>
                                         <label>Tiempo Estimado</label>
                                     </th>
-                                    <th>
+                                    @*<th>
                                         <label>Comentario</label>
+                                    </th>*@
+                                    <th>
+                                        <label>Empresa</label>
                                     </th>
                                     <th>
-                                        <label>Cliente</label>
+                                        <label>Usuario</label>
                                     </th>
                                     <th>
                                         <label>Técnico Asignado</label>
@@ -63,21 +61,24 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Comp_TiempoDur)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Comp_Comentario)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.cli_cliente.Cli_RSocial)
                                         </td>
                                         <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Usuarios_idCom_Usuarios)
+                                        </td>
+                                        @*<td>
                                             @Html.ActionLink(item.com_usuarios.Com_Nombre, "Details", "Comusuarios", new { id = item.com_usuarios.idCom_Usuarios, id1 = item.com_usuarios.Roles_idRoles }, null)
-                                        @*@Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)*@
+                                        @Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)
                                     </td>
                                     <td>
                                         @Html.ActionLink("Editar", "Edit", new { id = item.idComp_Bitacora, id1 = item.com_usuarios.idCom_Usuarios, id2 = item.cli_cliente.idCli_Cliente, id3 = item.com_usuarios.roles.idRoles, id4 = item.idComp_Bitacora }, new { @class = "btn btn-success" })
                                         @Html.ActionLink("Ver", "Details", new { id = item.idComp_Bitacora, id2 = item.com_usuarios.idCom_Usuarios }, new { @class = "btn btn-primary" })
                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.idComp_Bitacora }, new { @class = "btn btn-danger" })
-                                    </td>
+                                    </td>*@
                                 </tr>
                                 }
                             </tbody>
@@ -90,9 +91,9 @@
         </div>
     </div>
 </div>
-        }
+        @*}*@
 
-}
+
 
 
 

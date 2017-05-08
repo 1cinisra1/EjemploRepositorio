@@ -4,97 +4,82 @@
     ViewBag.Title = "Edit";
 }
 
-<div class="register-box">
-    <div class="register-box-body">
-        
-        @using (Html.BeginForm())
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    
     <div class="form-horizontal">
-        <h3 style="text-align:center">EDITAR EMPRESA</h3>
+        <h4>cli_cliente</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.idCli_Cliente)
 
         <div class="form-group">
-            <label for="inputEmail3" class=" required col-sm-2 control-label">Nombre</label>
+            @Html.LabelFor(model => model.Cli_Nombre, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_Nombre, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                @Html.EditorFor(model => model.Cli_Nombre)
                 @Html.ValidationMessageFor(model => model.Cli_Nombre)
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputEmail3" class=" required col-sm-2 control-label">Ruc/Cédula</label>
+            @Html.LabelFor(model => model.Cli_Ruc, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_Ruc, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                @Html.EditorFor(model => model.Cli_Ruc)
                 @Html.ValidationMessageFor(model => model.Cli_Ruc)
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputEmail3" class=" required col-sm-2 control-label">Dirección</label>
+            @Html.LabelFor(model => model.Cli_Direccion, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_Direccion, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                @Html.EditorFor(model => model.Cli_Direccion)
                 @Html.ValidationMessageFor(model => model.Cli_Direccion)
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputEmail3" class=" required col-sm-2 control-label">Teléfono</label>
+            @Html.LabelFor(model => model.Cli_Tel, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_Tel, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                @Html.EditorFor(model => model.Cli_Tel)
                 @Html.ValidationMessageFor(model => model.Cli_Tel)
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Ciudad</label>
+            @Html.LabelFor(model => model.Cli_Ciudad, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_Ciudad, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                @Html.EditorFor(model => model.Cli_Ciudad)
                 @Html.ValidationMessageFor(model => model.Cli_Ciudad)
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputEmail3" class=" required col-sm-2 control-label">Razón Social</label>
+            @Html.LabelFor(model => model.Cli_RSocial, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_RSocial, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                @Html.EditorFor(model => model.Cli_RSocial)
                 @Html.ValidationMessageFor(model => model.Cli_RSocial)
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputEmail3" class=" required col-sm-2 control-label">Contacto</label>
+            @Html.LabelFor(model => model.Cli_NombContacto, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cli_NombContacto, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                @Html.EditorFor(model => model.Cli_NombContacto)
                 @Html.ValidationMessageFor(model => model.Cli_NombContacto)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-
-                <button type="submit" value="Save" class="btn btn-success">Aceptar</button>
-                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-        </div>
-    </div>
 
-<style type="text/css">
-    .form-control-rounded {
-        border-radius: 16px;
-
-
-    }
-
-    .required::after {
-        content: "*";
-        font-weight: normal;
-        color: red;
-        font-size: large;
-    }
-</style>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

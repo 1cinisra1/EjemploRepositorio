@@ -16,51 +16,53 @@
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-    
-    
+<body class="hold-transition skin-red sidebar-mini">
     <div class="wrapper">
         @if (Request.IsAuthenticated)
         {
             using (Html.BeginForm("Logout", "MyAccount", FormMethod.Post, new { id = "logoutform" }))
             {
                 <header class="main-header">
-                    <a href="@Url.Action("Index", "cliCliente")" class="logo"><span class="logo-lg"><b>Control</b> De Visitas</span> </a>
+                    <a href="@Url.Action("Index", "cliCliente")" class="logo">
+                        <span class="logo-lg"><b>Control</b> De Visitas</span>
+                    </a>
+
+                    <nav class="navbar navbar-static-top" role="navigation">
+                        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle navigation</span>
+                        </a>
+                        @*<button type="button" class="btn btn-success disabled">Bienvenido @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "") !!</button>*@
+                        @*<ul class="nav navbar-nav navbar-right">
+                                <li><a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-danger btn-lg">Logout</a></li>
+                            </ul>*@
+                    </nav>
                 </header>
-                <nav class="navbar navbar-static-top" role="navigation">
-                    <button type="button" class="btn btn-success disabled">Bienvenido @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "") !!</button>
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-danger btn-lg">Logout</a></li>
-
-
-                    </ul>
-                </nav>
-
-
             }
-
         }
-
-                <aside class="main-sidebar">
-                    <section class="sidebar">
-
-
-                        <ul class="sidebar-menu">
-                            <li class="header">CLIENTES</li>
-
-                            <li id="left-sidebar-menu-tables" class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-table"></i> <span>Empresas</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliCliente")"><i class="fa fa-circle-o"></i>Crear</a></li>
-                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliCliente")"><i class="fa fa-circle-o"></i> Listar </a></li>
-                                </ul>
-                            </li>
-
-
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/AdminLTE/dist/img/user.svg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>Bienvenido <br /><br /> @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")</p>
+                        @*<a href="#"><i class="fa fa-circle text-success"></i> Online</a>*@
+                        <ul class="nav navbar-nav navbar-left">
+                            @*<li><a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-lg">Logout</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="header">CLIENTES</li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Empresas</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "cliCliente")"><i class="fa fa-circle-o"></i>Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliCliente")"><i class="fa fa-circle-o"></i> Listar </a></li>
                             <li id="left-sidebar-menu-tables" class="treeview">
                                 <a href="#">
                                     <i class="fa fa-table"></i> <span>Departamentos</span>
@@ -71,36 +73,26 @@
                                     <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliDepartamento")"><i class="fa fa-circle-o"></i> Listar </a></li>
                                 </ul>
                             </li>
-
-
-                            <li id="left-sidebar-menu-tables" class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-table"></i> <span>Usuarios </span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Crear </a></li>
-                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Listar</a>
-
-
-                                </ul>
-                            </li>
-
-
-
-                            <li id="left-sidebar-menu-tables" class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-table"></i> <span>Equipos </span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliEquipo")"><i class="fa fa-circle-o"></i> Crear </a></li>
-                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Listar</a>
-
-
-                                </ul>
-                            </li>
-
+                        </ul>
+                    </li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Usuarios </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliUsuario")"><i class="fa fa-circle-o"></i> Crear </a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index","cliUsuario")"><i class="fa fa-circle-o"></i>Listar</a>
+                        </ul>
+                    </li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Equipos </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create","cliEquipo")"><i class="fa fa-circle-o"></i> Crear </a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliEquipo")"><i class="fa fa-circle-o"></i>Listar</a>
                             <li id="left-sidebar-menu-tables" class="treeview">
                                 <a href="#">
                                     <i class="fa fa-table"></i> <span>Tipo de Equipos</span>
@@ -111,36 +103,20 @@
                                     <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "cliTipoEquipo")"><i class="fa fa-circle-o"></i>Listar</a></li>
                                 </ul>
                             </li>
-
-                            <li class="header">COMPUSERVI</li>
-
-
-
+                        </ul>
+                    </li>
+                    <li class="header">COMPUSERVI</li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Usuarios</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "ComUsuarios")"><i class="fa fa-circle-o"></i> Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "ComUsuarios")"><i class="fa fa-circle-o"></i> Listar </a></li>
                             <li id="left-sidebar-menu-tables" class="treeview">
                                 <a href="#">
-                                    <i class="fa fa-table"></i> <span>Usuarios</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "ComUsuarios")"><i class="fa fa-circle-o"></i> Crear</a></li>
-                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "ComUsuarios")"><i class="fa fa-circle-o"></i> Listar </a></li>
-                                </ul>
-                            </li>
-                            <li id="left-sidebar-menu-tables" class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-table"></i> <span>Rutas</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "CompRuta")"><i class="fa fa-circle-o"></i> Crear</a></li>
-                                    <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "CompRuta")"><i class="fa fa-circle-o"></i> Listar</a></li>
-                                </ul>
-                            </li>
-
-
-                            <li id="left-sidebar-menu-tables" class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-table"></i> <span>Ròles</span>
+                                    <i class="fa fa-table"></i> <span>Roles</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
@@ -149,36 +125,67 @@
                                 </ul>
                             </li>
                         </ul>
-                    </section>
-                </aside>
-
-                <div class="container ">
-
+                    </li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Rutas</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "CompRuta")"><i class="fa fa-circle-o"></i> Crear</a></li>
+                            <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "CompRuta")"><i class="fa fa-circle-o"></i> Listar</a></li>
+                        </ul>
+                    </li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-table"></i> <span>Nube</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="left-sidebar-menu-tables-simple"><a href="http://files.mycloud.com/login.php"><i class="fa fa-circle-o"></i>Técnico</a></li>
+                            <li id="left-sidebar-menu-tables-simple"><a href="http://files.mycloud.com/login.php"><i class="fa fa-circle-o"></i>Ventas</a></li>
+                        </ul>
+                    </li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="https://compuservi.com.ec:2096/">
+                            <i class="fa fa-table"></i> <span>Correo</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        @*<ul class="treeview-menu">
+                                <li id="left-sidebar-menu-tables-simple"><a href="https://compuservi.com.ec:2096/"><i class="fa fa-circle-o"></i>WebMail</a></li>
+                            </ul>*@
+                    </li>
+                    <li id="left-sidebar-menu-tables" class="treeview">
+                        <a href="#">
+                            <i class="fa fa-share"></i> <span>Salir</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-danger btn-lg">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content">
+                @*<br />
+                    <br />*@
+                @RenderBody()
+                @*<br />
                     <br />
-                    <br />
-                    @RenderBody()
-                    <br />
-                    <br />
-                    <br />
-                </div>
-
-
-
-
-
-                @Scripts.Render("~/AdminLTE/plugins/jquery/js")
-                @RenderSection("menu", required: false)
-                @Scripts.Render("~/AdminLTE/bootstrap/js")
-                @Scripts.Render("~/AdminLTE/plugins/slimscroll/js")
-                @Scripts.Render("~/AdminLTE/plugins/fastclick/js")
-                @Scripts.Render("~/Scripts/Shared/_Layout")
-                @Scripts.Render("~/AdminLTE/dist/js")
-                @RenderSection("scripts", required: false)
-
-
-
+                    <br />*@
+            </section>
+        </div>
+        @Scripts.Render("~/AdminLTE/plugins/jquery/js")
+        @RenderSection("menu", required: false)
+        @Scripts.Render("~/AdminLTE/bootstrap/js")
+        @Scripts.Render("~/AdminLTE/plugins/slimscroll/js")
+        @Scripts.Render("~/AdminLTE/plugins/fastclick/js")
+        @Scripts.Render("~/Scripts/Shared/_Layout")
+        @Scripts.Render("~/AdminLTE/dist/js")
+        @RenderSection("scripts", required: false)
     </div>
-     
 </body>
 </html>
 
@@ -217,19 +224,13 @@
 
 
 <style>
-
     html, body {
         height: 100%;
     }
 
-   
+
     .columns {
         background-color: #C9E6FF;
         height: 100%;
     }
-
-  
-
-   
-
 </style>

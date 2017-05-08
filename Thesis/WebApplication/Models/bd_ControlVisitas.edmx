@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyAppModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bd_ControlVisitasModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cli_cliente">
           <Key>
             <PropertyRef Name="idCli_Cliente" />
@@ -55,8 +55,9 @@
           <Property Name="Cli_nombre" Type="varchar" MaxLength="45" />
           <Property Name="Cli_Departamento_idCli_Departamento" Type="int" Nullable="false" />
           <Property Name="Cli_Empresa_idCli_Empresa" Type="int" Nullable="false" />
-          <Property Name="Cli_Equipo_idCli_Equipo" Type="int" Nullable="false" />
           <Property Name="Cli_Correo" Type="varchar" MaxLength="45" />
+          <Property Name="Cli_Equipo_idCli_Equipo" Type="int" Nullable="false" />
+          <Property Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="com_usuarios">
           <Key>
@@ -80,12 +81,16 @@
           <Property Name="idComp_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Comp_Fecha" Type="date" />
           <Property Name="Comp_NumeroVisitaMes" Type="varchar" MaxLength="45" />
-          <Property Name="Com_Usuarios_idCom_Usuarios" Type="int" Nullable="false" />
-          <Property Name="Com_Usuarios_Roles_idRoles" Type="int" Nullable="false" />
-          <Property Name="Cli_Empresa_idCli_Empresa" Type="int" Nullable="false" />
           <Property Name="Comp_TiempoDur" Type="varchar" MaxLength="45" />
           <Property Name="Comp_Comentario" Type="varchar" MaxLength="45" />
-          <Property Name="Com_estado" Type="binary" MaxLength="1" />
+          <Property Name="Comp_estado" Type="binary" MaxLength="1" />
+          <Property Name="Comp_HoraLlegada" Type="varchar" MaxLength="45" />
+          <Property Name="Comp_HoraSalida" Type="varchar" MaxLength="45" />
+          <Property Name="Comp_CreadoPor" Type="varchar" MaxLength="45" />
+          <Property Name="Comp_CerradoPor" Type="varchar" MaxLength="45" />
+          <Property Name="Com_Usuarios_idCom_Usuarios" Type="int" Nullable="false" />
+          <Property Name="Cli_Cliente_idCli_Cliente" Type="int" Nullable="false" />
+          <Property Name="Cli_Usuario_idCli_Usuario" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -130,9 +135,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errores durante la generación:
-advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que no forman parte de la clave de la tabla en el lado principal de la relación. Se excluyó la relación.
-        <Association Name="fk_Cli_Usuario_Cli_Equipo1" />-->
+        <Association Name="fk_Cli_Usuario_Cli_Equipo1">
+          <End Role="cli_equipo" Type="Self.cli_equipo" Multiplicity="1" />
+          <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_equipo">
+              <PropertyRef Name="idCli_Equipo" />
+              <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+            </Principal>
+            <Dependent Role="cli_usuario">
+              <PropertyRef Name="Cli_Equipo_idCli_Equipo" />
+              <PropertyRef Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Com_Usuarios_Roles">
           <End Role="roles" Type="Self.roles" Multiplicity="1" />
           <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="*" />
@@ -145,33 +161,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Comp_Ruta_Cli_Empresa1">
-          <End Role="cli_cliente" Type="Self.cli_cliente" Multiplicity="1" />
-          <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cli_cliente">
-              <PropertyRef Name="idCli_Cliente" />
-            </Principal>
-            <Dependent Role="comp_ruta">
-              <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Comp_Ruta_Com_Usuarios1">
-          <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="1" />
-          <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_usuarios">
-              <PropertyRef Name="idCom_Usuarios" />
-              <PropertyRef Name="Roles_idRoles" />
-            </Principal>
-            <Dependent Role="comp_ruta">
-              <PropertyRef Name="Com_Usuarios_idCom_Usuarios" />
-              <PropertyRef Name="Com_Usuarios_Roles_idRoles" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="MyAppModelStoreContainer">
+        <EntityContainer Name="bd_ControlVisitasModelStoreContainer">
           <EntitySet Name="cli_cliente" EntityType="Self.cli_cliente" Schema="myapp" store:Type="Tables" />
           <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" Schema="myapp" store:Type="Tables" />
           <EntitySet Name="cli_equipo" EntityType="Self.cli_equipo" Schema="myapp" store:Type="Tables" />
@@ -192,24 +182,19 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             <End Role="cli_cliente" EntitySet="cli_cliente" />
             <End Role="cli_usuario" EntitySet="cli_usuario" />
           </AssociationSet>
+          <AssociationSet Name="fk_Cli_Usuario_Cli_Equipo1" Association="Self.fk_Cli_Usuario_Cli_Equipo1">
+            <End Role="cli_equipo" EntitySet="cli_equipo" />
+            <End Role="cli_usuario" EntitySet="cli_usuario" />
+          </AssociationSet>
           <AssociationSet Name="fk_Com_Usuarios_Roles" Association="Self.fk_Com_Usuarios_Roles">
             <End Role="roles" EntitySet="roles" />
             <End Role="com_usuarios" EntitySet="com_usuarios" />
           </AssociationSet>
-          <AssociationSet Name="fk_Comp_Ruta_Cli_Empresa1" Association="Self.fk_Comp_Ruta_Cli_Empresa1">
-            <End Role="cli_cliente" EntitySet="cli_cliente" />
-            <End Role="comp_ruta" EntitySet="comp_ruta" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Comp_Ruta_Com_Usuarios1" Association="Self.fk_Comp_Ruta_Com_Usuarios1">
-            <End Role="com_usuarios" EntitySet="com_usuarios" />
-            <End Role="comp_ruta" EntitySet="comp_ruta" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MyAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="bd_ControlVisitasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="cli_cliente">
           <Key>
             <PropertyRef Name="idCli_Cliente" />
@@ -223,7 +208,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Property Name="Cli_RSocial" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_NombContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cli_usuario" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_cliente" ToRole="cli_usuario" />
-          <NavigationProperty Name="comp_ruta" Relationship="Self.fk_Comp_Ruta_Cli_Empresa1" FromRole="cli_cliente" ToRole="comp_ruta" />
+          <NavigationProperty Name="comp_ruta" Relationship="Self.fk_Comp_Ruta_Cli_Cliente1" FromRole="cli_cliente" ToRole="comp_ruta" />
         </EntityType>
         <EntityType Name="cli_departamento">
           <Key>
@@ -245,7 +230,8 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Property Name="Cli_Ram" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_Procesador" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_TipoEquipo_idCli_TipoEquipo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="cli_tipoequipo" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_equipo" ToRole="cli_tipoequipo" />
+          <NavigationProperty Name="cli_tipoequipo1" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_equipo" ToRole="cli_tipoequipo" />
+          <NavigationProperty Name="cli_usuario" Relationship="Self.fk_Cli_Usuario_Cli_Equipo1" FromRole="cli_equipo" ToRole="cli_usuario" />
         </EntityType>
         <EntityType Name="cli_tipoequipo">
           <Key>
@@ -265,10 +251,12 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Property Name="Cli_nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_Departamento_idCli_Departamento" Type="Int32" Nullable="false" />
           <Property Name="Cli_Empresa_idCli_Empresa" Type="Int32" Nullable="false" />
-          <Property Name="Cli_Equipo_idCli_Equipo" Type="Int32" Nullable="false" />
           <Property Name="Cli_Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Cli_Equipo_idCli_Equipo" Type="Int32" Nullable="false" />
+          <Property Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Cli_Usuario_Cli_Empresa1" FromRole="cli_usuario" ToRole="cli_cliente" />
           <NavigationProperty Name="cli_departamento" Relationship="Self.fk_Cli_Usuario_Cli_Departamento1" FromRole="cli_usuario" ToRole="cli_departamento" />
+          <NavigationProperty Name="cli_equipo" Relationship="Self.fk_Cli_Usuario_Cli_Equipo1" FromRole="cli_usuario" ToRole="cli_equipo" />
         </EntityType>
         <EntityType Name="com_usuarios">
           <Key>
@@ -283,9 +271,9 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Property Name="Com_Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Com_Cedula" Type="Int32" Nullable="false" />
           <Property Name="Com_Telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Com_Clave" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="roles" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="com_usuarios" ToRole="roles" />
-          <NavigationProperty Name="comp_ruta" Relationship="Self.fk_Comp_Ruta_Com_Usuarios1" FromRole="com_usuarios" ToRole="comp_ruta" />
+          <Property Name="Com_Clave" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="comp_ruta" Relationship="bd_ControlVisitasModel.comp_rutacom_usuarios" FromRole="com_usuarios" ToRole="comp_ruta" />
         </EntityType>
         <EntityType Name="comp_ruta">
           <Key>
@@ -294,14 +282,18 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
           <Property Name="idComp_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Comp_Fecha" Type="DateTime" />
           <Property Name="Comp_NumeroVisitaMes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Com_Usuarios_idCom_Usuarios" Type="Int32" Nullable="false" />
-          <Property Name="Com_Usuarios_Roles_idRoles" Type="Int32" Nullable="false" />
-          <Property Name="Cli_Empresa_idCli_Empresa" Type="Int32" Nullable="false" />
           <Property Name="Comp_TiempoDur" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Comp_Comentario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Com_estado" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Comp_Ruta_Cli_Empresa1" FromRole="comp_ruta" ToRole="cli_cliente" />
-          <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Comp_Ruta_Com_Usuarios1" FromRole="comp_ruta" ToRole="com_usuarios" />
+          <Property Name="Comp_estado" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Comp_HoraLlegada" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_HoraSalida" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_CreadoPor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_CerradoPor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Com_Usuarios_idCom_Usuarios" Type="Int32" Nullable="false" />
+          <Property Name="Cli_Cliente_idCli_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Cli_Usuario_idCli_Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cli_cliente" Relationship="Self.fk_Comp_Ruta_Cli_Cliente1" FromRole="comp_ruta" ToRole="cli_cliente" />
+          <NavigationProperty Name="com_usuarios" Relationship="bd_ControlVisitasModel.comp_rutacom_usuarios" FromRole="comp_ruta" ToRole="com_usuarios" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -323,7 +315,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Comp_Ruta_Cli_Empresa1">
+        <Association Name="fk_Comp_Ruta_Cli_Cliente1">
           <End Role="cli_cliente" Type="Self.cli_cliente" Multiplicity="1" />
           <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -331,7 +323,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
               <PropertyRef Name="idCli_Cliente" />
             </Principal>
             <Dependent Role="comp_ruta">
-              <PropertyRef Name="Cli_Empresa_idCli_Empresa" />
+              <PropertyRef Name="Cli_Cliente_idCli_Cliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -359,6 +351,20 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Cli_Usuario_Cli_Equipo1">
+          <End Role="cli_equipo" Type="Self.cli_equipo" Multiplicity="1" />
+          <End Role="cli_usuario" Type="Self.cli_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cli_equipo">
+              <PropertyRef Name="idCli_Equipo" />
+              <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
+            </Principal>
+            <Dependent Role="cli_usuario">
+              <PropertyRef Name="Cli_Equipo_idCli_Equipo" />
+              <PropertyRef Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Com_Usuarios_Roles">
           <End Role="roles" Type="Self.roles" Multiplicity="1" />
           <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="*" />
@@ -368,20 +374,6 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </Principal>
             <Dependent Role="com_usuarios">
               <PropertyRef Name="Roles_idRoles" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Comp_Ruta_Com_Usuarios1">
-          <End Role="com_usuarios" Type="Self.com_usuarios" Multiplicity="1" />
-          <End Role="comp_ruta" Type="Self.comp_ruta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_usuarios">
-              <PropertyRef Name="idCom_Usuarios" />
-              <PropertyRef Name="Roles_idRoles" />
-            </Principal>
-            <Dependent Role="comp_ruta">
-              <PropertyRef Name="Com_Usuarios_idCom_Usuarios" />
-              <PropertyRef Name="Com_Usuarios_Roles_idRoles" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -398,7 +390,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             <End Role="cli_cliente" EntitySet="cli_cliente" />
             <End Role="cli_usuario" EntitySet="cli_usuario" />
           </AssociationSet>
-          <AssociationSet Name="fk_Comp_Ruta_Cli_Empresa1" Association="Self.fk_Comp_Ruta_Cli_Empresa1">
+          <AssociationSet Name="fk_Comp_Ruta_Cli_Cliente1" Association="Self.fk_Comp_Ruta_Cli_Cliente1">
             <End Role="cli_cliente" EntitySet="cli_cliente" />
             <End Role="comp_ruta" EntitySet="comp_ruta" />
           </AssociationSet>
@@ -410,23 +402,31 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             <End Role="cli_tipoequipo" EntitySet="cli_tipoequipo" />
             <End Role="cli_equipo" EntitySet="cli_equipo" />
           </AssociationSet>
+          <AssociationSet Name="fk_Cli_Usuario_Cli_Equipo1" Association="Self.fk_Cli_Usuario_Cli_Equipo1">
+            <End Role="cli_equipo" EntitySet="cli_equipo" />
+            <End Role="cli_usuario" EntitySet="cli_usuario" />
+          </AssociationSet>
           <AssociationSet Name="fk_Com_Usuarios_Roles" Association="Self.fk_Com_Usuarios_Roles">
             <End Role="roles" EntitySet="roles" />
             <End Role="com_usuarios" EntitySet="com_usuarios" />
           </AssociationSet>
-          <AssociationSet Name="fk_Comp_Ruta_Com_Usuarios1" Association="Self.fk_Comp_Ruta_Com_Usuarios1">
-            <End Role="com_usuarios" EntitySet="com_usuarios" />
+          <AssociationSet Name="comp_rutacom_usuarios" Association="bd_ControlVisitasModel.comp_rutacom_usuarios">
             <End Role="comp_ruta" EntitySet="comp_ruta" />
+            <End Role="com_usuarios" EntitySet="com_usuarios" />
           </AssociationSet>
         </EntityContainer>
+        <Association Name="comp_rutacom_usuarios">
+          <End Type="bd_ControlVisitasModel.comp_ruta" Role="comp_ruta" Multiplicity="1" />
+          <End Type="bd_ControlVisitasModel.com_usuarios" Role="com_usuarios" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyAppModelStoreContainer" CdmEntityContainer="bd_ControlVisitasEntities">
+        <EntityContainerMapping StorageEntityContainer="bd_ControlVisitasModelStoreContainer" CdmEntityContainer="bd_ControlVisitasEntities">
           <EntitySetMapping Name="cli_cliente">
-            <EntityTypeMapping TypeName="MyAppModel.cli_cliente">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_cliente">
               <MappingFragment StoreEntitySet="cli_cliente">
                 <ScalarProperty Name="idCli_Cliente" ColumnName="idCli_Cliente" />
                 <ScalarProperty Name="Cli_Nombre" ColumnName="Cli_Nombre" />
@@ -440,7 +440,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cli_departamento">
-            <EntityTypeMapping TypeName="MyAppModel.cli_departamento">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_departamento">
               <MappingFragment StoreEntitySet="cli_departamento">
                 <ScalarProperty Name="idCli_Departamento" ColumnName="idCli_Departamento" />
                 <ScalarProperty Name="Cli_Descripcion" ColumnName="Cli_Descripcion" />
@@ -448,7 +448,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cli_equipo">
-            <EntityTypeMapping TypeName="MyAppModel.cli_equipo">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_equipo">
               <MappingFragment StoreEntitySet="cli_equipo">
                 <ScalarProperty Name="idCli_Equipo" ColumnName="idCli_Equipo" />
                 <ScalarProperty Name="Cli_Marca" ColumnName="Cli_Marca" />
@@ -461,7 +461,7 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cli_tipoequipo">
-            <EntityTypeMapping TypeName="MyAppModel.cli_tipoequipo">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_tipoequipo">
               <MappingFragment StoreEntitySet="cli_tipoequipo">
                 <ScalarProperty Name="idCli_TipoEquipo" ColumnName="idCli_TipoEquipo" />
                 <ScalarProperty Name="Cli_Descripcion" ColumnName="Cli_Descripcion" />
@@ -469,20 +469,22 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cli_usuario">
-            <EntityTypeMapping TypeName="MyAppModel.cli_usuario">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.cli_usuario">
               <MappingFragment StoreEntitySet="cli_usuario">
                 <ScalarProperty Name="idCli_Usuario" ColumnName="idCli_Usuario" />
                 <ScalarProperty Name="Cli_nombre" ColumnName="Cli_nombre" />
                 <ScalarProperty Name="Cli_Departamento_idCli_Departamento" ColumnName="Cli_Departamento_idCli_Departamento" />
                 <ScalarProperty Name="Cli_Empresa_idCli_Empresa" ColumnName="Cli_Empresa_idCli_Empresa" />
-                <ScalarProperty Name="Cli_Equipo_idCli_Equipo" ColumnName="Cli_Equipo_idCli_Equipo" />
                 <ScalarProperty Name="Cli_Correo" ColumnName="Cli_Correo" />
+                <ScalarProperty Name="Cli_Equipo_idCli_Equipo" ColumnName="Cli_Equipo_idCli_Equipo" />
+                <ScalarProperty Name="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" ColumnName="Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="com_usuarios">
-            <EntityTypeMapping TypeName="MyAppModel.com_usuarios">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.com_usuarios">
               <MappingFragment StoreEntitySet="com_usuarios">
+                <ScalarProperty Name="Com_Clave" ColumnName="Com_Clave" />
                 <ScalarProperty Name="idCom_Usuarios" ColumnName="idCom_Usuarios" />
                 <ScalarProperty Name="Com_Nombre" ColumnName="Com_Nombre" />
                 <ScalarProperty Name="Roles_idRoles" ColumnName="Roles_idRoles" />
@@ -491,33 +493,44 @@ advertencia 6035: La relación 'fk_Cli_Usuario_Cli_Equipo1' tiene columnas que n
                 <ScalarProperty Name="Com_Direccion" ColumnName="Com_Direccion" />
                 <ScalarProperty Name="Com_Cedula" ColumnName="Com_Cedula" />
                 <ScalarProperty Name="Com_Telefono" ColumnName="Com_Telefono" />
-                <ScalarProperty Name="Com_Clave" ColumnName="Com_Clave" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="comp_ruta">
-            <EntityTypeMapping TypeName="MyAppModel.comp_ruta">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.comp_ruta">
               <MappingFragment StoreEntitySet="comp_ruta">
                 <ScalarProperty Name="idComp_Bitacora" ColumnName="idComp_Bitacora" />
                 <ScalarProperty Name="Comp_Fecha" ColumnName="Comp_Fecha" />
                 <ScalarProperty Name="Comp_NumeroVisitaMes" ColumnName="Comp_NumeroVisitaMes" />
-                <ScalarProperty Name="Com_Usuarios_idCom_Usuarios" ColumnName="Com_Usuarios_idCom_Usuarios" />
-                <ScalarProperty Name="Com_Usuarios_Roles_idRoles" ColumnName="Com_Usuarios_Roles_idRoles" />
-                <ScalarProperty Name="Cli_Empresa_idCli_Empresa" ColumnName="Cli_Empresa_idCli_Empresa" />
                 <ScalarProperty Name="Comp_TiempoDur" ColumnName="Comp_TiempoDur" />
                 <ScalarProperty Name="Comp_Comentario" ColumnName="Comp_Comentario" />
-                <ScalarProperty Name="Com_estado" ColumnName="Com_estado" />
+                <ScalarProperty Name="Comp_estado" ColumnName="Comp_estado" />
+                <ScalarProperty Name="Comp_HoraLlegada" ColumnName="Comp_HoraLlegada" />
+                <ScalarProperty Name="Comp_HoraSalida" ColumnName="Comp_HoraSalida" />
+                <ScalarProperty Name="Comp_CreadoPor" ColumnName="Comp_CreadoPor" />
+                <ScalarProperty Name="Comp_CerradoPor" ColumnName="Comp_CerradoPor" />
+                <ScalarProperty Name="Com_Usuarios_idCom_Usuarios" ColumnName="Com_Usuarios_idCom_Usuarios" />
+                <ScalarProperty Name="Cli_Cliente_idCli_Cliente" ColumnName="Cli_Cliente_idCli_Cliente" />
+                <ScalarProperty Name="Cli_Usuario_idCli_Usuario" ColumnName="Cli_Usuario_idCli_Usuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roles">
-            <EntityTypeMapping TypeName="MyAppModel.roles">
+            <EntityTypeMapping TypeName="bd_ControlVisitasModel.roles">
               <MappingFragment StoreEntitySet="roles">
                 <ScalarProperty Name="idRoles" ColumnName="idRoles" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="comp_rutacom_usuarios" TypeName="bd_ControlVisitasModel.comp_rutacom_usuarios" StoreEntitySet="comp_ruta">
+            <EndProperty Name="com_usuarios">
+              <ScalarProperty Name="idCom_Usuarios" ColumnName="Com_Usuarios_idCom_Usuarios" />
+            </EndProperty>
+            <EndProperty Name="comp_ruta">
+              <ScalarProperty Name="idComp_Bitacora" ColumnName="idComp_Bitacora" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,103 +1,69 @@
 ﻿@model IEnumerable<WebApplication.Models.cli_cliente>
 
-@section Menu {
-    @Scripts.Render("~/Scripts/Tables/Data/menu")
+@{
+    ViewBag.Title = "Index";
 }
 
-@Styles.Render("~/AdminLTE/plugins/datatables/css")
+<h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_Ruc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_Tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_Ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_RSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_NombContacto)
+        </th>
+        <th></th>
+    </tr>
 
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="box" style="margin-left:118px" >
-            <div class="table-responsive">
-                <div class="box-body">
-
-                    <div class="form-horizontal">
-                        <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
-                        <hr />
-                        @Html.ValidationSummary(true)
-
-                        <table id="example1" class="table  table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <label>Nombre</label>
-                                    </th>
-                                    <th>
-                                        <label>Ruc/Cédula</label>
-                                    </th>
-                                    <th>
-                                        <label>Dirección</label>
-                                    </th>
-                                    <th>
-                                        <label>Teléfono</label>
-                                    </th>
-                                    <th>
-                                        <label>Ciudad</label>
-                                    </th>
-                                    <th>
-                                        <label>Razón Social</label>
-                                    </th>
-                                    <th>
-                                        <label>Contacto</label>
-                                    </th>
-                                    <th><label>Mantenimiento</label></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_Nombre)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_Ruc)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_Direccion)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_Tel)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_Ciudad)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_RSocial)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_NombContacto)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Cliente }, new { @class = "btn btn-success" })
-
-                                            @Html.ActionLink("Ver", "Details", new { id = item.idCli_Cliente }, new { @class = "btn btn-primary " })
-
-                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Cliente }, new { @class = "btn btn-danger" })
-
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-
-                        </table>
-                    </div>
-
-                </div>
-            </div>
-               
-
-            </div>
-    </div>
-
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/AdminLTE/plugins/datatables/js")
-    @Scripts.Render("~/Scripts/Tables/Data")
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_Ruc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_Tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_Ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_RSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_NombContacto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idCli_Cliente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCli_Cliente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idCli_Cliente })
+        </td>
+    </tr>
 }
 
-
+</table>

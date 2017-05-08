@@ -1,95 +1,132 @@
 ﻿@model WebApplication.Models.comp_ruta
 
-@if (ViewData["Verificar"] is Int32)
-{
-<div class="register-box">
-    <div class="register-box-body">
-       
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-horizontal">
-                <h3 style="text-align:center">RUTA</h3>
-                <hr />
-                @Html.ValidationSummary(true)
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="required col-sm-2 control-label">Fecha</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_Fecha, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
-                        @Html.ValidationMessageFor(model => model.Comp_Fecha)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Visita No.</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_NumeroVisitaMes, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
-                        @Html.ValidationMessageFor(model => model.Comp_NumeroVisitaMes)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="required col-sm-2 control-label">Técnico Asignado</label>
-                    <div class="col-md-10">
-                        @Html.DropDownList("Com_Usuarios_idCom_Usuarios", null, new { @class = "form-control form-control-rounded" })
-                        @Html.ValidationMessageFor(model => model.Com_Usuarios_idCom_Usuarios)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Rol</label>
-                    <div class="col-md-10">
-                        @Html.DropDownList("Com_Usuarios_Roles_idRoles", null, new { @class = "form-control form-control-rounded" })
-                        @Html.ValidationMessageFor(model => model.Com_Usuarios_Roles_idRoles)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="required col-sm-2 control-label">Cliente</label>
-                    <div class="col-md-10">
-                        @Html.DropDownList("Cli_Empresa_idCli_Empresa", null, new { @class = "form-control form-control-rounded" })
-                        @Html.ValidationMessageFor(model => model.Cli_Empresa_idCli_Empresa)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Tiempo de Visita</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_TiempoDur, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
-                        @Html.ValidationMessageFor(model => model.Comp_TiempoDur)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Comp_Comentario, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
-                        @Html.ValidationMessageFor(model => model.Comp_Comentario)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-success">Crear</button>
-                        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-</div>
+@{
+    ViewBag.Title = "Create";
 }
-<style type="text/css">
-    .form-control-rounded {
-        border-radius: 16px;
-    }
 
-    .required::after {
-        content: "*";
-        font-weight: normal;
-        color: red;
-        font-size: large;
-    }
-</style>
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>comp_ruta</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_Fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_Fecha)
+                @Html.ValidationMessageFor(model => model.Comp_Fecha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_NumeroVisitaMes, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_NumeroVisitaMes)
+                @Html.ValidationMessageFor(model => model.Comp_NumeroVisitaMes)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_TiempoDur, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_TiempoDur)
+                @Html.ValidationMessageFor(model => model.Comp_TiempoDur)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_Comentario, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_Comentario)
+                @Html.ValidationMessageFor(model => model.Comp_Comentario)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_estado, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_estado)
+                @Html.ValidationMessageFor(model => model.Comp_estado)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_HoraLlegada, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_HoraLlegada)
+                @Html.ValidationMessageFor(model => model.Comp_HoraLlegada)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_HoraSalida, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_HoraSalida)
+                @Html.ValidationMessageFor(model => model.Comp_HoraSalida)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_CreadoPor, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_CreadoPor)
+                @Html.ValidationMessageFor(model => model.Comp_CreadoPor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comp_CerradoPor, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comp_CerradoPor)
+                @Html.ValidationMessageFor(model => model.Comp_CerradoPor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Com_Usuarios_idCom_Usuarios, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Com_Usuarios_idCom_Usuarios", String.Empty)
+                @Html.ValidationMessageFor(model => model.Com_Usuarios_idCom_Usuarios)
+                @*@Html.EditorFor(model => model.Com_Usuarios_idCom_Usuarios)
+                @Html.ValidationMessageFor(model => model.Com_Usuarios_idCom_Usuarios)*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cli_Cliente_idCli_Cliente, "Cli_Cliente_idCli_Cliente", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cli_Cliente_idCli_Cliente", String.Empty)
+                @Html.ValidationMessageFor(model => model.Cli_Cliente_idCli_Cliente)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cli_Usuario_idCli_Usuario, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cli_Usuario_idCli_Usuario", String.Empty)
+                @Html.ValidationMessageFor(model => model.Cli_Usuario_idCli_Usuario)
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Cli_Usuario_idCli_Usuario, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cli_Usuario_idCli_Usuario)
+                @Html.ValidationMessageFor(model => model.Cli_Usuario_idCli_Usuario)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -4,21 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dc23ca06c2374fb1b60e45f206e09eb7" Name="Diagram1">
-        <EntityTypeShape EntityType="MyAppModel.cli_cliente" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyAppModel.cli_departamento" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyAppModel.cli_equipo" Width="1.5" PointX="8" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyAppModel.cli_tipoequipo" Width="1.5" PointX="5.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyAppModel.cli_usuario" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyAppModel.com_usuarios" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyAppModel.comp_ruta" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyAppModel.roles" Width="1.5" PointX="1.5" PointY="8.75" IsExpanded="true" />
-        <AssociationConnector Association="MyAppModel.fk_Cli_Usuario_Cli_Empresa1" ManuallyRouted="false" />
-        <AssociationConnector Association="MyAppModel.fk_Comp_Ruta_Cli_Empresa1" ManuallyRouted="false" />
-        <AssociationConnector Association="MyAppModel.fk_Cli_Usuario_Cli_Departamento1" ManuallyRouted="false" />
-        <AssociationConnector Association="MyAppModel.fk_Cli_Equipo_Cli_TipoEquipo1" ManuallyRouted="false" />
-        <AssociationConnector Association="MyAppModel.fk_Com_Usuarios_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="MyAppModel.fk_Comp_Ruta_Com_Usuarios1" ManuallyRouted="false" />
+      <Diagram DiagramId="2d1adc3de2e4459183a10bc2a402a0dc" Name="Diagram1" ZoomLevel="16">
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.cli_cliente" Width="1.5" PointX="0.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.cli_departamento" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.cli_equipo" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.cli_tipoequipo" Width="1.5" PointX="5.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.cli_usuario" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.com_usuarios" Width="1.5" PointX="7.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.comp_ruta" Width="2.625" PointX="2.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_ControlVisitasModel.roles" Width="1.5" PointX="7.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Cli_Usuario_Cli_Empresa1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Comp_Ruta_Cli_Cliente1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Cli_Usuario_Cli_Departamento1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Cli_Equipo_Cli_TipoEquipo1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Cli_Usuario_Cli_Equipo1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Com_Usuarios_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Comp_Ruta_Cli_Usuario" ManuallyRouted="false"/>
+        <AssociationConnector Association="bd_ControlVisitasModel.fk_Comp_Ruta_Com_Usuarios" ManuallyRouted="false"/>
+        <AssociationConnector Association="bd_ControlVisitasModel.com_usuarios_idcom_usuarios" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
