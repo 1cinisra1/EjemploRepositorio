@@ -1,0 +1,99 @@
+﻿@model IEnumerable<WebApplication.Models.comp_ruta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_NumeroVisitaMes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_TiempoDur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_Comentario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_HoraLlegada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_HoraSalida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_CreadoPor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comp_CerradoPor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Com_Usuarios_idCom_Usuarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cli_Usuario_idCli_Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cli_cliente.Cli_Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_NumeroVisitaMes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_TiempoDur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_Comentario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_HoraLlegada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_HoraSalida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_CreadoPor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comp_CerradoPor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Com_Usuarios_idCom_Usuarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cli_Usuario_idCli_Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cli_cliente.Cli_Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idComp_Bitacora }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idComp_Bitacora }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idComp_Bitacora })
+        </td>
+    </tr>
+}
+
+</table>
