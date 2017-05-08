@@ -31,6 +31,7 @@ namespace WebApplication.Controllers
 
 
         // GET: /ComUsuarios/
+         
         public async Task<ActionResult> Index()
         {
             var com_usuarios = db.com_usuarios.Include(c => c.roles);

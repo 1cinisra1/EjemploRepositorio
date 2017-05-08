@@ -19,7 +19,7 @@
                     <div class="form-horizontal">
                         <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
                         <hr />
-                        <table id="example1" class="table table-bordered">
+                        <table id="example1" class="table table-responsive">
                             <thead>
                                 <tr>
                                     <th>
@@ -44,7 +44,7 @@
                                         <label>Rol</label>
                                     </th>
 
-                                    
+
                                     <th></th>
                                 </tr>
                             </thead>
@@ -73,9 +73,9 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.roles.Descripcion)
                                         </td>
-                                       
 
-                                       
+
+
                                         <td>
                                             @Html.ActionLink("Editar", "Edit", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-success" })
                                             @Html.ActionLink("Ver", "Details", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-primary" })
