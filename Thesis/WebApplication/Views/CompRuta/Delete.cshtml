@@ -3,118 +3,72 @@
 @{
     ViewBag.Title = "Delete";
 }
+@if (ViewData["Verificar"] is Int32) {
+<div class="register-box">
+    <div class="register-box-body">
+        <h3 style="text-align:center">ELIMINAR RUTA</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Fecha</label>
+            </dt>
 
-<h2>Delete</h2>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_Fecha)
+            </dd>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>comp_ruta</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_Fecha)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Visita No.</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_Fecha)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_NumeroVisitaMes)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_NumeroVisitaMes)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Tiempo Estimado</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_NumeroVisitaMes)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_TiempoDur)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_TiempoDur)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_TiempoDur)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_Comentario)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_Comentario)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_Comentario)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.cli_cliente.Cli_Nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_estado)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Técnico Asignado</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_estado)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.com_usuarios.Com_Nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_HoraLlegada)
-        </dt>
+        </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_HoraLlegada)
-        </dd>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_HoraSalida)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comp_HoraSalida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_CreadoPor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comp_CreadoPor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_CerradoPor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comp_CerradoPor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Com_Usuarios_idCom_Usuarios)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Com_Usuarios_idCom_Usuarios)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Usuario_idCli_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Usuario_idCli_Usuario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.cli_cliente.Cli_Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cli_cliente.Cli_Nombre)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Borrar" class="btn btn-danger" />
+                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        }
+    </div>
 </div>
+}
+

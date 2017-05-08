@@ -16,9 +16,13 @@ namespace WebApplication.Controllers
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
 
         // GET: /cliCliente/
+      
         public async Task<ActionResult> Index()
         {
-            return View(await db.cli_cliente.ToListAsync());
+           
+                return View(await db.cli_cliente.ToListAsync());
+        
+            
         }
 
         // GET: /cliCliente/Details/5
@@ -39,7 +43,9 @@ namespace WebApplication.Controllers
         // GET: /cliCliente/Create
         public ActionResult Create()
         {
-            return View();
+          
+                return View();
+           
         }
 
         // POST: /cliCliente/Create

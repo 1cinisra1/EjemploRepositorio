@@ -6,69 +6,75 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>cli_cliente</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Nombre)
-        </dt>
+<div class="register-box">
+    <div class="register-box-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Nombre)
-        </dd>
+        <h3 style="text-align:center">DETALLE EMPRESA</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Ruc)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Nombre)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Ruc)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Ruc/Cédula</label>
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Direccion)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Ruc)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Direccion)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Dirección</label>
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Tel)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Direccion)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Tel)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Teléfono</label>
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Ciudad)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Tel)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Ciudad)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Ciudad</label>
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_RSocial)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_Ciudad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_RSocial)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Razón Social</label>
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_NombContacto)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_RSocial)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cli_NombContacto)
-        </dd>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Contacto</label>
+            </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idCli_Cliente }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <dd>
+                @Html.DisplayFor(model => model.Cli_NombContacto)
+            </dd>
+
+        </dl>
+    
+   
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Cliente }, new { @class = "btn btn-success" }) 
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+        
+    </p>
+    </div>
+    </div>

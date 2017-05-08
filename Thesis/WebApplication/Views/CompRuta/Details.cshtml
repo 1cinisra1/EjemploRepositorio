@@ -6,109 +6,65 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>comp_ruta</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_Fecha)
-        </dt>
+<div class="register-box">
+    <div class="register-box-body">
+        <h3 style="text-align:center">DETALLE RUTA</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Fecha</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_Fecha)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_Fecha)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_NumeroVisitaMes)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Visita No.</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_NumeroVisitaMes)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_NumeroVisitaMes)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_TiempoDur)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Tiempo Estimado</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_TiempoDur)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_TiempoDur)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_Comentario)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_Comentario)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Comp_Comentario)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_estado)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_estado)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.cli_cliente.Cli_RSocial)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_HoraLlegada)
-        </dt>
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Técnico Asignado</label>
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_HoraLlegada)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.com_usuarios.Com_Nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_HoraSalida)
-        </dt>
+        </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Comp_HoraSalida)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_CreadoPor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comp_CreadoPor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comp_CerradoPor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comp_CerradoPor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Com_Usuarios_idCom_Usuarios)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Com_Usuarios_idCom_Usuarios)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cli_Usuario_idCli_Usuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cli_Usuario_idCli_Usuario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.cli_cliente.Cli_Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cli_cliente.Cli_Nombre)
-        </dd>
-
-    </dl>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idComp_Bitacora, id1 = Model.Com_Usuarios_idCom_Usuarios, id2 = Model.Cli_Empresa_idCli_Empresa }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+        </p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idComp_Bitacora }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

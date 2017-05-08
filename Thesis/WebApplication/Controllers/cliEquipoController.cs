@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
+using System.Data.Entity.Core;
 
 namespace WebApplication.Controllers
 {
@@ -18,7 +19,7 @@ namespace WebApplication.Controllers
         // GET: /cliEquipo/
         public async Task<ActionResult> Index()
         {
-            var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo1);
+            var cli_equipo = db.cli_equipo.Include(c => c.cli_tipoequipo);
             return View(await cli_equipo.ToListAsync());
         }
 
@@ -49,7 +50,7 @@ namespace WebApplication.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include="idCli_Equipo,Cli_Marca,Cli_Modelo,Cli_DiscoDuro,Cli_Ram,Cli_Procesador,Cli_TipoEquipo,Cli_TipoEquipo_idCli_TipoEquipo")] cli_equipo cli_equipo)
+        public async Task<ActionResult> Create([Bind(Include="idCli_Equipo,Cli_Marca,Cli_Modelo,Cli_DiscoDuro,Cli_Ram,Cli_Procesador,Cli_TipoEquipo_idCli_TipoEquipo")] cli_equipo cli_equipo)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +64,7 @@ namespace WebApplication.Controllers
         }
 
         // GET: /cliEquipo/Edit/5
-        public async Task<ActionResult> Edit(int? id, int? id1)
+        public async Task<ActionResult> Edit(int? id,int? id1)
         {
             if (id == null)
             {
@@ -87,8 +88,16 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cli_equipo).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                try
+                {
+                    db.Entry(cli_equipo).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
+                catch (OptimisticConcurrencyException)
+                {
+                    
+                }
+                
                 return RedirectToAction("Index");
             }
             ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);

@@ -21,7 +21,7 @@ namespace WebApplication.Controllers
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
        
         private MySqlConnection con;
-        //To Handle connection related activities 
+       
         private void connection()
         {
             string constr = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;

@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<WebApplication.Models.cli_equipo>
 
+
 @section Menu {
     @Scripts.Render("~/Scripts/Tables/Data/menu")
 }
@@ -9,7 +10,7 @@
 
 <div class="row">
     <div class="col-md-12 ">
-        <div class="box">
+        <div class="box" style="margin-left:118px">
             <div class="table-responsive">
                 <div class="box-body">
                     <div class="form-horizontal">
@@ -32,6 +33,9 @@
                                     <th>
                                         <label>Procesador</label>
                                     </th>
+                                    @*<th>
+                                <label>Tipo Equipo</label>
+                            </th>*@
                                     <th>
                                         <label>Tipo Equipo</label>
                                     </th>
@@ -57,8 +61,11 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cli_Procesador)
                                         </td>
+                                        @*<td>
+                                    @Html.DisplayFor(modelItem => item.Cli_TipoEquipo)
+                                </td>*@
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.cli_tipoequipo1.Cli_Descripcion)
+                                            @Html.DisplayFor(modelItem => item.cli_tipoequipo.Cli_Descripcion)
                                         </td>
                                         <td>
                                             @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Equipo, id1 = item.Cli_TipoEquipo_idCli_TipoEquipo }, new { @class = "btn btn-success" })
@@ -72,12 +79,13 @@
                     </div>
                 </div>
             </div>
-
-        </div>
+            
+            </div>
     </div>
-</div>
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/AdminLTE/plugins/datatables/js")
     @Scripts.Render("~/Scripts/Tables/Data")
 }
+

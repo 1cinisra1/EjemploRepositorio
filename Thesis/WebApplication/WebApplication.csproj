@@ -213,22 +213,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\bd_ControlVisitas.Context.cs" />
-    <Compile Include="Models\bd_ControlVisitas.Context2.cs">
+    <Compile Include="Models\bd_ControlVisitas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bd_ControlVisitas.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\bd_ControlVisitas.cs" />
-    <Compile Include="Models\bd_ControlVisitas.Designer.cs">
-      <DependentUpon>bd_ControlVisitas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\bd_ControlVisitas2.cs">
+    <Compile Include="Models\bd_ControlVisitas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\bd_ControlVisitas2.Designer.cs">
+    <Compile Include="Models\bd_ControlVisitas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
@@ -262,9 +257,6 @@
     </Compile>
     <Compile Include="MyMembershipProvider.cs" />
     <Compile Include="MyRolProvider.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -473,71 +465,6 @@
     <Content Include="AdminLTE\plugins\timepicker\css\bootstrap-timepicker.min.css" />
     <Content Include="AdminLTE\plugins\timepicker\js\bootstrap-timepicker.js" />
     <Content Include="AdminLTE\plugins\timepicker\js\bootstrap-timepicker.min.js" />
-    <Content Include="bin\Antlr3.Runtime.dll" />
-    <Content Include="bin\Antlr3.Runtime.pdb" />
-    <Content Include="bin\EntityFramework.dll" />
-    <Content Include="bin\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\EntityFramework.xml" />
-    <Content Include="bin\es\Microsoft.QualityTools.Testing.Fakes.resources.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
-    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
-    <Content Include="bin\Microsoft.Owin.dll" />
-    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
-    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.xml" />
-    <Content Include="bin\Microsoft.Owin.xml" />
-    <Content Include="bin\Microsoft.QualityTools.Testing.Fakes.dll" />
-    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
-    <Content Include="bin\MySql.Data.Entity.EF6.dll" />
-    <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\Newtonsoft.Json.xml" />
-    <Content Include="bin\Owin.dll" />
-    <Content Include="bin\roslyn\csc.exe" />
-    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
-    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
-    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
-    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
-    <Content Include="bin\roslyn\vbc.exe" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe" />
-    <Content Include="bin\System.Web.Helpers.dll" />
-    <Content Include="bin\System.Web.Helpers.xml" />
-    <Content Include="bin\System.Web.Mvc.dll" />
-    <Content Include="bin\System.Web.Mvc.xml" />
-    <Content Include="bin\System.Web.Optimization.dll" />
-    <Content Include="bin\System.Web.Optimization.xml" />
-    <Content Include="bin\System.Web.Razor.dll" />
-    <Content Include="bin\System.Web.Razor.xml" />
-    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
-    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
-    <Content Include="bin\System.Web.WebPages.dll" />
-    <Content Include="bin\System.Web.WebPages.Razor.dll" />
-    <Content Include="bin\System.Web.WebPages.Razor.xml" />
-    <Content Include="bin\System.Web.WebPages.xml" />
-    <Content Include="bin\WebApplication.dll" />
-    <Content Include="bin\WebApplication.pdb" />
-    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -553,14 +480,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\green_suburb.jpg" />
-    <Content Include="obj\Debug\TempPE\Models.bd_ControlVisitas.Context1.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.bd_ControlVisitas.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.bd_ControlVisitas.Designer.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.bd_ControlVisitas1.cs.dll" />
-    <Content Include="obj\Debug\TempPE\Models.bd_ControlVisitas1.Designer.cs.dll" />
-    <Content Include="obj\Debug\WebApplication.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\WebApplication.dll" />
-    <Content Include="obj\Debug\WebApplication.pdb" />
     <Content Include="Scripts\Account\Login.js" />
     <Content Include="Scripts\Account\Register.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -582,29 +501,22 @@
     <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
     <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
     <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <Content Include="bin\WebApplication.dll.config" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\bd_ControlVisitas.csdl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\bd_ControlVisitas.msl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\bd_ControlVisitas.ssdl" />
-    <Content Include="Models\bd_ControlVisitas.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>bd_ControlVisitas.Context2.cs</LastGenOutput>
-    </Content>
     <EntityDeploy Include="Models\bd_ControlVisitas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>bd_ControlVisitas2.Designer.cs</LastGenOutput>
+      <LastGenOutput>bd_ControlVisitas.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Models\bd_ControlVisitas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
+      <LastGenOutput>bd_ControlVisitas.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\bd_ControlVisitas.edmx.diagram">
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
     </Content>
     <Content Include="Models\bd_ControlVisitas.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>bd_ControlVisitas2.cs</LastGenOutput>
+      <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
+      <LastGenOutput>bd_ControlVisitas.cs</LastGenOutput>
     </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -684,6 +596,15 @@
     <Content Include="Views\cliTipoEquipo\Details.cshtml" />
     <Content Include="Views\cliTipoEquipo\Edit.cshtml" />
     <Content Include="Views\cliTipoEquipo\Index.cshtml" />
+    <Content Include="Views\cliEquipo\Create.cshtml" />
+    <Content Include="Views\cliEquipo\Delete.cshtml" />
+    <Content Include="Views\cliEquipo\Details.cshtml" />
+    <Content Include="Views\cliEquipo\Edit.cshtml" />
+    <Content Include="Views\cliCliente\Create.cshtml" />
+    <Content Include="Views\cliCliente\Delete.cshtml" />
+    <Content Include="Views\cliCliente\Details.cshtml" />
+    <Content Include="Views\cliCliente\Edit.cshtml" />
+    <Content Include="Views\cliCliente\Index.cshtml" />
     <Content Include="Views\cliDepartamento\Create.cshtml" />
     <Content Include="Views\cliDepartamento\Delete.cshtml" />
     <Content Include="Views\cliDepartamento\Details.cshtml" />
@@ -694,6 +615,7 @@
     <Content Include="Views\cliUsuario\Details.cshtml" />
     <Content Include="Views\cliUsuario\Edit.cshtml" />
     <Content Include="Views\cliUsuario\Index.cshtml" />
+    <Content Include="Views\cliEquipo\Index.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Roles\Details.cshtml" />
@@ -704,6 +626,11 @@
     <Content Include="Views\ComUsuarios\Details.cshtml" />
     <Content Include="Views\ComUsuarios\Edit.cshtml" />
     <Content Include="Views\ComUsuarios\Index.cshtml" />
+    <Content Include="Views\CompRuta\Create.cshtml" />
+    <Content Include="Views\CompRuta\Delete.cshtml" />
+    <Content Include="Views\CompRuta\Details.cshtml" />
+    <Content Include="Views\CompRuta\Edit.cshtml" />
+    <Content Include="Views\CompRuta\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\MyProfile.cshtml" />
     <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.eot" />
@@ -744,25 +671,9 @@
     <Content Include="SourceLogin\scss\style.scss" />
     <Content Include="Views\Home\AdminIndex.cshtml" />
     <Content Include="Views\Home\UserIndex.cshtml" />
-    <Content Include="Views\cliCliente\Create.cshtml" />
-    <Content Include="Views\cliCliente\Delete.cshtml" />
-    <Content Include="Views\cliCliente\Details.cshtml" />
-    <Content Include="Views\cliCliente\Edit.cshtml" />
-    <Content Include="Views\cliCliente\Index.cshtml" />
-    <Content Include="Views\CompRuta\Create.cshtml" />
-    <Content Include="Views\CompRuta\Delete.cshtml" />
-    <Content Include="Views\CompRuta\Details.cshtml" />
-    <Content Include="Views\CompRuta\Edit.cshtml" />
-    <Content Include="Views\CompRuta\Index.cshtml" />
-    <Content Include="Views\cliEquipo\Create.cshtml" />
-    <Content Include="Views\cliEquipo\Delete.cshtml" />
-    <Content Include="Views\cliEquipo\Details.cshtml" />
-    <Content Include="Views\cliEquipo\Edit.cshtml" />
-    <Content Include="Views\cliEquipo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="obj\Debug\Package\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
