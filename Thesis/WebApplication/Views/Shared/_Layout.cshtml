@@ -25,7 +25,8 @@
             using (Html.BeginForm("Logout", "MyAccount", FormMethod.Post, new { id = "logoutform" }))
             {
                 <header class="main-header">
-                    <a href="@Url.Action("Index", "cliCliente")" class="logo"><span class="logo-lg"><b>Control</b> De Visitas</span> </a>
+                    <a href="@Url.Action("Index", "Compruta")" class="logo"> <span class="logo-lg"><b>Control</b> De Visitas </span> </a>
+                   
                 </header>
                 <nav class="navbar navbar-static-top" role="navigation">
                     <button type="button" class="btn btn-success disabled">Bienvenido @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "") !!</button>

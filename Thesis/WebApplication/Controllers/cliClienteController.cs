@@ -19,11 +19,9 @@ namespace WebApplication.Controllers
       
         public async Task<ActionResult> Index()
         {
-            if (User.IsInRole("admin"))
-            {
+           
                 return View(await db.cli_cliente.ToListAsync());
-            }
-            return View();
+        
             
         }
 
@@ -45,7 +43,9 @@ namespace WebApplication.Controllers
         // GET: /cliCliente/Create
         public ActionResult Create()
         {
-            return View();
+          
+                return View();
+           
         }
 
         // POST: /cliCliente/Create
