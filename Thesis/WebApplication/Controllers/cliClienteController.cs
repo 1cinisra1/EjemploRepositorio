@@ -16,13 +16,19 @@ namespace WebApplication.Controllers
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
 
         // GET: /cliCliente/
-      
         public async Task<ActionResult> Index()
         {
-           
-                return View(await db.cli_cliente.ToListAsync());
-        
-            
+            if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
+                    return View(await db.cli_cliente.ToListAsync());
+                }
+                ViewBag.Verificar = "String";
+                return View();
+            }
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // GET: /cliCliente/Details/5
@@ -32,20 +38,37 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
-            if (cli_cliente == null)
+             if (Request.IsAuthenticated)
             {
-                return HttpNotFound();
+            if (User.IsInRole("1"))
+            {
+                ViewBag.Verificar = 18;
+                cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+                if (cli_cliente == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(cli_cliente);
             }
-            return View(cli_cliente);
+            ViewBag.Verificar = "String";
+            return View();
+            }
+             return RedirectToAction("Login", "MyAccount");
         }
 
         // GET: /cliCliente/Create
         public ActionResult Create()
-        {
-          
+        {  if (Request.IsAuthenticated)
+            {
+            if (User.IsInRole("1"))
+            {
+                ViewBag.Verificar = 18;
                 return View();
-           
+            }
+            ViewBag.Verificar = "String";
+            return View();
+            }
+             return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliCliente/Create
@@ -72,12 +95,23 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
-            if (cli_cliente == null)
+             if (Request.IsAuthenticated)
             {
-                return HttpNotFound();
+            if (User.IsInRole("1"))
+            {
+                ViewBag.Verificar = 18;
+                cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+                if (cli_cliente == null)
+                {
+                    return HttpNotFound();
+                }
+               
+                return View(cli_cliente);
             }
-            return View(cli_cliente);
+            ViewBag.Verificar = "String";
+            return View();
+            }
+             return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliCliente/Edit/5
@@ -103,12 +137,23 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
-            if (cli_cliente == null)
+             if (Request.IsAuthenticated)
             {
-                return HttpNotFound();
+            if (User.IsInRole("1"))
+            {
+                ViewBag.Verificar = 18;
+                cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+                if (cli_cliente == null)
+                {
+                    return HttpNotFound();
+                }
+                
+                return View(cli_cliente);
             }
-            return View(cli_cliente);
+            ViewBag.Verificar = "String";
+            return View();
+            }
+             return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliCliente/Delete/5

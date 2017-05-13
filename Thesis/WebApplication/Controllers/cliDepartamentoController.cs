@@ -18,7 +18,17 @@ namespace WebApplication.Controllers
         // GET: /cliDepartamento/
         public async Task<ActionResult> Index()
         {
-            return View(await db.cli_departamento.ToListAsync());
+             if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("1"))
+                {
+                     ViewBag.Verificar = 18;
+                     return View(await db.cli_departamento.ToListAsync());
+                }
+                ViewBag.Verificar = "String";
+                return View();
+            }
+             return RedirectToAction("Login", "MyAccount");
         }
 
         // GET: /cliDepartamento/Details/5
@@ -28,18 +38,38 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+              if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("1"))
+                {
+                     ViewBag.Verificar = 18;
             cli_departamento cli_departamento = await db.cli_departamento.FindAsync(id);
             if (cli_departamento == null)
             {
                 return HttpNotFound();
             }
             return View(cli_departamento);
+                }
+                ViewBag.Verificar = "String";
+                return View();
+            }
+              return RedirectToAction("Login", "MyAccount");
         }
 
         // GET: /cliDepartamento/Create
         public ActionResult Create()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
+                    return View();
+                }
+                ViewBag.Verificar = "String";
+                return View();
+            }
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliDepartamento/Create
@@ -66,12 +96,22 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            if (Request.IsAuthenticated)
+            {
+            if (User.IsInRole("1"))
+            {
             cli_departamento cli_departamento = await db.cli_departamento.FindAsync(id);
             if (cli_departamento == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Verificar = 18;
             return View(cli_departamento);
+            }
+            ViewBag.Verificar = "String";
+            return View();
+            }
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliDepartamento/Edit/5
@@ -97,12 +137,22 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            if (Request.IsAuthenticated)
+            {
+            if (User.IsInRole("1"))
+            {
             cli_departamento cli_departamento = await db.cli_departamento.FindAsync(id);
             if (cli_departamento == null)
             {
                 return HttpNotFound();
             }
+             ViewBag.Verificar = 18;
             return View(cli_departamento);
+            }
+            ViewBag.Verificar = "String";
+            return View();
+            }
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliDepartamento/Delete/5

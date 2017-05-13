@@ -1,13 +1,12 @@
 ﻿@model WebApplication.Models.comp_ruta
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Details";
 }
-@if (ViewBag.Verificar is Int32)
-{
+
 <div class="register-box">
     <div class="register-box-body">
-        <h3 style="text-align:center">ELIMINAR RUTA</h3>
+        <h3 style="text-align:center">Detalle RUTA</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -100,15 +99,9 @@
 
         </dl>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-actions no-color">
-                <input type="submit" value="Borrar" class="btn btn-danger" />
-                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
-            </div>
-        }
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idComp_Bitacora },new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+        </p>
     </div>
-</div>
-}
+    </div>

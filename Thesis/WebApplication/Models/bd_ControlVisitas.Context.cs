@@ -29,7 +29,7 @@ namespace WebApplication.Models
         public virtual DbSet<cli_departamento> cli_departamento { get; set; }
         public virtual DbSet<cli_equipo> cli_equipo { get; set; }
         public virtual DbSet<cli_tipoequipo> cli_tipoequipo { get; set; }
-        public virtual DbSet<cli_usuario> cli_usuario { get; set; }
+        public virtual DbSet<cli_user> cli_user { get; set; }
         public virtual DbSet<com_usuarios> com_usuarios { get; set; }
         public virtual DbSet<comp_ruta> comp_ruta { get; set; }
         public virtual DbSet<roles> roles { get; set; }

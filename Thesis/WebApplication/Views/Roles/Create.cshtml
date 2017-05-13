@@ -4,15 +4,16 @@
     ViewBag.Title = "Create";
 }
 
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
-       
+
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-
                 <h3 style="text-align:center">ROL</h3>
                 <hr />
                 @Html.ValidationSummary(true)
@@ -33,16 +34,14 @@
                 </div>
             </div>
         }
-
-
-
     </div>
 </div>
-
+}
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;
     }
+
     .required::after {
         content: "*";
         font-weight: normal;
@@ -50,3 +49,4 @@
         font-size: large;
     }
 </style>
+

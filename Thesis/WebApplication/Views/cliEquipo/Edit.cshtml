@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Edit";
 }
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
         @using (Html.BeginForm())
@@ -65,7 +66,7 @@
                     </div>
                 </div>
 
-                @*@Html.HiddenFor(model => model.Cli_TipoEquipo_idCli_TipoEquipo)*@
+                @Html.HiddenFor(model => model.Cli_TipoEquipo_idCli_TipoEquipo)
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
@@ -77,7 +78,7 @@
         }
     </div>
 </div>
-
+}
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;

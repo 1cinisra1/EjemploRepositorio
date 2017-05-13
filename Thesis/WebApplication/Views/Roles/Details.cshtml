@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Details";
 }
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
         <h3 style="text-align:center">DETALLE USUARO</h3>
-       
+
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -27,3 +28,4 @@
     </div>
 </div>
 
+}

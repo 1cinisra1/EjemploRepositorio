@@ -1,15 +1,13 @@
-﻿@model WebApplication.Models.cli_usuario
+﻿@model WebApplication.Models.cli_user
 
 @{
     ViewBag.Title = "Delete";
 }
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
-      
-
-
-     <h3 style="text-align:center">ELIMINAR USUARIO</h3>
+        <h3 style="text-align:center">ELIMINAR USUARIO</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -20,14 +18,12 @@
                 @Html.DisplayFor(model => model.Cli_nombre)
             </dd>
 
-           
-
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Apellido</label>
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Cli_Equipo_idCli_Equipo)
+                @Html.DisplayFor(model => model.Cli_apellido)
             </dd>
 
             <dt>
@@ -43,7 +39,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.cli_cliente.Cli_Nombre)
+                @Html.DisplayFor(model => model.cli_cliente.Cli_RSocial)
             </dd>
 
             <dt>
@@ -51,10 +47,19 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.cli_departamento1.Cli_Descripcion)
+                @Html.DisplayFor(model => model.cli_departamento.Cli_Descripcion)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Equipo</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cli_equipo.Cli_Marca)
             </dd>
 
         </dl>
+
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
@@ -64,6 +69,6 @@
                 @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
             </div>
         }
-         
-</div>
-</div>
+    </div>
+    </div>
+}

@@ -14,6 +14,11 @@ namespace WebApplication.Models
     
     public partial class cli_equipo
     {
+        public cli_equipo()
+        {
+            this.cli_user = new HashSet<cli_user>();
+        }
+    
         public int idCli_Equipo { get; set; }
         public string Cli_Marca { get; set; }
         public string Cli_Modelo { get; set; }
@@ -22,6 +27,7 @@ namespace WebApplication.Models
         public string Cli_Procesador { get; set; }
         public int Cli_TipoEquipo_idCli_TipoEquipo { get; set; }
     
-        public virtual cli_tipoequipo cli_tipoequipo { get; set; }
+        public virtual cli_tipoequipo cli_tipoequipo1 { get; set; }
+        public virtual ICollection<cli_user> cli_user { get; set; }
     }
 }

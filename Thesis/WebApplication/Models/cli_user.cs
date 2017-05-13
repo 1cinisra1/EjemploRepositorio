@@ -12,16 +12,25 @@ namespace WebApplication.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class cli_usuario
+    public partial class cli_user
     {
+        public cli_user()
+        {
+            this.comp_ruta = new HashSet<comp_ruta>();
+        }
+    
         public int idCli_Usuario { get; set; }
         public string Cli_nombre { get; set; }
-        public int Cli_Departamento_idCli_Departamento { get; set; }
-        public int Cli_Empresa_idCli_Empresa { get; set; }
-        public int Cli_Equipo_idCli_Equipo { get; set; }
+        public string Cli_apellido { get; set; }
         public string Cli_Correo { get; set; }
+        public int Cli_Equipo_idCli_Equipo { get; set; }
+        public int Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo { get; set; }
+        public int Cli_Cliente_idCli_Cliente { get; set; }
+        public int Cli_Departamento_idCli_Departamento { get; set; }
     
         public virtual cli_cliente cli_cliente { get; set; }
         public virtual cli_departamento cli_departamento { get; set; }
+        public virtual cli_equipo cli_equipo { get; set; }
+        public virtual ICollection<comp_ruta> comp_ruta { get; set; }
     }
 }

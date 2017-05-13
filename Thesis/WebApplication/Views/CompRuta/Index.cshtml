@@ -10,26 +10,20 @@
 
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
 
-@using Microsoft.AspNet.Identity
 
 @if (ViewBag.Verificar is Int32)
 {
 <div class="row">
     <div class="col-md-12 ">
-        <div class="box" style="margin-left:118px">
+        <div class="box">
             <div class="table-responsive">
                 <div class="box-body">
-                   
-                        
-                   
-                        
-                        
                     <div class="form-horizontal">
                         <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
                         <table id="example1" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th >
                                         <label>Fecha</label>
                                     </th>
                                     <th>
@@ -42,19 +36,24 @@
                                         <label>Comentario</label>
                                     </th>
                                     <th>
-                                        <label>Cliente</label>
+                                        <label>Empresa</label>
                                     </th>
                                     <th>
-                                        <label>Técnico Asignado</label>
+                                        <label>Usuario</label>
                                     </th>
-                                    <th></th>
+                                    <th>
+                                        <label>Técnico asignado</label>
+                                    </th>
+                                    <th>
+                                        <label>Mantenimiento</label>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>
+                                        <td >
                                             @Html.DisplayFor(modelItem => item.Comp_Fecha)
                                         </td>
                                         <td>
@@ -67,37 +66,36 @@
                                             @Html.DisplayFor(modelItem => item.Comp_Comentario)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.cli_cliente.Cli_RSocial)
+                                            @Html.DisplayFor(modelItem=>item.cli_user.cli_cliente.Cli_RSocial)
                                         </td>
                                         <td>
-                                            @Html.ActionLink(item.com_usuarios.Com_Nombre, "Details", "Comusuarios", new { id = item.com_usuarios.idCom_Usuarios, id1 = item.com_usuarios.Roles_idRoles }, null)
-                                        @*@Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)*@
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.idComp_Bitacora, id1 = item.com_usuarios.idCom_Usuarios, id2 = item.cli_cliente.idCli_Cliente, id3 = item.com_usuarios.roles.idRoles, id4 = item.idComp_Bitacora }, new { @class = "btn btn-success" })
-                                        @Html.ActionLink("Ver", "Details", new { id = item.idComp_Bitacora, id2 = item.com_usuarios.idCom_Usuarios }, new { @class = "btn btn-primary" })
-                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idComp_Bitacora }, new { @class = "btn btn-danger" })
-                                    </td>
-                                </tr>
+                                            @Html.DisplayFor(modelItem => item.cli_user.Cli_nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.idComp_Bitacora }, new { @class = "btn btn-success" }) 
+                                            @Html.ActionLink("Detalles", "Details", new { id = item.idComp_Bitacora }, new { @class = "btn btn-primary" }) 
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idComp_Bitacora }, new { @class = "btn btn-danger" })
+                                        </td>
+                                    </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
-                         
                 </div>
             </div>
-            
         </div>
     </div>
 </div>
-        }
-
 }
-
-
 
 
 @section Scripts {
     @Scripts.Render("~/AdminLTE/plugins/datatables/js")
     @Scripts.Render("~/Scripts/Tables/Data")
 }
+
+
+

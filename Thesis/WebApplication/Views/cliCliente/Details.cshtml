@@ -4,8 +4,8 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
 
@@ -21,7 +21,7 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Ruc/Cédula</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Ruc</label>
             </dt>
 
             <dd>
@@ -69,12 +69,13 @@
             </dd>
 
         </dl>
-    
-   
-    <p>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Cliente }, new { @class = "btn btn-success" }) 
-        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
-        
-    </p>
+
+
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Cliente }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+
+        </p>
     </div>
-    </div>
+</div>
+}

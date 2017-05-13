@@ -5,6 +5,8 @@
 }
 
 
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
         <h3 style="text-align:center">DETALLE DEPARTAMENTO</h3>
@@ -21,10 +23,11 @@
         </dl>
 
         <p>
-            @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Departamento }, new { @class = "btn btn-success" }) 
-           @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idCli_Departamento }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
         </p>
     </div>
 </div>
+}
 
 

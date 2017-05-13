@@ -11,7 +11,7 @@ using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
-    public class compRutaController : Controller
+    public class CompRutaTecnicoController : Controller
     {
         private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
 
@@ -20,14 +20,10 @@ namespace WebApplication.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                if (User.IsInRole("1"))
-                {
-                    ViewBag.Verificar = 18;
-                    var comp_ruta = db.comp_ruta.Include(c => c.cli_user).Include(c => c.com_usuarios);
-                    return View(await comp_ruta.ToListAsync());
-                }
-                ViewBag.Verificar = "String";
-                return View();
+                var comp_ruta = db.comp_ruta.Include(c => c.cli_user).Include(c => c.com_usuarios);
+                return View(await comp_ruta.ToListAsync());
+               
+              
             }
             return RedirectToAction("Login", "MyAccount");
         }
@@ -41,38 +37,31 @@ namespace WebApplication.Controllers
             }
             if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-                ViewBag.Verificar = 18;
-            comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
-            if (comp_ruta == null)
-            {
-                return HttpNotFound();
-            }
-            return View(comp_ruta);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                
+                    comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
+                    if (comp_ruta == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(comp_ruta);
+               
             }
             return RedirectToAction("Login", "MyAccount");
         }
 
         // GET: /compRuta/Create
         public ActionResult Create()
-        {if (Request.IsAuthenticated)
+        {
+            if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-                ViewBag.Verificar = 18;
-            ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre");
-            ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre");
-            ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion");
-            return View();
+                
+                    ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre");
+                    ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre");
+                    ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion");
+                    return View();
+                
             }
-            ViewBag.Verificar = "String";
-            return View();
-            }
-        return RedirectToAction("Login", "MyAccount");
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /compRuta/Create
@@ -101,25 +90,20 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-             if (Request.IsAuthenticated)
+            if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-                ViewBag.Verificar = 18;
-            comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
-            if (comp_ruta == null)
-            {
-                return HttpNotFound();
+                  comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
+                    if (comp_ruta == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre", comp_ruta.Cli_Usuario_idCli_Usuario);
+                    ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre", comp_ruta.Com_Usuarios_idCom_Usuarios);
+                    ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion");
+                    return View(comp_ruta);
+              
             }
-            ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre", comp_ruta.Cli_Usuario_idCli_Usuario);
-            ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre", comp_ruta.Com_Usuarios_idCom_Usuarios);
-            ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion");
-            return View(comp_ruta);
-            }
-            ViewBag.Verificar = "String";
-            return View();
-            }
-             return RedirectToAction("Login", "MyAccount");
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /compRuta/Edit/5
@@ -147,22 +131,18 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-             if (Request.IsAuthenticated)
+            if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-                ViewBag.Verificar = 18;
-            comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
-            if (comp_ruta == null)
-            {
-                return HttpNotFound();
+               
+                    comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
+                    if (comp_ruta == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(comp_ruta);
+               
             }
-            return View(comp_ruta);
-            }
-            ViewBag.Verificar = "String";
-            return View();
-            }
-             return RedirectToAction("Login", "MyAccount");
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /compRuta/Delete/5
