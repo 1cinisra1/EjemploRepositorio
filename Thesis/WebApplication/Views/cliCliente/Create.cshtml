@@ -3,10 +3,10 @@
 @{
     ViewBag.Title = "Create";
 }
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
-       
 
         @using (Html.BeginForm())
         {
@@ -17,10 +17,8 @@
                 <hr />
                 @Html.ValidationSummary(true)
 
-                <div class="form-group ">
-                   
+                <div class="form-group">
                     <label for="inputEmail3" class=" required col-sm-2 control-label">Nombre</label>
-                   
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Cli_Nombre, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Cli_Nombre)
@@ -28,7 +26,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputEmail3" class=" required col-sm-2 control-label">RUC/Cédula</label>
+                    <label for="inputEmail3" class=" required col-sm-2 control-label">Ruc</label>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Cli_Ruc, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Cli_Ruc)
@@ -52,7 +50,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputEmail3" class=" col-sm-2 control-label">Ciudad</label>
+                    <label for="inputEmail3" class=" required col-sm-2 control-label">Ciudad</label>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Cli_Ciudad, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
                         @Html.ValidationMessageFor(model => model.Cli_Ciudad)
@@ -77,18 +75,19 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-success">Crear</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                         @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
                     </div>
-
                 </div>
             </div>
         }
+
+        <div>
+
+        </div>
     </div>
 </div>
-<div>
-   
-</div>
+}
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;
@@ -96,11 +95,9 @@
 
     .required::after {
         content: "*";
-        font-weight:normal;
+        font-weight: normal;
         color: red;
-        font-size:large;
+        font-size: large;
     }
-
-
 </style>
 

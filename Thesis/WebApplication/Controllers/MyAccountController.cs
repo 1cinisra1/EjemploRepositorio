@@ -56,7 +56,7 @@ namespace WebApplication.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "CompRuta");
+                        return RedirectToAction("Index", "cliCliente");
                     }
                 }
             }          
@@ -72,9 +72,7 @@ namespace WebApplication.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            
-            
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Login","MyAccount");
         }
 
 

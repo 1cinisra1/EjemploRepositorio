@@ -91,7 +91,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -119,13 +120,34 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data.Entity, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.Entity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Data.Entity.EF5.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Fakes">
+      <HintPath>FakesAssemblies\MySql.Data.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Fabric.Plugin, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Fabric.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Web.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -193,26 +215,22 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\cliClienteController.cs" />
     <Compile Include="Controllers\cliDepartamentoController.cs" />
     <Compile Include="Controllers\cliEquipoController.cs" />
     <Compile Include="Controllers\cliTipoEquipoController.cs" />
-    <Compile Include="Controllers\cliUsuarioController.cs" />
-    <Compile Include="Controllers\CompRutaController.cs" />
-    <Compile Include="Controllers\ComUsuariosController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\cliUserController.cs" />
+    <Compile Include="Controllers\compRutaController.cs" />
+    <Compile Include="Controllers\CompRutaTecnicoController.cs" />
+    <Compile Include="Controllers\comUsuariosController.cs" />
     <Compile Include="Controllers\MyAccountController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\rolesController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\bd_ControlVisitas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -240,7 +258,7 @@
     <Compile Include="Models\cli_tipoequipo.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\cli_usuario.cs">
+    <Compile Include="Models\cli_user.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\comp_ruta.cs">
@@ -250,19 +268,12 @@
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EmpresaClass.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\roles.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
     <Compile Include="MyMembershipProvider.cs" />
     <Compile Include="MyRolProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -329,6 +340,7 @@
     <Content Include="AdminLTE\dist\css\skins\skin-yellow.min.css" />
     <Content Include="AdminLTE\dist\css\skins\_all-skins.css" />
     <Content Include="AdminLTE\dist\css\skins\_all-skins.min.css" />
+    <Content Include="AdminLTE\dist\img\avatar04.png" />
     <Content Include="AdminLTE\dist\js\app.js" />
     <Content Include="AdminLTE\dist\js\app.min.js" />
     <Content Include="AdminLTE\plugins\bootstrap-slider\css\slider.css" />
@@ -479,7 +491,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\green_suburb.jpg" />
     <Content Include="Scripts\Account\Login.js" />
     <Content Include="Scripts\Account\Register.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -497,10 +508,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.fakesconfig" />
-    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
-    <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
-    <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
     <EntityDeploy Include="Models\bd_ControlVisitas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>bd_ControlVisitas.Designer.cs</LastGenOutput>
@@ -518,14 +525,15 @@
       <DependentUpon>bd_ControlVisitas.edmx</DependentUpon>
       <LastGenOutput>bd_ControlVisitas.cs</LastGenOutput>
     </Content>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
+    <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -570,27 +578,20 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Views\Shared\_Listar.cshtml" />
+    <Content Include="Views\cliDepartamento\Create.cshtml" />
+    <Content Include="Views\cliDepartamento\Delete.cshtml" />
+    <Content Include="Views\cliDepartamento\Details.cshtml" />
+    <Content Include="Views\cliDepartamento\Edit.cshtml" />
+    <Content Include="Views\cliDepartamento\Index.cshtml" />
+    <Content Include="Views\cliCliente\Create.cshtml" />
+    <Content Include="Views\cliCliente\Delete.cshtml" />
+    <Content Include="Views\cliCliente\Details.cshtml" />
+    <Content Include="Views\cliCliente\Edit.cshtml" />
+    <Content Include="Views\cliCliente\Index.cshtml" />
     <Content Include="Views\cliTipoEquipo\Create.cshtml" />
     <Content Include="Views\cliTipoEquipo\Delete.cshtml" />
     <Content Include="Views\cliTipoEquipo\Details.cshtml" />
@@ -600,39 +601,28 @@
     <Content Include="Views\cliEquipo\Delete.cshtml" />
     <Content Include="Views\cliEquipo\Details.cshtml" />
     <Content Include="Views\cliEquipo\Edit.cshtml" />
-    <Content Include="Views\cliCliente\Create.cshtml" />
-    <Content Include="Views\cliCliente\Delete.cshtml" />
-    <Content Include="Views\cliCliente\Details.cshtml" />
-    <Content Include="Views\cliCliente\Edit.cshtml" />
-    <Content Include="Views\cliCliente\Index.cshtml" />
-    <Content Include="Views\cliDepartamento\Create.cshtml" />
-    <Content Include="Views\cliDepartamento\Delete.cshtml" />
-    <Content Include="Views\cliDepartamento\Details.cshtml" />
-    <Content Include="Views\cliDepartamento\Edit.cshtml" />
-    <Content Include="Views\cliDepartamento\Index.cshtml" />
-    <Content Include="Views\cliUsuario\Create.cshtml" />
-    <Content Include="Views\cliUsuario\Delete.cshtml" />
-    <Content Include="Views\cliUsuario\Details.cshtml" />
-    <Content Include="Views\cliUsuario\Edit.cshtml" />
-    <Content Include="Views\cliUsuario\Index.cshtml" />
     <Content Include="Views\cliEquipo\Index.cshtml" />
-    <Content Include="Views\Roles\Create.cshtml" />
-    <Content Include="Views\Roles\Delete.cshtml" />
-    <Content Include="Views\Roles\Details.cshtml" />
-    <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
-    <Content Include="Views\ComUsuarios\Create.cshtml" />
-    <Content Include="Views\ComUsuarios\Delete.cshtml" />
-    <Content Include="Views\ComUsuarios\Details.cshtml" />
-    <Content Include="Views\ComUsuarios\Edit.cshtml" />
-    <Content Include="Views\ComUsuarios\Index.cshtml" />
-    <Content Include="Views\CompRuta\Create.cshtml" />
-    <Content Include="Views\CompRuta\Delete.cshtml" />
-    <Content Include="Views\CompRuta\Details.cshtml" />
-    <Content Include="Views\CompRuta\Edit.cshtml" />
-    <Content Include="Views\CompRuta\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\MyProfile.cshtml" />
+    <Content Include="Views\cliUser\Create.cshtml" />
+    <Content Include="Views\cliUser\Delete.cshtml" />
+    <Content Include="Views\cliUser\Details.cshtml" />
+    <Content Include="Views\cliUser\Edit.cshtml" />
+    <Content Include="Views\cliUser\Index.cshtml" />
+    <Content Include="Views\roles\Create.cshtml" />
+    <Content Include="Views\roles\Delete.cshtml" />
+    <Content Include="Views\roles\Details.cshtml" />
+    <Content Include="Views\roles\Edit.cshtml" />
+    <Content Include="Views\roles\Index.cshtml" />
+    <Content Include="Views\comUsuarios\Create.cshtml" />
+    <Content Include="Views\comUsuarios\Delete.cshtml" />
+    <Content Include="Views\comUsuarios\Details.cshtml" />
+    <Content Include="Views\comUsuarios\Edit.cshtml" />
+    <Content Include="Views\comUsuarios\Index.cshtml" />
+    <Content Include="Views\compRuta\Create.cshtml" />
+    <Content Include="Views\compRuta\Delete.cshtml" />
+    <Content Include="Views\compRuta\Details.cshtml" />
+    <Content Include="Views\compRuta\Edit.cshtml" />
+    <Content Include="Views\compRuta\Index.cshtml" />
+    <Content Include="Views\MyAccount\Login.cshtml" />
     <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="SourceLanding\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -667,10 +657,10 @@
     <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\MyAccount\Login.cshtml" />
     <Content Include="SourceLogin\scss\style.scss" />
-    <Content Include="Views\Home\AdminIndex.cshtml" />
-    <Content Include="Views\Home\UserIndex.cshtml" />
+    <Content Include="Views\CompRutaTecnico\Details.cshtml" />
+    <Content Include="Views\CompRutaTecnico\Edit.cshtml" />
+    <Content Include="Views\CompRutaTecnico\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

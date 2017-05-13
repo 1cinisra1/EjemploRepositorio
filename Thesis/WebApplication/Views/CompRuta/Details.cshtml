@@ -3,12 +3,11 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
-        <h3 style="text-align:center">DETALLE RUTA</h3>
+        <h3 style="text-align:center">Detalle RUTA</h3>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -28,7 +27,7 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Tiempo Estimado</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Tiempo estimado</label>
             </dt>
 
             <dd>
@@ -44,15 +43,55 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Empresa</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Estado</label>
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.cli_cliente.Cli_RSocial)
+                @Html.DisplayFor(model => model.Comp_estado)
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Técnico Asignado</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Hora Inicio</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comp_HoraLlegada)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Hora Fin</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comp_HoraSalida)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Creado Por:</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comp_CreadoPor)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Cerrado por:</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comp_CerradoPor)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cli_user.Cli_nombre)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Técnico asignado</label>
             </dt>
 
             <dd>
@@ -62,9 +101,9 @@
         </dl>
 
         <p>
-            @Html.ActionLink("Editar", "Edit", new { id = Model.idComp_Bitacora, id1 = Model.Com_Usuarios_idCom_Usuarios, id2 = Model.Cli_Empresa_idCli_Empresa }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idComp_Bitacora },new { @class = "btn btn-success" }) 
             @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
         </p>
     </div>
-</div>
-
+    </div>
+}

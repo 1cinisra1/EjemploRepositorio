@@ -3,14 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
+
 @section Menu {
     @Scripts.Render("~/Scripts/Tables/Data/menu")
 }
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="row">
     <div class="col-md-12 ">
-        <div class="box" style="margin-left:118px">
+        <div class="box">
             <div class="table-responsive">
                 <div class="box-body">
                     <div class="form-horizontal">
@@ -19,7 +21,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <label>Descripcion</label>
+                                        <label>Descripción</label>
                                     </th>
                                     <th></th>
                                 </tr>
@@ -32,9 +34,9 @@
                                             @Html.DisplayFor(modelItem => item.Cli_Descripcion)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Edit", "Edit", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-success" })
-                                            @Html.ActionLink("Details", "Details", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-danger" })
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-success" })
+                                            @Html.ActionLink("Detalles", "Details", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-primary" })
+                                            @Html.ActionLink("Borrar", "Delete", new { id = item.idCli_TipoEquipo }, new { @class = "btn btn-danger" })
                                         </td>
                                     </tr>
                                 }
@@ -43,10 +45,11 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
+}
 @section Scripts {
     @Scripts.Render("~/AdminLTE/plugins/datatables/js")
     @Scripts.Render("~/Scripts/Tables/Data")

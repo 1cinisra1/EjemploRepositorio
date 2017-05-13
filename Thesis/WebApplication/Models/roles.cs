@@ -11,8 +11,6 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class roles
     {
@@ -20,6 +18,7 @@ namespace WebApplication.Models
         {
             this.com_usuarios = new HashSet<com_usuarios>();
         }
+    
         public int idRoles { get; set; }
         public string Descripcion { get; set; }
     

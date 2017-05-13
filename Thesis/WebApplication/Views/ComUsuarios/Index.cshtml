@@ -10,16 +10,17 @@
 
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
 
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="row">
-    <div class="col-md-12 ">
-        <div class="box" style="margin-left:110px">
+    <div class="col-ms-12">
+        <div class="box">
             <div class="table-responsive">
                 <div class="box-body">
                     <div class="form-horizontal">
                         <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
                         <hr />
-                        <table id="example1" class="table table-responsive">
+                        <table id="example1" class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>
@@ -41,10 +42,11 @@
                                         <label>Teléfono</label>
                                     </th>
                                     <th>
+                                        <label>Clave</label>
+                                    </th>
+                                    <th>
                                         <label>Rol</label>
                                     </th>
-
-
                                     <th></th>
                                 </tr>
                             </thead>
@@ -71,15 +73,15 @@
                                             @Html.DisplayFor(modelItem => item.Com_Telefono)
                                         </td>
                                         <td>
+                                            @Html.DisplayFor(modelItem => item.Com_Clave)
+                                        </td>
+                                        <td>
                                             @Html.DisplayFor(modelItem => item.roles.Descripcion)
                                         </td>
-
-
-
                                         <td>
-                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-success" })
-                                            @Html.ActionLink("Ver", "Details", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCom_Usuarios, id1 = item.roles.idRoles }, new { @class = "btn btn-danger" })
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCom_Usuarios, id1=item.Roles_idRoles }, new { @class = "btn btn-success" })
+                                            @Html.ActionLink("Detales", "Details", new { id = item.idCom_Usuarios, id1 = item.Roles_idRoles }, new { @class = "btn btn-primary" }) 
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCom_Usuarios, id1 = item.Roles_idRoles }, new { @class = "btn btn-danger" })
                                         </td>
                                     </tr>
                                 }
@@ -88,11 +90,10 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>
-
+}
 @section Scripts {
     @Scripts.Render("~/AdminLTE/plugins/datatables/js")
     @Scripts.Render("~/Scripts/Tables/Data")

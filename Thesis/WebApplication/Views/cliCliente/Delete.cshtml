@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+@if (ViewBag.Verificar is Int32)
+{
 
-@*<h3>Desea Eliminar Este Cliente?</h3>*@
 <div class="register-box">
     <div class="register-box-body">
         <h3 style="text-align:center">ELIMINAR EMPRESA</h3>
@@ -21,7 +21,7 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Ruc/Cédula</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Ruc</label>
             </dt>
 
             <dd>
@@ -81,7 +81,7 @@
         }
     </div>
 </div>
-
+}
 <style>
     .required::after {
         content: "*";

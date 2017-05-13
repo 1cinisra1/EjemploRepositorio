@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Delete";
 }
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
         <h3 style="text-align:center">ELIMINAR ROL</h3>
@@ -30,4 +31,5 @@
         }
     </div>
 </div>
+}
 

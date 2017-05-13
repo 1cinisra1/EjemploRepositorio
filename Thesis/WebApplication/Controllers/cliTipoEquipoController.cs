@@ -18,7 +18,17 @@ namespace WebApplication.Controllers
         // GET: /cliTipoEquipo/
         public async Task<ActionResult> Index()
         {
+            if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
             return View(await db.cli_tipoequipo.ToListAsync());
+                }
+                ViewBag.Verificar = "String";
+                return View();
+            }
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // GET: /cliTipoEquipo/Details/5
@@ -28,18 +38,38 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+             if (Request.IsAuthenticated)
+            {
+            if (User.IsInRole("1"))
+            {
+             ViewBag.Verificar = 18;
             cli_tipoequipo cli_tipoequipo = await db.cli_tipoequipo.FindAsync(id);
             if (cli_tipoequipo == null)
             {
                 return HttpNotFound();
             }
             return View(cli_tipoequipo);
+            }
+            ViewBag.Verificar = "String";
+            return View();
+            }
+             return RedirectToAction("Login", "MyAccount");
         }
 
         // GET: /cliTipoEquipo/Create
         public ActionResult Create()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
+                    return View();
+                }
+                ViewBag.Verificar = "String";
+                return View();
+            }
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliTipoEquipo/Create
@@ -66,12 +96,22 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+             if (Request.IsAuthenticated)
+            {
+            if (User.IsInRole("1"))
+            {
             cli_tipoequipo cli_tipoequipo = await db.cli_tipoequipo.FindAsync(id);
             if (cli_tipoequipo == null)
             {
                 return HttpNotFound();
             }
+                ViewBag.Verificar = 18;
             return View(cli_tipoequipo);
+            }
+            ViewBag.Verificar = "String";
+            return View();
+            }
+             return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliTipoEquipo/Edit/5
@@ -97,12 +137,22 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            if (Request.IsAuthenticated)
+            {
+            if (User.IsInRole("1"))
+            {
             cli_tipoequipo cli_tipoequipo = await db.cli_tipoequipo.FindAsync(id);
             if (cli_tipoequipo == null)
             {
                 return HttpNotFound();
             }
+                ViewBag.Verificar = 18;
             return View(cli_tipoequipo);
+            }
+            ViewBag.Verificar = "String";
+            return View();
+            }
+            return RedirectToAction("Login", "MyAccount");
         }
 
         // POST: /cliTipoEquipo/Delete/5

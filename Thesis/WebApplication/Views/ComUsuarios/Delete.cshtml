@@ -4,6 +4,10 @@
     ViewBag.Title = "Delete";
 }
 
+
+
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
         <h3 style="text-align:center">ELIMINAR USUARIO</h3>
@@ -34,7 +38,7 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Direccion</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Dirección</label>
             </dt>
 
             <dd>
@@ -42,7 +46,7 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Cedula</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Cédula</label>
             </dt>
 
             <dd>
@@ -50,7 +54,7 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Telefono</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Teléfono</label>
             </dt>
 
             <dd>
@@ -58,25 +62,30 @@
             </dd>
 
             <dt>
-                <label for="inputEmail3" class="col-sm-2 control-label">Rol</label>
+                <label for="inputEmail3" class="col-sm-2 control-label">Clave</label>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Com_Clave)
+            </dd>
+
+            <dt>
+                <label for="inputEmail3" class="col-sm-2 control-label">Descripción</label>
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.roles.Descripcion)
             </dd>
 
-            
-
         </dl>
-
-        @using (Html.BeginForm())
         {
-            @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Eliminar" class="btn btn-danger" />
-                @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
-            </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+        </div>
         }
     </div>
 </div>
+}

@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<div class="register-box">
+@if (ViewBag.Verificar is Int32)
+{
+<div class="register-box" style="width: 466px">
     <div class="register-box-body">
         @using (Html.BeginForm())
         {
@@ -55,14 +56,6 @@
                     </div>
                 </div>
 
-                @*<div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Tipo de equipo</label>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cli_TipoEquipo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
-                        @Html.ValidationMessageFor(model => model.Cli_TipoEquipo)
-                    </div>
-                </div>*@
-
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Tipo de Equipo</label>
                     <div class="col-md-10">
@@ -73,7 +66,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-success">Crear</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                         @Html.ActionLink("Nuevo Tipo", "create", "cliTipoEquipo", null, new { @class = "btn btn-warning" })
                         @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
                     </div>
@@ -82,6 +75,7 @@
         }
     </div>
 </div>
+}
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;

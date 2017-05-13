@@ -3,10 +3,11 @@
 @{
     ViewBag.Title = "Edit";
 }
-
+@if (ViewBag.Verificar is Int32)
+{
 <div class="register-box">
     <div class="register-box-body">
-     
+
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
@@ -38,6 +39,7 @@
 
     </div>
 </div>
+}
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;

@@ -1,7 +1,10 @@
-﻿@model IEnumerable<WebApplication.Models.cli_usuario>
+﻿@model IEnumerable<WebApplication.Models.cli_user>
+
+@{
+    ViewBag.Title = "Index";
+}
 
 
-<h2>Index</h2>
 
 @section Menu {
     @Scripts.Render("~/Scripts/Tables/Data/menu")
@@ -9,28 +12,24 @@
 
 @Styles.Render("~/AdminLTE/plugins/datatables/css")
 
-
-<div class="row ">
-    <div class="col-md-12 ">
-        <div class="box" style="margin-left:110px">
+@if (ViewBag.Verificar is Int32)
+{
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
             <div class="table-responsive">
                 <div class="box-body">
-                    @Html.AntiForgeryToken()
                     <div class="form-horizontal">
                         <h4>@Html.ActionLink("AGREGAR", "create", "create", new { @class = "btn btn-success" })</h4>
                         <hr />
-                        @Html.ValidationSummary(true)
-
-
                         <table id="example1" class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>
                                         <label>Nombre</label>
                                     </th>
-
                                     <th>
-                                        <label>Equipo</label>
+                                        <label>Apellido</label>
                                     </th>
                                     <th>
                                         <label>Correo</label>
@@ -41,7 +40,10 @@
                                     <th>
                                         <label>Departamento</label>
                                     </th>
-                                    <th></th>
+                                    <th>
+                                        <label>Equipo</label>
+                                    </th>
+                                    <th>Mantenimiento</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,39 +53,37 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cli_nombre)
                                         </td>
-                                        @*<td>
-                                        @Html.DisplayFor(modelItem => item.Cli_Departamento)
-                                    </td>*@
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Cli_Equipo_idCli_Equipo)
+                                            @Html.DisplayFor(modelItem => item.Cli_apellido)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cli_Correo)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.cli_cliente.Cli_RSocial)
+                                            @Html.DisplayFor(modelItem => item.cli_cliente.Cli_Nombre)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.cli_departamento.Cli_Descripcion)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento.idCli_Departamento }, new { @class = "btn btn-success" })
-                                            @Html.ActionLink("Ver", "Details", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento.idCli_Departamento }, new { @class = "btn btn-primary" })
-                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Usuario, id1 = item.cli_cliente.idCli_Cliente, id2 = item.cli_departamento.idCli_Departamento }, new { @class = "btn btn-danger" })
-
-
+                                            @Html.DisplayFor(modelItem => item.cli_equipo.Cli_Marca)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Usuario }, new { @class = "btn btn-success" }) 
+                                            @Html.ActionLink("Detalles", "Details", new { id = item.idCli_Usuario },new { @class = "btn btn-primary" }) 
+                                            @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli_Usuario },new { @class = "btn btn-danger" })
                                         </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+}
 @section Scripts {
     @Scripts.Render("~/AdminLTE/plugins/datatables/js")
     @Scripts.Render("~/Scripts/Tables/Data")

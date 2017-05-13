@@ -16,12 +16,12 @@ namespace WebApplication.Models
     {
         public cli_departamento()
         {
-            this.cli_usuario = new HashSet<cli_usuario>();
+            this.cli_user = new HashSet<cli_user>();
         }
     
         public int idCli_Departamento { get; set; }
         public string Cli_Descripcion { get; set; }
     
-        public virtual ICollection<cli_usuario> cli_usuario { get; set; }
+        public virtual ICollection<cli_user> cli_user { get; set; }
     }
 }
