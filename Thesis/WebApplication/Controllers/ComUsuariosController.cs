@@ -121,7 +121,7 @@ namespace WebApplication.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+            ViewBag.Roles_idRol = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
             }
             ViewBag.Verificar = "String";
@@ -139,39 +139,36 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Configuration.ValidateOnSaveEnabled = false;
-                db.Entry(com_usuarios).State = EntityState.Modified;
-                db.SaveChangesAsync();
+                connection();
+                MySqlCommand sqlComm = new MySqlCommand();
+                int idrol = Convert.ToInt32(form["Roles_idRol"]);
+                sqlComm = con.CreateCommand();
+
+                StringBuilder sentence = new StringBuilder();
+
+                sentence.Append("SET FOREIGN_KEY_CHECKS=0; ");
+                sentence.Append("update myapp.com_usuarios ");
+                sentence.Append("set Com_Nombre='" + com_usuarios.Com_Nombre + "' ");
+                sentence.Append(",Roles_idRoles='" + idrol + "' ");
+                sentence.Append(",Com_Apellido='" + com_usuarios.Com_Apellido + "' ");
+                sentence.Append(",Com_Correo='" + com_usuarios.Com_Correo + "' ");
+                sentence.Append(",Com_Direccion='" + com_usuarios.Com_Direccion + "' ");
+                sentence.Append(",Com_Cedula='" + com_usuarios.Com_Cedula + "' ");
+                sentence.Append(",Com_Telefono='" + com_usuarios.Com_Telefono + "' ");
+                sentence.Append(",Com_Clave='" + com_usuarios.Com_Clave + "' ");
+                //condiciones
+                sentence.Append("where idCom_Usuarios='" + com_usuarios.idCom_Usuarios + "' ");
+                sentence.Append("and Roles_idRoles='" + com_usuarios.Roles_idRoles + "' ");
+
+                sqlComm.CommandText = sentence.ToString();
+
+
+                con.Open();
+                sqlComm.ExecuteNonQuery();
+                con.Close();
                 return RedirectToAction("Index");
-                //connection();
-                //MySqlCommand sqlComm = new MySqlCommand();
-                //int idrol = Convert.ToInt32(form["Roles_idRol"]);
-                //sqlComm = con.CreateCommand();
-
-                //StringBuilder sentence = new StringBuilder();
-
-                //sentence.Append("SET FOREIGN_KEY_CHECKS=0; ");
-                //sentence.Append("update myapp.com_usuarios ");
-                //sentence.Append("set Com_Nombre='" + com_usuarios.Com_Nombre + "' ");
-                //sentence.Append(",Roles_idRoles='" + idrol + "' ");
-                //sentence.Append(",Com_Apellido='" + com_usuarios.Com_Apellido + "' ");
-                //sentence.Append(",Com_Correo='" + com_usuarios.Com_Correo + "' ");
-                //sentence.Append(",Com_Direccion='" + com_usuarios.Com_Direccion + "' ");
-                //sentence.Append(",Com_Cedula='" + com_usuarios.Com_Cedula + "' ");
-                //sentence.Append(",Com_Telefono='" + com_usuarios.Com_Telefono + "' ");
-                //sentence.Append(",Com_Clave='" + com_usuarios.Com_Clave + "' ");
-                ////condiciones
-                //sentence.Append("where idCom_Usuarios='" + com_usuarios.idCom_Usuarios + "' ");
-                //sentence.Append("and Roles_idRoles='" + com_usuarios.Roles_idRoles + "' ");
-
-                //sqlComm.CommandText = sentence.ToString();
-
-
-                //con.Open();
-                //sqlComm.ExecuteNonQuery();
-                //con.Close();
             }
-            ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
+            ViewBag.Roles_idRol = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
         }
 

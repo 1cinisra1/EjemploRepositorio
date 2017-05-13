@@ -9,8 +9,8 @@
     <title>COMPUSERVI</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    @Styles.Render("~/AdminLTE/plugins/font-awesome/css")
-    @Styles.Render("~/AdminLTE/plugins/ionicons/css")
+    @*@Styles.Render("~/AdminLTE/plugins/font-awesome/css")
+    @Styles.Render("~/AdminLTE/plugins/ionicons/css")*@
     @Styles.Render("~/AdminLTE/bootstrap/css")
     @Styles.Render("~/AdminLTE/dist/css")
     @Styles.Render("~/AdminLTE/dist/css/skins")
@@ -202,6 +202,7 @@
 
 
 <script type="text/javascript">
+    if ($('#example1').length){
     $('#example1').DataTable({
         "language": {
             "sProcessing": "Procesando...",
@@ -228,6 +229,7 @@
             }
         }
     });
+    }
 </script>
 
 
