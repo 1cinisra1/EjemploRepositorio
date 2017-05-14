@@ -19,7 +19,7 @@ namespace WebApplication.Models
         public string Comp_NumeroVisitaMes { get; set; }
         public string Comp_TiempoDur { get; set; }
         public string Comp_Comentario { get; set; }
-        public byte[] Comp_estado { get; set; }
+        public Nullable<bool> Comp_estado { get; set; }
         public string Comp_HoraLlegada { get; set; }
         public string Comp_HoraSalida { get; set; }
         public string Comp_CreadoPor { get; set; }
