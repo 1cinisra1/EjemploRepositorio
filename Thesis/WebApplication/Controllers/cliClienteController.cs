@@ -84,7 +84,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Verificar = 18;
             return View(cli_cliente);
         }
 
