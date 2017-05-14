@@ -225,6 +225,7 @@
     <Compile Include="Controllers\compRutaController.cs" />
     <Compile Include="Controllers\CompRutaTecnicoController.cs" />
     <Compile Include="Controllers\comUsuariosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\rolesController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
@@ -661,6 +662,7 @@
     <Content Include="Views\CompRutaTecnico\Details.cshtml" />
     <Content Include="Views\CompRutaTecnico\Edit.cshtml" />
     <Content Include="Views\CompRutaTecnico\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
