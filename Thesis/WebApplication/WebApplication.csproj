@@ -225,6 +225,7 @@
     <Compile Include="Controllers\compRutaController.cs" />
     <Compile Include="Controllers\CompRutaTecnicoController.cs" />
     <Compile Include="Controllers\comUsuariosController.cs" />
+    <Compile Include="Controllers\DashBoardController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyAccountController.cs" />
@@ -662,12 +663,11 @@
     <Content Include="Views\CompRutaTecnico\Edit.cshtml" />
     <Content Include="Views\CompRutaTecnico\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\1.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\DashBoard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

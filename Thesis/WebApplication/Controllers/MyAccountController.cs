@@ -56,7 +56,7 @@ namespace WebApplication.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "cliCliente");
+                        return RedirectToAction("Index", "DashBoard");
                     }
                 }
             }          
