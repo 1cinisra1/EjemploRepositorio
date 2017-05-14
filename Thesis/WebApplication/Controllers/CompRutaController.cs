@@ -59,18 +59,19 @@ namespace WebApplication.Controllers
 
         // GET: /compRuta/Create
         public ActionResult Create()
-        {if (Request.IsAuthenticated)
+        {
+            if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-            ViewBag.Verificar = 18;
-            ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre");
-            ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios.Where(item => item.idCom_Usuarios == 2), "idCom_Usuarios", "Com_Nombre");
-            ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles.Where(item => item.idRoles == 2), "idRoles", "Descripcion");
-            return View();
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
+                    ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre");
+                    ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios.Where(item => item.Roles_idRoles == 2), "idCom_Usuarios", "Com_Nombre");
+                    ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles.Where(item => item.idRoles == 2), "idRoles", "Descripcion");
+                    return View();
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
         return RedirectToAction("Login", "MyAccount");
         }

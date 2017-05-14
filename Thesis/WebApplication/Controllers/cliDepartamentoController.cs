@@ -83,9 +83,10 @@ namespace WebApplication.Controllers
             {
                 db.cli_departamento.Add(cli_departamento);
                 await db.SaveChangesAsync();
+                
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Verificar = 18;
             return View(cli_departamento);
         }
 

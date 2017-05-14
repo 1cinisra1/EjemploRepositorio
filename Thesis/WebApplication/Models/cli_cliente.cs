@@ -11,7 +11,6 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class cli_cliente
     {
@@ -21,22 +20,11 @@ namespace WebApplication.Models
         }
     
         public int idCli_Cliente { get; set; }
-
-        [Required(ErrorMessage="Campo Obligatorio")]
-        [StringLength(100, ErrorMessage = "El campo debe tener por lo menos {2} caracteres.", MinimumLength = 6)]
-        [DataType(DataType.Text)]
         public string Cli_Nombre { get; set; }
-
-        [Required(ErrorMessage = "Campo Obligatorio")]
-        [StringLength(100, ErrorMessage = "El campo debe tener por lo menos {2} caracteres.", MinimumLength = 6)]
-        [DataType(DataType.Text)]
         public string Cli_Ruc { get; set; }
         public string Cli_Direccion { get; set; }
         public string Cli_Tel { get; set; }
         public string Cli_Ciudad { get; set; }
-        [Required(ErrorMessage = "Campo Obligatorio")]
-        [StringLength(100, ErrorMessage = "El campo debe tener por lo menos {2} caracteres.", MinimumLength = 6)]
-        [DataType(DataType.Text)]
         public string Cli_RSocial { get; set; }
         public string Cli_NombContacto { get; set; }
     
