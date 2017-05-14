@@ -144,18 +144,18 @@ namespace WebApplication.Controllers
             }
             if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id,id1);
-            if (cli_equipo == null)
-            {
-                return HttpNotFound();
-            }
-                ViewBag.Verificar = 18;
-            return View(cli_equipo);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id,id1);
+                    if (cli_equipo == null)
+                    {
+                        return HttpNotFound();
+                    }
+                        ViewBag.Verificar = 18;
+                    return View(cli_equipo);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
             return RedirectToAction("Login", "MyAccount");
         }
@@ -163,9 +163,9 @@ namespace WebApplication.Controllers
         // POST: /cliEquipo/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id, int id1)
         {
-            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id);
+            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id,id1);
             db.cli_equipo.Remove(cli_equipo);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

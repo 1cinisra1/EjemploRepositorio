@@ -11,6 +11,7 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class cli_departamento
     {
@@ -20,6 +21,9 @@ namespace WebApplication.Models
         }
     
         public int idCli_Departamento { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "El campo debe tener por lo menos {2} caracteres.", MinimumLength = 6)]
         public string Cli_Descripcion { get; set; }
     
         public virtual ICollection<cli_user> cli_user { get; set; }
