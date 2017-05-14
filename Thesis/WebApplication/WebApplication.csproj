@@ -225,6 +225,7 @@
     <Compile Include="Controllers\compRutaController.cs" />
     <Compile Include="Controllers\CompRutaTecnicoController.cs" />
     <Compile Include="Controllers\comUsuariosController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\rolesController.cs" />
@@ -543,6 +544,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Shared\_Layout.js" />
+    <Content Include="SourceError\css\style.css" />
+    <Content Include="SourceError\images\fuel-404-logo.png" />
+    <Content Include="SourceError\images\sub-bttn.png" />
     <Content Include="SourceLanding\css\bootstrap.css" />
     <Content Include="SourceLanding\css\bootstrap.min.css" />
     <Content Include="SourceLanding\css\landing-page.css" />
@@ -576,12 +580,8 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
-    <Content Include="Views\Shared\_Listar.cshtml" />
     <Content Include="Views\cliDepartamento\Create.cshtml" />
     <Content Include="Views\cliDepartamento\Delete.cshtml" />
     <Content Include="Views\cliDepartamento\Details.cshtml" />
@@ -662,9 +662,12 @@
     <Content Include="Views\CompRutaTecnico\Edit.cshtml" />
     <Content Include="Views\CompRutaTecnico\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\1.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

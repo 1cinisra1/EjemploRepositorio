@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "NotFound";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="~/SourceError/css/style.css" type="text/css" media="all" />
+<link href="~/SourceError/css/libreria.css" rel='stylesheet' type='text/css'>
+
+
+
+<div class="wrapper">
+    <a href="@Url.Action("Index", "CompRutaTecnico")" class="logo">
+        <h1>Volver al Control De Visitas</h1> 
+    </a>
+    <div class="banner"><img src="~/SourceError/images/fuel-404-logo.png" alt="" /></div>
+  
+    <div class="copy">
+        <p>Design by  
+            <button type="button" style="background-color:green" onclick="Link2()"> Andres Navas </button>
+            <button type="button" style="background-color:green" onclick="Link1()"> Israel Pinargote</button>
+        
+        </p>
+    </div>
+</div>
+
+<script>
+    function Link1() {
+        window.open("https://www.facebook.com/1cinisra1");
+    }
+    function Link2() {
+        window.open("https://www.facebook.com/andres.navascruz");
+    }
+
+</script>
