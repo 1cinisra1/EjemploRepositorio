@@ -87,7 +87,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            //ViewBag.Verificar = 18;
             ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
             return View(cli_equipo);
         }
@@ -131,6 +131,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.Verificar = 18;
             ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
             return View(cli_equipo);
         }

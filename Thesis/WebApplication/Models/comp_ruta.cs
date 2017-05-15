@@ -11,21 +11,40 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
     
     public partial class comp_ruta
     {
         public int idComp_Bitacora { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
+        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> Comp_Fecha { get; set; }
+
         public string Comp_NumeroVisitaMes { get; set; }
         public string Comp_TiempoDur { get; set; }
         public string Comp_Comentario { get; set; }
         public Nullable<bool> Comp_estado { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
+        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
+        [DataType(DataType.Time)]
         public string Comp_HoraLlegada { get; set; }
+
+        [DataType(DataType.Time)]
         public string Comp_HoraSalida { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
+        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
         public string Comp_CreadoPor { get; set; }
         public string Comp_CerradoPor { get; set; }
+
         public int Com_Usuarios_idCom_Usuarios { get; set; }
+
+        
         public int Cli_Usuario_idCli_Usuario { get; set; }
+
         public int Com_Usuarios_Roles_idRoles { get; set; }
     
         public virtual cli_user cli_user { get; set; }

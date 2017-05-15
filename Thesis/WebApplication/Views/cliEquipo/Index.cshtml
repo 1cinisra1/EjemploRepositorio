@@ -4,6 +4,12 @@
     ViewBag.Title = "Index";
 }
 
+@section Menu {
+    @Scripts.Render("~/Scripts/Tables/Data/menu")
+}
+
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+
 @if (ViewBag.Verificar is Int32)
 {
 <div class="row">

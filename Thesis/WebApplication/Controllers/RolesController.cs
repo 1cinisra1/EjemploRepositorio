@@ -84,7 +84,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Verificar = 18;
             return View(roles);
         }
 
@@ -126,6 +126,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.Verificar = 18;
             return View(roles);
         }
 

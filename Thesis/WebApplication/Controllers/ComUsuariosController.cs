@@ -99,7 +99,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Verificar = 18;
             ViewBag.Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
         }
@@ -168,6 +168,7 @@ namespace WebApplication.Controllers
                 con.Close();
                 return RedirectToAction("Index");
             }
+            ViewBag.Verificar = 18;
             ViewBag.Roles_idRol = new SelectList(db.roles, "idRoles", "Descripcion", com_usuarios.Roles_idRoles);
             return View(com_usuarios);
         }
