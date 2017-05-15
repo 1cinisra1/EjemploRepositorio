@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="required col-sm-3 control-label">Fecha</label>
                     <div class="col-md-8">
-                        @Html.EditorFor(model => model.Comp_Fecha, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.EditorFor(model => model.Comp_Fecha, new { htmlAttributes = new { @class = "form-control form-control-rounded"} })
                         
                         @Html.ValidationMessageFor(model => model.Comp_Fecha, null, new { @class = "text-danger" })
                     </div>
