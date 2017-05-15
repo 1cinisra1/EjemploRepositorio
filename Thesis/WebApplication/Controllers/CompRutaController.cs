@@ -81,7 +81,7 @@ namespace WebApplication.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "idComp_Bitacora,Comp_Fecha,Comp_NumeroVisitaMes,Comp_TiempoDur,Comp_Comentario,Comp_estado,Comp_HoraLlegada,Comp_HoraSalida,Comp_CreadoPor,Comp_CerradoPor,Com_Usuarios_idCom_Usuarios,Cli_Usuario_idCli_Usuario,Com_Usuarios_Roles_idRoles")] comp_ruta comp_ruta)
+        public async Task<ActionResult> Create(comp_ruta comp_ruta)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Verificar = 18;
             ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre", comp_ruta.Cli_Usuario_idCli_Usuario);
             ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre", comp_ruta.Com_Usuarios_idCom_Usuarios);
             return View(comp_ruta);
