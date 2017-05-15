@@ -11,7 +11,6 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class com_usuarios
     {
@@ -21,42 +20,13 @@ namespace WebApplication.Models
         }
     
         public int idCom_Usuarios { get; set; }
-
-        //[Required(ErrorMessage = "El campo no puede estar vacío.")]
-        //[StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        //[DataType(DataType.Text)]
         public string Com_Nombre { get; set; }
-
-        [Required(ErrorMessage = "El campo no puede estar vacío.")]
         public int Roles_idRoles { get; set; }
-
-        //[Required(ErrorMessage = "El campo no puede estar vacío.")]
-        //[StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        //[DataType(DataType.Text)]
         public string Com_Apellido { get; set; }
-
-        ////[Required(ErrorMessage = "El campo no puede estar vacío.")]
-        ////[StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        ////[EmailAddress(ErrorMessage = "El valor ingresado no es válido.")]
         public string Com_Correo { get; set; }
-
         public string Com_Direccion { get; set; }
-
-        //[Required(ErrorMessage = "El campo no puede estar vacío.")]
-        //[StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        //[Range(0, Int32.MaxValue, ErrorMessage = "El valor debe ser numérico.")]
         public int Com_Cedula { get; set; }
-
-        //[Required(ErrorMessage = "El campo no puede estar vacío.")]
-        //[StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        //[DataType(DataType.Text)]
-        //[Range(0, Int32.MaxValue, ErrorMessage = "El valor debe ser numérico.")]
         public string Com_Telefono { get; set; }
-
-        //[Required(ErrorMessage = "El campo no puede estar vacío.")]
-        //[StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        //[RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$",ErrorMessage="Debe contener al menos una letra mayúscula, minúscula y un número")]
-        //[DataType(DataType.Password)]
         public string Com_Clave { get; set; }
     
         public virtual ICollection<comp_ruta> comp_ruta { get; set; }

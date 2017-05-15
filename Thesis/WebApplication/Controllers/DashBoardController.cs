@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using WebApplication.Models;
 
@@ -15,30 +17,28 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public JsonResult GetSalesData()
+
+        public ActionResult CharterColumn()
         {
-            List<comp_ruta> sd = new List<comp_ruta>();
-            using (bd_ControlVisitasEntities dc = new bd_ControlVisitasEntities())
-            {
-                sd = dc.comp_ruta.OrderBy(a => a.com_usuarios).ToList();
-            }
+            var _context = new bd_ControlVisitasEntities();
+            ArrayList xValues = new ArrayList();
+            ArrayList yValues = new ArrayList();
 
-            var chartData = new object[sd.Count + 1];
-            chartData[0] = new object[]{
-                    "Cli_Usuario_idCli_Usuario",
-                    "Comp_NumeroVisitaMes",
-                    "Com_Usuarios_idCom_Usuarios",
-                    "Comp_estado"
-                };
-            int j = 0;
-            foreach (var i in sd)
-            {
-                j++;
-                chartData[j] = new object[] { i.Cli_Usuario_idCli_Usuario, i.Comp_NumeroVisitaMes, i.Com_Usuarios_idCom_Usuarios, i.Comp_estado };
-            }
+            var results = (from c in _context.comp_ruta
+                           where (c.Comp_Fecha == DateTime.Today)
+                           select c);
+                
 
-            return new JsonResult { Data = chartData, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            results.ToList().ForEach(rs => xValues.Add(rs.com_usuarios.Com_Nombre));
+            results.ToList().ForEach(rs => yValues.Add(rs.Comp_HoraSalida));
+
+            new Chart(width: 1000, height: 500, theme: ChartTheme.Green)
+            .AddTitle("SALIDA DE TECNICOS")
+            .AddSeries("Default", chartType: "Column", axisLabel: "Horas", xValue: xValues, yValues: yValues)
+            .Write("BMP");
+
+            return null;
         }
-        
     }
 }
