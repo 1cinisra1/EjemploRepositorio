@@ -99,18 +99,18 @@ namespace WebApplication.Controllers
             }
             if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-            cli_departamento cli_departamento = await db.cli_departamento.FindAsync(id);
-            if (cli_departamento == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Verificar = 18;
-            return View(cli_departamento);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                cli_departamento cli_departamento = await db.cli_departamento.FindAsync(id);
+                    if (cli_departamento == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.Verificar = 18;
+                    return View(cli_departamento);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
             return RedirectToAction("Login", "MyAccount");
         }
@@ -128,6 +128,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.Verificar = 18;
             return View(cli_departamento);
         }
 
@@ -140,18 +141,18 @@ namespace WebApplication.Controllers
             }
             if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-            cli_departamento cli_departamento = await db.cli_departamento.FindAsync(id);
-            if (cli_departamento == null)
-            {
-                return HttpNotFound();
-            }
-             ViewBag.Verificar = 18;
-            return View(cli_departamento);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    cli_departamento cli_departamento = await db.cli_departamento.FindAsync(id);
+                    if (cli_departamento == null)
+                    {
+                        return HttpNotFound();
+                    }
+                     ViewBag.Verificar = 18;
+                    return View(cli_departamento);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
             return RedirectToAction("Login", "MyAccount");
         }

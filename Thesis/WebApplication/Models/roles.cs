@@ -11,6 +11,7 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class roles
     {
@@ -20,6 +21,10 @@ namespace WebApplication.Models
         }
     
         public int idRoles { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
+        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
+        [DataType(DataType.Text)]
         public string Descripcion { get; set; }
     
         public virtual ICollection<com_usuarios> com_usuarios { get; set; }

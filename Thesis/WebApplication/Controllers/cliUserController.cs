@@ -90,7 +90,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
+            //ViewBag.Verificar = 18;
             ViewBag.Cli_Cliente_idCli_Cliente = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre", cli_user.Cli_Cliente_idCli_Cliente);
             ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion", cli_user.Cli_Departamento_idCli_Departamento);
             ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Marca", cli_user.Cli_Equipo_idCli_Equipo);
@@ -138,6 +138,7 @@ namespace WebApplication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.Verificar = 18;
             ViewBag.Cli_Cliente_idCli_Cliente = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre", cli_user.Cli_Cliente_idCli_Cliente);
             ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion", cli_user.Cli_Departamento_idCli_Departamento);
             ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Marca", cli_user.Cli_Equipo_idCli_Equipo);

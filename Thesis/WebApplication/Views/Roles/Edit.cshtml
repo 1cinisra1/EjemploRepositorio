@@ -19,15 +19,15 @@
                 @Html.HiddenFor(model => model.idRoles)
 
                 <div class="form-group">
-                    <label for="inputEmail3" class="required col-sm-2 control-label">Descripción</label>
-                    <div class="col-md-10">
+                    <label for="inputEmail3" class="required col-sm-3 control-label">Descripción</label>
+                    <div class="col-md-8">
                         @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
-                        @Html.ValidationMessageFor(model => model.Descripcion)
+                        @Html.ValidationMessageFor(model => model.Descripcion, null, new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-offset-3 col-md-10">
                         <button type="submit" class="btn btn-success">Aceptar</button>
                         @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
                     </div>

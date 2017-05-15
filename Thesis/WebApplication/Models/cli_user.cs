@@ -11,6 +11,7 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class cli_user
     {
@@ -20,12 +21,25 @@ namespace WebApplication.Models
         }
     
         public int idCli_Usuario { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
+        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
+        [DataType(DataType.Text)]
         public string Cli_nombre { get; set; }
+
         public string Cli_apellido { get; set; }
         public string Cli_Correo { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
         public int Cli_Equipo_idCli_Equipo { get; set; }
+
+        
         public int Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
         public int Cli_Cliente_idCli_Cliente { get; set; }
+
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
         public int Cli_Departamento_idCli_Departamento { get; set; }
     
         public virtual cli_cliente cli_cliente { get; set; }
