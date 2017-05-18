@@ -32,7 +32,7 @@
                 label: 'CANTIDADES DE VISITAS',
                 
                 backgroundColor: [
-                'rgba(234, 178, 146, 0.6)',
+                'rgba(72, 223, 146, 0.6)',
                 'rgba(130, 158, 192, 0.9)',
                 'rgba(10, 110, 204, 0.7)',
                 'rgba(234, 116, 194, 0.6)',
@@ -80,7 +80,7 @@
     window.onload = function () {
 
         var ctx1 = document.getElementById("barcanvas").getContext("2d");
-        Chart.defaults.global.defaultFontColor = '#FFF';
+        Chart.defaults.global.defaultFontColor = 'black';
         Chart.defaults.global.bodyFontSize = 28
         
         window.myBar = new Chart(ctx1,
@@ -95,13 +95,13 @@
                             display: true,
                             text: "DASHBOARD - TAREAS ASIGNADAS MENSUALES POR TECNICO",
                             fontSize: 25,
-                            fontColor: "#fff"
+                            fontColor: "black"
                             
                         },
                         legend: {
                             display: true,
                             labels: {
-                                fontColor: "#fff",
+                                fontColor: "black",
                                 fontSize: 20,
                                 boxWidth: 60
                             }
@@ -118,5 +118,5 @@
 </script>
 
 <div style="text-align: center" >
-    <canvas id="barcanvas" ></canvas>  @*style="background-color:#fff"*@
+    <canvas id="barcanvas" style="background-color:#fff"></canvas>  @*style="background-color:#fff"*@
 </div>
