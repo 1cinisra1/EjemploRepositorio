@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="myappDataSet" targetNamespace="http://tempuri.org/myappDataSet.xsd" xmlns:mstns="http://tempuri.org/myappDataSet.xsd" xmlns="http://tempuri.org/myappDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="myappConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="myappConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.myappConnectionString.ConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="comp_rutaTableAdapter" GeneratorDataComponentClassName="comp_rutaTableAdapter" Name="comp_ruta" UserDataComponentName="comp_rutaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="myappConnectionString (Web.config)" DbObjectName="myapp.comp_ruta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idComp_Bitacora`, `Comp_Fecha`, `Comp_NumeroVisitaMes`, `Comp_TiempoDur`, `Comp_Comentario`, `Comp_estado`, `Comp_HoraLlegada`, `Comp_HoraSalida`, `Comp_CreadoPor`, `Comp_CerradoPor`, `Com_Usuarios_idCom_Usuarios`, `Cli_Usuario_idCli_Usuario`, `Com_Usuarios_Roles_idRoles` FROM `comp_ruta`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="myappDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="myappDataSet" msprop:Generator_UserDSName="myappDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="comp_ruta" msprop:Generator_TableClassName="comp_rutaDataTable" msprop:Generator_TableVarName="tablecomp_ruta" msprop:Generator_TablePropName="comp_ruta" msprop:Generator_RowDeletingName="comp_rutaRowDeleting" msprop:Generator_RowChangingName="comp_rutaRowChanging" msprop:Generator_RowEvHandlerName="comp_rutaRowChangeEventHandler" msprop:Generator_RowDeletedName="comp_rutaRowDeleted" msprop:Generator_UserTableName="comp_ruta" msprop:Generator_RowChangedName="comp_rutaRowChanged" msprop:Generator_RowEvArgName="comp_rutaRowChangeEvent" msprop:Generator_RowClassName="comp_rutaRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -273,7 +273,17 @@
     <Compile Include="Models\roles.cs">
       <DependentUpon>bd_ControlVisitas.tt</DependentUpon>
     </Compile>
+    <Compile Include="myappDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>myappDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MyMembershipProvider.cs" />
+    <Compile Include="MyReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyReportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MyRolProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -531,6 +541,28 @@
     <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
     <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
     <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
+    <Content Include="MyReportDataSet.xsc">
+      <DependentUpon>MyReportDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="myappDataSet1.xsc">
+      <DependentUpon>myappDataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="myappDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>myappDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="myappDataSet1.xss">
+      <DependentUpon>myappDataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="MyReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="MyReportDataSet.xss">
+      <DependentUpon>MyReportDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\Forms\Advanced-menu.js" />
     <Content Include="Scripts\Forms\Advanced.js" />
@@ -694,6 +726,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\MyReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
