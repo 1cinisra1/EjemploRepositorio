@@ -15,11 +15,11 @@ namespace WebApplication.Models
     public partial class comp_ruta
     {
         public int idComp_Bitacora { get; set; }
-        public Nullable<System.DateTime> Comp_Fecha { get; set; }
+        public DateTime Comp_Fecha { get; set; }
         public string Comp_NumeroVisitaMes { get; set; }
         public string Comp_TiempoDur { get; set; }
         public string Comp_Comentario { get; set; }
-        public Nullable<bool> Comp_estado { get; set; }
+        public bool Comp_estado { get; set; }
         public string Comp_HoraLlegada { get; set; }
         public string Comp_HoraSalida { get; set; }
         public string Comp_CreadoPor { get; set; }
