@@ -1,17 +1,122 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@*
+    <div>
+        <img src="@Url.Action("CharterColumn", "DashBoard") " alt="Chart"/>
+    </div>
 
-<div>
-    <img src="@Url.Action("CharterColumn", "DashBoard") " alt="Chart"/>
-</div>
+    @section Scripts{
+        <script>
 
-@section Scripts{
-    <script>
-   
+    </script>
+
+        }*@
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js">
+
 </script>
-    
+
+<script>
+
+
+
+    var barChartData =
+        {
+            labels: [@Html.Raw(ViewBag.Tecnicos_List)],
+            datasets: [{
+                label: 'CANTIDADES DE VISITAS',
+                
+                backgroundColor: [
+                'rgba(72, 223, 146, 0.6)',
+                'rgba(130, 158, 192, 0.9)',
+                'rgba(10, 110, 204, 0.7)',
+                'rgba(234, 116, 194, 0.6)',
+                'rgba(72, 223, 146, 0.6)',
+                'rgba(234, 178, 146, 0.6)',
+                'rgba(130, 158, 192, 0.9)',
+                'rgba(10, 110, 204, 0.7)',
+                'rgba(234, 116, 194, 0.6)',
+                'rgba(72, 223, 146, 0.6)',
+                'rgba(234, 178, 146, 0.6)',
+                'rgba(130, 158, 192, 0.9)',
+                'rgba(10, 110, 204, 0.7)',
+                'rgba(234, 116, 194, 0.6)',
+                'rgba(72, 223, 146, 0.6)',
+                ],
+                hoverBorderColor: [
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                    "#dd4b39",
+                ],
+                
+                borderWidth: 2,
+                data: [@ViewBag.Cantidad_List],
+            }]
+        };
+
+
+    window.onload = function () {
+
+        var ctx1 = document.getElementById("barcanvas").getContext("2d");
+        Chart.defaults.global.defaultFontColor = 'black';
+        Chart.defaults.global.bodyFontSize = 28
+        
+        window.myBar = new Chart(ctx1,
+            {
+                //type: 'doughnut',
+                type: 'bar',
+                data: barChartData,
+                options:
+                    {
+                        title:
+                        {
+                            display: true,
+                            text: "DASHBOARD - TAREAS ASIGNADAS MENSUALES POR TECNICO",
+                            fontSize: 25,
+                            fontColor: "black"
+                            
+                        },
+                        legend: {
+                            display: true,
+                            labels: {
+                                fontColor: "black",
+                                fontSize: 20,
+                                boxWidth: 60
+                            }
+                        },
+                        
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        
+                    }
+
+
+            });
     }
+</script>
+
+<div style="text-align: center" >
+    <canvas id="barcanvas" style="background-color:#fff"></canvas>  @*style="background-color:#fff"*@
+</div>
