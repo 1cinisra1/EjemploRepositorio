@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="required col-sm-3 control-label">Descripción</label>
                     <div class="col-md-8">
-                        @Html.EditorFor(model => model.Cli_Descripcion, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.EditorFor(model => model.Cli_Descripcion, new { htmlAttributes = new { @class = "form-control form-control-rounded", required = "required" } })
                         @Html.ValidationMessageFor(model => model.Cli_Descripcion, null, new { @class = "text-danger" })
                     </div>
                 </div>
