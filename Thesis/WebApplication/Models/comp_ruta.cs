@@ -11,15 +11,21 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class comp_ruta
     {
         public int idComp_Bitacora { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime Comp_Fecha { get; set; }
         public string Comp_NumeroVisitaMes { get; set; }
+
         public string Comp_TiempoDur { get; set; }
         public string Comp_Comentario { get; set; }
         public bool Comp_estado { get; set; }
+
+        [DataType(DataType.Time)]
         public string Comp_HoraLlegada { get; set; }
         public string Comp_HoraSalida { get; set; }
         public string Comp_CreadoPor { get; set; }
@@ -27,6 +33,20 @@ namespace WebApplication.Models
         public int Com_Usuarios_idCom_Usuarios { get; set; }
         public int Cli_Usuario_idCli_Usuario { get; set; }
         public int Com_Usuarios_Roles_idRoles { get; set; }
+
+        public string Cli_RSocial { get; set; }
+        public string Cli_Direccion { get; set; }
+        public string Cli_Tel { get; set; }
+        public string Cli_Ciudad { get; set; }
+        public string Cli_DescripcionDpto { get; set; }
+        public string Cli_DiscoDuro { get; set; }
+        public string Cli_Marca { get; set; }
+        public string Cli_Modelo { get; set; }
+        public string Cli_Procesador { get; set; }
+        public string Cli_Ram { get; set; }
+
+        public string Cli_DescripcionTequipo { get; set; }
+
     
         public virtual cli_user cli_user { get; set; }
         public virtual com_usuarios com_usuarios { get; set; }

@@ -102,8 +102,7 @@ namespace WebApplication.Controllers
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/CrystalReportRuta.rpt")));
 
-            var query = (from p in db.comp_ruta
-                        where p.idComp_Bitacora == id
+            var query = (from p in db.comp_ruta where p.idComp_Bitacora == id
                         select new 
                         {
                             Comp_Fecha = p.Comp_Fecha,
@@ -114,7 +113,18 @@ namespace WebApplication.Controllers
                             Comp_HoraSalida = p.Comp_HoraSalida,
                             Comp_Comentario = p.Comp_Comentario,
                             Comp_CreadoPor = p.Comp_CreadoPor,
-                            Comp_CerradoPor = p.Comp_CerradoPor
+                            Comp_CerradoPor = p.Comp_CerradoPor,
+                            Cli_RSocial  = p.cli_user.cli_cliente.Cli_RSocial,
+                            Cli_Direccion=p.cli_user.cli_cliente.Cli_Direccion,
+                            Cli_Tel=p.cli_user.cli_cliente.Cli_Tel,
+                            Cli_Ciudad=p.cli_user.cli_cliente.Cli_Ciudad,
+                            Cli_DescripcionDpto=p.cli_user.cli_departamento.Cli_Descripcion,
+                            Cli_Marca=p.cli_user.cli_equipo.Cli_Marca,
+                            Cli_Modelo=p.cli_user.cli_equipo.Cli_Modelo,
+                            Cli_DiscoDuro=p.cli_user.cli_equipo.Cli_DiscoDuro,
+                            Cli_Procesador=p.cli_user.cli_equipo.Cli_Procesador,
+                            Cli_Ram=p.cli_user.cli_equipo.Cli_Ram,
+                            Cli_DescripcionTequipo=p.cli_user.cli_equipo.cli_tipoequipo1.Cli_Descripcion
                         }).ToList();
 
             rd.SetDataSource(query);
@@ -129,10 +139,6 @@ namespace WebApplication.Controllers
             return File(st, "application/pdf", "ReporteTrabajo.pdf");
 
         }
-
-
-
-
 
         protected override void Dispose(bool disposing)
         {
