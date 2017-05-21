@@ -197,10 +197,11 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                string To = emailTenico;
+               
                 string From = (from h in db.com_usuarios
                              where h.Roles_idRoles.Equals(1)
                              select h.Com_Correo).SingleOrDefault();
+                string To = emailTenico +","+ From;
                 string Subject = "Sistema CONTROL DE VISITAS";
                 string Body = "Se creo la ruta #" + idComp_Bitacora + " por el Administrador: " + Comp_CreadoPor + " al tecnico: " + nombreTenico;
                 string host, pass;
@@ -219,7 +220,7 @@ namespace WebApplication.Controllers
                 smtp.Port = 587;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new System.Net.NetworkCredential
-                (host, pass);
+                (From, pass);
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
 
