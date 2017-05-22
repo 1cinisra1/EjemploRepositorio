@@ -674,7 +674,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ReporteGerencial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

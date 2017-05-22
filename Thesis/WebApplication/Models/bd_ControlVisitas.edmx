@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="bd_ControlVisitasModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7">
+    <Schema Alias="Self" Namespace="bd_ControlVisitasModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cli_cliente">
           <Key>
             <PropertyRef Name="idCli_Cliente" />
@@ -187,14 +187,14 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="bd_ControlVisitasModelStoreContainer">
-          <EntitySet Name="cli_cliente" EntityType="Self.cli_cliente" Schema="myapp" store:Type="Tables" />
-          <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" Schema="myapp" store:Type="Tables" />
-          <EntitySet Name="cli_equipo" EntityType="Self.cli_equipo" Schema="myapp" store:Type="Tables" />
-          <EntitySet Name="cli_tipoequipo" EntityType="Self.cli_tipoequipo" Schema="myapp" store:Type="Tables" />
-          <EntitySet Name="cli_user" EntityType="Self.cli_user" Schema="myapp" store:Type="Tables" />
-          <EntitySet Name="com_usuarios" EntityType="Self.com_usuarios" Schema="myapp" store:Type="Tables" />
-          <EntitySet Name="comp_ruta" EntityType="Self.comp_ruta" Schema="myapp" store:Type="Tables" />
-          <EntitySet Name="roles" EntityType="Self.roles" Schema="myapp" store:Type="Tables" />
+          <EntitySet Name="cli_cliente" EntityType="Self.cli_cliente" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="cli_equipo" EntityType="Self.cli_equipo" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="cli_tipoequipo" EntityType="Self.cli_tipoequipo" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="cli_user" EntityType="Self.cli_user" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="com_usuarios" EntityType="Self.com_usuarios" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="comp_ruta" EntityType="Self.comp_ruta" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="myapp" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="Comp_Ruta_Cli_Usuario1" Association="Self.Comp_Ruta_Cli_Usuario1">
             <End EntitySet="cli_user" Role="cli_user" />
             <End EntitySet="comp_ruta" Role="comp_ruta" />
@@ -227,12 +227,12 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="bd_ControlVisitasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="bd_ControlVisitasModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityType Name="cli_cliente">
           <Key>
             <PropertyRef Name="idCli_Cliente" />
           </Key>
-          <Property Name="idCli_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCli_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Cli_Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_Ruc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -246,7 +246,7 @@
           <Key>
             <PropertyRef Name="idCli_Departamento" />
           </Key>
-          <Property Name="idCli_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCli_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Cli_Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cli_user" Relationship="Self.fk_Cli_User_Cli_Departamento1" FromRole="cli_departamento" ToRole="cli_user" />
         </EntityType>
@@ -255,7 +255,7 @@
             <PropertyRef Name="idCli_Equipo" />
             <PropertyRef Name="Cli_TipoEquipo_idCli_TipoEquipo" />
           </Key>
-          <Property Name="idCli_Equipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCli_Equipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Cli_Marca" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_Modelo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_DiscoDuro" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -269,7 +269,7 @@
           <Key>
             <PropertyRef Name="idCli_TipoEquipo" />
           </Key>
-          <Property Name="idCli_TipoEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCli_TipoEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Cli_Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="cli_equipo" Relationship="Self.fk_Cli_Equipo_Cli_TipoEquipo1" FromRole="cli_tipoequipo" ToRole="cli_equipo" />
         </EntityType>
@@ -277,7 +277,7 @@
           <Key>
             <PropertyRef Name="idCli_Usuario" />
           </Key>
-          <Property Name="idCli_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCli_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Cli_nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Cli_Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -295,7 +295,7 @@
             <PropertyRef Name="idCom_Usuarios" />
             <PropertyRef Name="Roles_idRoles" />
           </Key>
-          <Property Name="idCom_Usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCom_Usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Com_Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Roles_idRoles" Type="Int32" Nullable="false" />
           <Property Name="Com_Apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
@@ -311,7 +311,7 @@
           <Key>
             <PropertyRef Name="idComp_Bitacora" />
           </Key>
-          <Property Name="idComp_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idComp_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Comp_Fecha" Type="DateTime" />
           <Property Name="Comp_NumeroVisitaMes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Comp_TiempoDur" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -331,7 +331,7 @@
           <Key>
             <PropertyRef Name="idRoles" />
           </Key>
-          <Property Name="idRoles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRoles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="com_usuarios" Relationship="Self.fk_Com_Usuarios_Roles" FromRole="roles" ToRole="com_usuarios" />
         </EntityType>
@@ -423,7 +423,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="bd_ControlVisitasEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="bd_ControlVisitasEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="cli_cliente" EntityType="Self.cli_cliente" />
           <EntitySet Name="cli_departamento" EntityType="Self.cli_departamento" />
           <EntitySet Name="cli_equipo" EntityType="Self.cli_equipo" />
@@ -587,6 +587,6 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams />
   </Designer>
 </edmx:Edmx>
