@@ -198,32 +198,32 @@ namespace WebApplication.Controllers
             if (ModelState.IsValid)
             {
                
-                string From = (from h in db.com_usuarios
-                             where h.Roles_idRoles.Equals(1)
-                             select h.Com_Correo).SingleOrDefault();
-                string To = emailTenico +","+ From;
+                //string From = (from h in db.com_usuarios
+                //             where h.Roles_idRoles.Equals(1)
+                //             select h.Com_Correo).SingleOrDefault();
+
+                string From = "sistemacompuservi@hotmail.com";
+                //string To = emailTenico + "," + From;
+                string To = emailTenico;
                 string Subject = "Sistema CONTROL DE VISITAS";
                 string Body = "Se creo la ruta #" + idComp_Bitacora + " por el Administrador: " + Comp_CreadoPor + " al tecnico: " + nombreTenico;
                 string host, pass;
 
-                host = "";
-                pass = "";
+                host = "smtp.live.com";
+                pass = "Compuservi2017";
                 MailMessage mail = new MailMessage();
                 mail.To.Add(To);
                 mail.From = new MailAddress(From);
                 mail.Subject = Subject;
-
                 mail.Body = Body;
                 mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.live.com";
+                SmtpClient smtp = new SmtpClient("");
+                smtp.Host = host;
                 smtp.Port = 587;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential
-                (From, pass);
+                smtp.Credentials = new NetworkCredential(From, pass);
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
-
             }
             else
             {
