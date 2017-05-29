@@ -6,63 +6,64 @@
 
 <link rel="stylesheet" href="~/Sourcelogin/bootstrap.min.css">
 <link rel="stylesheet" href="~/Sourcelogin/css/style.css">
-
+@*<link rel="icon" type="image/png" sizes="512x512" href="~/SourceLanding/img/android-chrome-512x512.png">*@
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="container container-table">
-    <div class="row vertical-center-row">
-        <div class="text-center ">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h2 class="form-bottom" style="text-align:center">INICIAR SESIÓN</h2>
-                </div>
-            </div>
-
-            <div class="panel-group">
-                <div class="panel panel">
-                    <div class="panel-body">
-
-
-                        <div class="form-group">
-                            <label for="inputEmail3" class="required col-sm-2 control-label">Correo</label>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Com_Correo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
-                                @Html.ValidationMessageFor(model => model.Com_Correo)
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputEmail3" class="required col-sm-2 control-label">Clave</label>
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Com_Clave, new { htmlAttributes = new { @class = "form-control form-control-rounded", @type = "password" } })
-                                @Html.ValidationMessageFor(model => model.Com_Clave)
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label class="checkbox">
-                                    <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recordar
-                                    <button type="submit" class="btn btn-success">INICIAR</button>
-                                </label>
-                            </div>
-                        </div>
-
+    <div class="container container-table">
+        <div class="row vertical-center-row">
+            <div class="text-center ">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2 class="form-bottom" style="text-align:center">INICIAR SESIÓN</h2>
                     </div>
                 </div>
 
+                <div class="panel-group">
+                    <div class="panel panel">
+                        <div class="panel-body">
+
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="required col-sm-2 control-label">Correo</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Com_Correo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                                    @Html.ValidationMessageFor(model => model.Com_Correo)
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="inputEmail4" class="required col-sm-2 control-label">Clave</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Com_Clave, new { htmlAttributes = new { @class = "form-control form-control-rounded", @type = "password" } })
+                                    @Html.ValidationMessageFor(model => model.Com_Clave)
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-success">INICIAR</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <a class="btn btn-danger" href="/Home/Index">VOLVER</a>
+                                </div>
+                            </div>
+                        </div>
 
 
 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
+
 
 
 
@@ -73,6 +74,7 @@
 <style type="text/css">
     .form-control-rounded {
         border-radius: 16px;
+        margin-bottom: 35px;
     }
 
     .required::after {
@@ -93,6 +95,6 @@
 
     .vertical-center-row {
         display: table-cell;
-        vertical-align:middle;
+        vertical-align: middle;
     }
 </style>

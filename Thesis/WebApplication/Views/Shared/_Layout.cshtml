@@ -8,17 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>COMPUSERVI</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
+    
     @Styles.Render("~/AdminLTE/plugins/font-awesome/css")
     @Styles.Render("~/AdminLTE/plugins/ionicons/css")
     @Styles.Render("~/AdminLTE/bootstrap/css")
     @Styles.Render("~/AdminLTE/dist/css")
     @Styles.Render("~/AdminLTE/dist/css/skins")
-
-
+   
+    @*<link rel="icon" type="image/png" sizes="512x512" href="~/SourceLanding/img/android-chrome-512x512.png">*@
 </head>
 
 <body class="hold-transition skin-red sidebar-mini">
+   
     <div class="wrapper">
         @if (Request.IsAuthenticated)
         {
@@ -99,6 +100,18 @@
                             </ul>
                         </li>
                         <li class="header">COMPUSERVI</li>
+
+                        <li id="left-sidebar-menu-tables" class="treeview">
+                            <a href="#">
+                                <i class="fa fa-youtube-play"></i> <span>DashBoard</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Index", "DashBoard")"><i class="fa fa-cog fa-spin"></i> Mostrar</a></li>
+
+                            </ul>
+                        </li>
+
                         <li id="left-sidebar-menu-tables" class="treeview">
                             <a href="#">
                                 <i class="fa fa-user-o"></i> <span>Usuarios</span>
@@ -146,6 +159,9 @@
                             </li>
                         }
 
+
+                       
+
                         <li id="left-sidebar-menu-tables" class="treeview">
                             <a href="#">
                                 <i class="fa fa-cloud"></i> <span>Nube</span>
@@ -157,9 +173,9 @@
                             </ul>
                         </li>
                         <li id="left-sidebar-menu-tables" class="treeview">
-                            <a href="https://compuservi.com.ec:2096/">
+                            <a href="https://compuservi.com.ec:2096/" target="_blank">
                                 <i class="fa fa-envelope-o"></i> <span>Correo</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                
                             </a>
                         </li>
                         
