@@ -202,15 +202,18 @@ namespace WebApplication.Controllers
                 //             where h.Roles_idRoles.Equals(1)
                 //             select h.Com_Correo).SingleOrDefault();
 
-                string From = "sistemacompuservi@hotmail.com";
+                //string From = "sistemacompuservi@hotmail.com";
+                string From = "sistema@compuservi.com.ec";
                 //string To = emailTenico + "," + From;
                 string To = emailTenico;
                 string Subject = "Sistema CONTROL DE VISITAS";
                 string Body = "Se creo la ruta #" + idComp_Bitacora + " por el Administrador: " + Comp_CreadoPor + " al tecnico: " + nombreTenico;
                 string host, pass;
 
-                host = "smtp.live.com";
-                pass = "Compuservi2017";
+                //host = "smtp.live.com";
+                host = "secure.myhostingdomain.net";
+                //pass = "Compuservi2017";
+                pass = "Compuservi123";
                 MailMessage mail = new MailMessage();
                 mail.To.Add(To);
                 mail.From = new MailAddress(From);
