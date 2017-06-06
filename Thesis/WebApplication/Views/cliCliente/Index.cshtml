@@ -26,9 +26,9 @@
                                     <th>
                                         <label>Razón Social</label>
                                     </th>
-                                    <th>
+                                    @*<th>
                                         <label>Nombre</label>
-                                    </th>
+                                    </th>*@
                                     <th>
                                         <label>Ruc</label>
                                     </th>
@@ -41,10 +41,10 @@
                                     <th>
                                         <label>Ciudad</label>
                                     </th>
-                                    <th>
+                                    @*<th>
                                         <label>Contacto</label>
-                                    </th>
-                                    <th></th>
+                                    </th>*@
+                                    <th>Mantenimiento</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,9 +54,9 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cli_RSocial)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Cli_Nombre)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cli_Ruc)
                                         </td>
@@ -69,9 +69,9 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Cli_Ciudad)
                                         </td>
-                                        <td>
+                                        @*<td>
                                             @Html.DisplayFor(modelItem => item.Cli_NombContacto)
-                                        </td>
+                                        </td>*@
                                         <td>
                                             @Html.ActionLink("Editar", "Edit", new { id = item.idCli_Cliente }, new { @class = "btn btn-success" }) 
                                             @Html.ActionLink("Detalles", "Details", new { id = item.idCli_Cliente }, new { @class = "btn btn-primary" }) 

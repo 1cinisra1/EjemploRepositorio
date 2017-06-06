@@ -43,7 +43,8 @@
                             <img src="~/AdminLTE/dist/img/avatar04.png" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p>Bienvenido <br /><br /> @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")</p>
+                            @*<p>Bienvenido <br /><br /> @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")</p>*@
+                            <p>Bienvenido<br/> @HttpContext.Current.Session["nUser"].ToString()</p>
                             <ul class="nav navbar-nav navbar-left"></ul>
                         </div>
                     </div>

@@ -46,7 +46,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Comp_estado)
+                @HttpContext.Current.Session["estado"].ToString()
             </dd>
 
             <dt>

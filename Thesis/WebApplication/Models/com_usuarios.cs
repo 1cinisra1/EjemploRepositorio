@@ -23,7 +23,7 @@ namespace WebApplication.Models
         public int idCom_Usuarios { get; set; }
 
         //[Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 4)]
         //[DataType(DataType.Text)]
         public string Com_Nombre { get; set; }
 

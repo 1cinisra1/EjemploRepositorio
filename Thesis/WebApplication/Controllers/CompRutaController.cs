@@ -117,21 +117,21 @@ namespace WebApplication.Controllers
             }
              if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-                ViewBag.Verificar = 18;
-            comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
-            if (comp_ruta == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre", comp_ruta.Cli_Usuario_idCli_Usuario);
-            ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre", comp_ruta.Com_Usuarios_idCom_Usuarios);
-            ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", comp_ruta.Com_Usuarios_Roles_idRoles);
-            return View(comp_ruta);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
+                    comp_ruta comp_ruta = await db.comp_ruta.FindAsync(id);
+                    if (comp_ruta == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.Cli_Usuario_idCli_Usuario = new SelectList(db.cli_user, "idCli_Usuario", "Cli_nombre", comp_ruta.Cli_Usuario_idCli_Usuario);
+                    ViewBag.Com_Usuarios_idCom_Usuarios = new SelectList(db.com_usuarios, "idCom_Usuarios", "Com_Nombre", comp_ruta.Com_Usuarios_idCom_Usuarios);
+                    ViewBag.Com_Usuarios_Roles_idRoles = new SelectList(db.roles, "idRoles", "Descripcion", comp_ruta.Com_Usuarios_Roles_idRoles);
+                    return View(comp_ruta);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
              return RedirectToAction("Login", "MyAccount");
         }
