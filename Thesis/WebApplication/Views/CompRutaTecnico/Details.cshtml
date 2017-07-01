@@ -46,7 +46,14 @@
             </dt>
 
             <dd>
-                @HttpContext.Current.Session["estado"].ToString()
+                @if (Model.Comp_estado)
+                {
+                    <i>Realizada</i>
+                }
+                else
+                {
+                    <i>Pendiente</i>
+                }
             </dd>
 
             <dt>

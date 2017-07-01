@@ -79,7 +79,14 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Comp_estado)
+                @if (Model.Comp_estado)
+                {
+                    <i>Realizada</i>
+                }
+                else
+                {
+                    <i>Pendiente</i>
+                }
             </dd>
 
             <dt>

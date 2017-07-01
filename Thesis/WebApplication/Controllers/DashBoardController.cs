@@ -12,29 +12,30 @@ namespace WebApplication.Controllers
 {
     public class DashBoardController : Controller
     {
+        private bd_ControlVisitasEntities db = new bd_ControlVisitasEntities();
+        public ActionResult DashboardV1()
+        {
+            int PorcentajeRealizadas = 0;
+            int Pendiente = 0;
+            var cantVisitas = db.comp_ruta.Where(e => e.Comp_Fecha == DateTime.Today);
+            int cantVisitasDia=cantVisitas.Count();
+            ViewBag.cantidad = cantVisitasDia;
+            var realizadas = db.comp_ruta.Where(e => e.Comp_Fecha == DateTime.Today && e.Comp_estado);
+            int cantRealizadas=realizadas.Count();
+            if (cantVisitasDia > 0)
+            {
+                 PorcentajeRealizadas = (cantRealizadas * 100) / cantVisitasDia;
+                 Pendiente = 100;
+            }
 
-        //public ActionResult CharterColumn()
-        //{
-        //    var _context = new bd_ControlVisitasEntities();
-        //    ArrayList xValues = new ArrayList();
-        //    ArrayList yValues = new ArrayList();
-
-        //    var results = (from c in _context.comp_ruta
-        //                   where (c.Comp_Fecha == DateTime.Today)
-        //                   select c);
-
-
-        //    results.ToList().ForEach(rs => xValues.Add(rs.com_usuarios.Com_Nombre));
-        //    results.ToList().ForEach(rs => yValues.Add(rs.Comp_estado));
-
-        //    new Chart(width: 700, height: 500, theme: ChartTheme.Green)
-        //   .AddTitle("SALIDA DE TECNICOS")
-        //   .AddSeries("Default", chartType: "Column", xValue: xValues, yValues: yValues)
-        //   .Write("BMP");
-           
-        //    return null;
-        //}
-
+            ViewBag.porcentaje = PorcentajeRealizadas;
+            ViewBag.pending = Pendiente - PorcentajeRealizadas;
+            int cantClientes = db.cli_cliente.Count();
+            ViewBag.numClientes = cantClientes;
+            ViewBag.muchachos = ViewBag.namesUSR;
+            return View(cantVisitas.ToList());
+        }
+        
          ICharts _ICharts;
          public DashBoardController()  
         {  

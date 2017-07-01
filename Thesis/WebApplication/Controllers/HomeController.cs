@@ -11,7 +11,11 @@ namespace WebApplication.Controllers
         {
             return View();
         }
-        
+
+        public ActionResult DashboardV1()
+        {
+            return View();
+        }
 
 
     }

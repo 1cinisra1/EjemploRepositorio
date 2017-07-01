@@ -8,18 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>COMPUSERVI</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
+
     @Styles.Render("~/AdminLTE/plugins/font-awesome/css")
     @Styles.Render("~/AdminLTE/plugins/ionicons/css")
     @Styles.Render("~/AdminLTE/bootstrap/css")
     @Styles.Render("~/AdminLTE/dist/css")
     @Styles.Render("~/AdminLTE/dist/css/skins")
-   
+
     @*<link rel="icon" type="image/png" sizes="512x512" href="~/SourceLanding/img/android-chrome-512x512.png">*@
 </head>
 
 <body class="hold-transition skin-red sidebar-mini">
-   
+
     <div class="wrapper">
         @if (Request.IsAuthenticated)
         {
@@ -44,7 +44,8 @@
                         </div>
                         <div class="pull-left info">
                             @*<p>Bienvenido <br /><br /> @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")</p>*@
-                            <p>Bienvenido<br/> @HttpContext.Current.Session["nUser"].ToString()</p>
+                           @*<p>Bienvenido<br /> @HttpContext.Current.Session["nUser"].ToString()</p>*@
+                            <p>Bienvenido<br />@ViewBag.muchachos</p>
                             <ul class="nav navbar-nav navbar-left"></ul>
                         </div>
                     </div>
@@ -108,7 +109,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Index", "DashBoard")"><i class="fa fa-cog fa-spin"></i> Mostrar</a></li>
+                                <li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("DashboardV1", "DashBoard")"><i class="fa fa-cog fa-spin"></i> Mostrar</a></li>
 
                             </ul>
                         </li>
@@ -161,7 +162,7 @@
                         }
 
 
-                       
+
 
                         <li id="left-sidebar-menu-tables" class="treeview">
                             <a href="#">
@@ -176,41 +177,53 @@
                         <li id="left-sidebar-menu-tables" class="treeview">
                             <a href="https://compuservi.com.ec:2096/" target="_blank">
                                 <i class="fa fa-envelope-o"></i> <span>Correo</span>
-                                
+
                             </a>
                         </li>
-                        
-                            <li id="left-sidebar-menu-tables" class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-share"></i> <span>Salir</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul class="treeview-menu">
-                                    @using (Html.BeginForm("Logout", "MyAccount", FormMethod.Post, new { id = "logoutform" }))
-                                    {
+
+                        <li id="left-sidebar-menu-tables" class="treeview">
+                            <a href="#">
+                                <i class="fa fa-share"></i> <span>Salir</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                @using (Html.BeginForm("Logout", "MyAccount", FormMethod.Post, new { id = "logoutform" }))
+                                {
                                     @*<li>
-                                    <a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-danger btn-lg">Logout</a>
-                                       
-                                    </li>*@
-    <a class="btn btn-danger" href="javascript:document.getElementById('logoutform').submit()">
-        <i class="fa fa-spinner fa-pulse"></i> SALIR
-    </a>
-                                    }
-                                </ul>
-                            </li>
-                        
+                                        <a href="javascript:document.getElementById('logoutform').submit()" class="btn btn-danger btn-lg">Logout</a>
+
+                                        </li>*@
+                                    <a class="btn btn-danger" href="javascript:document.getElementById('logoutform').submit()">
+                                        <i class="fa fa-spinner fa-pulse"></i> SALIR
+                                    </a>
+                                }
+                            </ul>
+                        </li>
+
 
                     </ul>
                 </section>
             </aside>
             <div class="content-wrapper">
+                <section class="content-header">
+                    @*<h1>
+                        @ViewBag.Title
+                        <small>@ViewBag.SubTitle</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i>@ViewBag.SubTitle</a></li>
+                        <li class="active">@ViewBag.Title</li>
+                    </ol>*@
+                </section> 
                 <section class="content">
                     @RenderBody()
                 </section>
+               
+                @*<div class="control-sidebar-bg"></div>*@
             </div>
         }
-        
-    
+
+
 
         @Scripts.Render("~/AdminLTE/plugins/jquery/js")
         @RenderSection("menu", required: false)
@@ -223,6 +236,8 @@
     </div>
 </body>
 </html>
+
+
 
 
 
