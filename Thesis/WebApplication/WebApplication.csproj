@@ -493,10 +493,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Account\Login.js" />
-    <Content Include="Scripts\Account\Register.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
@@ -531,25 +527,73 @@
     <Content Include="FakesAssemblies\MySql.Data.Entity.EF6.Fakes.messages" />
     <Content Include="FakesAssemblies\MySql.Data.Fakes.fakesconfig" />
     <Content Include="FakesAssemblies\MySql.Data.Fakes.messages" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\Account\Login.js" />
+    <Content Include="Scripts\Account\Register.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Calendar\Calendar-menu.js" />
+    <Content Include="Scripts\Calendar\Calendar.js" />
+    <Content Include="Scripts\Charts\ChartsJs-menu.js" />
+    <Content Include="Scripts\Charts\ChartsJs.js" />
+    <Content Include="Scripts\Charts\Flot-menu.js" />
+    <Content Include="Scripts\Charts\Flot.js" />
+    <Content Include="Scripts\Charts\Inline-menu.js" />
+    <Content Include="Scripts\Charts\Inline.js" />
+    <Content Include="Scripts\Charts\Morris-menu.js" />
+    <Content Include="Scripts\Charts\Morris.js" />
+    <Content Include="Scripts\Documentation\Documentation-menu.js" />
+    <Content Include="Scripts\Elements\Buttons-menu.js" />
+    <Content Include="Scripts\Elements\General-menu.js" />
+    <Content Include="Scripts\Elements\Icons-menu.js" />
+    <Content Include="Scripts\Elements\Modals-menu.js" />
+    <Content Include="Scripts\Elements\Sliders-menu.js" />
+    <Content Include="Scripts\Elements\Sliders.js" />
+    <Content Include="Scripts\Elements\Timeline-menu.js" />
+    <Content Include="Scripts\Examples\Blank-menu.js" />
+    <Content Include="Scripts\Examples\Invoice-menu.js" />
+    <Content Include="Scripts\Examples\Lockscreen-menu.js" />
+    <Content Include="Scripts\Examples\Login-menu.js" />
+    <Content Include="Scripts\Examples\Login.js" />
+    <Content Include="Scripts\Examples\P404-menu.js" />
+    <Content Include="Scripts\Examples\P500-menu.js" />
+    <Content Include="Scripts\Examples\Pace-menu.js" />
+    <Content Include="Scripts\Examples\Pace.js" />
+    <Content Include="Scripts\Examples\ProfileEx-menu.js" />
+    <Content Include="Scripts\Examples\Register-menu.js" />
+    <Content Include="Scripts\Examples\Register.js" />
     <Content Include="Scripts\Forms\Advanced-menu.js" />
     <Content Include="Scripts\Forms\Advanced.js" />
     <Content Include="Scripts\Forms\Editors-menu.js" />
     <Content Include="Scripts\Forms\Editors.js" />
     <Content Include="Scripts\Forms\General-menu.js" />
+    <Content Include="Scripts\Home\DashboardV1-menu.js" />
+    <Content Include="Scripts\Home\DashboardV1.js" />
+    <Content Include="Scripts\Home\DashboardV2-menu.js" />
+    <Content Include="Scripts\Home\DashboardV2.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Mailbox\Compose-menu.js" />
+    <Content Include="Scripts\Mailbox\Compose.js" />
+    <Content Include="Scripts\Mailbox\Inbox-menu.js" />
+    <Content Include="Scripts\Mailbox\Inbox.js" />
+    <Content Include="Scripts\Mailbox\Read-menu.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Shared\_Layout.js" />
+    <Content Include="Scripts\Tables\Data-menu.js" />
+    <Content Include="Scripts\Tables\Data.js" />
+    <Content Include="Scripts\Tables\Simple-menu.js" />
+    <Content Include="Scripts\Widgets\Widgets-menu.js" />
     <Content Include="SourceError\css\style.css" />
     <Content Include="SourceError\images\fuel-404-logo.png" />
     <Content Include="SourceError\images\sub-bttn.png" />
@@ -576,6 +620,9 @@
     <Content Include="Styles\Elements\General.css" />
     <Content Include="Styles\Elements\Icons.css" />
     <Content Include="Styles\Elements\Modals.css" />
+    <Content Include="Views\DashBoard\DashboardV1.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -671,6 +718,9 @@
     <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="SourceLanding\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Views\CompRutaTecnico\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

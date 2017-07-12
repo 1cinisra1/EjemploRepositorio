@@ -26,7 +26,6 @@ namespace WebApplication.Models
         [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Text)]
         public string Cli_nombre { get; set; }
-
         public string Cli_apellido { get; set; }
 
         [EmailAddress]

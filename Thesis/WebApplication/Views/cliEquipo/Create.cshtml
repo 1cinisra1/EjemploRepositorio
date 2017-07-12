@@ -1,7 +1,9 @@
 ﻿@model WebApplication.Models.cli_equipo
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Home = "Home";
+    ViewBag.Title = "Ingresar Equipo";
+    ViewBag.Subtitle = "Equipos";
 }
 @if (ViewBag.Verificar is Int32)
 {
@@ -12,14 +14,14 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>EQUIPOS</h4>
+                <h3 style="text-align:center">EQUIPOS</h3>
                 <hr />
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
                     <label for="inputEmail3" class="required col-sm-3 control-label">Marca</label>
                     <div class="col-md-8">
-                        @Html.EditorFor(model => model.Cli_Marca, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.EditorFor(model => model.Cli_Marca, new { htmlAttributes = new { @class = "form-control form-control-rounded", required = "required" } })
                         @Html.ValidationMessageFor(model => model.Cli_Marca, null, new { @class = "text-danger" })
                     </div>
                 </div>
@@ -27,7 +29,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="required col-sm-3 control-label">Modelo</label>
                     <div class="col-md-8">
-                        @Html.EditorFor(model => model.Cli_Modelo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.EditorFor(model => model.Cli_Modelo, new { htmlAttributes = new { @class = "form-control form-control-rounded", required = "required" } })
                         @Html.ValidationMessageFor(model => model.Cli_Modelo, null, new { @class = "text-danger" })
                     </div>
                 </div>
@@ -68,7 +70,9 @@
                     <div class="col-md-offset-3 col-md-10">
                         <button type="submit" class="btn btn-success">Guardar</button>
                         @Html.ActionLink("Nuevo Tipo", "create", "cliTipoEquipo", null, new { @class = "btn btn-warning" })
-                        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+                        @*@Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })*@
+                        @*onclick="JavaScript:window.history.back(1)"*@
+                        <i class="btn btn-danger" onclick="JavaScript: window.history.back(1)">Volver</i>
                     </div>
                 </div>
             </div>

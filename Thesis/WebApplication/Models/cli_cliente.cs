@@ -19,7 +19,8 @@ namespace WebApplication.Models
         {
             this.cli_user = new HashSet<cli_user>();
         }
-    
+
+        
         public int idCli_Cliente { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
@@ -29,12 +30,9 @@ namespace WebApplication.Models
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        [DataType(DataType.Text)]
+        [Range(0, int.MaxValue, ErrorMessage = "Ingrese un Valor Numérico")]
         public string Cli_Ruc { get; set; }
-
         public string Cli_Direccion { get; set; }
-
-        [Phone]
         public string Cli_Tel { get; set; }
         public string Cli_Ciudad { get; set; }
 

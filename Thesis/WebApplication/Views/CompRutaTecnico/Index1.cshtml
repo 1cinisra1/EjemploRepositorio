@@ -1,0 +1,91 @@
+﻿@model   IEnumerable<WebApplication.Models.comp_ruta>
+            
+    @section Menu {
+        @Scripts.Render("~/Scripts/Tables/Data/menu")
+    }
+
+    @Styles.Render("~/AdminLTE/plugins/datatables/css")
+
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="box">
+                <div class="table-responsive">
+                    <div class="box-body">
+                        <div class="form-horizontal">
+                            <table id="example1" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <label>Fecha</label>
+                                        </th>
+                                        <th>
+                                            <label>Visita No.</label>
+                                        </th>
+                                        <th>
+                                            <label>Empresa</label>
+                                        </th>
+                                        <th>
+                                            <label>Usuario</label>
+                                        </th>
+                                        <th>
+                                            <label>Técnico</label>
+                                        </th>
+                                        <th>
+                                            <label>Estado</label>
+                                        </th>
+                                        <th>
+                                            <label>Mantenimiento</label>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Comp_Fecha)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Comp_NumeroVisitaMes)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cli_user.cli_cliente.Cli_RSocial)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cli_user.Cli_nombre)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)
+                                            </td>
+                                            <td>
+                                                @if(item.Comp_estado==true)
+                                                {
+                                                    <i>Realizada</i>
+                                                }
+                                                else
+                                                {
+                                                        <i>Pendiente</i>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Editar", "Edit", new { id = item.idComp_Bitacora }, new { @class = "btn btn-success" })
+                                                @Html.ActionLink("Detalles", "Details", new { id = item.idComp_Bitacora }, new { @class = "btn btn-primary" })
+                                                @Html.ActionLink("Imprimir", "Export", new { id = item.idComp_Bitacora }, new { @class = "btn btn-danger" })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+        @Scripts.Render("~/Scripts/Tables/Data")
+    }
+
+
+

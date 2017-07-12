@@ -1,0 +1,161 @@
+﻿@model IEnumerable<WebApplication.Models.comp_ruta>
+
+
+
+    @{
+        ViewBag.Title = "Panel de Control";
+        ViewBag.Home = "Home";
+        ViewBag.Subtitle = "Dashboard";
+    }
+
+    @section Menu {
+        @Scripts.Render("~/Scripts/Home/DashboardV1/menu")
+    }
+
+    @Styles.Render("~/AdminLTE/plugins/morris/css")
+    @Styles.Render("~/AdminLTE/plugins/jvectormap/css")
+    @Styles.Render("~/AdminLTE/plugins/datepicker/css")
+    @Styles.Render("~/AdminLTE/plugins/daterangepicker/css")
+    @Styles.Render("~/AdminLTE/plugins/bootstrap-wysihtml5/css")
+
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@ViewBag.cantidad</h3>
+                    <p>Visitas Programadas</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <br/>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>
+                        @ViewBag.porcentaje<sup style="font-size: 20px">%</sup>
+                    </h3>
+                    <p>Realizadas</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <br/>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>
+                        @ViewBag.pending<sup style="font-size: 20px">%</sup>
+                    </h3>
+                    <p>Pendientes</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <br/>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>@ViewBag.numClientes</h3>
+                    <p>Clientes</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <section class="col-lg-7 connectedSortable">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Visitas Programadas</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                                <tr>
+                                    <th>ID Visita</th>
+                                    <th>Empresa</th>
+                                    <th>Hora</th>
+                                    <th>Técnico</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td><a href="../CompRuta/Edit?id=@item.idComp_Bitacora">@Html.DisplayFor(modelItem => item.idComp_Bitacora)</a></td>
+                                        <td>@Html.DisplayFor(modelItem => item.cli_user.cli_cliente.Cli_RSocial)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Comp_HoraLlegada)</td>
+                                        <td><a href="../CompRutaTecnico/Index1?id=@item.com_usuarios.idCom_Usuarios">@Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)</a></td>
+                                        @if (@item.Comp_estado == true)
+                                        {
+                                            <td><span class="label label-success">Realizada</span></td>
+                                        }
+                                        else
+                                        {
+                                            <td><span class="label label-warning">Pendiente</span></td>
+                                        }
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="box-footer clearfix">
+                    <a href="../CompRuta/create" class="btn btn-sm btn-info btn-flat pull-left">Agendar nueva visita</a>
+                    <a href="../CompRuta/Index" class="btn btn-sm btn-default btn-flat pull-right">Ver todas las rutas</a>
+                </div>
+            </div>
+        </section>
+        <section class="col-lg-5 connectedSortable">
+            <div class="box box-solid bg-green-gradient">
+                <div class="box-header">
+                    <i class="fa fa-calendar"></i>
+                    <h3 class="box-title">Calendario</h3>
+                    <div class="pull-right box-tools">
+                        <button type="button" class="btn btn-success btn-sm" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-success btn-sm" data-widget="remove">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body no-padding">
+                    <div id="calendar" style="width: 100%"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/AdminLTE/plugins/jquery-ui/js")
+        <script>
+            $.widget.bridge('uibutton', $.ui.button);
+        </script>
+        @Scripts.Render("~/AdminLTE/plugins/bootstrap-wysihtml5/js")
+        @Scripts.Render("~/AdminLTE/plugins/sparkline/js")
+        @Scripts.Render("~/AdminLTE/plugins/jvectormap/js")
+        @Scripts.Render("~/AdminLTE/plugins/daterangepicker/js")
+        @Scripts.Render("~/AdminLTE/plugins/knob/js")
+        @Scripts.Render("~/AdminLTE/plugins/raphael/js")
+        @Scripts.Render("~/AdminLTE/plugins/morris/js")
+        @Scripts.Render("~/AdminLTE/plugins/datepicker/js")
+        @Scripts.Render("~/Scripts/Home/DashboardV1")
+    }

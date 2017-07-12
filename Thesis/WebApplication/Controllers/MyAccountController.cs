@@ -44,6 +44,7 @@ namespace WebApplication.Controllers
             //}
             #endregion 
 
+            Session.Timeout = 120;
             if (ModelState.IsValid)
             {
                 var isValidUser = Membership.ValidateUser(l.Com_Correo, l.Com_Clave);
@@ -56,7 +57,27 @@ namespace WebApplication.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "DashBoard");
+                        String email = l.Com_Correo.ToString();
+                        var nombreUsuario = (from h in db.com_usuarios
+                                             where h.Com_Correo.Equals(email)
+                                             select h.Com_Nombre).SingleOrDefault();
+                        var apellido = (from h in db.com_usuarios
+                                        where h.Com_Correo.Equals(email)
+                                        select h.Com_Apellido).SingleOrDefault();
+                        var idCompuser = (from h in db.com_usuarios
+                                          where h.Com_Correo.Equals(email)
+                                          select h.idCom_Usuarios).SingleOrDefault();
+                        String nombres = nombreUsuario.ToString() + " " + apellido.ToString();
+                        Session["nUser"] = nombres;
+                        Session["idUsuarioComp"] = idCompuser;
+                        if (User.IsInRole("1"))
+                        {
+                            return RedirectToAction("DashboardV1", "DashBoard");
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "CompRutaTecnico");
+                        }
                     }
                 }
             }          
@@ -64,14 +85,11 @@ namespace WebApplication.Controllers
             return View();
         }
 
-
-
-
-
         [Authorize]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Clear();
             return RedirectToAction("Login","MyAccount");
         }
 
