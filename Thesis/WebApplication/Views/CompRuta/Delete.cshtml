@@ -1,7 +1,9 @@
 ﻿@model WebApplication.Models.comp_ruta
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Home = "Home";
+    ViewBag.Title = "Eliminar Ruta";
+    ViewBag.Subtitle = "Rutas";
 }
 @if (ViewBag.Verificar is Int32)
 {
@@ -47,7 +49,14 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Comp_estado)
+                @if (Model.Comp_estado == true)
+                {
+                    <i>Realizada</i>
+                }
+                else
+                {
+                    <i>Pendiente</i>
+                }
             </dd>
 
             <dt>

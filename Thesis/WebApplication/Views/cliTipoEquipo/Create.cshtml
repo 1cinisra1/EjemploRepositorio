@@ -1,7 +1,10 @@
 ﻿@model WebApplication.Models.cli_tipoequipo
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Home = "Home";
+    ViewBag.Title = "Nuevo Tipo";
+    ViewBag.Subtitle = "Equipos";
+    ViewBag.Subtitle1 = "Tipo de Equipos";
 }
 @if (ViewBag.Verificar is Int32)
 {
@@ -27,7 +30,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-3 col-md-8">
                         <button type="submit" class="btn btn-success">Guardar</button>
-                        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+                        <i class="btn btn-danger" onclick="JavaScript: window.history.back(1)">Volver</i>
                     </div>
                 </div>
             </div>

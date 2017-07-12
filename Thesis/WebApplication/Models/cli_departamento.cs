@@ -19,12 +19,11 @@ namespace WebApplication.Models
         {
             this.cli_user = new HashSet<cli_user>();
         }
-    
-        public int idCli_Departamento { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Text)]
+        public int idCli_Departamento { get; set; }
         public string Cli_Descripcion { get; set; }
     
         public virtual ICollection<cli_user> cli_user { get; set; }

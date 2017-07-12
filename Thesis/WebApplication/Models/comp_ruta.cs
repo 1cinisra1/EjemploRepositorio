@@ -18,18 +18,16 @@ namespace WebApplication.Models
         public int idComp_Bitacora { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [DataType(DataType.Date)]
-        public DateTime Comp_Fecha { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        public Nullable<System.DateTime> Comp_Fecha { get; set; }
         public string Comp_NumeroVisitaMes { get; set; }
         public string Comp_TiempoDur { get; set; }
         public string Comp_Comentario { get; set; }
-        public bool Comp_estado { get; set; }
+        public Nullable<bool> Comp_estado { get; set; }
 
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [DataType(DataType.Time)]
         public string Comp_HoraLlegada { get; set; }
-
-        [DataType(DataType.Time)]
         public string Comp_HoraSalida { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
@@ -51,9 +49,7 @@ namespace WebApplication.Models
         public string Cli_Modelo { get; set; }
         public string Cli_Procesador { get; set; }
         public string Cli_Ram { get; set; }
-
         public string Cli_DescripcionTequipo { get; set; }
-
     
         public virtual cli_user cli_user { get; set; }
         public virtual com_usuarios com_usuarios { get; set; }

@@ -11,7 +11,6 @@ namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class roles
     {
@@ -19,10 +18,7 @@ namespace WebApplication.Models
         {
             this.com_usuarios = new HashSet<com_usuarios>();
         }
-
-        [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [StringLength(100, ErrorMessage = "El campo debe contener minimo {2} caracteres.", MinimumLength = 6)]
-        [DataType(DataType.Text)]
+    
         public int idRoles { get; set; }
         public string Descripcion { get; set; }
     

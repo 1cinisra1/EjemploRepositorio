@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<WebApplication.Models.com_usuarios>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Home = "Home";
+    ViewBag.Title = "Lista de Usuarios";
+    ViewBag.Subtitle = "Compuservi";
 }
 
 @section Menu {
@@ -41,12 +43,6 @@
                                     <th>
                                         <label>Teléfono</label>
                                     </th>
-                                    <th>
-                                        <label>Clave</label>
-                                    </th>
-                                    <th>
-                                        <label>Rol</label>
-                                    </th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -71,12 +67,6 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Com_Telefono)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Com_Clave)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.roles.Descripcion)
                                         </td>
                                         <td>
                                             @Html.ActionLink("Editar", "Edit", new { id = item.idCom_Usuarios, id1=item.Roles_idRoles }, new { @class = "btn btn-success" })

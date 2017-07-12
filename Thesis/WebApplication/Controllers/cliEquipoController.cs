@@ -99,21 +99,21 @@ namespace WebApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-             if (Request.IsAuthenticated)
+            if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-            cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id,id1);
-            if (cli_equipo == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
-            ViewBag.Verificar = 18;
-            return View(cli_equipo);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    cli_equipo cli_equipo = await db.cli_equipo.FindAsync(id,id1);
+                    if (cli_equipo == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion", cli_equipo.Cli_TipoEquipo_idCli_TipoEquipo);
+                    ViewBag.Verificar = 18;
+                    return View(cli_equipo);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
              return RedirectToAction("Login", "MyAccount");
         }

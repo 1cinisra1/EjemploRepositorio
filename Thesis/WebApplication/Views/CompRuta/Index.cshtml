@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<WebApplication.Models.comp_ruta>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Home = "Home";
+    ViewBag.Title = "Historial de Rutas";
+    ViewBag.Subtitle = "Rutas";
 }
 
 @section Menu {
@@ -32,9 +34,6 @@
                                     <th>
                                         <label>Tiempo Est.</label>
                                     </th>
-                                    @*<th>
-                                        <label>Comentario</label>
-                                    </th>*@
                                     <th>
                                         <label>Empresa</label>
                                     </th>
@@ -43,6 +42,9 @@
                                     </th>
                                     <th>
                                         <label>Técnico</label>
+                                    </th>
+                                    <th>
+                                        <label>Estado</label>
                                     </th>
                                     <th>
                                         <label>Mantenimiento</label>
@@ -62,9 +64,6 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Comp_TiempoDur)
                                         </td>
-                                        @*<td>
-                                            @Html.DisplayFor(modelItem => item.Comp_Comentario)
-                                        </td>*@
                                         <td>
                                             @Html.DisplayFor(modelItem=>item.cli_user.cli_cliente.Cli_RSocial)
                                         </td>
@@ -73,6 +72,16 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)
+                                        </td>
+                                        <td>
+                                            @if (item.Comp_estado == true)
+                                            {
+                                                <i>Realizada</i>
+                                            }
+                                            else
+                                            {
+                                                <i>Pendiente</i>
+                                            }
                                         </td>
                                         <td>
                                             @Html.ActionLink("Editar", "Edit", new { id = item.idComp_Bitacora }, new { @class = "btn btn-success" }) 

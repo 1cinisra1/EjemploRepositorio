@@ -41,18 +41,18 @@ namespace WebApplication.Controllers
             }
              if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-                ViewBag.Verificar = 18;
-            cli_user cli_user = await db.cli_user.FindAsync(id);
-            if (cli_user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cli_user);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
+                    cli_user cli_user = await db.cli_user.FindAsync(id);
+                    if (cli_user == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(cli_user);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
              return RedirectToAction("Login", "MyAccount");
         }
@@ -62,17 +62,17 @@ namespace WebApplication.Controllers
         {
             if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-            ViewBag.Verificar = 18;
-            ViewBag.Cli_Cliente_idCli_Cliente = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre");
-            ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion");
-            ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Marca");
-            ViewBag.Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion");
-            return View();
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    ViewBag.Verificar = 18;
+                    ViewBag.Cli_Cliente_idCli_Cliente = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre");
+                    ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion");
+                    ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Marca");
+                    ViewBag.Cli_Equipo_Cli_TipoEquipo_idCli_TipoEquipo = new SelectList(db.cli_tipoequipo, "idCli_TipoEquipo", "Cli_Descripcion");
+                    return View();
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
             return RedirectToAction("Login", "MyAccount");
         }
@@ -106,21 +106,21 @@ namespace WebApplication.Controllers
             }
              if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-            cli_user cli_user = await db.cli_user.FindAsync(id);
-            ViewBag.Verificar = 18;
-            if (cli_user == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Cli_Cliente_idCli_Cliente = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre", cli_user.Cli_Cliente_idCli_Cliente);
-            ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion", cli_user.Cli_Departamento_idCli_Departamento);
-            ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Marca", cli_user.Cli_Equipo_idCli_Equipo);
-            return View(cli_user);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    cli_user cli_user = await db.cli_user.FindAsync(id);
+                    ViewBag.Verificar = 18;
+                    if (cli_user == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    ViewBag.Cli_Cliente_idCli_Cliente = new SelectList(db.cli_cliente, "idCli_Cliente", "Cli_Nombre", cli_user.Cli_Cliente_idCli_Cliente);
+                    ViewBag.Cli_Departamento_idCli_Departamento = new SelectList(db.cli_departamento, "idCli_Departamento", "Cli_Descripcion", cli_user.Cli_Departamento_idCli_Departamento);
+                    ViewBag.Cli_Equipo_idCli_Equipo = new SelectList(db.cli_equipo, "idCli_Equipo", "Cli_Marca", cli_user.Cli_Equipo_idCli_Equipo);
+                    return View(cli_user);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
              return RedirectToAction("Login", "MyAccount");
         }
@@ -154,19 +154,19 @@ namespace WebApplication.Controllers
             }
              if (Request.IsAuthenticated)
             {
-            if (User.IsInRole("1"))
-            {
-                cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
-                ViewBag.Verificar = 18;
-            cli_user cli_user = await db.cli_user.FindAsync(id);
-            if (cli_user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cli_user);
-            }
-            ViewBag.Verificar = "String";
-            return View();
+                if (User.IsInRole("1"))
+                {
+                    cli_cliente cli_cliente = await db.cli_cliente.FindAsync(id);
+                    ViewBag.Verificar = 18;
+                    cli_user cli_user = await db.cli_user.FindAsync(id);
+                    if (cli_user == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(cli_user);
+                }
+                ViewBag.Verificar = "String";
+                return View();
             }
              return RedirectToAction("Login", "MyAccount");
         }

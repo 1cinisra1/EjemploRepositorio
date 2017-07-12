@@ -15,7 +15,6 @@
     @Styles.Render("~/AdminLTE/dist/css")
     @Styles.Render("~/AdminLTE/dist/css/skins")
 
-    @*<link rel="icon" type="image/png" sizes="512x512" href="~/SourceLanding/img/android-chrome-512x512.png">*@
 </head>
 
 <body class="hold-transition skin-red sidebar-mini">
@@ -35,7 +34,6 @@
                     </a>
                 </nav>
             </header>
-
             <aside class="main-sidebar">
                 <section class="sidebar">
                     <div class="user-panel">
@@ -43,13 +41,14 @@
                             <img src="~/AdminLTE/dist/img/avatar04.png" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            @*<p>Bienvenido <br /><br /> @(Request.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "")</p>*@
-                           @*<p>Bienvenido<br /> @HttpContext.Current.Session["nUser"].ToString()</p>*@
-                            <p>Bienvenido<br />@ViewBag.muchachos</p>
+                            <p>Bienvenido<br /> @HttpContext.Current.Session["nUser"].ToString()</p>
                             <ul class="nav navbar-nav navbar-left"></ul>
                         </div>
                     </div>
                     <ul class="sidebar-menu">
+                        @if (User.IsInRole("1"))
+                        {
+                        
                         <li class="header">CLIENTES</li>
                         <li id="left-sidebar-menu-tables" class="treeview">
                             <a href="#">
@@ -101,8 +100,9 @@
                                 </li>
                             </ul>
                         </li>
+                        }
                         <li class="header">COMPUSERVI</li>
-
+@if (User.IsInRole("1")) { 
                         <li id="left-sidebar-menu-tables" class="treeview">
                             <a href="#">
                                 <i class="fa fa-youtube-play"></i> <span>DashBoard</span>
@@ -134,8 +134,6 @@
                                 </li>
                             </ul>
                         </li>
-                        @if (User.IsInRole("1"))
-                        {
                             <li id="left-sidebar-menu-tables" class="treeview">
                                 <a href="#">
                                     <i class="fa fa-road"></i> <span>Rutas</span>
@@ -155,15 +153,10 @@
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
-                                    @*<li id="left-sidebar-menu-tables-simple"><a href="@Url.Action("Create", "CompRutaTecnico")"><i class="fa fa-list-ul"></i> Crear</a></li>*@
                                     <li id="left-sidebar-menu-tables-data"><a href="@Url.Action("Index", "CompRutaTecnico")"><i class="fa fa-list-ul"></i> Listar</a></li>
                                 </ul>
                             </li>
                         }
-
-
-
-
                         <li id="left-sidebar-menu-tables" class="treeview">
                             <a href="#">
                                 <i class="fa fa-cloud"></i> <span>Nube</span>
@@ -206,24 +199,25 @@
             </aside>
             <div class="content-wrapper">
                 <section class="content-header">
-                    @*<h1>
+                    <h1>
                         @ViewBag.Title
-                        <small>@ViewBag.SubTitle</small>
+                        @*<small>@ViewBag.SubTitle</small>*@
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i>@ViewBag.SubTitle</a></li>
+                        <li><a href="/Dashboard/DashboardV1"><i class="fa fa-dashboard"></i>@ViewBag.Home</a></li>
+                        <li class="active"><a href="#">@ViewBag.Subtitle</a></li>
+                        @if (ViewBag.Subtitle1 != null)
+                        {
+                            <li class="active"><a href="#">@ViewBag.Subtitle1</a></li>
+                        }
                         <li class="active">@ViewBag.Title</li>
-                    </ol>*@
-                </section> 
+                    </ol>
+                </section>
                 <section class="content">
                     @RenderBody()
                 </section>
-               
-                @*<div class="control-sidebar-bg"></div>*@
             </div>
         }
-
-
 
         @Scripts.Render("~/AdminLTE/plugins/jquery/js")
         @RenderSection("menu", required: false)
@@ -237,40 +231,34 @@
 </body>
 </html>
 
-
-
-
-
-
-
 <script type="text/javascript">
-    if ($('#example1').length){
-    $('#example1').DataTable({
-        "language": {
-            "sProcessing": "Procesando...",
-            "sLengthMenu": "Mostrar _MENU_ registros",
-            "sZeroRecords": "No se encontraron resultados",
-            "sEmptyTable": "Ningún dato disponible en esta tabla",
-            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix": "",
-            "sSearch": "Buscar:",
-            "sUrl": "",
-            "sInfoThousands": ",",
-            "sLoadingRecords": "Cargando...",
-            "oPaginate": {
-                "sFirst": "Primero",
-                "sLast": "Último",
-                "sNext": "Siguiente",
-                "sPrevious": "Anterior"
-            },
-            "oAria": {
-                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    if ($('#example1').length) {
+        $('#example1').DataTable({
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
             }
-        }
-    });
+        });
     }
 </script>
 
@@ -279,8 +267,6 @@
     html, body {
         height: 100%;
     }
-
-
     .columns {
         background-color: #C9E6FF;
         height: 100%;

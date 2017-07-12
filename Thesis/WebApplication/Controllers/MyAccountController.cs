@@ -44,6 +44,7 @@ namespace WebApplication.Controllers
             //}
             #endregion 
 
+            Session.Timeout = 120;
             if (ModelState.IsValid)
             {
                 var isValidUser = Membership.ValidateUser(l.Com_Correo, l.Com_Clave);
@@ -67,10 +68,16 @@ namespace WebApplication.Controllers
                                           where h.Com_Correo.Equals(email)
                                           select h.idCom_Usuarios).SingleOrDefault();
                         String nombres = nombreUsuario.ToString() + " " + apellido.ToString();
-                        TempData.Add("namesUSR",nombres);
                         Session["nUser"] = nombres;
                         Session["idUsuarioComp"] = idCompuser;
-                        return RedirectToAction("DashboardV1", "DashBoard");
+                        if (User.IsInRole("1"))
+                        {
+                            return RedirectToAction("DashboardV1", "DashBoard");
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "CompRutaTecnico");
+                        }
                     }
                 }
             }          

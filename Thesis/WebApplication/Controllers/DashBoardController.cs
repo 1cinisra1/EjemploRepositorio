@@ -20,7 +20,7 @@ namespace WebApplication.Controllers
             var cantVisitas = db.comp_ruta.Where(e => e.Comp_Fecha == DateTime.Today);
             int cantVisitasDia=cantVisitas.Count();
             ViewBag.cantidad = cantVisitasDia;
-            var realizadas = db.comp_ruta.Where(e => e.Comp_Fecha == DateTime.Today && e.Comp_estado);
+            var realizadas = db.comp_ruta.Where(e => e.Comp_Fecha == DateTime.Today && e.Comp_estado == true);
             int cantRealizadas=realizadas.Count();
             if (cantVisitasDia > 0)
             {
@@ -32,7 +32,6 @@ namespace WebApplication.Controllers
             ViewBag.pending = Pendiente - PorcentajeRealizadas;
             int cantClientes = db.cli_cliente.Count();
             ViewBag.numClientes = cantClientes;
-            ViewBag.muchachos = ViewBag.namesUSR;
             return View(cantVisitas.ToList());
         }
         

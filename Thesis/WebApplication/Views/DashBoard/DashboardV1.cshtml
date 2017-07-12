@@ -3,7 +3,9 @@
 
 
     @{
-        ViewBag.Title = "Dashboard v1";
+        ViewBag.Title = "Panel de Control";
+        ViewBag.Home = "Home";
+        ViewBag.Subtitle = "Dashboard";
     }
 
     @section Menu {
@@ -27,7 +29,6 @@
                     <i class="ion ion-bag"></i>
                 </div>
                 <br/>
-                @*<a href="../CompRuta/Index" class="small-box-footer">Detalles<i class="fa fa-arrow-circle-right"></i></a>*@
             </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -73,49 +74,6 @@
     </div>
     <div class="row">
         <section class="col-lg-7 connectedSortable">
-            @*<div class="box box-primary">
-                    <div class="box-header">
-                        <i class="ion ion-clipboard"></i>
-                        <h3 class="box-title">Visitas Programadas</h3>
-                        <div class="box-tools pull-right">
-                            <ul class="pagination pagination-sm inline">
-                                <li><a href="#">&laquo;</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="box-body">
-                        <ul class="todo-list">
-                            @foreach (var item in Model) {
-                            <li>
-                                <span class="handle">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </span>
-                                @Html.DisplayFor(modelItem => item.Comp_HoraLlegada)
-                                <span class="text">@Html.DisplayFor(modelItem => item.cli_user.cli_cliente.Cli_RSocial)</span>
-                                @if(@item.Comp_estado){
-                                <small class="label label-success">Realizado</small>
-                                }
-                                else{
-                                <small class="label label-danger">Pendiente</small>
-                                }
-                                <div class="tools">
-                                    <a href="../CompRuta/Edit?id=@item.idComp_Bitacora"><i class="fa fa-edit"></i></a>
-                                    @*<i class="fa fa-trash-o"></i>
-                                </div>
-                            </li>
-                            }
-                        </ul>
-                    </div>
-                    <div class="box-footer clearfix no-border">
-                        <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i>Agendar Visita</button>
-                    </div>
-                </div>*@
-
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Visitas Programadas</h3>
@@ -146,7 +104,7 @@
                                         <td>@Html.DisplayFor(modelItem => item.cli_user.cli_cliente.Cli_RSocial)</td>
                                         <td>@Html.DisplayFor(modelItem => item.Comp_HoraLlegada)</td>
                                         <td><a href="../CompRutaTecnico/Index1?id=@item.com_usuarios.idCom_Usuarios">@Html.DisplayFor(modelItem => item.com_usuarios.Com_Nombre)</a></td>
-                                        @if (@item.Comp_estado)
+                                        @if (@item.Comp_estado == true)
                                         {
                                             <td><span class="label label-success">Realizada</span></td>
                                         }
@@ -170,19 +128,8 @@
             <div class="box box-solid bg-green-gradient">
                 <div class="box-header">
                     <i class="fa fa-calendar"></i>
-                    <h3 class="box-title">Calendar</h3>
+                    <h3 class="box-title">Calendario</h3>
                     <div class="pull-right box-tools">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#">Add new event</a></li>
-                                <li><a href="#">Clear events</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">View calendar</a></li>
-                            </ul>
-                        </div>
                         <button type="button" class="btn btn-success btn-sm" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -197,7 +144,6 @@
             </div>
         </section>
     </div>
-
     @section Scripts {
         @Scripts.Render("~/AdminLTE/plugins/jquery-ui/js")
         <script>
